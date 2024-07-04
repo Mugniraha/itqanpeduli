@@ -9,3 +9,4 @@ Route::get('/', function () {
 });
 
 Route::resource('dashboard',dashboardController::class);
+Route::resource('transaksi',transaksiController::class);

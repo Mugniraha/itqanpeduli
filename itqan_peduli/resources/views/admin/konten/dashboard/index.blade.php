@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
     <title>Document</title>
 </head>
-<body class="p-6 bg-slate-50 bg-w">
+<body class="p-6 bg-slate-50">
     <div class="flex gap-10 w-full ">
         <div class="p-5 w-3/5 bg-green-600 border border-gray-200 rounded-xl shadow ">
             <div class="w-55">
