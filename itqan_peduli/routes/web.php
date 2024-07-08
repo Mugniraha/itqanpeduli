@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\transaksiController;
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('admin.layout.main');
 });
 
@@ -26,3 +26,11 @@ Route::get('/data-bank', function () {
 
 Route::resource('dashboard',dashboardController::class);
 Route::resource('transaksi',transaksiController::class);
+
+
+
+
+//Front
+Route::get('/', function () {
+    return view('front.layout.main');
+});
