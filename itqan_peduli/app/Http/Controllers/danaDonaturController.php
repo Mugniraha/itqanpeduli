@@ -4,33 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class transaksiController extends Controller
+class danaDonaturController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $slug = 'transaksi';
-        return view('admin.konten.transaksi.index', compact('slug'));
+        $slug = 'semuaDonatur';
+        return view('admin.konten.danaDonatur.semuaDonatur', compact('slug'));
     }
 
-    public function showTransaksiOnline()
+    public function showDonaturSukses()
     {
-        $slug = 'transaksiOnline';
-        return view('admin.konten.transaksi.transaksiOnline', compact('slug'));
+        $slug = 'donaturSukses';
+        return view('admin.konten.danaDonatur.donaturSukses',compact('slug'));
     }
 
-    public function showTransaksiOnlineManual()
+    public function showDonaturGagal()
     {
-        $slug = 'transaksiOnlineManual';
-        return view('admin.konten.transaksi.transaksiOnlineManual', compact('slug'));
-    }
-
-    public function showTransaksiOffline()
-    {
-        $slug = 'transaksiOffline';
-        return view('admin.konten.transaksi.transaksiOffline', compact('slug'));
+        $slug = 'donaturGagal';
+        return view('admin.konten.danaDonatur.donaturGagal',compact('slug'));
     }
 
     /**

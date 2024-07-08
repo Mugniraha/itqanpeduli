@@ -4,33 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class transaksiController extends Controller
+class mediaBerbagiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $slug = 'transaksi';
-        return view('admin.konten.transaksi.index', compact('slug'));
-    }
-
-    public function showTransaksiOnline()
-    {
-        $slug = 'transaksiOnline';
-        return view('admin.konten.transaksi.transaksiOnline', compact('slug'));
-    }
-
-    public function showTransaksiOnlineManual()
-    {
-        $slug = 'transaksiOnlineManual';
-        return view('admin.konten.transaksi.transaksiOnlineManual', compact('slug'));
-    }
-
-    public function showTransaksiOffline()
-    {
-        $slug = 'transaksiOffline';
-        return view('admin.konten.transaksi.transaksiOffline', compact('slug'));
+        $slug = 'mediaBerbagi';
+        return view('admin.konten.mediaBerbagiSetting.index', compact('slug'));
     }
 
     /**
