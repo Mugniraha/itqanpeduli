@@ -4,33 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class transaksiController extends Controller
+class notifikasiWAController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $slug = 'transaksi';
-        return view('admin.konten.transaksi.index', compact('slug'));
+        $slug = 'template';
+        return view('admin.konten.notifikasiWhatsApp.template', compact('slug'));
     }
 
-    public function showTransaksiOnline()
+    public function showConnectWa()
     {
-        $slug = 'transaksiOnline';
-        return view('admin.konten.transaksi.transaksiOnline', compact('slug'));
-    }
-
-    public function showTransaksiOnlineManual()
-    {
-        $slug = 'transaksiOnlineManual';
-        return view('admin.konten.transaksi.transaksiOnlineManual', compact('slug'));
-    }
-
-    public function showTransaksiOffline()
-    {
-        $slug = 'transaksiOffline';
-        return view('admin.konten.transaksi.transaksiOffline', compact('slug'));
+        $slug = 'connect';
+        return view('admin.konten.notifikasiWhatsApp.connectWa', compact('slug'));
     }
 
     /**

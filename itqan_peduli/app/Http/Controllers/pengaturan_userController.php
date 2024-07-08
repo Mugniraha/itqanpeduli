@@ -4,34 +4,53 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class transaksiController extends Controller
+class pengaturan_userController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $slug = 'transaksi';
-        return view('admin.konten.transaksi.index', compact('slug'));
+        //
     }
 
-    public function showTransaksiOnline()
+    public function showAdmin()
     {
-        $slug = 'transaksiOnline';
-        return view('admin.konten.transaksi.transaksiOnline', compact('slug'));
+        $slug = 'admin';
+        return view('admin.konten.user.admin',compact('slug'));
     }
 
-    public function showTransaksiOnlineManual()
+    public function showAkunting()
     {
-        $slug = 'transaksiOnlineManual';
-        return view('admin.konten.transaksi.transaksiOnlineManual', compact('slug'));
+        $slug = 'akunting';
+        return view('admin.konten.user.akunting',compact('slug'));
     }
 
-    public function showTransaksiOffline()
+    public function showDonatur()
     {
-        $slug = 'transaksiOffline';
-        return view('admin.konten.transaksi.transaksiOffline', compact('slug'));
+        $slug = 'donatur';
+        return view('admin.konten.user.donatur',compact('slug'));
     }
+
+    public function showFundraiser()
+    {
+        $slug = 'fundraiser';
+        return view('admin.konten.user.fundraiser',compact('slug'));
+    }
+
+    public function showGerai()
+    {
+        $slug = 'gerai';
+        return view('admin.konten.user.gerai',compact('slug'));
+    }
+
+    public function showProgram()
+    {
+        $slug = 'program';
+        return view('admin.konten.user.program',compact('slug'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
