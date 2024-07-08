@@ -74,5 +74,5 @@ Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 
 //Front
 Route::get('/', function () {
-    return view('front.layout.main');
+    return view('front.konten.beranda.home');
 });
