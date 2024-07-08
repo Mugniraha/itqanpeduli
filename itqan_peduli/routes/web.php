@@ -10,6 +10,7 @@ use App\Http\Controllers\notifikasiWAController;
 use App\Http\Controllers\mediaBerbagiController;
 use App\Http\Controllers\penggunaanDataController;
 use App\Http\Controllers\googleFontController;
+use App\Http\Controllers\hitungZakatController;
 
 Route::get('/dashboard', function () {
     return view('admin.layout.main');
@@ -60,6 +61,13 @@ Route::resource('mediaBerbagi',mediaBerbagiController::class);
 Route::resource('penggunaanData',penggunaanDataController::class);
 
 Route::resource('googleFont', googleFontController::class);
+
+// Route::get('/hitungZakat', function (){
+//     return view('front.konten.hitungZakat.index');
+// });
+
+Route::get('/zakat', [hitungZakatController::class, 'index']);
+Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 
 
 
