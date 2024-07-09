@@ -68,3 +68,6 @@ Route::resource('googleFont', googleFontController::class);
 Route::get('/', function () {
     return view('front.konten.beranda.home');
 });
+Route::get('/donasi-instan', function () {
+    return view('front.konten.donasiInstan.donasiInstan');
+});
