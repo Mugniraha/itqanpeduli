@@ -76,3 +76,6 @@ Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/', function () {
     return view('front.konten.beranda.home');
 });
+Route::get('/donasi-instan', function () {
+    return view('front.konten.donasiInstan.donasiInstan');
+});
