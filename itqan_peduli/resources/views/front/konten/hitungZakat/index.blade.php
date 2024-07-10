@@ -1,149 +1,599 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <title>Document</title>
-</head>
-<body class="mx-auto m-0 p-0 w-[512px] bg-gray-100">
-    <div class="w-full min-h-screen bg-white overflow-hidden">
-        <div class="relative">
-            <div class="absolute inset-0 flex justify-center items-center">
-                <div class="w-[720px] h-[680px] bg-green-500 rounded-full z-0 -mx-[256px]"></div>
-            </div>
-            <div class="relative z-10 p-4 mt-5">
-                <p class=" text-white text-lg font-bold">Pilih Jenis Zakat Anda</p>
-            </div>
-            <div class="relative z-10 flex gap-3 justify-center">
-                <div class="relative z-10 flex flex-col items-center">
-                    <svg width="51" height="50" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="14.924" y="9.08315" width="32.106" height="16.6752" rx="0.871094" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <mask id="mask0_614_1491" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="8" width="34" height="19">
-                        <rect x="14.3018" y="8.46094" width="33.3504" height="17.9196" rx="1.4933" fill="#D9D9D9"/>
-                        </mask>
-                        <g mask="url(#mask0_614_1491)">
-                        <circle cx="31.4746" cy="17.6699" r="4.60435" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <mask id="path-4-inside-1_614_1491" fill="white">
-                        <path d="M48.0748 12.0502C48.09 12.8748 47.4209 13.5764 46.6255 13.3585C46.446 13.3093 46.269 13.2505 46.0951 13.1822C45.4563 12.9312 44.8732 12.5568 44.379 12.0805C43.8849 11.6041 43.4894 11.0351 43.2152 10.4059C43.1405 10.2347 43.0753 10.0599 43.0196 9.88239C42.7726 9.09549 43.4492 8.40119 44.2738 8.38607L46.5133 8.34499C47.3379 8.32987 48.0186 8.98608 48.0338 9.81066L48.0748 12.0502Z"/>
-                        </mask>
-                        <path d="M48.0748 12.0502C48.09 12.8748 47.4209 13.5764 46.6255 13.3585C46.446 13.3093 46.269 13.2505 46.0951 13.1822C45.4563 12.9312 44.8732 12.5568 44.379 12.0805C43.8849 11.6041 43.4894 11.0351 43.2152 10.4059C43.1405 10.2347 43.0753 10.0599 43.0196 9.88239C42.7726 9.09549 43.4492 8.40119 44.2738 8.38607L46.5133 8.34499C47.3379 8.32987 48.0186 8.98608 48.0338 9.81066L48.0748 12.0502Z" fill="#077734" stroke="black" stroke-width="2.48884" mask="url(#path-4-inside-1_614_1491)"/>
-                        <mask id="path-5-inside-2_614_1491" fill="white">
-                        <path d="M47.5585 22.5536C47.5588 21.7289 46.8773 21.0395 46.0859 21.2716C45.9074 21.3239 45.7314 21.3859 45.5588 21.4573C44.9246 21.7197 44.3482 22.1045 43.8627 22.5896C43.3772 23.0747 42.9919 23.6507 42.729 24.2847C42.6575 24.4573 42.5953 24.6332 42.5428 24.8117C42.31 25.6029 42.9989 26.285 43.8236 26.2853L46.0636 26.2862C46.8883 26.2866 47.5572 25.6183 47.5575 24.7936L47.5585 22.5536Z"/>
-                        </mask>
-                        <path d="M47.5585 22.5536C47.5588 21.7289 46.8773 21.0395 46.0859 21.2716C45.9074 21.3239 45.7314 21.3859 45.5588 21.4573C44.9246 21.7197 44.3482 22.1045 43.8627 22.5896C43.3772 23.0747 42.9919 23.6507 42.729 24.2847C42.6575 24.4573 42.5953 24.6332 42.5428 24.8117C42.31 25.6029 42.9989 26.285 43.8236 26.2853L46.0636 26.2862C46.8883 26.2866 47.5572 25.6183 47.5575 24.7936L47.5585 22.5536Z" fill="#077734" stroke="black" stroke-width="2.48884" mask="url(#path-5-inside-2_614_1491)"/>
-                        <mask id="path-6-inside-3_614_1491" fill="white">
-                        <path d="M17.786 26.1309C18.6107 26.1309 19.2999 25.4491 19.0674 24.6578C19.015 24.4793 18.9529 24.3033 18.8814 24.1307C18.6188 23.4966 18.2338 22.9205 17.7485 22.4351C17.2631 21.9498 16.687 21.5648 16.0529 21.3021C15.8803 21.2307 15.7043 21.1686 15.5258 21.1162C14.7345 20.8837 14.0527 21.5729 14.0527 22.3976V24.6376C14.0527 25.4623 14.7213 26.1309 15.546 26.1309H17.786Z"/>
-                        </mask>
-                        <path d="M17.786 26.1309C18.6107 26.1309 19.2999 25.4491 19.0674 24.6578C19.015 24.4793 18.9529 24.3033 18.8814 24.1307C18.6188 23.4966 18.2338 22.9205 17.7485 22.4351C17.2631 21.9498 16.687 21.5648 16.0529 21.3021C15.8803 21.2307 15.7043 21.1686 15.5258 21.1162C14.7345 20.8837 14.0527 21.5729 14.0527 22.3976V24.6376C14.0527 25.4623 14.7213 26.1309 15.546 26.1309H17.786Z" fill="#077734" stroke="black" stroke-width="2.48884" mask="url(#path-6-inside-3_614_1491)"/>
-                        <mask id="path-7-inside-4_614_1491" fill="white">
-                        <path d="M15.0483 12.4422C15.0483 13.267 15.7301 13.9561 16.5214 13.7237C16.6999 13.6712 16.8759 13.6092 17.0485 13.5377C17.6826 13.275 18.2587 12.8901 18.7441 12.4047C19.2294 11.9194 19.6144 11.3432 19.8771 10.7091C19.9485 10.5365 20.0106 10.3606 20.063 10.1821C20.2955 9.39077 19.6063 8.70898 18.7816 8.70898L16.5416 8.70898C15.7169 8.70898 15.0483 9.37756 15.0483 10.2023L15.0483 12.4422Z"/>
-                        </mask>
-                        <path d="M15.0483 12.4422C15.0483 13.267 15.7301 13.9561 16.5214 13.7237C16.6999 13.6712 16.8759 13.6092 17.0485 13.5377C17.6826 13.275 18.2587 12.8901 18.7441 12.4047C19.2294 11.9194 19.6144 11.3432 19.8771 10.7091C19.9485 10.5365 20.0106 10.3606 20.063 10.1821C20.2955 9.39077 19.6063 8.70898 18.7816 8.70898L16.5416 8.70898C15.7169 8.70898 15.0483 9.37756 15.0483 10.2023L15.0483 12.4422Z" fill="#077734" stroke="black" stroke-width="2.48884" mask="url(#path-7-inside-4_614_1491)"/>
-                        </g>
-                        <path d="M7.83057 3.48633H25.5013C26.8951 3.48633 31.2257 6.9707 33.2167 8.71289H23.2614C22.0169 8.71289 20.0259 10.4551 23.2614 12.695C25.729 14.4034 27.1862 15.3426 27.6763 15.6422C27.72 15.669 27.7611 15.6976 27.7992 15.7318C28.3011 16.182 29.0626 17.27 28.4879 18.4194C27.7462 19.9028 25.5308 22.1231 14.0341 15.8086C13.8864 15.7275 13.7164 15.6838 13.548 15.692C12.9493 15.7211 11.4575 15.8063 10.259 15.8759C9.73353 15.9064 9.27496 15.5229 9.21224 15.0003L7.83057 3.48633Z" fill="#F3F8F5"/>
-                        <path d="M7.83057 3.48633C13.1401 3.48633 24.1076 3.48633 25.5013 3.48633M7.83057 3.48633L9.21224 15.0003C9.27496 15.5229 9.73353 15.9064 10.259 15.8759C11.4575 15.8063 12.9493 15.7211 13.548 15.692C13.7164 15.6838 13.8864 15.7275 14.0341 15.8086C25.5308 22.1231 27.7462 19.9028 28.4879 18.4194C29.0626 17.27 28.3011 16.182 27.7992 15.7318C27.7611 15.6976 27.72 15.669 27.6763 15.6422C27.1862 15.3426 25.729 14.4034 23.2614 12.695C20.0259 10.4551 22.0169 8.71289 23.2614 8.71289H33.2167C31.2257 6.9707 26.8951 3.48633 25.5013 3.48633M7.83057 3.48633H25.5013" stroke="black" stroke-width="1.24442" stroke-linejoin="round"/>
-                        <rect x="4.47084" y="2.6144" width="7.21763" height="14.1864" rx="1.36886" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <path d="M26.6277 36.3206C30.6191 30.5613 36.1096 32.2659 38.6974 34.0573C38.9068 34.2022 39.0391 34.4298 39.0793 34.6812L40.826 45.5993C40.9218 46.1981 40.4662 46.7427 39.8599 46.7511C34.0742 46.8312 23.3834 46.9203 19.1058 46.7343C14.0903 46.0473 7.91642 41.0034 5.22867 37.6024C5.18767 37.5505 5.15317 37.4965 5.12594 37.4363C4.80829 36.7332 4.5224 35.3015 5.66617 34.539C6.79072 33.7893 7.85646 34.01 8.32364 34.2461C8.37813 34.2736 8.42494 34.3086 8.47038 34.3494C10.6568 36.3105 15.3204 41.7567 17.6127 41.7567H20.1015C17.3638 41.7567 17.4196 39.5711 17.6127 38.5212C17.7857 37.5801 18.7812 36.7785 20.1015 36.7785H25.7771C26.1175 36.7785 26.4338 36.6003 26.6277 36.3206Z" fill="#F3F8F5"/>
-                        <path d="M30.8034 41.7567H17.6127M17.6127 41.7567C15.3204 41.7567 10.6568 36.3105 8.47038 34.3494C8.42494 34.3086 8.37813 34.2736 8.32364 34.2461C7.85646 34.01 6.79072 33.7893 5.66617 34.539C4.5224 35.3015 4.80829 36.7332 5.12594 37.4363C5.15317 37.4965 5.18767 37.5505 5.22867 37.6024C7.91642 41.0034 14.0903 46.0473 19.1058 46.7343C23.3834 46.9203 34.0742 46.8312 39.8599 46.7511C40.4662 46.7427 40.9218 46.1981 40.826 45.5993L39.0793 34.6812C39.0391 34.4298 38.9068 34.2022 38.6974 34.0573C36.1096 32.2659 30.6191 30.5613 26.6277 36.3206C26.4338 36.6003 26.1175 36.7785 25.7771 36.7785H20.1015C18.7812 36.7785 17.7857 37.5801 17.6127 38.5212C17.4196 39.5711 17.3638 41.7567 20.1015 41.7567H17.6127Z" stroke="black" stroke-width="1.24442" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="38.8165" y="32.9757" width="7.21763" height="14.1864" rx="1.36886" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                    </svg>
-                    <div>
-                        <p class="text-white font-semibold">Penghasilan</p>
-                    </div>
-                </div>
-                <div class="relative z-10 flex flex-col items-center">
-                    <svg width="51" height="50" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3.22426" y="19.0402" width="40.5681" height="26.1328" rx="1.86663" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <rect x="6.6279" y="30.0435" width="25.5447" height="19.9301" rx="1.86663" transform="rotate(-83.0591 6.6279 30.0435)" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="8.27243" y="33.0181" width="25.5447" height="19.9301" rx="1.86663" transform="rotate(-83.0591 8.27243 33.0181)" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <rect x="3.4672" y="36.3589" width="43.0569" height="19.9301" rx="1.86663" transform="rotate(-55.5205 3.4672 36.3589)" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="8.44474" y="32.9018" width="34.0334" height="15.6172" rx="1.86663" transform="rotate(-55.5205 8.44474 32.9018)" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <circle cx="26.2461" cy="20.6582" r="4.60435" fill="#F3F8F5" stroke="black" stroke-width="1.24442"/>
-                        <rect x="2.22866" y="21.0304" width="43.0569" height="28.1239" rx="1.86663" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="2.22866" y="26.0089" width="43.0569" height="17.6708" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <path d="M33.588 34.8429C33.588 32.4375 35.538 30.4874 37.9435 30.4874H47.4011C47.8822 30.4874 48.2722 30.8774 48.2722 31.3585V38.8251C48.2722 39.3061 47.8822 39.6961 47.4011 39.6961H37.9435C35.538 39.6961 33.588 37.7461 33.588 35.3407V34.8429Z" fill="#F3F8F5" stroke="black" stroke-width="1.24442"/>
-                        <rect x="35.3241" y="35.6245" width="4.72879" height="4.72879" rx="2.3644" transform="rotate(-55.5205 35.3241 35.6245)" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        </svg>
-                    <div>
-                        <p class="text-white font-semibold">Tabungan</p>
-                    </div>
-                </div>
-                <div class="relative z-10 flex flex-col items-center">
-                    <svg width="51" height="50" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40.5585" y="9.08482" width="2.73772" height="27.1283" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="8.70152" y="9.08482" width="2.73772" height="27.1283" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="9.69713" y="40.4442" width="2.98661" height="8.21317" rx="1.4933" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="38.5677" y="40.4442" width="2.98661" height="8.21317" rx="1.4933" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="43.7941" y="31.4833" width="14.1864" height="36.0882" rx="2.11551" transform="rotate(90 43.7941 31.4833)" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <path d="M13.9282 1.74219V1.11998H13.3059H7.8305C6.93704 1.11998 6.21275 1.84427 6.21275 2.73772V8.21317V8.83538H6.83496H13.3059H13.9282V8.21317V1.74219Z" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <rect x="22.1415" y="1.11998" width="7.7154" height="7.7154" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <path d="M38.6919 1.11998H38.0697V1.74219V8.21317V8.83538H38.6919H45.1629H45.7851V8.21317V2.73772C45.7851 1.84427 45.0608 1.11998 44.1673 1.11998H38.6919Z" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <rect x="14.1771" y="1.11998" width="7.7154" height="7.7154" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="30.1053" y="1.11998" width="7.7154" height="7.7154" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <mask id="path-11-outside-1_614_1508" maskUnits="userSpaceOnUse" x="4.83496" y="7.22266" width="10" height="7" fill="black">
-                        <rect fill="white" x="4.83496" y="7.22266" width="10" height="7"/>
-                        <path d="M13.3059 9.45815C13.3059 10.3163 12.9651 11.1392 12.3583 11.746C11.7515 12.3528 10.9286 12.6936 10.0705 12.6936C9.21235 12.6936 8.38939 12.3528 7.78261 11.746C7.17584 11.1392 6.83496 10.3163 6.83496 9.45815L10.0705 9.45815H13.3059Z"/>
-                        </mask>
-                        <path d="M13.3059 9.45815C13.3059 10.3163 12.9651 11.1392 12.3583 11.746C11.7515 12.3528 10.9286 12.6936 10.0705 12.6936C9.21235 12.6936 8.38939 12.3528 7.78261 11.746C7.17584 11.1392 6.83496 10.3163 6.83496 9.45815L10.0705 9.45815H13.3059Z" fill="#FBC71E"/>
-                        <path d="M13.3059 9.45815C13.3059 10.3163 12.9651 11.1392 12.3583 11.746C11.7515 12.3528 10.9286 12.6936 10.0705 12.6936C9.21235 12.6936 8.38939 12.3528 7.78261 11.746C7.17584 11.1392 6.83496 10.3163 6.83496 9.45815L10.0705 9.45815H13.3059Z" stroke="black" stroke-width="2.48884" mask="url(#path-11-outside-1_614_1508)"/>
-                        <mask id="path-12-outside-2_614_1508" maskUnits="userSpaceOnUse" x="20.7637" y="7.22266" width="10" height="7" fill="black">
-                        <rect fill="white" x="20.7637" y="7.22266" width="10" height="7"/>
-                        <path d="M29.2347 9.45815C29.2347 10.3163 28.8938 11.1392 28.287 11.746C27.6802 12.3528 26.8573 12.6936 25.9992 12.6936C25.1411 12.6936 24.3181 12.3528 23.7113 11.746C23.1046 11.1392 22.7637 10.3163 22.7637 9.45815L25.9992 9.45815H29.2347Z"/>
-                        </mask>
-                        <path d="M29.2347 9.45815C29.2347 10.3163 28.8938 11.1392 28.287 11.746C27.6802 12.3528 26.8573 12.6936 25.9992 12.6936C25.1411 12.6936 24.3181 12.3528 23.7113 11.746C23.1046 11.1392 22.7637 10.3163 22.7637 9.45815L25.9992 9.45815H29.2347Z" fill="#FBC71E"/>
-                        <path d="M29.2347 9.45815C29.2347 10.3163 28.8938 11.1392 28.287 11.746C27.6802 12.3528 26.8573 12.6936 25.9992 12.6936C25.1411 12.6936 24.3181 12.3528 23.7113 11.746C23.1046 11.1392 22.7637 10.3163 22.7637 9.45815L25.9992 9.45815H29.2347Z" stroke="black" stroke-width="2.48884" mask="url(#path-12-outside-2_614_1508)"/>
-                        <mask id="path-13-outside-3_614_1508" maskUnits="userSpaceOnUse" x="36.6919" y="7.22266" width="10" height="7" fill="black">
-                        <rect fill="white" x="36.6919" y="7.22266" width="10" height="7"/>
-                        <path d="M45.1629 9.45815C45.1629 10.3163 44.822 11.1392 44.2152 11.746C43.6085 12.3528 42.7855 12.6936 41.9274 12.6936C41.0693 12.6936 40.2463 12.3528 39.6395 11.746C39.0328 11.1392 38.6919 10.3163 38.6919 9.45815L41.9274 9.45815H45.1629Z"/>
-                        </mask>
-                        <path d="M45.1629 9.45815C45.1629 10.3163 44.822 11.1392 44.2152 11.746C43.6085 12.3528 42.7855 12.6936 41.9274 12.6936C41.0693 12.6936 40.2463 12.3528 39.6395 11.746C39.0328 11.1392 38.6919 10.3163 38.6919 9.45815L41.9274 9.45815H45.1629Z" fill="#FBC71E"/>
-                        <path d="M45.1629 9.45815C45.1629 10.3163 44.822 11.1392 44.2152 11.746C43.6085 12.3528 42.7855 12.6936 41.9274 12.6936C41.0693 12.6936 40.2463 12.3528 39.6395 11.746C39.0328 11.1392 38.6919 10.3163 38.6919 9.45815L41.9274 9.45815H45.1629Z" stroke="black" stroke-width="2.48884" mask="url(#path-13-outside-3_614_1508)"/>
-                        <mask id="path-14-outside-4_614_1508" maskUnits="userSpaceOnUse" x="12.7993" y="7.22266" width="10" height="7" fill="black">
-                        <rect fill="white" x="12.7993" y="7.22266" width="10" height="7"/>
-                        <path d="M21.2703 9.45815C21.2703 10.3163 20.9294 11.1392 20.3226 11.746C19.7159 12.3528 18.8929 12.6936 18.0348 12.6936C17.1767 12.6936 16.3537 12.3528 15.747 11.746C15.1402 11.1392 14.7993 10.3163 14.7993 9.45815L18.0348 9.45815H21.2703Z"/>
-                        </mask>
-                        <path d="M21.2703 9.45815C21.2703 10.3163 20.9294 11.1392 20.3226 11.746C19.7159 12.3528 18.8929 12.6936 18.0348 12.6936C17.1767 12.6936 16.3537 12.3528 15.747 11.746C15.1402 11.1392 14.7993 10.3163 14.7993 9.45815L18.0348 9.45815H21.2703Z" fill="#077734"/>
-                        <path d="M21.2703 9.45815C21.2703 10.3163 20.9294 11.1392 20.3226 11.746C19.7159 12.3528 18.8929 12.6936 18.0348 12.6936C17.1767 12.6936 16.3537 12.3528 15.747 11.746C15.1402 11.1392 14.7993 10.3163 14.7993 9.45815L18.0348 9.45815H21.2703Z" stroke="black" stroke-width="2.48884" mask="url(#path-14-outside-4_614_1508)"/>
-                        <mask id="path-15-outside-5_614_1508" maskUnits="userSpaceOnUse" x="28.7275" y="7.22266" width="10" height="7" fill="black">
-                        <rect fill="white" x="28.7275" y="7.22266" width="10" height="7"/>
-                        <path d="M37.1985 9.45815C37.1985 10.3163 36.8576 11.1392 36.2509 11.746C35.6441 12.3528 34.8211 12.6936 33.963 12.6936C33.1049 12.6936 32.282 12.3528 31.6752 11.746C31.0684 11.1392 30.7275 10.3163 30.7275 9.45815L33.963 9.45815H37.1985Z"/>
-                        </mask>
-                        <path d="M37.1985 9.45815C37.1985 10.3163 36.8576 11.1392 36.2509 11.746C35.6441 12.3528 34.8211 12.6936 33.963 12.6936C33.1049 12.6936 32.282 12.3528 31.6752 11.746C31.0684 11.1392 30.7275 10.3163 30.7275 9.45815L33.963 9.45815H37.1985Z" fill="#077734"/>
-                        <path d="M37.1985 9.45815C37.1985 10.3163 36.8576 11.1392 36.2509 11.746C35.6441 12.3528 34.8211 12.6936 33.963 12.6936C33.1049 12.6936 32.282 12.3528 31.6752 11.746C31.0684 11.1392 30.7275 10.3163 30.7275 9.45815L33.963 9.45815H37.1985Z" stroke="black" stroke-width="2.48884" mask="url(#path-15-outside-5_614_1508)"/>
-                        <rect x="40.8078" y="35.9637" width="6.71987" height="30.115" rx="1.61775" transform="rotate(90 40.8078 35.9637)" fill="#F3F8F5" stroke="black" stroke-width="1.24442"/>
-                        <rect x="45.7853" y="29.9911" width="3.23549" height="40.0703" rx="1.61775" transform="rotate(90 45.7853 29.9911)" fill="#F3F8F5" stroke="black" stroke-width="1.24442"/>
-                    </svg>
-                    <div>
-                        <p class="text-white font-semibold">Perdagangan</p>
-                    </div>
-                </div>
-                <div class="relative z-10 flex flex-col items-center">
-                    <svg width="51" height="50" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M36.1186 36.5808C36.2972 36.2755 36.6243 36.0879 36.978 36.0879H44.9086C45.2622 36.0879 45.5893 36.2755 45.7679 36.5808L49.2621 42.554C49.6503 43.2176 49.1716 44.0522 48.4028 44.0522H33.4838C32.7149 44.0522 32.2362 43.2176 32.6245 42.554L36.1186 36.5808Z" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <path d="M20.916 36.5808C21.0946 36.2755 21.4217 36.0879 21.7753 36.0879H29.7059C30.0596 36.0879 30.3867 36.2755 30.5652 36.5808L34.0594 42.554C34.4477 43.2176 33.969 44.0522 33.2001 44.0522H18.2811C17.5122 44.0522 17.0336 43.2176 17.4218 42.554L20.916 36.5808Z" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <path d="M29.2529 28.6179C29.4315 28.3126 29.7586 28.125 30.1122 28.125H38.0429C38.3965 28.125 38.7236 28.3126 38.9022 28.6179L42.3963 34.5911C42.7846 35.2547 42.3059 36.0893 41.537 36.0893H26.618C25.8492 36.0893 25.3705 35.2548 25.7587 34.5911L29.2529 28.6179Z" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <path d="M20.916 20.653C21.0946 20.3478 21.4217 20.1602 21.7753 20.1602H29.7059C30.0596 20.1602 30.3867 20.3478 30.5652 20.653L34.0594 26.6262C34.4477 27.2899 33.969 28.1244 33.2001 28.1244H18.2811C17.5122 28.1244 17.0336 27.2899 17.4218 26.6262L20.916 20.653Z" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                        <path d="M12.5791 28.6179C12.7577 28.3126 13.0848 28.125 13.4384 28.125H21.369C21.7227 28.125 22.0498 28.3126 22.2283 28.6179L25.7225 34.5911C26.1108 35.2547 25.6321 36.0893 24.8632 36.0893H9.94422C9.17533 36.0893 8.69668 35.2548 9.08491 34.5911L12.5791 28.6179Z" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <path d="M4.73241 36.5808C4.91098 36.2755 5.23808 36.0879 5.59172 36.0879H13.5223C13.876 36.0879 14.2031 36.2755 14.3817 36.5808L17.8758 42.554C18.2641 43.2176 17.7854 44.0522 17.0165 44.0522H2.09754C1.32865 44.0522 0.849999 43.2176 1.23823 42.554L4.73241 36.5808Z" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <path d="M5.92505 40.0825C5.9341 40.0746 5.94567 40.0703 5.95764 40.0703H14.8722C14.8841 40.0703 14.8957 40.0746 14.9048 40.0825L19.3866 43.9651C19.4215 43.9952 19.4001 44.0525 19.354 44.0525H1.47577C1.42968 44.0525 1.40834 43.9952 1.44318 43.9651L5.92505 40.0825Z" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <path d="M14.9045 9.69488C14.8955 9.70272 14.8839 9.70703 14.872 9.70703H5.95743C5.94546 9.70703 5.93388 9.70272 5.92484 9.69488L1.44296 5.81229C1.40813 5.78211 1.42947 5.72489 1.47556 5.72489H19.3538C19.3999 5.72489 19.4212 5.78211 19.3864 5.81229L14.9045 9.69488Z" fill="#F3F8F5" stroke="black" stroke-width="1.24442"/>
-                        <path d="M5.25131 9.69222C5.26048 9.70153 5.26563 9.71408 5.26563 9.72715L5.26563 40.0502C5.26563 40.0633 5.26048 40.0758 5.25131 40.0851L1.42757 43.9662C1.39632 43.9979 1.34233 43.9758 1.34233 43.9313L1.34233 5.84606C1.34233 5.80153 1.39632 5.77941 1.42757 5.81112L5.25131 9.69222Z" fill="#F3F8F5" stroke="black" stroke-width="1.24442"/>
-                        <path d="M15.5783 9.69222C15.5691 9.70153 15.564 9.71408 15.564 9.72715L15.564 40.0502C15.564 40.0633 15.5691 40.0758 15.5783 40.0851L19.402 43.9662C19.4333 43.9979 19.4873 43.9758 19.4873 43.9313L19.4873 5.84606C19.4873 5.80153 19.4333 5.77941 19.402 5.81112L15.5783 9.69222Z" fill="#077734" stroke="black" stroke-width="1.24442"/>
-                        <rect x="5.3976" y="9.83119" width="10.035" height="30.115" rx="1.86663" fill="#FBC71E" stroke="black" stroke-width="1.24442"/>
-                    </svg>
-                    <div>
-                        <p class="text-white font-semibold">Emas</p>
-                    </div>
-                </div>
+@extends('front.layout.main')
+@section('konten')
 
+
+<div class="relative z-10 p-4 mt-9">
+    <p class=" text-white text-lg font-bold">Pilih Jenis Zakat Anda</p>
+</div>
+
+<div class="relative z-10 flex gap-3 justify-center mt-12">
+    <div onclick="showDiv('penghasilan', this)" class="relative z-10 flex flex-col items-center bg-white shadow-lg p-2 rounded-2xl w-24 py-4 h-28 cursor-pointer">
+        <div>
+            <img src="{{asset('images/penghasilan.png')}}" alt="">
+        </div>
+        <div>
+            <p class="text-gray-500 text-sm font-normal mt-2">Penghasilan</p>
+        </div>
+    </div>
+    <div onclick="showDiv('tabungan' , this)" class="relative z-10 flex flex-col items-center bg-white shadow-lg p-2 rounded-2xl w-24 py-4 h-28 cursor-pointer">
+        <div>
+            <img src="{{asset('images/tabungan.png')}}" alt="">
+        </div>
+        <div>
+            <p class="text-gray-500 text-sm font-normal mt-2">Tabungan</p>
+        </div>
+    </div>
+    <div onclick="showDiv('perdagangan' , this)" class="relative z-10 flex flex-col items-center bg-white shadow-lg p-2 rounded-2xl w-24 py-4 h-28 cursor-pointer">
+        <div>
+            <img src="{{asset('images/dagang.png')}}" alt="">
+        </div>
+        <div>
+            <p class="text-gray-500 text-sm font-normal mt-2">Perdagangan</p>
+        </div>
+    </div>
+    <div onclick="showDiv('emas' , this)" class="relative z-10 flex flex-col items-center justify-center bg-white shadow-lg p-2 rounded-2xl w-24 py-4 h-28 cursor-pointer">
+        <div>
+            <img class="h h-10" src="{{asset('images/emas.png')}}"  alt="">
+        </div>
+        <div>
+            <p class="text-gray-500 text-sm font-normal mt-4">Emas</p>
+        </div>
+    </div>
+</div>
+
+<div id="penghasilan" class="hidden">
+    <div class="flex mt-14 mx-5 justify-center">
+        <div class="bg-green-600 p-3 text-center font-semibold text-white w-1/2 rounded-s-2xl">
+            <p>Perbulan</p>
+        </div>
+        <div class="w-1/2 text-center text-black p-3 bg-gray-200 rounded-e-2xl">
+            <p>Pertahun</p>
+        </div>
+    </div>
+
+    <div class="mx-5">
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="inputPenghasilan" class=" bg-white px-1 text-sm text-black">Penghasilan </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="penghasilan-modal" data-modal-toggle="penghasilan-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="number" id="inputPenghasilan" placeholder="Masukan penghasilan bulanan anda" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent" oninput="hitungZakat()">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="bonus" class=" bg-white px-1 text-sm text-black">Pendapatan lainya (Bonus, THR) </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="pendapatan-modal" data-modal-toggle="pendapatan-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="number" id="bonus" placeholder="Opsional, Jika ada" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent" oninput="hitungZakat()">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="kebutuhan" class=" bg-white px-1 text-sm text-black">Pengeluaran kebutuhan pokok </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="pengeluaran-modal" data-modal-toggle="pengeluaran-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="number" id="kebutuhan" placeholder="Opsional, Jika ada" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent" oninput="hitungZakat()">
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
-</body>
-</html>
+    <div id="statusZakat" class="mx-5 my-3 mt-5">
+        <p class="p text-base font-bold">Status bayar Zakat</p>
+        <div id="statusBayarZakat" class="rounded-2xl p-2 py-3 mt-3 cursor-pointer">
+            <p class="text-green-700 text-center font-bold"></p>
+        </div>
+    </div>
+
+
+    <div class="mx-9 mt-8">
+        <p class="mb-1 font-bold text-gray-700">Catatan</p>
+        <ul class="w w-3/4 list-disc mx-4 text-gray-600 ">
+            <li>Perhitungan zakat diupdate secara otomatis berdasarkan update harga emas</li>
+            <li>Harga emas per gram saat ini Rp.940.000 (www.harga-emas.org)</li>
+            <li>Nishab 85 gram per Bulan Rp.658.333</li>
+            <li>Dianjurkan dipotong dari gaji bruto</li>
+        </ul>
+    </div>
+
+
+    <div id="jumlahZakat" class="mx-5 my-3 hidden">
+        <p class="p text-base font-bold">Jumlah yang dibayarkan</p>
+        <div class=" mb-4">
+            <p id="nilaiZakat" class=" text-green-700 text-xl font-bold"></p>
+        </div>
+    </div>
+
+    <div class="mb-8 mt-10">
+        <div class="bg-green-700 border border-green-700 rounded-2xl p-2 py-3 mx-5 mb-2.5 hover:bg-green-800 cursor-pointer">
+            <p class="text-white text-center font-bold">Lanjutkan</p>
+        </div>
+        <div class="bg-white border border-green-700 rounded-2xl p-2 py-3 mx-5 shadow-sm hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
+            <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
+        </div>
+    </div>
+
+    <div class="mb-32 mx-5">
+        <p class="tracking-wide text-gray-600"> <span class="font-bold text-gray-700"> Nisab </span> adalah syarat jumlah minimum (ambang batas) harta yang dapat dikategorikan sebagai harta wajib zakat. Untuk zakat penghasilan yang diwajibkan zakat adalah penghasilan yang berada diatas nisab. Nisab Zakat Penghasilan adalah setara 85 gr emas</p>
+    </div>
+
+
+
+        <div id="penghasilan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-lg max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                    <div class="">
+                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                            Penghasilan
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                            Total pendapatan tetap per-bulan. <span class="font-bold text-black">(Gaji bulanan)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pendapatan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-lg max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                    <div class="">
+                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                            Pendapatan Lainnya
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                            Total pendapatan tetap per-bulan. <span class="font-bold text-black">(Gaji bulanan)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pengeluaran-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-lg max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                    <div class="">
+                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                            Pengeluaran Kebutuhan Pokok
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                            Total pendapatan tetap per-bulan. <span class="font-bold text-black">(Gaji bulanan)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{{-- Kalkulator Tabungan --}}
+<div id="tabungan" class="hidden">
+    <div class="mx-5">
+        <div class="w-full mt-20">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">saldo tabungan </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="tabungan-modal" data-modal-toggle="tabungan-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Masukan jumlah tabungan anda" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">Bunga (jika menabug di bank konvesional) </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="bunga-modal" data-modal-toggle="bunga-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Opsional, Jika ada" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="mx-5 my-3">
+            <p class="p text-base font-bold">Status bayar Zakat</p>
+        </div>
+        {{-- <div class="bg-green-100 border border-green-700 rounded-2xl p-2 py-3 mx-5">
+            <p class="text-green-700 text-center font-bold">Wajib Bayar Zakat</p>
+        </div> --}}
+        <div class="bg-red-100 border border-red-700 rounded-md p-2 py-3 mx-5">
+            <p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>
+        </div>
+    </div>
+
+    <div class=" mt-8">
+        <div class="mx-5 my-1">
+            <p class="p text-base font-bold">Jumlah yang dibayarkan</p>
+        </div>
+        <div class="mx-5 mb-4">
+            <p class="text-green-700 text-xl font-bold">Rp 250.000</p>
+        </div>
+    </div>
+
+    <div class="mb-8">
+        <div class="bg-green-700 border border-green-700 rounded-2xl p-2 py-3 mx-5 mb-2.5 hover:bg-green-800 cursor-pointer">
+            <p class="text-white text-center font-bold">Lanjutkan</p>
+        </div>
+        <div class="bg-white border border-green-700 rounded-2xl p-2 py-3 mx-5 shadow-sm hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
+            <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
+        </div>
+    </div>
+
+    <div class="mb-32 mx-5">
+        <p class="tracking-wide text-gray-600"> <span class="font-bold text-gray-700"> Nisab </span> adalah syarat jumlah minimum (ambang batas) harta yang dapat dikategorikan sebagai harta wajib zakat. Untuk zakat penghasilan yang diwajibkan zakat adalah penghasilan yang berada diatas nisab. Nisab Zakat Penghasilan adalah setara 85 gr emas</p>
+    </div>
+
+
+
+        <div id="tabungan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-lg max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                    <div class="">
+                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                            Penghasilan
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                            Total pendapatan tetap per-bulan. <span class="font-bold text-black">(Gaji bulanan)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bunga-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-lg max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                    <div class="">
+                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                            Pendapatan Lainnya
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                            Total pendapatan tetap per-bulan. <span class="font-bold text-black">(Gaji bulanan)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+{{-- Kalkulator Perdagangan --}}
+<div id="perdagangan" class="hidden">
+    <div class="mx-5">
+        <div class="w-full mt-20">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">Modal selama 1 tahun </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="tabungan-modal" data-modal-toggle="tabungan-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Masukan jumlah modal usaha anda" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">keuntungan selama 1 tahun </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="bunga-modal" data-modal-toggle="bunga-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="masukan jumlah keuntungan usaha anda" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">Piutang dagang </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="bunga-modal" data-modal-toggle="bunga-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Opsional, Jika ada" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">Utang jatuh tempo</label>
+                    </div>
+                    <div class="mt-1" data-modal-target="bunga-modal" data-modal-toggle="bunga-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Opsional, Jika ada" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">Kerugian selama 1 tahun </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="bunga-modal" data-modal-toggle="bunga-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Opsional, Jika ada" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-green-50 mx-5 p-3 mt-4 rounded-2xl">
+        <div class="mx-2 mb-2">
+            <p class="p text-base font-bold">Status bayar Zakat</p>
+        </div>
+        <div class="bg-whitee border border-green-700 rounded-2xl mb-1 p-2 py-3 mx-2">
+            <p class="text-green-700 text-center font-bold">Wajib Bayar Zakat</p>
+        </div>
+        {{-- <div class="bg-white border border-red-700 rounded-2xl mb-1 p-2 py-3 mx-2">
+            <p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>
+        </div> --}}
+    </div>
+    {{-- <div class="bg-red-50 mx-5 p-3 mt-4 rounded-2xl">
+        <div class="mx-2 mb-2">
+            <p class="p text-base font-bold">Status bayar Zakat</p>
+        </div>
+        <div class="bg-white border border-red-700 rounded-2xl mb-1 p-2 py-3 mx-2">
+            <p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>
+        </div>
+    </div> --}}
+
+    <div class=" mt-8">
+        <div class="mx-5 my-1">
+            <p class="p text-base font-bold">Jumlah yang dibayarkan</p>
+        </div>
+        <div class="mx-5 mb-4">
+            <p class="text-green-700 text-xl font-bold">Rp 250.000</p>
+        </div>
+    </div>
+
+    <div class="mb-32 flex mx-5 gap-2">
+        <div class="bg-white border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
+            <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
+        </div>
+        <div class="bg-green-700 border w-full border-green-700 rounded-lg p-2 py-3 hover:bg-green-800 cursor-pointer">
+            <p class="text-white text-center font-bold">Lanjutkan</p>
+        </div>
+    </div>
+</div>
+
+
+{{-- Kalkulator Emas --}}
+<div id="emas" class="hidden">
+    <div class="mx-5">
+        <div class="w-full mt-20">
+            <div class="relative mt-6">
+                <div class="flex absolute -top-3 left-2 bg-white px-2">
+                    <div>
+                        <label for="name" class=" bg-white px-1 text-sm text-black">Jumlah emas (per gram) </label>
+                    </div>
+                    <div class="mt-1" data-modal-target="tabungan-modal" data-modal-toggle="tabungan-modal">
+                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="text" id="name" placeholder="Masukan total berat emas anda" class="w-full py-3 px-4 border border-gray-400 rounded-2xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bg-green-50 mx-5 p-3 mt-4 rounded-2xl">
+        <div class="mx-2 mb-2">
+            <p class="p text-base font-bold">Status bayar Zakat</p>
+        </div>
+        <div class="bg-whitee border border-green-700 rounded-2xl mb-1 p-2 py-3 mx-2">
+            <p class="text-green-700 text-center font-bold">Wajib Bayar Zakat</p>
+        </div>
+        {{-- <div class="bg-white border border-red-700 rounded-2xl mb-1 p-2 py-3 mx-2">
+            <p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>
+        </div> --}}
+    </div>
+    {{-- <div class="bg-red-50 mx-5 p-3 mt-4 rounded-2xl">
+        <div class="mx-2 mb-2">
+            <p class="p text-base font-bold">Status bayar Zakat</p>
+        </div>
+        <div class="bg-white border border-red-700 rounded-2xl mb-1 p-2 py-3 mx-2">
+            <p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>
+        </div>
+    </div> --}}
+
+    <div class=" mt-8">
+        <div class="mx-5 my-1">
+            <p class="p text-base font-bold">Jumlah yang dibayarkan</p>
+        </div>
+        <div class="mx-5 mb-4">
+            <p class="text-green-700 text-xl font-bold">Rp 250.000</p>
+        </div>
+    </div>
+
+    <div class="mb-32 flex mx-5 gap-2">
+        <div class="bg-white border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
+            <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
+        </div>
+        <div class="bg-green-700 border w-full border-green-700 rounded-lg p-2 py-3 hover:bg-green-800 cursor-pointer">
+            <p class="text-white text-center font-bold">Lanjutkan</p>
+        </div>
+    </div>
+</div>
+
+<div id="niat-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-lg max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-3 md:p-2 dark:border-gray-600">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="niat-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <div class="p-1 md:px-4 md:my-1 space-y-4">
+                <p class="text-black font-bold text-xl">Niat Membayar Zakat</p>
+                <img class="w-full" src="{{asset('images/niat.jpg')}}" alt="">
+                <p class="font-bold text-gray-700">
+                    Artinya : <br>
+                    <span class="font-normal tracking-wide">“Aku niat mengeluarkan zakat hartaku, fardhu karena Allah Ta’ala.”</span>
+                </p>
+            </div>
+            <div class="flex items-center p-4 md:p-5 w-full border-gray-200 rounded-b dark:border-gray-600">
+                <button data-modal-hide="niat-modal" type="button" class="text-white w-full bg-green-700 hover:bg-green-800  font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-green-600 dark:hover:bg-green-700 ">Selesai</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        function showDiv(id, element){
+            document.getElementById('penghasilan').classList.add('hidden');
+            document.getElementById('tabungan').classList.add('hidden');
+            document.getElementById('perdagangan').classList.add('hidden');
+            document.getElementById('emas').classList.add('hidden');
+
+            document.getElementById(id).classList.remove('hidden');
+
+            const elements = document.querySelectorAll('.selected');
+            elements.forEach(el => {
+                el.classList.remove('bg-green-700', 'text-white','selected');
+                el.classList.add('bg-white', 'text-gray-500');
+
+                const textElements = el.querySelectorAll('p');
+                textElements.forEach(textEL => {
+                    textEL.classList.remove('text-white','font-semibold');
+                    textEL.classList.add('text-gray-500','font-normal');
+                })
+            });
+
+            element.classList.add('bg-green-700', 'text-white', 'selected');
+            element.classList.remove('bg-white', 'text-gray-500');
+
+            const textElements = element.querySelectorAll('p');
+            textElements.forEach(textEL => {
+                    textEL.classList.add('text-white','font-semibold');
+                    textEL.classList.remove('text-gray-500','font-normal');
+            });
+        }
+
+        let periode = 'bulanan';
+        function setPeriode(p){
+            periode = p;
+            document.querySelector('.bg-green').classList.remove('bg-green-600', 'text-white');
+            document.querySelector('.bg-gray-200').classList.remove('bg-gray-200', 'text-black');
+
+            if(periode === 'bulanan'){
+                document.querySelectorAll('.flex.mt-14 .w-1/2')[0].classList.add('bg-green-600', 'text-white');
+                document.querySelectorAll('.flex.mt-14 .w-1/2')[1].classList.add('bg-gray-200', 'text-black');
+            } else {
+                document.querySelectorAll('.flex.mt-14 .w-1/2')[1].classList.add('bg-green-600', 'text-white');
+                document.querySelectorAll('.flex.mt-14 .w-1/2')[0].classList.add('bg-gray-200', 'text-black');
+            }
+            hitungZakat();
+        }
+
+        function hitungZakat(){
+            const penghasilan = parseFloat(document.getElementById('inputPenghasilan').value)||0;
+            const bonus = parseFloat(document.getElementById('bonus').value)||0;
+            const kebutuhan = parseFloat(document.getElementById('kebutuhan').value)||0;
+
+            const totalPenghasilan = penghasilan + bonus;
+            const penghasilanBersih = totalPenghasilan - kebutuhan;
+
+            const hargaEmas = 940000;
+            const nisab = 85 * hargaEmas / (periode === 'bulanan' ? 12:1);
+
+            const zakat = penghasilanBersih >= nisab ? 0.025 * penghasilanBersih : 0 ;
+
+            document.getElementById('statusZakat').classList.remove('hidden');
+            document.getElementById('jumlahZakat').classList.remove('hidden');
+
+
+            if(zakat > 0){
+                document.getElementById('statusBayarZakat').innerHTML = '<p class="text-green-700 text-center font-bold">Wajib Bayar Zakat</p>';
+                document.getElementById('statusBayarZakat').classList.remove('bg-red-100','border','border-red-700');
+                document.getElementById('statusBayarZakat').classList.add('bg-green-100','border','border-green-700');
+                document.getElementById('nilaiZakat').innerHTML = `Rp ${zakat.toLocaleString('id-ID')}`;
+            } else{
+                document.getElementById('statusBayarZakat').innerHTML = '<p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>';
+                document.getElementById('statusBayarZakat').classList.remove('bg-green-100','border','border-green-700');
+                document.getElementById('statusBayarZakat').classList.add('bg-red-100','border','border-red-700');
+                const zakatKurang = 0.025 * penghasilanBersih;
+                const zakatBulat = zakatKurang.toFixed(0);
+                document.getElementById('nilaiZakat').innerHTML = `Rp ${zakatBulat.toLocaleString('id-ID')}`;
+            }
+            document.getElementById('jumlahZakat').classList.remove('hidden');
+        }
+
+    </script>
+
+@endsection
