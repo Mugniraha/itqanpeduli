@@ -270,88 +270,31 @@
 </div>
 <div class="w-full max-w-4xl overflow-x-auto no-scrollbar snap-x pb-2">
     <div class="flex space-x-4">
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-1/2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
             </a>
-            <div class="p-5">
+            <div class="p-5 w-full">
+                <p class="text-xs whitespace-nowrap">13.00 WIB, 22 Agustus 2022</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                </div>
-                <div class="flex justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
-                    </div>
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-5/6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
             </a>
-            <div class="p-5">
+            <div class="p-5 w-full">
+                <p class="text-xs whitespace-nowrap">13.00 WIB, 22 Agustus 2022</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                </div>
-                <div class="flex justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
-                    </div>
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-5/6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
             </a>
-            <div class="p-5">
+            <div class="p-5 w-full">
+                <p class="text-xs whitespace-nowrap">13.00 WIB, 22 Agustus 2022</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                </div>
-                <div class="flex justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
-                    </div>
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
-            </a>
-            <div class="p-5">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                </div>
-                <div class="flex justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
-                    </div>
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
