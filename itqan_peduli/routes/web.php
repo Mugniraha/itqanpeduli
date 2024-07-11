@@ -105,3 +105,15 @@ Route::get('/rincian-pembayaran', function () {
 Route::get('/panduan-pembayaran', function () {
     return view('front.konten.pembayaranZakat.panduanPembayaran');
 });
+Route::get('/program-user', function () {
+    return view('front.konten.program-user.program');
+});
+Route::get('/artikel', function () {
+    return view('front.konten.artikel.artikel');
+});
+Route::get('/yayasan', function () {
+    return view('front.konten.yayasan.yayasan');
+});
+Route::get('/donatur-user', function () {
+    return view('front.konten.donatur.donatur');
+});
