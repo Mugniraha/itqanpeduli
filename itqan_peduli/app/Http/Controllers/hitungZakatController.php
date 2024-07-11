@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use GuzzleHttp\Client;
+use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpClient\Exception\RequestException;
+use Illuminate\Support\Facades\Log;
+// use GuzzleHttp\Exception\RequestException;
 
 class hitungZakatController extends Controller
 {
@@ -14,25 +19,47 @@ class hitungZakatController extends Controller
         return view('front.konten.hitungZakat.index');
     }
 
-    public function calculate(Request $request)
+
+
+    public function getHargaEmas()
     {
-        $validated = $request->validate([
-            'amount' => 'required|numeric',
-            'interest' => 'nullable|numeric',
-        ]);
+        try {
+            $client = HttpClient::create();
+            $response = $client->request('GET', 'https://www.logammulia.com/id/harga-emas-hari-ini');
 
-        $amount = $validated['amount'];
-        $interest = $validated['interest'] ?? 0;
-        $nisab = 85 * 850000; // Example nisab threshold
-        $zakatAmount = 0;
+            $statusCode = $response->getStatusCode();
+            if ($statusCode !== 200) {
+                throw new \Exception('Failed to fetch data from logammulia.com');
+            }
 
-        if ($amount >= $nisab) {
-            $zakatAmount = ($amount + $interest) * 0.025;
+            $content = $response->getContent();
+            $hargaEmas = $this->parseHargaEmas($content);
+
+            if($hargaEmas === null){
+                throw new \Exception('Failed to parse harga emas');
+            }
+            return response()->json(['harga_emas' => $hargaEmas]);
+        } catch (\Exception $e) {
+            Log::error('Error fetching harga emas:' .$e->getMessage());
+            return response()->json(['error' => 'Failed to fetch data from logammulia.com' . $e->getMessage()], 500);
         }
-
-        return back()->with('zakatAmount', $zakatAmount);
     }
 
+    private function parseHargaEmas($html)
+    {
+        preg_match('/<td>1 gr<\/td>\s*<td style="text-align:right;">([\d,]+)<\/td>/', $html, $matches);
+        //preg_match('/<td style="text-align:right;">([\d,]+)<\/td>/', $html, $matches);
+
+
+        if (isset($matches[1])) {
+            $hargaEmasString = trim($matches[1]);
+            $parsedValue = str_replace(['Rp', '.', ','],'', $hargaEmasString);
+            $parsedValue = (float) $parsedValue;
+            return $parsedValue;
+        }
+
+        return null;
+    }
     /**
      * Show the form for creating a new resource.
      */

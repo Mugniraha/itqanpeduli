@@ -68,8 +68,7 @@ Route::resource('googleFont', googleFontController::class);
 
 Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
-
-
+Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
 
 //Front
