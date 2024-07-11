@@ -79,6 +79,9 @@ Route::get('/', function () {
 Route::get('/donasi-instan', function () {
     return view('front.konten.donasiInstan.donasiInstan');
 });
+Route::get('/intruksi-pembayaran', function () {
+    return view('front.konten.donasiInstan.intruksiPembayaran');
+});
 Route::get('/campaign-mendesak', function () {
     return view('front.konten.campaign.campaignMendesak');
 });
@@ -96,4 +99,10 @@ Route::get('/kabar-terbaru', function () {
 });
 Route::get('/detail-kabar', function () {
     return view('front.konten.laporan.detailKabar');
+});
+Route::get('/rincian-pembayaran', function () {
+    return view('front.konten.pembayaranZakat.rincianPembayaran');
+});
+Route::get('/panduan-pembayaran', function () {
+    return view('front.konten.pembayaranZakat.panduanPembayaran');
 });
