@@ -78,3 +78,21 @@ Route::get('/', function () {
 Route::get('/donasi-instan', function () {
     return view('front.konten.donasiInstan.donasiInstan');
 });
+Route::get('/campaign-mendesak', function () {
+    return view('front.konten.campaign.campaignMendesak');
+});
+Route::get('/campaign-rekomendasi', function () {
+    return view('front.konten.campaign.campaignRekomendasi');
+});
+Route::get('/campaign-populer', function () {
+    return view('front.konten.campaign.campaignPopuler');
+});
+Route::get('/laporan-terkini', function () {
+    return view('front.konten.laporan.laporanTerkini');
+});
+Route::get('/kabar-terbaru', function () {
+    return view('front.konten.laporan.kabarTerbaru');
+});
+Route::get('/detail-kabar', function () {
+    return view('front.konten.laporan.detailKabar');
+});
