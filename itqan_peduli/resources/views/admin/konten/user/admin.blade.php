@@ -3,11 +3,11 @@
     <div class="py-3 bg-green-700 rounded-xl">
         <div class=" p-5 flex justify-between">
             <div>
-                <p class="text-2xl text-white font-semibold mb-2">Transaksi Online</p>
-                <p class="text-sm text-gray-300 font-semibold">Pantau semua donasi melalui payment gateway dan transfer</p>
+                <p class="text-2xl text-white font-semibold mb-2">Kelola User</p>
+                <p class="text-sm text-gray-300 font-semibold">kelola data user aplikasi</p>
             </div>
             <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
-                <a class="text-green-700">Export</a>
+                <a href="{{  url('/inputTambahUser') }}" class="text-green-700">Tambah User</a>
             </div>
         </div>
     </div>
