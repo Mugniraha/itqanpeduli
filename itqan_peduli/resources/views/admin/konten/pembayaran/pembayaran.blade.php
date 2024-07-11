@@ -1,47 +1,20 @@
 @extends('admin.layout.main')
 @section('konten')
+<style>
+        .tooltip[data-show] {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
     <div class="p-4">
-
+        
         <div class="subheader text-white my-8">
-            <div class="welcome flex justify-between bg-green-700 me-30 w-full py-8 px-4 rounded-lg">
-                <div class="kiri my-auto">
-                    <p class="text-2xl font-semibold">Leaderboard Fundraiser</p>
-                    <p class="text-sm text-gray-300 mt-2 font-normal">pantau performa fundraiser untuk campaign yang dipublikasi</p>
-                </div>
-                <div class="kanan my-auto">
-                    <a type="button" href="#" class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-normal rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                        Export
-                    </a>
-                </div>
+            <div class="welcome bg-green-700 me-30 w-full py-5 px-4 rounded-lg">
+                <p class="text-gray-300 font-semibold">Total tagihan</p>
+                <p class="text-2xl mt-4 font-semibold">Rp. 210.100</p>
             </div>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-6 bg-white p-5">
-        <div class="atas flex justify-between mb-12">
-                <div class="kiri flex">
-                    <p>Show</p>
-                    <form class="max-w-sm ms-2">
-                    <select id="countries" class="bg-gray-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-16 p-1 dark:bg-gray-700 dark:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                    </form>
-                </div>
-                <div class="kanan">
-                    <form class="flex items-center max-w-sm mx-auto">
-                        <button type="submit" class="p-1.5 me-2 text-sm font-medium text-white bg-green-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                            </svg>
-                            <span class="sr-only">Search</span>
-                        </button>
-                        <div class="relative w-full">
-                            <input type="text" id="simple-search" class="h-8 bg-gray-50 border border-green-300 text-gray-900 text-sm rounded-lg focus:ring-green-800 focus:border-green-800 block w-full ps-2 p-1.5  dark:bg-gray-700 dark:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-800 dark:focus:border-green-800" required />
-                        </div>
-                    </form>
-                </div>
-            </div>
                 <table class="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-400">
                     <thead class="text-md text-gray-700">
                         <tr class="font-extrabold">
@@ -49,16 +22,16 @@
                                 #
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama
+                                Bulan
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Klik
+                                Nominal
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Transaksi
+                                Fee
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Terkumpul
+                                Status
                             </th>
                         </tr>
                     </thead>
@@ -194,34 +167,136 @@
                                 </a>
                             </td>
                         </tr>
+                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <td class="px-6 py-4">
+                                </td>
+                                <td class="px-6 py-4">
+                                    Total
+                                </td>
+                                <td class="px-6 py-4">
+                                </td>
+                                <td class="px-6 py-4">
+                                    $999
+                                </td>
+                                <td class="px-6 py-4">
+                                </td>
+                        </tr>
                     </tbody>
                 </table>
-                <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
-                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
-                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-                        </li>
-                        <li>
-                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+        </div>
+        <div class="bawah bg-white shadow-md my-10 p-5 rounded-lg">
+            <p class="text-2xl font-semibold">Cara Pembayaran</p>
+            <p class="mt-4 text-gray-400 text-sm">Bayar menggunakan transfer rekening ke bank BSI</p>
+            <p class="mt-4 text-gray-400 text-sm">No Rek :</p>
+            <div class="w-full max-w-[12rem] mt-4">
+                <div class="relative">
+                    <input id="rekening-copy-input" type="text" class="col-span-6 text-2xl bg-amber-100 border-none text-amber-600 rounded-lg block w-full px-3 py-1.5" value="7885555448" disabled readonly>
+                    <button id="rekening-copy-button" class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 rounded-lg px-3 inline-flex items-center justify-center">
+                        <span id="default-icon-1">
+                            <svg class="w-4 h-4 text-amber-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                                <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+                            </svg>
+                        </span>
+                        <span id="success-icon-1" class="hidden inline-flex items-center">
+                            <svg class="w-3.5 h-3.5 text-blue-700 dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="tooltip-rekening-copy-button" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        <span id="default-tooltip-message-1">Copy to clipboard</span>
+                        <span id="success-tooltip-message-1" class="hidden">Copied!</span>
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                </div>
             </div>
+            <p class="mt-4 text-gray-400 text-sm">Masukan Nominal Tagihan</p>
+            <div class="w-full max-w-[12rem] mt-4">
+                <div class="relative">
+                    <input id="nominal-copy-input" type="text" class="col-span-6 text-2xl bg-blue-600 border-none text-white rounded-lg block w-full px-3 py-1.5" value="Rp.210.100" disabled readonly>
+                    <button id="nominal-copy-button" class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 rounded-lg px-3 inline-flex items-center justify-center">
+                        <span id="default-icon-2">
+                            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                                <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+                            </svg>
+                        </span>
+                        <span id="success-icon-2" class="hidden inline-flex items-center">
+                            <svg class="w-3.5 h-3.5 text-white dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div id="tooltip-nominal-copy-button" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        <span id="default-tooltip-message-2">Copy to clipboard</span>
+                        <span id="success-tooltip-message-2" class="hidden">Copied!</span>
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Masukan nominal sama persis berserta 3 digit terakhir</p>
+            <p class="text-gray-400 text-sm">3 digit terkahir adalah sebagai kode unik untuk pengenal masing masing transaksi</p>
+            <p class="mt-10 text-gray-400 text-sm">Lampirkan Bukti Pembayaran</p>
+            <input class="block w-full my-2 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" type="file" multiple>
+            <button class="mt-10 text-green-700 px-5 py-2 rounded-md font-semibold text-sm bg-white shadow-md border border-gray-200 hover:bg-green-700 hover:text-white">Kirim Bukti Pembayaran</button>
+        </div>
     </div>
+
+    <script>
+        const handleCopy = (inputId, defaultIconId, successIconId, tooltipId, defaultMessageId, successMessageId) => {
+            const input = document.getElementById(inputId);
+            const defaultIcon = document.getElementById(defaultIconId);
+            const successIcon = document.getElementById(successIconId);
+            const tooltip = document.getElementById(tooltipId);
+            const defaultMessage = document.getElementById(defaultMessageId);
+            const successMessage = document.getElementById(successMessageId);
+            
+            navigator.clipboard.writeText(input.value).then(function() {
+                // Show success icon and tooltip
+                defaultIcon.classList.add('hidden');
+                successIcon.classList.remove('hidden');
+                tooltip.style.visibility = 'visible';
+                tooltip.style.opacity = '1';
+                defaultMessage.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+
+                // Reset after 2 seconds
+                setTimeout(function() {
+                    defaultIcon.classList.remove('hidden');
+                    successIcon.classList.add('hidden');
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                    defaultMessage.classList.remove('hidden');
+                    successMessage.classList.add('hidden');
+                }, 2000);
+            }, function() {
+                console.error('Failed to copy text.');
+            });
+        }
+
+        document.getElementById('rekening-copy-button').addEventListener('click', function() {
+            handleCopy('rekening-copy-input', 'default-icon-1', 'success-icon-1', 'tooltip-rekening-copy-button', 'default-tooltip-message-1', 'success-tooltip-message-1');
+        });
+
+        document.getElementById('nominal-copy-button').addEventListener('click', function() {
+            handleCopy('nominal-copy-input', 'default-icon-2', 'success-icon-2', 'tooltip-nominal-copy-button', 'default-tooltip-message-2', 'success-tooltip-message-2');
+        });
+
+        const handleTooltipVisibility = (buttonId, tooltipId) => {
+            const button = document.getElementById(buttonId);
+            const tooltip = document.getElementById(tooltipId);
+            
+            button.addEventListener('mouseenter', function() {
+                tooltip.style.visibility = 'visible';
+                tooltip.style.opacity = '1';
+            });
+
+            button.addEventListener('mouseleave', function() {
+                tooltip.style.visibility = 'hidden';
+                tooltip.style.opacity = '0';
+            });
+        }
+
+        handleTooltipVisibility('rekening-copy-button', 'tooltip-rekening-copy-button');
+        handleTooltipVisibility('nominal-copy-button', 'tooltip-nominal-copy-button');
+    </script>
 @endsection

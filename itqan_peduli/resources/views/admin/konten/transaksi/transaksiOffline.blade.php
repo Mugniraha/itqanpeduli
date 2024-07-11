@@ -3,12 +3,12 @@
     <div class="py-3 bg-green-700 rounded-xl">
         <div class=" p-5 flex justify-between">
             <div>
-                <p class="text-2xl text-white font-semibold mb-2">Transaksi Offline</p>
+                <p  class="text-2xl text-white font-semibold mb-2">Transaksi Offline</p>
                 <p class="text-sm text-gray-300 font-semibold">Pantau semua donasi yang diinput melalui admin</p>
             </div>
             <div class="flex gap-1">
                 <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
-                    <a class="text-green-700">Input Transaksi</a>
+                    <a href="{{url('/inputdonasiManual')}}" class="text-green-700">Input Transaksi</a>
                 </div>
                 <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
                     <a class="text-green-700">Export</a>

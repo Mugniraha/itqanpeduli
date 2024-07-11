@@ -20,6 +20,10 @@ Route::get('/publikasi-program', function () {
     return view('admin.konten.publikasi_program.kategori');
 });
 
+Route::get('publikasi-archive', function (){
+    return view('admin.konten.publikasi_program.archive');
+});
+
 Route::get('/pengaturan-kategori', function () {
     return view('admin.konten.pengaturanProgram.urutkanKategori');
 });
@@ -28,8 +32,15 @@ Route::get('/pengaturan-program', function () {
     return view('admin.konten.pengaturanProgram.urutkanProgram');
 });
 
+Route::get('/kategori', function () {
+    return view('admin.konten.pengaturanProgram.kategori');
+});
+
 Route::get('/data-bank', function () {
     return view('admin.konten.dataBank.dataBank');
+});
+Route::get('/inputTambahBank', function () {
+    return view('admin.konten.dataBank.inputTambahBank');
 });
 
 Route::resource('dashboard',dashboardController::class);
@@ -70,6 +81,65 @@ Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
+Route::get('/danaTerkummpul', function (){
+    return view('admin.konten.danaTerkumpul.index');
+});
+
+Route::get('/inputdonasiManual', function () {
+    return view('admin.konten.transaksi.inputTransaksiOffline');
+});
+
+Route::get('/penyaluran', function () {
+    return view('admin.konten.penyaluranDana.penyaluran');
+});
+
+Route::get('/lembaga', function () {
+    return view('admin.konten.penyaluranDana.lembaga');
+});
+
+Route::get('/mediaberbagi', function () {
+    return view('admin.konten.penyaluranDana.mediaberbagi');
+});
+
+Route::get('/berita', function () {
+    return view('admin.konten.penyaluranDana.berita');
+});
+
+Route::get('/fundraiser', function () {
+    return view('admin.konten.fundraiser.fundraiser');
+});
+
+Route::get('/leaderboard', function () {
+    return view('admin.konten.fundraiser.leaderboard');
+});
+
+Route::get('/tranfun', function () {
+    return view('admin.konten.fundraiser.transaksi');
+});
+
+Route::get('/slider', function () {
+    return view('admin.konten.webUtama.slider');
+});
+
+Route::get('/partner', function () {
+    return view('admin.konten.webUtama.partner');
+});
+
+Route::get('/katblog', function () {
+    return view('admin.konten.webUtama.katblog');
+});
+
+Route::get('/blog', function () {
+    return view('admin.konten.webUtama.blog');
+});
+
+Route::get('/kegiatan', function () {
+    return view('admin.konten.webUtama.kegiatan');
+});
+
+Route::get('/konten', function () {
+    return view('admin.konten.webUtama.konten');
+});
 
 //Front
 //front home
@@ -335,4 +405,53 @@ Route::get('/yayasan', function () {
 
 Route::get('/duta', function () {
     return view('user.program.dutaamal');
+});
+Route::get('/program-user', function () {
+    return view('front.konten.program-user.program');
+});
+Route::get('/artikel', function () {
+    return view('front.konten.artikel.artikel');
+});
+Route::get('/yayasan', function () {
+    return view('front.konten.yayasan.yayasan');
+});
+Route::get('/donatur-user', function () {
+    return view('front.konten.donatur.donatur');
+});
+
+
+Route::get('/inputTambahUser', function () {
+    return view('admin.konten.user.inputTambahUser');
+});
+
+Route::get('/email', function () {
+    return view('admin.konten.email.mail');
+});
+
+Route::get('/notifikasiEmail', function () {
+    return view('admin.konten.email.notif');
+});
+
+Route::get('/inputNotifikasi', function () {
+    return view('admin.konten.email.inputNotifikasi');
+});
+
+Route::get('/googleAnalytics', function () {
+    return view('admin.konten.analytics.googleAnalytics');
+});
+Route::get('/facebookPixel', function () {
+    return view('admin.konten.analytics.facebookPixel');
+});
+
+Route::get('/paymentGateaway', function () {
+    return view('admin.konten.payment.paymentGateaway');
+});
+Route::get('/paymentGateaway', function () {
+    return view('admin.konten.payment.paymentGateaway');
+});
+Route::get('/pengaturanSistem', function () {
+    return view('admin.konten.pengaturan.pengaturan');
+});
+Route::get('/pembayaran', function () {
+    return view('admin.konten.pembayaran.pembayaran');
 });
