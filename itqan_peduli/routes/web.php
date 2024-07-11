@@ -20,12 +20,20 @@ Route::get('/publikasi-program', function () {
     return view('admin.konten.publikasi_program.kategori');
 });
 
+Route::get('publikasi-archive', function (){
+    return view('admin.konten.publikasi_program.archive');
+});
+
 Route::get('/pengaturan-kategori', function () {
     return view('admin.konten.pengaturanProgram.urutkanKategori');
 });
 
 Route::get('/pengaturan-program', function () {
     return view('admin.konten.pengaturanProgram.urutkanProgram');
+});
+
+Route::get('/kategori', function () {
+    return view('admin.konten.pengaturanProgram.kategori');
 });
 
 Route::get('/data-bank', function () {
@@ -70,6 +78,65 @@ Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
+Route::get('/danaTerkummpul', function (){
+    return view('admin.konten.danaTerkumpul.index');
+});
+
+Route::get('/inputdonasiManual', function () {
+    return view('admin.konten.transaksi.inputTransaksiOffline');
+});
+
+Route::get('/penyaluran', function () {
+    return view('admin.konten.penyaluranDana.penyaluran');
+});
+
+Route::get('/lembaga', function () {
+    return view('admin.konten.penyaluranDana.lembaga');
+});
+
+Route::get('/mediaberbagi', function () {
+    return view('admin.konten.penyaluranDana.mediaberbagi');
+});
+
+Route::get('/berita', function () {
+    return view('admin.konten.penyaluranDana.berita');
+});
+
+Route::get('/fundraiser', function () {
+    return view('admin.konten.fundraiser.fundraiser');
+});
+
+Route::get('/leaderboard', function () {
+    return view('admin.konten.fundraiser.leaderboard');
+});
+
+Route::get('/tranfun', function () {
+    return view('admin.konten.fundraiser.transaksi');
+});
+
+Route::get('/slider', function () {
+    return view('admin.konten.webUtama.slider');
+});
+
+Route::get('/partner', function () {
+    return view('admin.konten.webUtama.partner');
+});
+
+Route::get('/katblog', function () {
+    return view('admin.konten.webUtama.katblog');
+});
+
+Route::get('/blog', function () {
+    return view('admin.konten.webUtama.blog');
+});
+
+Route::get('/kegiatan', function () {
+    return view('admin.konten.webUtama.kegiatan');
+});
+
+Route::get('/konten', function () {
+    return view('admin.konten.webUtama.konten');
+});
 
 //Front
 Route::get('/', function () {
