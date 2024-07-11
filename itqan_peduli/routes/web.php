@@ -232,9 +232,9 @@ Route::get('/ubah-profile', function () {
 
 
 
-Route::get('/', function () {
-    return view('admin.isi.dashboard');
-});
+// Route::get('/', function () {
+//     return view('admin.isi.dashboard');
+// });
 
 Route::get('/dana', function () {
     return view('admin.isi.dana');
@@ -384,15 +384,15 @@ Route::get('/home', function () {
 });
 
 // Route::get('/akun', function () {
-//     return view('user.akun.main');
+//     return view('front.konten.akun.main');
 // });
 
 Route::get('/dutaamal', function () {
-    return view('user.akun.dutaAmal');
+    return view('front.konten.akun.dutaAmal');
 });
 
 Route::get('/bg', function () {
-    return view('user.akun.background');
+    return view('front.konten.akun.background');
 });
 
 Route::get('login', function () {
@@ -416,19 +416,19 @@ Route::get('berhasil', function () {
 });
 
 Route::get('bantuan', function () {
-    return view('user.akun.bantuan');
+    return view('front.konten.akun.bantuan');
 });
 Route::get('aboutus', function () {
-    return view('user.akun.tentangKami');
+    return view('front.konten.akun.tentangKami');
 });
 Route::get('syaratketentuan', function () {
-    return view('user.akun.syaratketentuan');
+    return view('front.konten.akun.syaratketentuan');
 });
 Route::get('editprofil', function () {
-    return view('user.akun.editProfil');
+    return view('front.konten.akun.editProfil');
 });
 Route::get('pengaturan', function () {
-    return view('user.akun.pengaturan');
+    return view('front.konten.akun.pengaturan');
 });
 
 Route::get('/program', function () {

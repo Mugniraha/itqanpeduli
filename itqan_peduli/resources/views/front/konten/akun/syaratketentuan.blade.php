@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+@extends('front.layout.main3')
+
+@section('konten')
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +13,7 @@
     <title>term-condition</title>
 </head>
 
-<body class="bg-gray-200 max-w-[512px] mx-auto">
+<body class="bg-gray-200 max-w-[512px] mx-auto"> --}}
     <div class="p-4 bg-white">
 
         <div class="flex my-6">
@@ -993,7 +996,8 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
-
+{{--
 </body>
 
-</html>
+</html> --}}
+@endsection

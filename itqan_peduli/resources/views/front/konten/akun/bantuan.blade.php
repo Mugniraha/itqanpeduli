@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+@extends('front.layout.main3')
+
+@section('konten')
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,9 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
 
     <title>Duta Amal</title>
-</head>
+</head> --}}
 
-<body class="bg-gray-200 max-w-[512px] mx-auto">
+{{-- <body class="bg-gray-200 max-w-[512px] mx-auto"> --}}
     <div class="p-4 bg-white">
         {{-- <img src="/images/logomediaberbagi.png" class="w-48 h-auto" alt=""> --}}
 
@@ -103,7 +106,7 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+@endsection
+{{-- </body>
 
-</body>
-
-</html>
+</html> --}}

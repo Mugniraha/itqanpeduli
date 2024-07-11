@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+@extends('front.layout.main3')
+
+@section('konten')
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +13,7 @@
     <title>Duta Amal</title>
 </head>
 
-<body class="bg-gray-200 max-w-[512px] mx-auto">
+<body class="bg-gray-200 max-w-[512px] mx-auto"> --}}
     <div class="p-4 bg-white">
         <img src="/images/logomediaberbagi.png" class="w-48 h-auto" alt="">
 
@@ -91,7 +94,7 @@
                     <input type="password" id="password1" placeholder="masukan kata sandi anda."
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-    
+
                         <svg id="toggleVisibility" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
@@ -108,7 +111,7 @@
                     <input type="password" id="password2" placeholder="masukan kata sandi anda."
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-    
+
                         <svg id="toggleVisibility1" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
@@ -136,9 +139,9 @@
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
         });
-    </script> 
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+@endsection
+{{-- </body>
 
-</body>
-
-</html>
+</html> --}}

@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+@extends('front.layout.main3')
+
+@section('konten')
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +13,7 @@
     <title>About Us</title>
 </head>
 
-<body class="bg-gray-200 max-w-[512px] mx-auto">
+<body class="bg-gray-200 max-w-[512px] mx-auto"> --}}
     <div class="p-4 bg-white">
 
         <div class="flex my-6">
@@ -76,8 +79,8 @@
                     <br>
                     <p class="font-normal text-sm text-gray-700"><span class="text-green-700 font-bold">100+</span> bergabung menjadi sahabat penolong
                     </p>
-                    
-                    
+
+
                 </div>
             </div>
 
@@ -88,6 +91,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 
-</body>
+{{-- </body>
 
-</html>
+</html> --}}
+@end
