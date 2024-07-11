@@ -1,36 +1,16 @@
 @extends('front.layout.main')
 
 @section('konten')
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <title>Document</title>
-</head>
-
-<body class="mx-auto m-0 p-0  w-[512px] bg-black"> --}}
-    {{-- <div class="w-full min-h-screen bg-white overflow-hidden"> --}}
-        {{-- <div class="relative z-0">
-            <div class="absolute  inset-0 flex justify-center items-center">
-                <div class="w-[720px] h-[680px] bg-green-500 rounded-full z-0 -mx-[256px]"></div>
-            </div>
-        </div> --}}
 
         <div class="relative z-20 px-4 pt-4 pb-28">
             <p class="text-xl font-semibold text-white dark:text-black">Akun</p>
 
-            <div class="flex flex-col pt-3 pb-5 items-center gap-4">
-                <img class="w-21 h-21 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+            <div class="flex flex-col py-3 items-center gap-4">
+                <img class="w-24 h-24 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                     alt="">
-                <div class="font-medium text-center dark:text-black">
+                <div class= text-center dark:text-black">
                     <div class="text-xl font-semibold text-white dark:text-black">Ramadhani</div>
-                    <a href="{{  url('/ubah-profile') }}" class="flex justify-center text-sm text-white dark:text-black-400">Ubah Profil
+                    <a href="{{  url('/ubah-profile') }}" class="flex justify-center px-auto text-sm text-white dark:text-black-400">Ubah Profil
                         <svg class="w-4 h-4 my-auto text-white dark:text-black" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
@@ -42,10 +22,10 @@
             </div>
 
             <button type="button"
-                class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <img src="/images/donasi.png" class="w-14 h-14  me-2" alt="">
-                <p class="text-gray-600 text-xl font-semibold">Donasi Saya</p>
-                <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                <img src="/images/donasi.png" class="w-10 h-10  me-2" alt="">
+                <p class="text-gray-600 font-semibold">Donasi Saya</p>
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -53,8 +33,8 @@
                 </svg>
             </button>
             <button type="button"
-                class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <svg class="w-14 h-14  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 30" fill="none">
+                class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 30" fill="none">
                     <path
                         d="M30.4497 17.3708H6.86851L9.06229 14.5189C9.16794 14.3815 9.3314 14.301 9.50468 14.301H27.923C28.1012 14.301 28.2686 14.3861 28.3737 14.5299L30.4497 17.3708Z"
                         fill="#FBC71E" stroke="black" stroke-width="0.558137" />
@@ -82,8 +62,8 @@
                         fill="white" />
                     <path d="M15.3721 15.6982H21.7906" stroke="black" stroke-width="0.558137" stroke-linecap="round">
                 </svg>
-                <p class="text-gray-600 text-xl font-semibold">Zakat Saya</p>
-                <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                <p class="text-gray-600 font-semibold">Zakat Saya</p>
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -91,8 +71,8 @@
                 </svg>
             </button>
             <a href="{{ url('dutaamal') }}" type="button"
-                class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <svg class="w-14 h-14  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
+                class="px-3 py-3 w-full my-2 tex3-baseont-medium text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
                     <path
                         d="M20.3256 4.14854C19.0656 4.50854 16.1506 7.34852 14.8506 8.72351C15.3756 9.49851 17.2506 10.8085 20.5506 9.8485C24.6755 8.64851 22.9505 4.97354 22.5755 4.59854C22.2005 4.22354 21.9005 3.69854 20.3256 4.14854Z"
                         fill="#FBC71E" stroke="black" stroke-width="0.749995" />
@@ -138,8 +118,8 @@
                         d="M9.24045 12.6204C9.27565 12.6236 9.31565 12.6268 9.36045 12.63C9.40845 12.63 9.46445 12.63 9.52845 12.63C9.90285 12.63 10.1796 12.5356 10.3588 12.3468C10.5412 12.158 10.6324 11.8972 10.6324 11.5644C10.6324 11.2156 10.546 10.9516 10.3732 10.7724C10.2004 10.5932 9.92685 10.5036 9.55245 10.5036C9.50125 10.5036 9.44845 10.5052 9.39405 10.5084C9.33965 10.5084 9.28845 10.5116 9.24045 10.518V12.6204ZM11.4052 11.5644C11.4052 11.8524 11.3604 12.1036 11.2708 12.318C11.1812 12.5324 11.0532 12.71 10.8868 12.8508C10.7236 12.9916 10.5236 13.0972 10.2868 13.1676C10.05 13.238 9.78445 13.2732 9.49005 13.2732C9.35565 13.2732 9.19885 13.2668 9.01965 13.254C8.84045 13.2444 8.66445 13.222 8.49165 13.1868V9.9468C8.66445 9.9148 8.84365 9.894 9.02925 9.8844C9.21805 9.8716 9.37965 9.8652 9.51405 9.8652C9.79885 9.8652 10.0564 9.8972 10.2868 9.9612C10.5204 10.0252 10.7204 10.126 10.8868 10.2636C11.0532 10.4012 11.1812 10.5772 11.2708 10.7916C11.3604 11.006 11.4052 11.2636 11.4052 11.5644ZM13.3315 13.2972C13.0979 13.2972 12.8963 13.2652 12.7267 13.2012C12.5571 13.134 12.4163 13.0428 12.3043 12.9276C12.1955 12.8092 12.1139 12.67 12.0595 12.51C12.0083 12.3468 11.9827 12.1676 11.9827 11.9724V9.9036H12.7315V11.91C12.7315 12.0444 12.7459 12.1596 12.7747 12.2556C12.8067 12.3484 12.8483 12.4252 12.8995 12.486C12.9539 12.5436 13.0179 12.5852 13.0915 12.6108C13.1683 12.6364 13.2515 12.6492 13.3411 12.6492C13.5235 12.6492 13.6707 12.5932 13.7827 12.4812C13.8979 12.3692 13.9555 12.1788 13.9555 11.91V9.9036H14.7043V11.9724C14.7043 12.1676 14.6771 12.3468 14.6227 12.51C14.5683 12.6732 14.4851 12.814 14.3731 12.9324C14.2611 13.0476 14.1187 13.1372 13.9459 13.2012C13.7731 13.2652 13.5683 13.2972 13.3315 13.2972ZM17.8916 9.9036V10.542H16.8884V13.23H16.1396V10.542H15.1364V9.9036H17.8916ZM20.2063 13.23C20.1711 13.1148 20.1311 12.9964 20.0863 12.8748C20.0447 12.7532 20.0031 12.6316 19.9615 12.51H18.6655C18.6239 12.6316 18.5807 12.7532 18.5359 12.8748C18.4943 12.9964 18.4559 13.1148 18.4207 13.23H17.6431C17.7679 12.8716 17.8863 12.5404 17.9983 12.2364C18.1103 11.9324 18.2191 11.646 18.3247 11.3772C18.4335 11.1084 18.5391 10.854 18.6415 10.614C18.7471 10.3708 18.8559 10.134 18.9679 9.9036H19.6831C19.7919 10.134 19.8991 10.3708 20.0047 10.614C20.1103 10.854 20.2159 11.1084 20.3215 11.3772C20.4303 11.646 20.5407 11.9324 20.6527 12.2364C20.7647 12.5404 20.8831 12.8716 21.0079 13.23H20.2063ZM19.3087 10.6572C19.2927 10.7052 19.2687 10.7708 19.2367 10.854C19.2047 10.9372 19.1679 11.0332 19.1263 11.142C19.0847 11.2508 19.0383 11.3708 18.9871 11.502C18.9391 11.6332 18.8895 11.7708 18.8383 11.9148H19.7839C19.7327 11.7708 19.6831 11.6332 19.6351 11.502C19.5871 11.3708 19.5407 11.2508 19.4959 11.142C19.4543 11.0332 19.4175 10.9372 19.3855 10.854C19.3535 10.7708 19.3279 10.7052 19.3087 10.6572ZM10.2267 19.23C10.1915 19.1148 10.1515 18.9964 10.1067 18.8748C10.0651 18.7532 10.0235 18.6316 9.98186 18.51H8.68587C8.64427 18.6316 8.60107 18.7532 8.55627 18.8748C8.51467 18.9964 8.47627 19.1148 8.44107 19.23H7.66347C7.78827 18.8716 7.90667 18.5404 8.01867 18.2364C8.13067 17.9324 8.23947 17.646 8.34507 17.3772C8.45387 17.1084 8.55947 16.854 8.66187 16.614C8.76747 16.3708 8.87626 16.134 8.98826 15.9036H9.70346C9.81226 16.134 9.91946 16.3708 10.0251 16.614C10.1307 16.854 10.2363 17.1084 10.3419 17.3772C10.4507 17.646 10.5611 17.9324 10.6731 18.2364C10.7851 18.5404 10.9035 18.8716 11.0283 19.23H10.2267ZM9.32906 16.6572C9.31306 16.7052 9.28906 16.7708 9.25706 16.854C9.22506 16.9372 9.18826 17.0332 9.14666 17.142C9.10506 17.2508 9.05866 17.3708 9.00746 17.502C8.95946 17.6332 8.90986 17.7708 8.85866 17.9148H9.80426C9.75306 17.7708 9.70346 17.6332 9.65546 17.502C9.60746 17.3708 9.56106 17.2508 9.51626 17.142C9.47466 17.0332 9.43786 16.9372 9.40586 16.854C9.37386 16.7708 9.34826 16.7052 9.32906 16.6572ZM12.342 15.9036C12.3996 16.0092 12.4652 16.1404 12.5388 16.2972C12.6156 16.4508 12.694 16.6188 12.774 16.8012C12.8572 16.9804 12.9388 17.1644 13.0188 17.3532C13.0988 17.542 13.174 17.7196 13.2444 17.886C13.3148 17.7196 13.39 17.542 13.47 17.3532C13.55 17.1644 13.63 16.9804 13.71 16.8012C13.7932 16.6188 13.8716 16.4508 13.9452 16.2972C14.022 16.1404 14.0892 16.0092 14.1468 15.9036H14.8284C14.8604 16.1244 14.8892 16.3724 14.9148 16.6476C14.9436 16.9196 14.9676 17.2044 14.9868 17.502C15.0092 17.7964 15.0284 18.0924 15.0444 18.39C15.0636 18.6876 15.0796 18.9676 15.0924 19.23H14.3628C14.3532 18.9068 14.3404 18.5548 14.3244 18.174C14.3084 17.7932 14.2844 17.4092 14.2524 17.022C14.1948 17.1564 14.1308 17.3052 14.0604 17.4684C13.99 17.6316 13.9196 17.7948 13.8492 17.958C13.782 18.1212 13.7164 18.278 13.6524 18.4284C13.5884 18.5756 13.534 18.702 13.4892 18.8076H12.966C12.9212 18.702 12.8668 18.5756 12.8028 18.4284C12.7388 18.278 12.6716 18.1212 12.6012 17.958C12.534 17.7948 12.4652 17.6316 12.3948 17.4684C12.3244 17.3052 12.2604 17.1564 12.2028 17.022C12.1708 17.4092 12.1468 17.7932 12.1308 18.174C12.1148 18.5548 12.102 18.9068 12.0924 19.23H11.3628C11.3756 18.9676 11.39 18.6876 11.406 18.39C11.4252 18.0924 11.4444 17.7964 11.4636 17.502C11.486 17.2044 11.51 16.9196 11.5356 16.6476C11.5644 16.3724 11.5948 16.1244 11.6268 15.9036H12.342ZM17.9938 19.23C17.9586 19.1148 17.9186 18.9964 17.8738 18.8748C17.8322 18.7532 17.7906 18.6316 17.749 18.51H16.453C16.4114 18.6316 16.3682 18.7532 16.3234 18.8748C16.2818 18.9964 16.2434 19.1148 16.2082 19.23H15.4306C15.5554 18.8716 15.6738 18.5404 15.7858 18.2364C15.8978 17.9324 16.0066 17.646 16.1122 17.3772C16.221 17.1084 16.3266 16.854 16.429 16.614C16.5346 16.3708 16.6434 16.134 16.7554 15.9036H17.4706C17.5794 16.134 17.6866 16.3708 17.7922 16.614C17.8978 16.854 18.0034 17.1084 18.109 17.3772C18.2178 17.646 18.3282 17.9324 18.4402 18.2364C18.5522 18.5404 18.6706 18.8716 18.7954 19.23H17.9938ZM17.0962 16.6572C17.0802 16.7052 17.0562 16.7708 17.0242 16.854C16.9922 16.9372 16.9554 17.0332 16.9138 17.142C16.8722 17.2508 16.8258 17.3708 16.7746 17.502C16.7266 17.6332 16.677 17.7708 16.6258 17.9148H17.5714C17.5202 17.7708 17.4706 17.6332 17.4226 17.502C17.3746 17.3708 17.3282 17.2508 17.2834 17.142C17.2418 17.0332 17.205 16.9372 17.173 16.854C17.141 16.7708 17.1154 16.7052 17.0962 16.6572ZM21.4484 18.5868V19.23H19.226V15.9036H19.9748V18.5868H21.4484Z"
                         fill="#F3F8F5" />
                 </svg>
-                <p class="text-gray-600 text-xl font-semibold">Jadi Duta Amal</p>
-                <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                <p class="text-gray-600 font-semibold">Jadi Duta Amal</p>
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -150,9 +130,9 @@
 
 
             <a href="{{ url('/pengaturan') }}" type="button"
-                class="px-6 py-3.5 mt-6  w-full  text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <p class="text-gray-600 text-xl font-semibold">Pengaturan</p>
-                <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                class="px-3 py-3 mt-6  w-full  text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                <p class="text-gray-600 font-semibold text-sm">Pengaturan</p>
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -160,9 +140,9 @@
                 </svg>
             </a>
             <a href="{{  url('/bantuan') }}" type="button"
-                class="px-6 py-3.5  w-full mt-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <p class="text-gray-600 text-xl font-semibold">Bantuan</p>
-                <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                <p class="text-gray-600 font-semibold text-sm">Bantuan</p>
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -170,9 +150,9 @@
                 </svg>
             </a>
             <a href="{{ url('/syaratketentuan') }}" type="button"
-                class="px-6 py-3.5  w-full mt-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <p class="text-gray-600 text-xl font-semibold">Syarat & Ketentuan</p>
-                <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                <p class="text-gray-600 font-semibold text-sm">Syarat & Ketentuan</p>
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -180,18 +160,18 @@
                 </svg>
             </a>
             <a href="{{ url('/aboutus') }}" type="button"
-                class="px-6 py-3.5 flex w-full mt-2 text-base font-medium text-white items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                class="px-3 py-3 flex w-full mt-2 text-white items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                 <div class="kiri">
-                    <p class="text-left text-gray-600 text-xl font-semibold">Tentang Kami</p>
-                    <svg width="125" height="35" viewBox="0 0 125 35" fill="none"
+                    <p class="text-left text-gray-600 font-semibold text-sm mb-2">Tentang Kami</p>
+                    <svg width="100" height="35" viewBox="0 0 125 35" fill="none"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="125" height="35" fill="url(#pattern0_1381_1548)" />
                         <mask id="mask0_1381_1548" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                             width="125" height="35">
-                            <rect width="125" height="35" fill="url(#pattern1_1381_1548)" />
+                            <rect width="100" height="35" fill="url(#pattern1_1381_1548)" />
                         </mask>
                         <g mask="url(#mask0_1381_1548)">
-                            <rect x="40" y="-13" width="164" height="78" fill="white" />
+                            <rect x="40" y="-13" width="164" height="78" fill="green-700" />
                         </g>
                         <defs>
                             <pattern id="pattern0_1381_1548" patternContentUnits="objectBoundingBox" width="1"
@@ -208,7 +188,7 @@
                     </svg>
                 </div>
                 <div class="kanan my-auto ms-auto">
-                    <svg class="w-8 h-8 end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                    <svg class="w-6 h-6 end-0 text-gray-600 dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                         viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -222,8 +202,8 @@
 
 
             <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                class="px-6 py-3.5 w-full mt-8 text-base font-medium text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                <p class="text-white text-xl font-semibold">Keluar</p>
+                class="px-6 py-3.5 w-full mt-8 text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                <p class="text-white font-semibold">Keluar</p>
                 <svg class="w-8 h-8 ms-auto  text-white-800 dark:text-black" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
@@ -256,10 +236,10 @@
                             <h3 class="mb-5 mt-2 text-sm font-normal text-gray-500 text-start dark:text-gray-400">Apakah anda yakin keluar akun dari aplikasi ini ?</h3>
                             <div class="text-center">
                                 <button data-modal-hide="popup-modal" type="button"
-                                class="py-2.5 px-5 ms-3 text-sm font-medium text-green-700 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-900 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Ga, Keluar
+                                class="py-2.5 px-5 ms-3 text-sm text-green-700 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-900 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Ga, Keluar
                             </button>
                             <a href="{{  url('/login') }}" data-modal-hide="popup-modal" type="button"
-                                class="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                class="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-green-800 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                                 Ya, Keluar
                             </a>
                             </div>
