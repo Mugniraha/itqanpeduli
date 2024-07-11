@@ -39,6 +39,9 @@ Route::get('/kategori', function () {
 Route::get('/data-bank', function () {
     return view('admin.konten.dataBank.dataBank');
 });
+Route::get('/inputTambahBank', function () {
+    return view('admin.konten.dataBank.inputTambahBank');
+});
 
 Route::resource('dashboard',dashboardController::class);
 Route::resource('transaksi',transaksiController::class);
@@ -171,4 +174,41 @@ Route::get('/rincian-pembayaran', function () {
 });
 Route::get('/panduan-pembayaran', function () {
     return view('front.konten.pembayaranZakat.panduanPembayaran');
+});
+
+
+Route::get('/inputTambahUser', function () {
+    return view('admin.konten.user.inputTambahUser');
+});
+
+Route::get('/email', function () {
+    return view('admin.konten.email.mail');
+});
+
+Route::get('/notifikasiEmail', function () {
+    return view('admin.konten.email.notif');
+});
+
+Route::get('/inputNotifikasi', function () {
+    return view('admin.konten.email.inputNotifikasi');
+});
+
+Route::get('/googleAnalytics', function () {
+    return view('admin.konten.analytics.googleAnalytics');
+});
+Route::get('/facebookPixel', function () {
+    return view('admin.konten.analytics.facebookPixel');
+});
+
+Route::get('/paymentGateaway', function () {
+    return view('admin.konten.payment.paymentGateaway');
+});
+Route::get('/paymentGateaway', function () {
+    return view('admin.konten.payment.paymentGateaway');
+});
+Route::get('/pengaturanSistem', function () {
+    return view('admin.konten.pengaturan.pengaturan');
+});
+Route::get('/pembayaran', function () {
+    return view('admin.konten.pembayaran.pembayaran');
 });
