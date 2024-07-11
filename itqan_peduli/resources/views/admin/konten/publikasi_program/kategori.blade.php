@@ -2,6 +2,20 @@
 
 @section('konten')
 
+<div class="py-3 bg-green-700 rounded-xl mb-10">
+    <div class=" p-5 flex justify-between">
+        <div>
+            <p  class="text-2xl text-white font-semibold mb-2">Sebarkan kebaikan</p>
+            <p class="text-sm text-gray-300 font-semibold">Sebarkan kebaikan dengan buat lebih banyak campaign</p>
+        </div>
+        <div class="flex gap-1">
+            <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
+                <a href="{{url('#')}}" class="text-green-700">Buat Campaign</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="grid md:grid-cols-3 sm:grid-cols-1 w-full gap-6">
     {{-- @for ($i = 0; $i == 3; $i++) --}}
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

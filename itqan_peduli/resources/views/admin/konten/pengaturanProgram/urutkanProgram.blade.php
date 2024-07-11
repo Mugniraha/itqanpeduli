@@ -2,6 +2,20 @@
 
 @section('konten')
 
+<div class="py-3 bg-green-700 rounded-xl mb-10">
+    <div class=" p-5 flex justify-between">
+        <div>
+            <p  class="text-2xl text-white font-semibold mb-2">Urutkan Projek</p>
+            <p class="text-sm text-gray-300 font-semibold">custom urutan projek untuk ditampilkan</p>
+        </div>
+        <div class="flex gap-1">
+            <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
+                <a href="{{url('#')}}" class="text-green-700">Buat Campaign</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <div class="">
         <p class="text-orange-500 mb-3">

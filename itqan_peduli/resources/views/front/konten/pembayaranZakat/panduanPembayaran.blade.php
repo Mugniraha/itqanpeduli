@@ -41,7 +41,7 @@
     <div class="grid items-center w-full bg-green-100 rounded-xl p-6">
         <div class="text-center grid gap-3">
             <div>
-                <p class="text-gray-600 text-sm">Pembayaran dilakukan ke</p>
+                <p class="text-gray-600 text-sm">Pembayaran dilakukan ke rekening a/n</p>
                 <span class="font-semibold">Kampung Amal Maghfirah</span>
             </div>
             <div>
