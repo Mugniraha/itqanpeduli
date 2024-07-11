@@ -20,8 +20,20 @@ Route::get('/publikasi-program', function () {
     return view('admin.konten.publikasi_program.kategori');
 });
 
-Route::get('publikasi-archive', function (){
+Route::get('publikasi-archive', function () {
     return view('admin.konten.publikasi_program.archive');
+});
+Route::get('/inputpengalangandana', function () {
+    return view('admin.konten.publikasi_program.pengalanganDana');
+});
+Route::get('/inputprogramqurban', function () {
+    return view('admin.konten.publikasi_program.programQurban');
+});
+Route::get('/inputprogramwakaf', function () {
+    return view('admin.konten.publikasi_program.programWakaf');
+});
+Route::get('/inputprogramzakat', function () {
+    return view('admin.konten.publikasi_program.programZakat');
 });
 
 Route::get('/pengaturan-kategori', function () {
@@ -42,34 +54,37 @@ Route::get('/data-bank', function () {
 Route::get('/inputTambahBank', function () {
     return view('admin.konten.dataBank.inputTambahBank');
 });
+Route::get('/inputKelolaKategori', function () {
+    return view('admin.konten.pengaturanProgram.inputKategori');
+});
 
-Route::resource('dashboard',dashboardController::class);
-Route::resource('transaksi',transaksiController::class);
-Route::get('transaksiOnline',[transaksiController::class, 'showTransaksiOnline'])->name('transaksiOnline');
-Route::get('transaksiOnlineManual',[transaksiController::class, 'showTransaksiOnlineManual'])->name('transaksiOnlineManual');
-Route::get('transaksiOffline',[transaksiController::class, 'showTransaksiOffline'])->name('transaksiOffline');
+Route::resource('dashboard', dashboardController::class);
+Route::resource('transaksi', transaksiController::class);
+Route::get('transaksiOnline', [transaksiController::class, 'showTransaksiOnline'])->name('transaksiOnline');
+Route::get('transaksiOnlineManual', [transaksiController::class, 'showTransaksiOnlineManual'])->name('transaksiOnlineManual');
+Route::get('transaksiOffline', [transaksiController::class, 'showTransaksiOffline'])->name('transaksiOffline');
 
 Route::resource('semuaDonatur', danaDonaturController::class);
-Route::get('donaturSukses',[danaDonaturController::class, 'showDonaturSukses'])->name('donaturSukses');
-Route::get('donaturGagal',[danaDonaturController::class, 'showDonaturGagal'])->name('donaturGagal');
+Route::get('donaturSukses', [danaDonaturController::class, 'showDonaturSukses'])->name('donaturSukses');
+Route::get('donaturGagal', [danaDonaturController::class, 'showDonaturGagal'])->name('donaturGagal');
 
-Route::resource('fundraiser',fundraiserController::class);
-Route::get('leaderboard',[fundraiserController::class, 'showLeaderboard'])->name('leaderboard');
-Route::get('fundraiserTransaksi',[fundraiserController::class, 'showTransaksi'])->name('fundraiserTransaksi');
+Route::resource('fundraiser', fundraiserController::class);
+Route::get('leaderboard', [fundraiserController::class, 'showLeaderboard'])->name('leaderboard');
+Route::get('fundraiserTransaksi', [fundraiserController::class, 'showTransaksi'])->name('fundraiserTransaksi');
 
-Route::get('admin',[pengaturan_userController::class, 'showAdmin'])->name('admin');
-Route::get('akunting',[pengaturan_userController::class, 'showAkunting'])->name('akunting');
-Route::get('donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
-Route::get('fundraiser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
-Route::get('gerai',[pengaturan_userController::class, 'showGerai'])->name('gerai');
-Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('program');
+Route::get('admin', [pengaturan_userController::class, 'showAdmin'])->name('admin');
+Route::get('akunting', [pengaturan_userController::class, 'showAkunting'])->name('akunting');
+Route::get('donatur', [pengaturan_userController::class, 'showDonatur'])->name('donatur');
+Route::get('fundraiser', [pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
+Route::get('gerai', [pengaturan_userController::class, 'showGerai'])->name('gerai');
+Route::get('program', [pengaturan_userController::class, 'showProgram'])->name('program');
 
 Route::resource('template', notifikasiWAController::class);
-Route::get('connect',[notifikasiWAController::class, 'showConnectWa'])->name('connect');
+Route::get('connect', [notifikasiWAController::class, 'showConnectWa'])->name('connect');
 
-Route::resource('mediaBerbagi',mediaBerbagiController::class);
+Route::resource('mediaBerbagi', mediaBerbagiController::class);
 
-Route::resource('penggunaanData',penggunaanDataController::class);
+Route::resource('penggunaanData', penggunaanDataController::class);
 
 Route::resource('googleFont', googleFontController::class);
 
@@ -81,7 +96,7 @@ Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
-Route::get('/danaTerkummpul', function (){
+Route::get('/danaTerkummpul', function () {
     return view('admin.konten.danaTerkumpul.index');
 });
 
@@ -92,17 +107,31 @@ Route::get('/inputdonasiManual', function () {
 Route::get('/penyaluran', function () {
     return view('admin.konten.penyaluranDana.penyaluran');
 });
+Route::get('/inputPenyaluran', function () {
+    return view('admin.konten.penyaluranDana.inputPenyaluran');
+});
+
+
 
 Route::get('/lembaga', function () {
     return view('admin.konten.penyaluranDana.lembaga');
+});
+Route::get('/inputlembaga', function () {
+    return view('admin.konten.penyaluranDana.inputLembaga');
 });
 
 Route::get('/mediaberbagi', function () {
     return view('admin.konten.penyaluranDana.mediaberbagi');
 });
+Route::get('/inputmediaberbagi', function () {
+    return view('admin.konten.penyaluranDana.inputmediaberbagi');
+});
 
 Route::get('/berita', function () {
     return view('admin.konten.penyaluranDana.berita');
+});
+Route::get('/inputberita', function () {
+    return view('admin.konten.penyaluranDana.inputberita');
 });
 
 Route::get('/fundraiser', function () {
@@ -120,21 +149,36 @@ Route::get('/tranfun', function () {
 Route::get('/slider', function () {
     return view('admin.konten.webUtama.slider');
 });
+Route::get('/inputslider', function () {
+    return view('admin.konten.webUtama.inputslider');
+});
 
 Route::get('/partner', function () {
     return view('admin.konten.webUtama.partner');
+});
+Route::get('/inputpartner', function () {
+    return view('admin.konten.webUtama.inputpartner');
 });
 
 Route::get('/katblog', function () {
     return view('admin.konten.webUtama.katblog');
 });
+Route::get('/inputkatblog', function () {
+    return view('admin.konten.webUtama.inputkatblog');
+});
 
 Route::get('/blog', function () {
     return view('admin.konten.webUtama.blog');
 });
+Route::get('/inputblog', function () {
+    return view('admin.konten.webUtama.inputblog');
+});
 
 Route::get('/kegiatan', function () {
     return view('admin.konten.webUtama.kegiatan');
+});
+Route::get('/inputkegiatan', function () {
+    return view('admin.konten.webUtama.inputkegiatan');
 });
 
 Route::get('/konten', function () {
