@@ -4,13 +4,13 @@
 
 <div class="relative z-20">
     <div id="navBar" class="z-50 fixed bg-white w-[512px] h-auto flex content-center p-2.5 py-4 pl-6 shadow-lg">
-        <div class="flex items-center rounded-full bg-green-200 p-2">
+        <a href="/artikel" class="flex items-center rounded-full bg-green-200 p-2">
             <svg class="w-7 h-7 text-green-700 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
             </svg>
-        </div>
+        </a>
         <div class="flex items-center ml-7">
-            <p class="font-semibold">Detail Kabar</p>
+            <p class="font-semibold">Deskripsi</p>
         </div>
     </div>
 </div>
