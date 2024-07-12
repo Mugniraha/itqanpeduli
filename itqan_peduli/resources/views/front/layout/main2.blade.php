@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <title>Document</title>
 </head>
-<body class="mx-auto m-0 p-0 w-[512px] bg-black">
+<body class="mx-auto m-0 p-0 w-[512px] bg-black ">
     <div class="w-full min-h-screen bg-white overflow-hidden">
         <div class="relative">
             <div class="absolute inset-0 flex justify-center items-center">
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="main ">
+        <div class="main">
             @yield('konten')
         </div>
 
