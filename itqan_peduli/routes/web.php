@@ -60,7 +60,7 @@ Route::get('fundraiserTransaksi',[fundraiserController::class, 'showTransaksi'])
 Route::get('admin',[pengaturan_userController::class, 'showAdmin'])->name('admin');
 Route::get('akunting',[pengaturan_userController::class, 'showAkunting'])->name('akunting');
 Route::get('donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
-Route::get('fundraiser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
+Route::get('fundraiserUser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
 Route::get('gerai',[pengaturan_userController::class, 'showGerai'])->name('gerai');
 Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('program');
 
