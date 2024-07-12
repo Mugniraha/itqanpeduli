@@ -225,6 +225,9 @@ Route::get('/panduan-pembayaran', function () {
 Route::get('/akun', function () {
     return view('front.konten.akun.main');
 });
+Route::get('/akun-fundraiser', function () {
+    return view('front.konten.akun.akunfundraiser');
+});
 Route::get('/ubah-profile', function () {
     return view('front.konten.akun.editProfil');
 });
