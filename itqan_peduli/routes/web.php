@@ -397,23 +397,26 @@ Route::get('/bg', function () {
 });
 
 Route::get('login', function () {
-    return view('user.login.index');
+    return view('front.konten.login.index');
 });
 
 Route::get('registrasi', function () {
-    return view('user.login.registrasi');
+    return view('front.konten.login.registrasi');
 });
 Route::get('lupapassword', function () {
-    return view('user.login.lupapassword');
+    return view('front.konten.login.lupapassword');
 });
 Route::get('verifikasi', function () {
-    return view('user.login.verifikasi');
+    return view('front.konten.login.verifikasi');
 });
 Route::get('reset', function () {
-    return view('user.login.resetpassword');
+    return view('front.konten.login.resetpassword');
 });
 Route::get('berhasil', function () {
-    return view('user.login.berhasil');
+    return view('front.konten.login.berhasil');
+});
+Route::get('ubah-katasandi', function () {
+    return view('front.konten.login.gantiPassword');
 });
 
 Route::get('bantuan', function () {
