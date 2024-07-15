@@ -396,23 +396,23 @@ Route::get('/bg', function () {
 });
 
 Route::get('login', function () {
-    return view('user.login.index');
+    return view('front.konten.login.index');
 });
 
 Route::get('registrasi', function () {
-    return view('user.login.registrasi');
+    return view('front.konten.login.registrasi');
 });
 Route::get('lupapassword', function () {
-    return view('user.login.lupapassword');
+    return view('front.konten.login.lupapassword');
 });
 Route::get('verifikasi', function () {
-    return view('user.login.verifikasi');
+    return view('front.konten.login.verifikasi');
 });
 Route::get('reset', function () {
-    return view('user.login.resetpassword');
+    return view('front.konten.login.resetpassword');
 });
 Route::get('berhasil', function () {
-    return view('user.login.berhasil');
+    return view('front.konten.login.berhasil');
 });
 
 Route::get('bantuan', function () {
@@ -432,23 +432,23 @@ Route::get('pengaturan', function () {
 });
 
 Route::get('/program', function () {
-    return view('user.program.program');
+    return view('front.konten.program.program');
 });
 
 Route::get('/artikel', function () {
-    return view('user.program.artikel');
+    return view('front.konten.program.artikel');
 });
 
 Route::get('/donatur', function () {
-    return view('user.program.donatur');
+    return view('front.konten.program.donatur');
 });
 
 Route::get('/yayasan', function () {
-    return view('user.program.yayasan');
+    return view('front.konten.program.yayasan');
 });
 
 Route::get('/duta', function () {
-    return view('user.program.dutaamal');
+    return view('front.konten.program.dutaamal');
 });
 Route::get('/program-user', function () {
     return view('front.konten.program-user.program');
