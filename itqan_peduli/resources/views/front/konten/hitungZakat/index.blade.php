@@ -338,7 +338,7 @@
 </div>
 
 {{-- Kalkulator Tabungan --}}
-<div id="tabungan" class="hidden">
+<div id="tabungan" class="hidden h-dvh">
     <div class="mx-5">
         <div class="w-full mt-14">
             <div class="relative mt-6">
@@ -441,7 +441,7 @@
 
 
 {{-- Kalkulator Perdagangan --}}
-<div id="perdagangan" class="hidden">
+<div id="perdagangan" class="hidden h-dvh">
     <div class="mx-5">
         <div class="w-full mt-14">
             <div class="relative mt-6">
@@ -539,7 +539,7 @@
         </div>
     </div>
 
-    <div class="mb-32 flex mx-5 gap-2">
+    <div class=" flex mx-5 gap-2">
         <div class="bg-white border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
             <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
         </div>
@@ -637,7 +637,7 @@
 
 
 {{-- Kalkulator Emas --}}
-<div id="emas" class="hidden">
+<div id="emas" class="hidden h-dvh">
     <div class="mx-5">
         <div class="w-full mt-14">
             <div class="relative mt-6">
@@ -673,7 +673,7 @@
         </div>
     </div>
 
-    <div class="flex mb-96 mx-5 gap-2">
+    <div class="flex mx-5 gap-2">
         <div class="bg-white border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
             <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
         </div>
@@ -681,7 +681,7 @@
             <p class="text-white text-center font-bold">Lanjutkan</p>
         </div>
     </div>
-    <div class="mb-96"></div>
+    <div class=""></div>
 
     <div id="jumlahEmas-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">

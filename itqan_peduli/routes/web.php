@@ -72,12 +72,13 @@ Route::resource('fundraiser', fundraiserController::class);
 Route::get('leaderboard', [fundraiserController::class, 'showLeaderboard'])->name('leaderboard');
 Route::get('fundraiserTransaksi', [fundraiserController::class, 'showTransaksi'])->name('fundraiserTransaksi');
 
-Route::get('admin', [pengaturan_userController::class, 'showAdmin'])->name('admin');
-Route::get('akunting', [pengaturan_userController::class, 'showAkunting'])->name('akunting');
-Route::get('donatur', [pengaturan_userController::class, 'showDonatur'])->name('donatur');
-Route::get('fundraiser', [pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
-Route::get('gerai', [pengaturan_userController::class, 'showGerai'])->name('gerai');
-Route::get('program', [pengaturan_userController::class, 'showProgram'])->name('program');
+Route::get('admin',[pengaturan_userController::class, 'showAdmin'])->name('admin');
+Route::get('akunting',[pengaturan_userController::class, 'showAkunting'])->name('akunting');
+Route::get('donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
+Route::get('fundraiserUser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
+Route::get('gerai',[pengaturan_userController::class, 'showGerai'])->name('gerai');
+Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('program');
+
 
 Route::resource('template', notifikasiWAController::class);
 Route::get('connect', [notifikasiWAController::class, 'showConnectWa'])->name('connect');
@@ -224,6 +225,12 @@ Route::get('/panduan-pembayaran', function () {
 //front akun
 Route::get('/akun', function () {
     return view('front.konten.akun.main');
+});
+Route::get('/akun-fundraiser', function () {
+    return view('front.konten.akun.akunfundraiser');
+});
+Route::get('/komisi', function () {
+    return view('front.konten.akun.komisi');
 });
 Route::get('/ubah-profile', function () {
     return view('front.konten.akun.editProfil');
@@ -413,6 +420,9 @@ Route::get('reset', function () {
 });
 Route::get('berhasil', function () {
     return view('front.konten.login.berhasil');
+});
+Route::get('ubah-katasandi', function () {
+    return view('front.konten.login.gantiPassword');
 });
 
 Route::get('bantuan', function () {
