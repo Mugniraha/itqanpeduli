@@ -4,8 +4,8 @@
     <div class="p-4 bg-white">
 
         <div class="flex my-6">
-            <a href="{{ url('/akun') }}" type="button"
-                class="text-white  ms-0 bg-white shadow-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-gray-200 dark:hover:bg-gray-300 dark:focus:ring-gray-400">
+            <a href="{{ url('/akun-fundraiser') }}" type="button"
+                class="text-white  ms-0 bg-white shadow-md hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-gray-200 dark:hover:bg-gray-300 dark:focus:ring-gray-400">
                 <svg class="w-4 h-4  text-green-700  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -15,21 +15,19 @@
             <p class="text-center mx-6 mt-1.5 font-semibold text-xl">Profil</p>
         </div>
         <div class=" isi mt-10">
-            <div class="flex flex-col pt-3 pb-5 items-center gap-4">
-                <img class="w-21 h-21 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    alt="">
+            <div class="flex flex-col pt-3 items-center gap-4">
+                <img class="w-21 h-21 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="">
                 <div class="font-medium text-center dark:text-black">
                     <div class="text-xl font-semibold text-black dark:text-black">Ramadhani</div>
                 </div>
             </div>
-            <form action="" class="mt-8">
-                <div class="relative mt-6">
-                    <label class="block mb-2 px-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload
-                        foto</label>
-                    <input
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        id="file_input" type="file">
-                </div>
+            <a id="upload-link" href="#" class="flex justify-center px-auto mt-2 text-sm text-black dark:text-white">Ubah Profil
+                <svg class="w-3.5 h-3.5 my-auto text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                </svg>
+            </a>
+            <input type="file" id="upload-input" class="hidden" accept="image/*">
+            <form action="" class="mt-20">
                 <div class="relative mt-6">
                     <label for="jenis_duta"
                         class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Jenis Duta</label>
@@ -84,7 +82,7 @@
                     </select>
                 </div>
                 <a href="{{ url('/ubah-katasandi') }}" type="button"
-                    class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                    class="px-3 py-3 w-full mb-3 mt-8 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                     <p class="text-gray-600 font-semibold">Ganti Password</p>
                     <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -93,7 +91,7 @@
                     </svg>
                 </a>
                 <a href="{{ url('/login') }}" type="button"
-                    class="px-6 py-3.5  w-full mt-6  text-base font-medium text-white inline-flex items-center border border-green-800 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                    class="px-6 py-3.5  w-full  text-base font-medium text-white inline-flex items-center border border-green-800 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                     <p class="text-white mx-auto text-xl text-center font-semibold">Simpan</p>
                 </a>
             </form>
@@ -103,8 +101,40 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script>
+    document.getElementById('upload-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('upload-input').click();
+    });
 
-    {{-- </body>
+    document.getElementById('upload-input').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const formData = new FormData();
+            formData.append('profile_picture', file);
 
-</html> --}}
+            // Lakukan AJAX request untuk mengunggah gambar
+            fetch('/upload-profile-picture', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // jika Anda menggunakan Laravel
+                }
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                if (data.success) {
+                    // Ganti gambar profil dengan yang baru
+                    document.querySelector('img').src = data.profile_picture_url;
+                } else {
+                    alert('Gagal mengunggah gambar');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mengunggah gambar');
+            });
+        }
+    });
+</script>
+
 @endsection

@@ -229,6 +229,9 @@ Route::get('/akun', function () {
 Route::get('/akun-fundraiser', function () {
     return view('front.konten.akun.akunfundraiser');
 });
+Route::get('/komisi', function () {
+    return view('front.konten.akun.komisi');
+});
 Route::get('/ubah-profile', function () {
     return view('front.konten.akun.editProfil');
 });
