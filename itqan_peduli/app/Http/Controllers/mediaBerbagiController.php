@@ -3,63 +3,72 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Media; // Model yang sesuai dengan tabel yang akan digunakan
 
 class mediaBerbagiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $slug = 'mediaBerbagi';
-        return view('admin.konten.mediaBerbagiSetting.index', compact('slug'));
+        $media = Media::all();
+        return view('admin.konten.penyaluranDana.mediaberbagi', compact('media'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'program' => 'required|string',
+            'nominal' => 'required|numeric',
+            'catatan' => 'nullable|string',
+        ]);
+
+        // Simpan data ke database
+        Media::create([
+            'program' => $request->program,
+            'nominal' => $request->nominal,
+            'catatan' => $request->catatan,
+        ]);
+
+        // Redirect kembali ke halaman dengan pesan sukses
+        return redirect('/mediaBerbagi')->with('success', 'Data berhasil disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+
+    public function edit($id)
     {
-        //
+        $media = Media::find($id);
+        return view('admin.konten.penyaluranDana.edit', compact('media'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'program' => 'required|string',
+            'nominal' => 'required|numeric',
+            'catatan' => 'nullable|string',
+        ]);
+
+        // Update data di database
+        $media = Media::find($id);
+        $media->update([
+            'program' => $request->program,
+            'nominal' => $request->nominal,
+            'catatan' => $request->catatan,
+        ]);
+
+        // Redirect kembali ke halaman dengan pesan sukses
+        return redirect('/mediaBerbagi')->with('success', 'Data berhasil diperbarui');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function destroy($id)
     {
-        //
+        Media::find($id)->delete();
+        return redirect('/mediaBerbagi')->with('success', 'Data berhasil dihapus');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
