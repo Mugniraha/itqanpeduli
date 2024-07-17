@@ -77,10 +77,10 @@
             </div>
         </div>
         <div class="mt-2 grid grid-cols-4 gap-3">
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(2.5, this)">2.5%</button>
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(5, this)">5%</button>
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(7.5, this)">7.5%</button>
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(10, this)">10%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(2.5, this)">2.5%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(5, this)">5%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(7.5, this)">7.5%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(10, this)">10%</button>
             {{-- <input type="text" id="" class="col-span-4 border p-2 w-full mt-2" placeholder="Masukkan nominal lain" > --}}
             <div class="relative col-span-4" id="pengembangan-input-container">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
@@ -105,7 +105,7 @@
         </div>
     </div>
     <div class="flex mx-8 mt-6 mb-4">
-        <button type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Lanjutkan</button>
+        <a href="/intruksi-pembayaran" type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Lanjutkan</a>
     </div>
 </div>
 
@@ -123,18 +123,18 @@
         </div>
     </div>
     <div class="mx-8 mt-20">
-        <img class="w-full" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" >
+        <img class="w-full" src="/image.png" alt="" >
     </div>
     <div class="flex justify-between items-center mx-8 my-4">
         <p class="font-bold">Masukan Nominal Donasi anda</p>
     </div>
     <div class="t-4 grid grid-cols-3 auto-cols-auto mx-8 gap-1">
-        <button class="nominal-button rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('10000', this)">10 Rb</button>
-        <button class="nominal-button rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('25000', this)">25 Rb</button>
-        <button class="nominal-button rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('50000', this)">50 Rb</button>
-        <button class="nominal-button rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('100000', this)">100 Rb</button>
-        <button class="nominal-button rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('250000', this)">250 Rb</button>
-        <button class="nominal-button rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('500000', this)">500 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('10000', this)">10 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('25000', this)">25 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('50000', this)">50 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('100000', this)">100 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('250000', this)">250 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('500000', this)">500 Rb</button>
         {{-- <input type="text" id="nominal-input" class="col-span-3 border p-2 w-full mt-4" placeholder="Masukkan nominal lain"> --}}
         <div class="relative col-span-3 mt-3" id="nominal-input2-container">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
@@ -279,9 +279,9 @@
                 <p class="mb-5 text-sm font-normal text-gray-500 dark:text-gray-400">Apa anda yakin akan membatalkan kegiatan donasi instan ?</p>
                 <div class="flex gap-3">
                     <button data-modal-hide="popup-modal" type="button" class="flex-1 py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-green-100 dark:focus:ring-green-700 dark:bg-green-800 dark:text-green-400 dark:border-green-600 dark:hover:text-green dark:hover:bg-gray-700">Jangan Batalkan</button>
-                    <button data-modal-hide="popup-modal" type="button" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
+                    <a href="/" data-modal-hide="popup-modal" type="submit" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
                         Ya, Batalkan
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -355,10 +355,10 @@
     function selectNominal(nominal, element) {
         var buttons = document.querySelectorAll('.nominal-button');
         buttons.forEach(button => {
-            button.classList.remove('bg-green-600'),
+            button.classList.remove('bg-green-600');
             button.classList.remove('text-white');
         });
-        element.classList.add('bg-green-600'),
+        element.classList.add('bg-green-600');
         element.classList.add('text-white');
 
         document.getElementById('nominal-input').value = nominal;

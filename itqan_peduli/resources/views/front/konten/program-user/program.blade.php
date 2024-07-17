@@ -1,4 +1,4 @@
-@extends('front.layout.main2')
+@extends('front.layout.mainProgram')
 
 @section('konten')
 <style>
@@ -30,7 +30,7 @@
             <p> Ada <b>123 tempat</b> untuk investasi akhirat</p>
         </div>
         <div class="subheader mt-10">
-            <form class="max-w-md mx-auto">   
+            <form class="max-w-md mx-auto">
                 <div class="relative">
                 <input type="search" id="default-search" class="block w-full p-3 bg-gray-50 text-sm text-gray-900 rounded-lg border-none focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500" style="box-shadow: 0 1px 3px 0 gray;" placeholder="Cari Donasi..." required />
                 <div id="search-icon" class="absolute inset-y-0 end-3 flex items-center ps-3 pointer-events-none">
@@ -519,14 +519,14 @@
     // Tambahkan event listener untuk event input
     searchInput.addEventListener('input', function(event) {
         const searchText = event.target.value.toLowerCase(); // Ambil teks pencarian dan ubah ke lowercase
-        
+
         // Ambil semua elemen yang akan dicari (misalnya list donasi) - sesuaikan dengan struktur data Anda
         const items = document.querySelectorAll('.donasi-item'); // Ganti dengan kelas atau selector yang sesuai
-        
+
         // Loop melalui setiap item
         items.forEach(item => {
             const text = item.textContent.toLowerCase(); // Ambil teks dari setiap item dan ubah ke lowercase
-            
+
             // Periksa apakah teks pencarian ada di dalam teks item
             if (text.includes(searchText)) {
                 item.style.display = 'block'; // Tampilkan item jika cocok dengan pencarian

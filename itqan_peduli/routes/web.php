@@ -495,23 +495,23 @@ Route::get('pengaturan', function () {
 });
 
 Route::get('/program', function () {
-    return view('user.program.program');
+    return view('front.konten.program.program');
 });
 
 Route::get('/artikel', function () {
-    return view('user.program.artikel');
+    return view('front.konten.program.artikel');
 });
 
 Route::get('/donatur', function () {
-    return view('user.program.donatur');
+    return view('front.konten.program.donatur');
 });
 
 Route::get('/yayasan', function () {
-    return view('user.program.yayasan');
+    return view('front.konten.program.yayasan');
 });
 
 Route::get('/duta', function () {
-    return view('user.program.dutaamal');
+    return view('front.konten.program.dutaamal');
 });
 Route::get('/program-user', function () {
     return view('front.konten.program-user.program');
