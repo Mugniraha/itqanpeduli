@@ -31,7 +31,7 @@
                                 <td class="px-6 py-4">{{ $transaksi->nominal }}</td>
                                 <td class="px-6 py-4">{{ $transaksi->tipe }}</td>
                                 <td class="px-6 py-4 flex">
-                                    <a href="#" class="font-normal text-white bg-green-700 dark:text-white px-3 py-1">Lihat Detail</a>
+                                    <a href="/detail-transaksi" class="font-normal text-white bg-green-700 dark:text-white px-3 py-1">Lihat Detail</a>
                                 </td>
                             </tr>
                         @endforeach

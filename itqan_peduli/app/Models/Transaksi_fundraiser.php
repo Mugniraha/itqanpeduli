@@ -14,6 +14,10 @@ class Transaksi_fundraiser extends Model
     protected $fillable = [
         'fundraiser',
         'nominal',
+        'status',
+        'nama_bank',
+        'nomor_rekening',
+        'kode_bank',
         'tipe'
     ];
 }

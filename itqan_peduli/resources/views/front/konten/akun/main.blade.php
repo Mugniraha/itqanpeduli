@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <button type="button"
+            <a href="/donasi-saya" type="button"
                 class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                 <img src="/images/donasi.png" class="w-10 h-10  me-2" alt="">
                 <p class="text-gray-600 font-semibold">Donasi Saya</p>
@@ -31,8 +31,8 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m9 5 7 7-7 7" />
                 </svg>
-            </button>
-            <button type="button"
+            </a>
+            <a href="/zakat-saya" type="button"
                 class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                 <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 30" fill="none">
                     <path
@@ -69,7 +69,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m9 5 7 7-7 7" />
                 </svg>
-            </button>
+            </a>
             <a href="{{ url('dutaamal') }}" type="button"
                 class="px-3 py-3 w-full my-2 tex3-baseont-medium text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                 <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
