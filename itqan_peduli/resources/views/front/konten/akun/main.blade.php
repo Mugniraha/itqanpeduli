@@ -1,4 +1,4 @@
-@extends('front.layout.main')
+@extends('front.layout.mainAkun')
 
 @section('konten')
 
@@ -8,9 +8,9 @@
             <div class="flex flex-col py-3 items-center gap-4">
                 <img class="w-24 h-24 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                     alt="">
-                <div class= text-center dark:text-black">
+                <div class= "text-center dark:text-black">
                     <div class="text-xl font-semibold text-white dark:text-black">Ramadhani</div>
-                    <a href="{{  url('/ubah-profile') }}" class="flex justify-center px-auto text-sm text-white dark:text-black-400">Ubah Profil
+                    <a href="{{  url('/pengaturan') }}" class="flex justify-center px-auto text-sm text-white dark:text-black-400">Ubah Profil
                         <svg class="w-4 h-4 my-auto text-white dark:text-black" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">

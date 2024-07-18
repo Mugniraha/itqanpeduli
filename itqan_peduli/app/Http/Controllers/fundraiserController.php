@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \App\Models\Fundraiser;
 use Illuminate\Http\Request;
 
 class fundraiserController extends Controller
@@ -12,16 +12,13 @@ class fundraiserController extends Controller
     public function index()
     {
         $slug = 'fundraiser';
-        return view('admin.konten.fundraiser.index',compact('slug'));
+        $fundraisers = Fundraiser::paginate(10); // Adjust the number of items per page as needed
+        return view('admin.konten.fundraiser.fundraiser', compact('slug', 'fundraisers'));
     }
 
-    public function showLeaderboard()
+
+    public function showTransaksi()
     {
-        $slug = 'leaderboard';
-        return view('admin.konten.fundraiser.leaderboard', compact('slug'));
-    }
-
-    public function showTransaksi(){
         $slug = 'fundraiserTransaksi';
         return view('admin.konten.fundraiser.transaksi');
     }
