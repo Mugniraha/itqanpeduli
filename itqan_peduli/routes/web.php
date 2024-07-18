@@ -634,8 +634,10 @@ Route::post('/categories/update-order', [kategoriController::class, 'updateOrder
 Route::resource('campaign', campaignController::class);
 Route::resource('banner', BannerController::class);
 Route::resource('articleCategory', ArticleCategoryController::class);
-Route::resource('article', ArticleController::class);
 
+Route::middleware('auth')->group(function () {
+    Route::resource('article', ArticleController::class);
+});
 
 //BE
 //USER
@@ -645,12 +647,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('/dashboard', function () {
-        return view('front.konten.beranda.home');
-    })->name('dashboard');
+    Route::resource('/dashboard', homeController::class);
 });
 
 Route::get('/update-password', function() {
