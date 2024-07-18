@@ -2,6 +2,7 @@
 
 @section('konten')
 
+
 <div class="relative z-20">
     <div id="navBar" class="z-50 fixed bg-white w-[512px] h-auto flex content-center p-2.5 py-4 pl-6">
         <div class="flex items-center rounded-full bg-green-200 p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
@@ -10,27 +11,19 @@
             </svg>
         </div>
         <div class="flex items-center ml-7">
-            <p class="font-semibold">Donasi Instan</p>
+            <p class="font-bold">Rincian Pembayaran</p>
         </div>
     </div>
 </div>
 
-<div class="mt-20">
-    <div class="mx-8 mb-6 mt-10">
-        <p class="font-bold mb-0.5">Donasi Instan</p>
-        <p class="font-semibold">Buat kegiatan donasimu lebih mudah disini</p>
-    </div>
-    <div class="mx-8 grid gap-3 ">
+
+<div class="mt-28">
+    <div class="mx-8 grid gap-3">
         <div class="relative" id="nominal-input-container">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
-            <input type="text" id="nominal" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
-            <label for="nominal" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal</label>
-            <span class="absolute inset-y-0 right-3 flex items-center justify-center gap-1 pointer-events-none">
-                <p class="text-xs">Ubah</p>
-                <svg class="w-[18px] h-[18px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
-                </svg>
-            </span>
+            <input type="text" id="nominal" value="" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
+            <input type="hidden" id="nominal-hidden" value="" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
+            <label for="" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Total Dana Zakat</label>
         </div>
         <div class="relative" id="payment-method-input-container">
             <img id="payment-method-image" class="h-5 absolute top-4 bottom-0 left-0 flex items-center pl-3" src="{{ url('/logo_pembayaran.png')}}" alt="logo">
@@ -87,35 +80,44 @@
             </div>
         </div>
         <div class="mt-2 grid grid-cols-4 gap-3">
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(2.5, this)">2.5%</button>
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(5, this)">5%</button>
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(7.5, this)">7.5%</button>
-            <button class="pengembang rounded-xl p-2 bg-white text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(10, this)">10%</button>
+            <button class="pengembang rounded-xl p-2  text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(2.5, this)">2.5%</button>
+            <button class="pengembang rounded-xl p-2  text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(5, this)">5%</button>
+            <button class="pengembang rounded-xl p-2  text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(7.5, this)">7.5%</button>
+            <button class="pengembang rounded-xl p-2  text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(10, this)">10%</button>
             {{-- <input type="text" id="" class="col-span-4 border p-2 w-full mt-2" placeholder="Masukkan nominal lain" > --}}
             <div class="relative col-span-4" id="pengembangan-input-container">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
                 <input oninput="inputManual()" type="text" id="pengembangan-input" class="block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="0" />
-                <label for="pengembangan-input" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-green-100 dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal lain</label>
+                <label for="pengembangan-input" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-green-100 dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal</label>
             </div>
         </div>
     </div>
     <div class="mx-8 ">
         <div class="font-semibold my-4">Rincian Pembayaran Donasi</div>
         <div class="flex justify-between">
-            <div>Dana untuk donasi</div>
-            <div id="dana-donasi">Rp 0</div>
+            <div>Dana untuk Zakat Penghasilan</div>
+            <div id="dana-donasi"></div>
         </div>
         <div class="flex justify-between my-1">
             <div>Dana Pengembangan Dakwah</div>
             <div id="dana-pengembangan">Rp 0</div>
         </div>
         <div class="flex justify-between">
-            <div>Total Donasi</div>
+            <div class="font-medium">Total Donasi</div>
             <div id="total-donasi">Rp 0</div>
         </div>
     </div>
     <div class="flex mx-8 mt-6 mb-4">
-        <button type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Lanjutkan</button>
+        <form action="{{(route('zakat.store'))}}" method="POST" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+            @csrf
+            <input type="hidden" name="nama_donatur" id="nama-donatur-hidden" value="">
+            <input type="hidden" name="nama_program_zakat" id="nama-program-hidden" value="">
+            <input type="hidden" name="metode_pembayaran" id="metode-pembayaran-hidden" value="">
+            <input type="hidden" name="nominal_zakat" id="nominal-zakat-hidden" value="">
+            <input type="hidden" name="nominal_pengembangan_dakwah" id="nominal-pengembangan-dakwah-hidden" value="">
+            <input type="hidden" name="nominal_total" id="nominal-total-hidden" value="">
+            <button type="submit" class="">Lanjutkan</button>
+        </form>
     </div>
 </div>
 
@@ -322,6 +324,7 @@
     </div>
 </div>
 
+
 <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 pt-4">
@@ -336,9 +339,11 @@
                 <p class="mb-5 text-sm font-normal text-gray-500 dark:text-gray-400">Apa anda yakin akan membatalkan kegiatan donasi instan ?</p>
                 <div class="flex gap-3">
                     <button data-modal-hide="popup-modal" type="button" class="flex-1 py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-green-100 dark:focus:ring-green-700 dark:bg-green-800 dark:text-green-400 dark:border-green-600 dark:hover:text-green dark:hover:bg-gray-700">Jangan Batalkan</button>
-                    <button data-modal-hide="popup-modal" type="button" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
-                        Ya, Batalkan
-                    </button>
+                    <a href="{{url('/zakat')}}">
+                        <button data-modal-hide="popup-modal" type="button" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
+                            Ya, Batalkan
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -348,11 +353,12 @@
 <script>
 
     var nominalValue = 0;
+
     var pengembanganValue = 0;
 
     function confirmNominal() {
-        nominalValue = parseFloat(document.getElementById('nominal-input').value) || 0;
-        document.getElementById('nominal').value = nominalValue;
+        nominalValue = parseFloat(document.getElementById('nominal-hidden').value) || 0;
+        document.getElementById('nominal-hidden').value = nominalValue;
         hitungTotalDonasi();
         closeNominalPage();
     }
@@ -386,7 +392,12 @@
         document.getElementById('dana-donasi').textContent = 'Rp ' + formatRupiah(nominalValue);
         document.getElementById('dana-pengembangan').textContent = 'Rp ' + formatRupiah(danaPengembangan);
         document.getElementById('total-donasi').textContent = 'Rp ' + formatRupiah(totalDonasi);
+        document.getElementById('nominal-zakat-hidden').value = nominalValue;
+        document.getElementById('nominal-pengembangan-dakwah-hidden').value = danaPengembangan;
+        document.getElementById('nominal-total-hidden').value = totalDonasi;
+
     }
+
 
     function formatRupiah(angka) {
         return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -396,9 +407,9 @@
     confirmNominal();
 
 
-    document.getElementById('nominal').addEventListener('click', function() {
-        document.getElementById('nominal-page').classList.remove('hidden');
-    });
+    // document.getElementById('nominal').addEventListener('click', function() {
+    //     document.getElementById('nominal-page').classList.remove('hidden');
+    // });
 
     function closeNominalPage() {
         document.getElementById('nominal-page').classList.add('hidden');
@@ -436,6 +447,7 @@
 
     function selectPaymentMethod(img, method) {
         document.getElementById('payment-method').value = method;
+        document.getElementById('metode-pembayaran-hidden').value = method;
 
         var paymentImage = document.getElementById('payment-method-image');
 
@@ -500,6 +512,38 @@
 
         closeProgramZakatPage();
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const params = new URLSearchParams(window.location.search);
+        const nilaiZakat = params.get('nilaiZakat');
+
+        if (nilaiZakat) {
+            document.getElementById('nominal').value = `${parseFloat(nilaiZakat).toLocaleString('id-ID')}`;
+            document.getElementById('nominal-hidden').value = `${parseFloat(nilaiZakat)}`;
+            document.getElementById('dana-donasi').innerHTML = `${nilaiZakat}`;
+        } else {
+            document.getElementById('nilaiZakatText').innerText = 'Nilai Zakat: Data tidak tersedia';
+        }
+
+        confirmNominal();
+    });
+
+
+    // document.getElementById('nominal-hidden').value = ${parseFloat(nilaiZakat)};
+    //         document.getElementById('dana-donasi').innerText = Rp ${parseFloat(nilaiZakat).toLocaleString('id-ID')};
+//     document.addEventListener("DOMContentLoaded", function(){
+//         const params = new URLSearchParams(window.location.search);
+//         const nilaiZakat = params.get('nilaiZakat');
+//         if(nilaiZakat){
+//             document.getElementById('nominal').value = ${parseFloat(nilaiZakat).toLocaleString('id-ID')};
+//             document.getElementById('nominal-hidden').value = ${parseFloat(nilaiZakat)};
+//             document.getElementById('dana-donasi').innerText = Rp ${parseFloat(nilaiZakat).toLocaleString('id-ID')};
+//         }
+//         confirmNominal();
+//     });
+// document.getElementById('ambilNilaiZakatPertahun').href = /rincian-pembayaran?nilaiZakatPertahun=${zakat};
+// document.getElementById('ambilNilaiZakat').href = /rincian-pembayaran?nilaiZakat=${zakat};
+
 </script>
 
 @endsection

@@ -8,6 +8,7 @@ use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpClient\Exception\RequestException;
 use Illuminate\Support\Facades\Log;
 // use GuzzleHttp\Exception\RequestException;
+use App\Models\Zakat;
 
 class hitungZakatController extends Controller
 {
@@ -73,7 +74,16 @@ class hitungZakatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        $validatedData = $request->validate([
+            'metode_pembayaran' => 'required|string|max:255',
+        ]);
+
+        // Simpan data ke database
+        $transaksiZakat = Zakat::create($validatedData);
+
+        // Kembalikan respon sukses atau redirect
+        return response()->json(['success' => 'Transaksi berhasil disimpan', 'data' => $transaksiZakat], 201);
     }
 
     /**

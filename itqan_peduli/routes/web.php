@@ -93,6 +93,7 @@ Route::resource('googleFont', googleFontController::class);
 //     return view('front.konten.hitungZakat.index');
 // });
 
+Route::resource('zakat',hitungZakatController::class);
 Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
