@@ -10,26 +10,30 @@
                     </a>
                 </div>
             </div>
-            <form action="{{ route('article.store')}}" method="POST" enctype="multipart/form-data" class="px-8 mt-6 bg-white rounded-lg">
+            <form action="{{ route('article.update', $article->id)}}" method="POST" enctype="multipart/form-data" class="px-8 mt-6 bg-white rounded-lg">
                 @csrf
+                @method('PUT')
                 <div class=" pt-4">
                     <label for="judul" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul</label>
                     <input type="text" id="judul"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Judul" name="title" required />
+                        placeholder="Judul" name="title" value="{{ $article->title }}" required />
                 </div>
                 <div class=" pt-4">
                     <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
                     <input type="text" id="slug"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="slug" name="slug" />
+                        placeholder="slug" name="slug" value="{{ $article->slug }}" />
                 </div>
                 <div class=" pt-4">
                     <label for="kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                     <select class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Pilih Kategori" id="kategori" name="category_id" required>
+                        <option disabled value="-">-</option>
                         @foreach ($articleCategories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ $article->category_id == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
@@ -40,7 +44,7 @@
                     </label>
                     <input
                         class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        id="foto" type="file" name="photo">
+                        id="foto" type="file" name="photo" value="{{ $article->photo }}">
                 </div>
                 <div class="pt-4">
                     <p class="text-black text-sm font-medium my-2">Konten</p>
@@ -164,7 +168,7 @@
                             <label for="editor" class="sr-only">Publish post</label>
                             <textarea id="editor" rows="8"
                                 class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-                                placeholder="Write an article..." name="content" required></textarea>
+                                placeholder="Write an article..." name="content" required>{{ $article->content }}</textarea>
                         </div>
                     </div>
                 </div>

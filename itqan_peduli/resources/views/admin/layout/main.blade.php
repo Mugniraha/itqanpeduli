@@ -52,7 +52,7 @@
                             </button>
                             <ul id="dropdown-publikasi-program" class="hidden py-2 space-y-2">
                                 <li>
-                                    <a href="{{url('/publikasi-program')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Infaq</a>
+                                    <a href="{{route('campaign.index')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Infaq</a>
                                 </li>
                                 <li>
                                     <a href="#" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Zakat</a>
@@ -83,10 +83,10 @@
                                     <a href="{{url('/kategori')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kategori</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/pengaturan-kategori')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Kategori</a>
+                                    <a href="{{url('/urutkan-kategori')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Kategori</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/pengaturan-program')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Program</a>
+                                    <a href="{{url('/urutkan-program')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Urutkan Program</a>
                                 </li>
                             </ul>
                         </li>
@@ -201,16 +201,16 @@
                             </button>
                             <ul id="dropdown-web-utama" class="hidden py-2 space-y-2">
                                 <li>
-                                    <a href="{{url('/slider')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Slider</a>
+                                    <a href="{{url('/banner')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Slider</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/partner')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Partner</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/katblog')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kategori Blog</a>
+                                    <a href="{{url('/articleCategory')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kategori Blog</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/blog')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Blog</a>
+                                    <a href="{{url('/article')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Blog</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/kegiatan')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kegiatan</a>
@@ -478,6 +478,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
     <script>
         function openNav() {
             document.getElementById("sideBar").style.display = "block";

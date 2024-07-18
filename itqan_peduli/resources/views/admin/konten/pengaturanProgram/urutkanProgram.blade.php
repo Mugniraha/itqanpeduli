@@ -8,11 +8,6 @@
             <p  class="text-2xl text-white font-semibold mb-2">Urutkan Projek</p>
             <p class="text-sm text-gray-300 font-semibold">custom urutan projek untuk ditampilkan</p>
         </div>
-        <div class="flex gap-1">
-            <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
-                <a href="{{url('#')}}" class="text-green-700">Buat Campaign</a>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -23,45 +18,20 @@
         </p>
     </div>
     <ul id="items" class="space-y-2">
-        <li>
+        @foreach ($campaigns as $campaign)
+        <li data-id="{{ $campaign->id }}">
             <div class="md:flex items-center w-full p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <img src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" class="size-20 rounded-lg mr-3 object-cover">
+                <img src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title}}" class="size-20 rounded-lg mr-3 object-cover">
                 <div class="">
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Kategori.</p>
-                    <p class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Program</p>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">{{ $campaign->category }}</p>
+                    <p class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $campaign->title}}</p>
                 </div>
             </div>
         </li>
-        <li>
-            <div class="md:flex items-center w-full p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <img src="https://flowbite.com/docs/images/blog/image-2.jpg" alt="" class="size-20 rounded-lg mr-3 object-cover">
-                <div class="">
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Kategori.</p>
-                    <p class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Program</p>
-                </div>php kontrak kuitansi
-            </div>
-        </li>
-        <li>
-            <div class="md:flex items-center w-full p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <img src="https://flowbite.com/docs/images/blog/image-3.jpg" alt="" class="size-20 rounded-lg mr-3 object-cover">
-                <div class="">
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Kategori.</p>
-                    <p class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Program</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="md:flex items-center w-full p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <img src="https://flowbite.com/docs/images/blog/image-4.jpg" alt="" class="size-20 rounded-lg mr-3 object-cover">
-                <div class="">
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Kategori.</p>
-                    <p class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Program</p>
-                </div>
-            </div>
-        </li>
+        @endforeach
     </ul>
     <div class="flex justify-end">
-        <button type="button" class="mt-3 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">SIMPAN</button>
+        <button type="button" id="saveOrder" class="mt-3 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">SIMPAN</button>
     </div>
 </div>
 
@@ -71,6 +41,34 @@
         var sortable = new Sortable(el, {
             animation: 150,
             ghostClass: 'blue-background-class'
+        });
+
+        document.getElementById('saveOrder').addEventListener('click', function () {
+            var order = [];
+            el.querySelectorAll('li').forEach(function (li, index) {
+                order.push({
+                    id: li.getAttribute('data-id'),
+                    urutan: index + 1 // Mengatur urutan berdasarkan posisi
+                });
+            });
+
+            // Mengirim data urutan ke server dengan AJAX
+            fetch('{{ route("campaigns.updateOrder") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify(order)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Urutan berhasil diperbarui!');
+                } else {
+                    alert('Terjadi kesalahan, coba lagi.');
+                }
+            });
         });
     });
 </script>

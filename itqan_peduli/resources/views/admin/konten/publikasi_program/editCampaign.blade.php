@@ -10,20 +10,21 @@
                     </a>
                 </div>
             </div>
-            <form method="POST" action="{{ route('campaign.store') }}" enctype="multipart/form-data" class="px-8 mt-6 bg-white rounded-lg">
+            <form method="POST" action="{{ route('campaign.update', $campaign->id) }}" enctype="multipart/form-data" class="px-8 mt-6 bg-white rounded-lg">
                 @csrf
+                @method('PUT')
                 <div class=" pt-4">
                     <label for="judul" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul</label>
                     <input type="text" id="judul"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Judul" name="title" required />
+                        placeholder="Judul" name="title" value="{{ $campaign->title }}" required />
                 </div>
                 <div class=" pt-4">
                     <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug (jika
                         dikosongi akan digenerate otomatis)</label>
                     <input type="text" id="slug"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Slug" name="slug" />
+                        placeholder="Slug" name="slug" value="{{ $campaign->slug }}" disabled />
                 </div>
                 <div class=" pt-4">
                     {{-- <label for="kategori"
@@ -32,6 +33,8 @@
                     </select> --}}
                     <label for="kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                     <select id="kategori"name="category" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected value="{{ $campaign->category }}">{{ $campaign->category }}</option>
+                        <option disabled value="-">-</option>
                         @foreach ($categories as $kategori)
                         <option value="{{ $kategori->name }}">{{ $kategori->name }}</option>
                         @endforeach
@@ -50,7 +53,7 @@
                     </label>
                     <input
                         class="block  text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600 "
-                        id="file_input" type="file" name="photo">
+                        id="file_input" type="file" name="photo" value="{{ $campaign->photo }}">
 
                 </div>
                 <div class="pt-4">
@@ -175,7 +178,7 @@
                             <label for="editor" class="sr-only">Publish post</label>
                             <textarea id="editor" rows="8"
                                 class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-                                placeholder="Write an article..." name="content" required></textarea>
+                                placeholder="Write an article..." name="content" value="{{ $campaign->content }}" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -183,9 +186,15 @@
                     <p class="text-black text-sm font-medium">Program Unlimited</p>
                     <p class="text-yellow-500">* jika dicentang, target tanggal dan nominal tidak diisi</p>
                     <div class="flex items-center mb-4">
+                        @if($campaign->target === null && $campaign->deadline === null)
                         <input id="unlimited-checkbox" type="checkbox"
                             class="w-4 h-4 my-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="unlimited-checkbox" class="ms-2 text-sm font-normal text-gray-400 dark:text-gray-300">Program Unlimited ?</label>
+                        @else
+                        <input id="unlimited-checkbox" type="checkbox" checked
+                            class="w-4 h-4 my-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="unlimited-checkbox" class="ms-2 text-sm font-normal text-gray-400 dark:text-gray-300">Program Unlimited ?</label>
+                        @endif
                     </div>
                 </div>
 
@@ -193,19 +202,19 @@
                     (Rp)</label>
                 <input type="text" id="target"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Target" name="target" required min="0" />
+                    placeholder="Target" name="target" required min="0" value="{{ $campaign->target }}" />
 
                 <label for="deadline" id="deadline-label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
                     Waktu</label>
                 <input type="date" id="deadline"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Batas Waktu" name="deadline" required />
+                    placeholder="Batas Waktu" name="deadline" required value="{{ $campaign->deadline }}"/>
 
                 <label for="labelDonasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Label Tombol
                     Donasi</label>
                 <input type="text" id="labelDonasi"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Donasi Sekarang" name="donate_button_label" required />
+                    placeholder="Donasi Sekarang" name="donate_button_label" required value="{{ $campaign->donate_button_label }}" />
 
                 <label for="danaOperasional"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Persentase Dana Operasional (dalam
@@ -213,7 +222,7 @@
                 <div class="flex">
                     <input type="number" id="danaOperasional"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Persentase Dana Operasional" name="operational_fund_percentage" required />
+                        placeholder="Persentase Dana Operasional" name="operational_fund_percentage" required value="{{ $campaign->operational_fund_percentage }}"/>
                     <p class="bg-gray-200 border w-8 px-auto text-center border-gray-300 text-black">%</p>
                 </div>
 
@@ -222,7 +231,7 @@
                 <div class="flex">
                     <input type="number" id="reward"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Persentase Reward Fundraiser" name="fundraiser_reward_percentage" required />
+                        placeholder="Persentase Reward Fundraiser" name="fundraiser_reward_percentage" required value="{{ $campaign->fundraiser_reward_percentage }}"/>
                     <p class="bg-gray-200 border w-8 px-auto text-center border-gray-300 text-black">%</p>
                 </div>
 
@@ -233,22 +242,22 @@
                     </h2>
                     <div id="nominal-container" class="hidden">
                         <label for="nominal1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Custom (Optional)</label>
-                        <input type="number" id="nominal1" value="10000"
+                        <input type="number" id="nominal1" value="{{ $campaign->nominal1 }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Nominal 1" name="nominal1" />
-                        <input type="number" id="nominal2" value="25000"
+                        <input type="number" id="nominal2" value="{{ $campaign->nominal2 }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Nominal 2" name="nominal2" />
-                        <input type="number" id="nominal3" value="50000"
+                        <input type="number" id="nominal3" value="{{ $campaign->nominal3 }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Nominal 3" name="nominal3" />
-                        <input type="number" id="nominal4" value="100000"
+                        <input type="number" id="nominal4" value="{{ $campaign->nominal4 }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Nominal 4" name="nominal4" />
-                        <input type="number" id="nominal5" value="250000"
+                        <input type="number" id="nominal5" value="{{ $campaign->nominal5 }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Nominal 5" name="nominal5" />
-                        <input type="number" id="nominal6" value="500000"
+                        <input type="number" id="nominal6" value="{{ $campaign->nominal6 }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Nominal 6" name="nominal6" />
                     </div>
@@ -261,10 +270,17 @@
                         <p class="font-normal text-yellow-500">*Jika tidak di check program tidak akan tampil</p>
                     </div>
                     <label for="tampilkan" class="inline-flex items-center cursor-pointer">
+                        @if ($campaign->nominal1 == 1)
+                        <input type="checkbox" id="tampilkan" name="tampilkan" checked class="sr-only peer" >
+                        <div
+                            class="relative m-3 w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                        </div>
+                        @else
                         <input type="checkbox" id="tampilkan" name="tampilkan"  class="sr-only peer" >
                         <div
                             class="relative m-3 w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                         </div>
+                        @endif
                     </label>
                     {{-- <div class="kanan my-auto"> --}}
                     <button type="submit"

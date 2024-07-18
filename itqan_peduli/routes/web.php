@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ArticleCategoryController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\campaignController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\transaksiController;
@@ -11,14 +15,18 @@ use App\Http\Controllers\mediaBerbagiController;
 use App\Http\Controllers\penggunaanDataController;
 use App\Http\Controllers\googleFontController;
 use App\Http\Controllers\hitungZakatController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\kategoriController;
+use App\Http\Controllers\urutkanKategoriController;
+use App\Http\Controllers\urutkanProgramController;
 
 Route::get('/dashboard', function () {
     return view('admin.layout.main');
 });
 
-Route::get('/publikasi-program', function () {
-    return view('admin.konten.publikasi_program.kategori');
-});
+// Route::get('/publikasi-program', function () {
+//     return view('admin.konten.publikasi_program.kategori');
+// });
 
 Route::get('publikasi-archive', function () {
     return view('admin.konten.publikasi_program.archive');
@@ -36,17 +44,17 @@ Route::get('/inputprogramzakat', function () {
     return view('admin.konten.publikasi_program.programZakat');
 });
 
-Route::get('/pengaturan-kategori', function () {
-    return view('admin.konten.pengaturanProgram.urutkanKategori');
-});
+// Route::get('/pengaturan-kategori', function () {
+//     return view('admin.konten.pengaturanProgram.urutkanKategori');
+// });
 
-Route::get('/pengaturan-program', function () {
-    return view('admin.konten.pengaturanProgram.urutkanProgram');
-});
+// Route::get('/pengaturan-program', function () {
+//     return view('admin.konten.pengaturanProgram.urutkanProgram');
+// });
 
-Route::get('/kategori', function () {
-    return view('admin.konten.pengaturanProgram.kategori');
-});
+// Route::get('/kategori', function () {
+//     return view('admin.konten.pengaturanProgram.kategori');
+// });
 
 Route::get('/data-bank', function () {
     return view('admin.konten.dataBank.dataBank');
@@ -54,9 +62,9 @@ Route::get('/data-bank', function () {
 Route::get('/inputTambahBank', function () {
     return view('admin.konten.dataBank.inputTambahBank');
 });
-Route::get('/inputKelolaKategori', function () {
-    return view('admin.konten.pengaturanProgram.inputKategori');
-});
+// Route::get('/inputKelolaKategori', function () {
+//     return view('admin.konten.pengaturanProgram.inputKategori');
+// });
 
 Route::resource('dashboard', dashboardController::class);
 Route::resource('transaksi', transaksiController::class);
@@ -147,12 +155,12 @@ Route::get('/tranfun', function () {
     return view('admin.konten.fundraiser.transaksi');
 });
 
-Route::get('/slider', function () {
-    return view('admin.konten.webUtama.slider');
-});
-Route::get('/inputslider', function () {
-    return view('admin.konten.webUtama.inputslider');
-});
+// Route::get('/slider', function () {
+//     return view('admin.konten.webUtama.slider');
+// });
+// Route::get('/inputslider', function () {
+//     return view('admin.konten.webUtama.inputslider');
+// });
 
 Route::get('/partner', function () {
     return view('admin.konten.webUtama.partner');
@@ -161,19 +169,19 @@ Route::get('/inputpartner', function () {
     return view('admin.konten.webUtama.inputpartner');
 });
 
-Route::get('/katblog', function () {
-    return view('admin.konten.webUtama.katblog');
-});
-Route::get('/inputkatblog', function () {
-    return view('admin.konten.webUtama.inputkatblog');
-});
+// Route::get('/katblog', function () {
+//     return view('admin.konten.webUtama.katblog');
+// });
+// Route::get('/inputkatblog', function () {
+//     return view('admin.konten.webUtama.inputkatblog');
+// });
 
-Route::get('/blog', function () {
-    return view('admin.konten.webUtama.blog');
-});
-Route::get('/inputblog', function () {
-    return view('admin.konten.webUtama.inputblog');
-});
+// Route::get('/blog', function () {
+//     return view('admin.konten.webUtama.blog');
+// });
+// Route::get('/inputblog', function () {
+//     return view('admin.konten.webUtama.inputblog');
+// });
 
 Route::get('/kegiatan', function () {
     return view('admin.konten.webUtama.kegiatan');
@@ -188,9 +196,9 @@ Route::get('/konten', function () {
 
 //Front
 //front home
-Route::get('/', function () {
-    return view('front.konten.beranda.home');
-});
+// Route::get('/', function () {
+//     return view('front.konten.beranda.home');
+// });
 Route::get('/donasi-instan', function () {
     return view('front.konten.donasiInstan.donasiInstan');
 });
@@ -243,152 +251,152 @@ Route::get('/ubah-profile', function () {
 //     return view('admin.isi.dashboard');
 // });
 
-Route::get('/dana', function () {
-    return view('admin.isi.dana');
-});
+// Route::get('/dana', function () {
+//     return view('admin.isi.dana');
+// });
 
-Route::get('/penyaluran', function () {
-    return view('admin.isi.penyaluran');
-});
+// Route::get('/penyaluran', function () {
+//     return view('admin.isi.penyaluran');
+// });
 
-Route::get('/lembaga', function () {
-    return view('admin.isi.lembaga');
-});
+// Route::get('/lembaga', function () {
+//     return view('admin.isi.lembaga');
+// });
 
-Route::get('/mediaberbagi', function () {
-    return view('admin.isi.mediaberbagi');
-});
+// Route::get('/mediaberbagi', function () {
+//     return view('admin.isi.mediaberbagi');
+// });
 
-Route::get('/berita', function () {
-    return view('admin.isi.berita');
-});
+// Route::get('/berita', function () {
+//     return view('admin.isi.berita');
+// });
 
-Route::get('/kategori', function () {
-    return view('admin.isi.kategori');
-});
+// // Route::get('/kategori', function () {
+// //     return view('admin.isi.kategori');
+// // });
 
-Route::get('/fundraiser', function () {
-    return view('admin.fundraiser.fundraiser');
-});
+// Route::get('/fundraiser', function () {
+//     return view('admin.fundraiser.fundraiser');
+// });
 
-Route::get('/leaderboard', function () {
-    return view('admin.fundraiser.leaderboard');
-});
+// Route::get('/leaderboard', function () {
+//     return view('admin.fundraiser.leaderboard');
+// });
 
-Route::get('/tranfun', function () {
-    return view('admin.fundraiser.transaksi');
-});
+// Route::get('/tranfun', function () {
+//     return view('admin.fundraiser.transaksi');
+// });
 
-Route::get('/slider', function () {
-    return view('admin.web utama.slider');
-});
+// Route::get('/slider', function () {
+//     return view('admin.web utama.slider');
+// });
 
-Route::get('/partner', function () {
-    return view('admin.web utama.partner');
-});
+// Route::get('/partner', function () {
+//     return view('admin.web utama.partner');
+// });
 
-Route::get('/katblog', function () {
-    return view('admin.web utama.katblog');
-});
+// Route::get('/katblog', function () {
+//     return view('admin.web utama.katblog');
+// });
 
-Route::get('/blog', function () {
-    return view('admin.web utama.blog');
-});
+// Route::get('/blog', function () {
+//     return view('admin.web utama.blog');
+// });
 
-Route::get('/kegiatan', function () {
-    return view('admin.web utama.kegiatan');
-});
+// Route::get('/kegiatan', function () {
+//     return view('admin.web utama.kegiatan');
+// });
 
-Route::get('/konten', function () {
-    return view('admin.web utama.konten');
-});
+// Route::get('/konten', function () {
+//     return view('admin.web utama.konten');
+// });
 
-Route::get('/notifmail', function () {
-    return view('admin.email.notif');
-});
+// Route::get('/notifmail', function () {
+//     return view('admin.email.notif');
+// });
 
-Route::get('/mail', function () {
-    return view('admin.email.mail');
-});
+// Route::get('/mail', function () {
+//     return view('admin.email.mail');
+// });
 
-Route::get('/inputpenggalanganDana', function () {
-    return view('admin.isi.publikasiProgram.pengalanganDana');
-});
-Route::get('/inputprogramZakat', function () {
-    return view('admin.isi.publikasiProgram.programZakat');
-});
-Route::get('/inputprogramWakaf', function () {
-    return view('admin.isi.publikasiProgram.programWakaf');
-});
-Route::get('/inputprogramQurban', function () {
-    return view('admin.isi.publikasiProgram.programQurban');
-});
-Route::get('/inputkelolaKategori', function () {
-    return view('admin.isi.pengaturanProgram.kelolaKategori');
-});
-Route::get('/inputdonasiManual', function () {
-    return view('admin.isi.transaksi.donasiManual');
-});
-Route::get('/inputpenyaluranDana', function () {
-    return view('admin.isi.penyaluranDana.penyaluranDana');
-});
-Route::get('/inputhakLembaga', function () {
-    return view('admin.isi.penyaluranDana.hakLembaga');
-});
-Route::get('/inputhakMediaBerbagi', function () {
-    return view('admin.isi.penyaluranDana.hakMediaBerbagi');
-});
-Route::get('/inputupdateLaporan', function () {
-    return view('admin.isi.penyaluranDana.updateLaporan');
-});
-Route::get('/inputkelolaSlider', function () {
-    return view('admin.isi.webUtama.kelolaSlider');
-});
-Route::get('/inputkelolaPartner', function () {
-    return view('admin.isi.webUtama.kelolaPartner');
-});
-Route::get('/inputwebKelolaKategori', function () {
-    return view('admin.isi.webUtama.kelolaKategori');
-});
-Route::get('/inputkelolaBlog', function () {
-    return view('admin.isi.webUtama.kelolaBlog');
-});
-Route::get('/inputkelolaKegiatan', function () {
-    return view('admin.isi.webUtama.kelolaKegiatan');
-});
-Route::get('/inputkelolaUser', function () {
-    return view('admin.isi.pengaturan.kelolaUser');
-});
-Route::get('/inputtambahBank', function () {
-    return view('admin.isi.pengaturan.tambahBank');
-});
-Route::get('/inputkelolaNotifikasi', function () {
-    return view('admin.isi.pengaturan.kelolaNotifikasi');
-});
+// Route::get('/inputpenggalanganDana', function () {
+//     return view('admin.isi.publikasiProgram.pengalanganDana');
+// });
+// Route::get('/inputprogramZakat', function () {
+//     return view('admin.isi.publikasiProgram.programZakat');
+// });
+// Route::get('/inputprogramWakaf', function () {
+//     return view('admin.isi.publikasiProgram.programWakaf');
+// });
+// Route::get('/inputprogramQurban', function () {
+//     return view('admin.isi.publikasiProgram.programQurban');
+// });
+// // Route::get('/inputkelolaKategori', function () {
+// //     return view('admin.isi.pengaturanProgram.kelolaKategori');
+// // });
+// Route::get('/inputdonasiManual', function () {
+//     return view('admin.isi.transaksi.donasiManual');
+// });
+// Route::get('/inputpenyaluranDana', function () {
+//     return view('admin.isi.penyaluranDana.penyaluranDana');
+// });
+// Route::get('/inputhakLembaga', function () {
+//     return view('admin.isi.penyaluranDana.hakLembaga');
+// });
+// Route::get('/inputhakMediaBerbagi', function () {
+//     return view('admin.isi.penyaluranDana.hakMediaBerbagi');
+// });
+// Route::get('/inputupdateLaporan', function () {
+//     return view('admin.isi.penyaluranDana.updateLaporan');
+// });
+// Route::get('/inputkelolaSlider', function () {
+//     return view('admin.isi.webUtama.kelolaSlider');
+// });
+// Route::get('/inputkelolaPartner', function () {
+//     return view('admin.isi.webUtama.kelolaPartner');
+// });
+// // Route::get('/inputwebKelolaKategori', function () {
+// //     return view('admin.isi.webUtama.kelolaKategori');
+// // });
+// Route::get('/inputkelolaBlog', function () {
+//     return view('admin.isi.webUtama.kelolaBlog');
+// });
+// Route::get('/inputkelolaKegiatan', function () {
+//     return view('admin.isi.webUtama.kelolaKegiatan');
+// });
+// Route::get('/inputkelolaUser', function () {
+//     return view('admin.isi.pengaturan.kelolaUser');
+// });
+// Route::get('/inputtambahBank', function () {
+//     return view('admin.isi.pengaturan.tambahBank');
+// });
+// Route::get('/inputkelolaNotifikasi', function () {
+//     return view('admin.isi.pengaturan.kelolaNotifikasi');
+// });
 
-Route::get('/googleAnalytics', function() {
-    return view('admin.isi.analytics.googleAnalytics');
-});
-Route::get('/facebookPixel', function() {
-    return view('admin.isi.analytics.facebookPixel');
-});
-Route::get('/payment', function() {
-    return view('admin.isi.paymentGateaway');
-});
-Route::get('/pengaturanemas', function() {
-    return view('admin.isi.pengaturan');
-});
+// Route::get('/googleAnalytics', function() {
+//     return view('admin.isi.analytics.googleAnalytics');
+// });
+// Route::get('/facebookPixel', function() {
+//     return view('admin.isi.analytics.facebookPixel');
+// });
+// Route::get('/payment', function() {
+//     return view('admin.isi.paymentGateaway');
+// });
+// Route::get('/pengaturanemas', function() {
+//     return view('admin.isi.pengaturan');
+// });
 
-Route::get('/pembayaran', function() {
-    return view('admin.isi.pembayaran');
-});
+// Route::get('/pembayaran', function() {
+//     return view('admin.isi.pembayaran');
+// });
 
 
 
 // User
-Route::get('/home', function () {
-    return view('user.home.index');
-});
+// Route::get('/home', function () {
+//     return view('user.home.index');
+// });
 
 // Route::get('/akun', function () {
 //     return view('front.konten.akun.main');
@@ -509,3 +517,23 @@ Route::get('/pengaturanSistem', function () {
 Route::get('/pembayaran', function () {
     return view('admin.konten.pembayaran.pembayaran');
 });
+
+
+
+
+//BE
+//ADMIN
+Route::resource('kategori', kategoriController::class);
+Route::resource('urutkan-kategori', urutkanKategoriController::class);
+Route::resource('urutkan-program', urutkanProgramController::class);
+Route::post('/campaigns/update-order', [campaignController::class, 'urutkanProgram'])->name('campaigns.updateOrder');
+Route::post('/categories/update-order', [kategoriController::class, 'updateOrder'])->name('categories.updateOrder');
+Route::resource('campaign', campaignController::class);
+Route::resource('banner', BannerController::class);
+Route::resource('articleCategory', ArticleCategoryController::class);
+Route::resource('article', ArticleController::class);
+
+
+//BE
+//USER
+Route::resource('/', homeController::class);
