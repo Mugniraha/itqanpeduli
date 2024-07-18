@@ -5,7 +5,7 @@
             <div class="welcome  bg-green-700 me-30 w-full py-6 px-4 rounded-xl">
                 <div class="kanan my-auto">
                     <a type="button" href="{{ url('/kategori') }}"
-                        class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-lg px-px py-2.5 w-32 h-12 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                        class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-lg px-px py-2.5 w-32 h-12 text-center">
                         Kembali
                     </a>
                 </div>
@@ -14,18 +14,18 @@
                 @csrf
                 @method('PUT')
                 <div class=" pt-4">
-                    <label for="nama_kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Kategori</label>
+                    <label for="nama_kategori" class="block mb-2 text-sm font-medium text-gray-900">Nama Kategori</label>
                     <input type="text" id="nama_kategori" name="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         placeholder="Nama Kategori" required value="{{ $categories->name }}"/>
                 </div>
                 <div class=" pt-4">
-                    <label class="block mb-2 text-sm font-medium text-black dark:text-white"
+                    <label class="block mb-2 text-sm font-medium text-black"
                         for="file_input">Icon
                         <p class="text-yellow-500">campaign image recommendation 58x58px</p>
                     </label>
                     <input
-                        name="icon" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        name="icon" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none"
                         id="icon_input" type="file" onchange="previewImage(event, 'icon_preview')">
                     @if($categories->icon)
                         <img id="icon_preview" src="{{ asset('storage/' . $categories->icon) }}" alt="{{ $categories->name }}" class="mt-2 w-12 h-12 object-cover rounded">
@@ -34,12 +34,12 @@
                     @endif
                 </div>
                 <div class=" pt-4">
-                    <label class="block mb-2 text-sm font-medium text-black dark:text-white"
+                    <label class="block mb-2 text-sm font-medium text-black"
                         for="file_input">Foto Background
                         <p class="text-yellow-500">campaign image recommendation 254x87px</p>
                     </label>
                     <input
-                        name="photo" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        name="photo" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none"
                         id="photo_input" type="file" onchange="previewImage(event, 'photo_preview')">
                     @if($categories->photo)
                         <img id="photo_preview" src="{{ asset('storage/' . $categories->photo) }}" alt="{{ $categories->name }}" class="mt-2 w-full h-48 object-cover rounded">
@@ -51,7 +51,7 @@
                 <div class="pt-4 flex justify-end">
 
                     <button type="submit"
-                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center">
                         Simpan
                     </button>
                 </div>

@@ -32,7 +32,7 @@
                 @csrf
 
                 <div class="relative mt-6">
-                    <label for="name" value="{{ __('Name') }}" 
+                    <label for="name" value="{{ __('Name') }}"
                         class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nama Lengkap</label>
                     <input type="text" id="name" name="name" :value="old('name')" required autofocus autocomplete="name"  placeholder="masukan nama lengkap anda."
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
@@ -55,7 +55,7 @@
                     <input type="password" id="password" name="password" required autocomplete="new-password" placeholder="masukan kata sandi anda."
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-    
+
                         <svg id="toggleVisibility" class="w-6 h-6 text-gray-800" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
@@ -66,12 +66,12 @@
                     </div>
                 </div>
                 <div class="relative mt-6">
-                    <label for="password_confirmation" value="{{ __('Confirm Password') }}" 
+                    <label for="password_confirmation" value="{{ __('Confirm Password') }}"
                         class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Konfirmasi Kata sandi</label>
                     <input type="password_confirmation" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" placeholder="masukan kata sandi anda."
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-    
+
                         <svg id="toggleVisibility1" class="w-6 h-6 text-gray-800" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
@@ -101,7 +101,7 @@
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
         });
-    </script>   
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 
 </body>

@@ -246,7 +246,7 @@
                 </svg>
             </a>
             <a href="{{ url('/data-bank') }}" type="button"
-                class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <p class="text-gray-600 font-semibold text-sm">Data Bank</p>
                 <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

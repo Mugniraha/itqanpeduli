@@ -20,10 +20,10 @@
         </div>
 
             <button type="button"
-                class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <img src="/images/donasi.png" class="w-10 h-10  me-2" alt="">
                 <p class="text-gray-600 font-semibold">Donasi Saya</p>
-                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -31,7 +31,7 @@
                 </svg>
             </button>
             <button type="button"
-                class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 30" fill="none">
                     <path
                         d="M30.4497 17.3708H6.86851L9.06229 14.5189C9.16794 14.3815 9.3314 14.301 9.50468 14.301H27.923C28.1012 14.301 28.2686 14.3861 28.3737 14.5299L30.4497 17.3708Z"
@@ -61,7 +61,7 @@
                     <path d="M15.3721 15.6982H21.7906" stroke="black" stroke-width="0.558137" stroke-linecap="round">
                 </svg>
                 <p class="text-gray-600 font-semibold">Zakat Saya</p>
-                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -69,7 +69,7 @@
                 </svg>
             </button>
             <a href="{{ url('dutaamal') }}" type="button"
-                class="px-3 py-3 w-full my-2 tex3-baseont-medium text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                class="px-3 py-3 w-full my-2 tex3-baseont-medium text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
                     <path
                         d="M20.3256 4.14854C19.0656 4.50854 16.1506 7.34852 14.8506 8.72351C15.3756 9.49851 17.2506 10.8085 20.5506 9.8485C24.6755 8.64851 22.9505 4.97354 22.5755 4.59854C22.2005 4.22354 21.9005 3.69854 20.3256 4.14854Z"
@@ -117,7 +117,7 @@
                         fill="#F3F8F5" />
                 </svg>
                 <p class="text-gray-600 font-semibold">Jadi Duta Amal</p>
-                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

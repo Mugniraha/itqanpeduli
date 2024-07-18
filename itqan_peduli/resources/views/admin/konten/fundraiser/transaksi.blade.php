@@ -13,7 +13,7 @@
             @if($transaksiFundraisers->isEmpty())
                 <p class="text-center text-gray-700 font-semibold text-lg">Tidak ada data transaksi</p>
             @else
-                <table class="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-700">
                     <thead class="text-md text-gray-700">
                         <tr class="font-extrabold">
                             <th scope="col" class="px-6 py-3">#</th>
@@ -25,13 +25,13 @@
                     </thead>
                     <tbody>
                         @foreach($transaksiFundraisers as $transaksi)
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-normal text-gray-700 dark:text-white">{{ $loop->iteration }}</th>
+                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
+                                <th scope="row" class="px-6 py-4 font-normal text-gray-700">{{ $loop->iteration }}</th>
                                 <td class="px-6 py-4">{{ $transaksi->fundraiser }}</td>
                                 <td class="px-6 py-4">{{ $transaksi->nominal }}</td>
                                 <td class="px-6 py-4">{{ $transaksi->tipe }}</td>
                                 <td class="px-6 py-4 flex">
-                                    <a href="/detail-transaksi" class="font-normal text-white bg-green-700 dark:text-white px-3 py-1">Lihat Detail</a>
+                                    <a href="/detail-transaksi" class="font-normal text-white bg-green-700 px-3 py-1">Lihat Detail</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -59,7 +59,7 @@
                             <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
                         </li>
                     </ul>
                 </nav>
