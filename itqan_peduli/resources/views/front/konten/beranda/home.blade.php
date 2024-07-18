@@ -15,11 +15,11 @@
 </style>
 
 <form class="max-w-md mx-auto pt-24">
-    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
     <div class="relative">
-        <input type="search" id="default-search" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Search Mockups, Logos..." required />
+        <input type="search" id="default-search" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-xl bg-gray-50 focus:ring-green-500 focus:border-green-500" placeholder="Search Mockups, Logos..." required />
         <button type="submit" class="absolute end-2.5 bottom-2.5 font-medium rounded-lg text-sm px-2 py-2">
-            {{-- <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            {{-- <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
             </svg> --}}
             <svg class="w-4 h-4" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,16 +47,16 @@
         <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
     </div>
 </div>
-<div class="w-[-512px] mx-8 bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="w-[-512px] mx-8 bg-white border border-gray-200 rounded-xl shadow">
     <div class="flex flex-col p-5">
         <div class="flex justify-between">
             <diV class="flex gap-3 items-center">
                 <img class="h-24 mb-3" src="/image.png" alt="Bonnie image"/>
                 <div class="">
-                    <h5 class="text-md font-medium text-gray-900 dark:text-white">Donasi Instan</h5>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Buat kegiatan donasi kamu lebih mudah disini</p>
+                    <h5 class="text-md font-medium text-gray-900">Donasi Instan</h5>
+                    <p class="text-sm text-gray-500">Buat kegiatan donasi kamu lebih mudah disini</p>
                     <div class="flex items-center mt-2">
-                        <a href="/donasi-instan" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Donasi Sekarang</a>
+                        <a href="/donasi-instan" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300">Donasi Sekarang</a>
                     </div>
                 </div>
             </diV>
@@ -81,12 +81,12 @@
                 </div>
                 <div class="flex justify-between gap-4 mb-2">
                     <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
+                        <p class="text-xs font-normal text-gray-700">Terkumpul</p>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
                     </div>
                     <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
+                        <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
                     </div>
                 </div>
             </div>
@@ -110,12 +110,12 @@
                 </div>
                 <div class="flex justify-between gap-4">
                     <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
+                        <p class="text-xs font-normal text-gray-700">Terkumpul</p>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
                     </div>
                     <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
+                        <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
     </div>
 </div>
 <div class="flex mx-8 mt-3">
-    <a href="/campaign-populer" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Muat Lebih Banyak</a>
+    <a href="/campaign-populer" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Muat Lebih Banyak</a>
 </div>
 
 <div class="grid gap-2 mx-8">
@@ -182,8 +182,8 @@
                 </defs>
             </svg>
             <div class="w-2/3">
-                <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Donatur</p>
-                <span class="text-sm mb-3 font-bold text-gray-700 dark:text-gray-400">456.789++</span>
+                <p class="text-xs font-normal text-gray-700">Donatur</p>
+                <span class="text-sm mb-3 font-bold text-gray-700">456.789++</span>
             </div>
         </div>
         <div class="flex items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -196,8 +196,8 @@
                 <path d="M20.8337 18.75H18.7503H16.667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <div class="w-2/3">
-                <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Program</p>
-                <span class="text-sm mb-3 font-bold text-gray-700 dark:text-gray-400">131.456++</span>
+                <p class="text-xs font-normal text-gray-700">Program</p>
+                <span class="text-sm mb-3 font-bold text-gray-700">131.456++</span>
             </div>
         </div>
     </div>
@@ -215,8 +215,8 @@
             <rect x="68.2381" y="71.5698" width="9.5" height="9.5" rx="4.75" transform="rotate(-55.5205 68.2381 71.5698)" fill="#FBC71E" stroke="black" stroke-width="2.5"/>
         </svg>
         <div class="w-2/3 grid items-center justify-center mx-auto">
-            <p class="mx-auto whitespace-nowrap text-xs font-normal text-gray-700 dark:text-gray-400">Total donasi yang disalurkan</p>
-            <span class="mx-auto text-sm font-bold text-gray-700 dark:text-gray-400">Rp1.131.456.789++</span>
+            <p class="mx-auto whitespace-nowrap text-xs font-normal text-gray-700">Total donasi yang disalurkan</p>
+            <span class="mx-auto text-sm font-bold text-gray-700">Rp1.131.456.789++</span>
         </div>
     </div>
 </div>
@@ -227,31 +227,31 @@
 </div>
 <div class="w-full max-w-4xl overflow-x-auto no-scrollbar snap-x pb-2">
     <div class="flex space-x-4">
-        <div class="ml-8 snap-center w-1/2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-1/2 bg-white border border-gray-200 rounded-lg shadow">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
             </a>
             <div class="p-5 w-full">
                 <p class="text-xs whitespace-nowrap">13.00 WIB, 22 Agustus 2022</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
+                <p class="mb-3 font-normal text-gray-700 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
             </div>
         </div>
-        <div class="ml-8 snap-center w-5/6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-5/6 bg-white border border-gray-200 rounded-lg shadow">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
             </a>
             <div class="p-5 w-full">
                 <p class="text-xs whitespace-nowrap">13.00 WIB, 22 Agustus 2022</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
+                <p class="mb-3 font-normal text-gray-700 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
             </div>
         </div>
-        <div class="ml-8 snap-center w-5/6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-5/6 bg-white border border-gray-200 rounded-lg shadow">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Card Image 1" />
             </a>
             <div class="p-5 w-full">
                 <p class="text-xs whitespace-nowrap">13.00 WIB, 22 Agustus 2022</p>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
+                <p class="mb-3 font-normal text-gray-700 line-clamp-2">Cianjut erduka: 200 lebih meninggal dunia. cianjur berduka</p>
             </div>
         </div>
     </div>
@@ -275,12 +275,12 @@
                 </div>
                 <div class="flex justify-between gap-4">
                     <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
+                        <p class="text-xs font-normal text-gray-700">Terkumpul</p>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
                     </div>
                     <div>
-                        <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
+                        <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
                     </div>
                 </div>
             </div>
@@ -345,23 +345,23 @@
     </div>
 </div>
 <div class="flex mx-8 mt-3 mb-3">
-    <a href="/program-user" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Muat Lebih Banyak</a>
+    <a href="/program-user" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Muat Lebih Banyak</a>
 </div>
 
 <div class="mt-10 mb-36 grid gap-4">
     <div class="flex justify-between mx-20">
         <div class="p-3 rounded-full bg-white shadow-xl">
-            <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-[30px] h-[30px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/>
             </svg>
         </div>
         <div class="p-3 rounded-full bg-white shadow-xl">
-            <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <svg class="w-[30px] h-[30px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
             </svg>
         </div>
         <div class="p-3 rounded-full bg-white shadow-xl">
-            <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-[30px] h-[30px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z" clip-rule="evenodd"/>
             </svg>
         </div>

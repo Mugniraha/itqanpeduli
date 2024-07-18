@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="p-4 bg-white border border-gray-200 rounded-lg shadow">
     <ul id="items" class="space-y-2">
         @foreach ($categories as $kategori)
         <li data-id="{{ $kategori->id }}">

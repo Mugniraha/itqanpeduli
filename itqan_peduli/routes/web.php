@@ -11,7 +11,10 @@ use App\Http\Controllers\danaDonaturController;
 use App\Http\Controllers\fundraiserController;
 use App\Http\Controllers\pengaturan_userController;
 use App\Http\Controllers\notifikasiWAController;
+use App\Http\Controllers\NotifikasiMailController;
+use App\Http\Controllers\MailSettingController;
 use App\Http\Controllers\mediaBerbagiController;
+use App\Http\Controllers\MediaBerbagiSettingController;
 use App\Http\Controllers\penggunaanDataController;
 use App\Http\Controllers\googleFontController;
 use App\Http\Controllers\hitungZakatController;
@@ -19,8 +22,16 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\urutkanKategoriController;
 use App\Http\Controllers\urutkanProgramController;
+use App\Http\Controllers\PenyaluranController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\LembagaController;
+use App\Http\Controllers\leaderboardController;
+use App\Exports\LeaderboardExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\transaksiFundraiserController;
 
-Route::get('/dashboard', function () {
+
+Route::get('/dashboard2', function () {
     return view('admin.layout.main');
 });
 
@@ -91,7 +102,7 @@ Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('p
 Route::resource('template', notifikasiWAController::class);
 Route::get('connect', [notifikasiWAController::class, 'showConnectWa'])->name('connect');
 
-Route::resource('mediaBerbagi', mediaBerbagiController::class);
+// Route::resource('mediaBerbagi', mediaBerbagiController::class);
 
 Route::resource('penggunaanData', penggunaanDataController::class);
 
@@ -101,59 +112,99 @@ Route::resource('googleFont', googleFontController::class);
 //     return view('front.konten.hitungZakat.index');
 // });
 
+Route::resource('zakat',hitungZakatController::class);
 Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
-Route::get('/danaTerkummpul', function () {
+Route::get('/dana-terkumpul', function () {
     return view('admin.konten.danaTerkumpul.index');
+});
+Route::get('/detail-dana', function () {
+    return view('admin.konten.danaTerkumpul.detail');
 });
 
 Route::get('/inputdonasiManual', function () {
     return view('admin.konten.transaksi.inputTransaksiOffline');
 });
 
-Route::get('/penyaluran', function () {
-    return view('admin.konten.penyaluranDana.penyaluran');
-});
+Route::get('/penyaluran', [PenyaluranController::class, 'index'])->name('penyaluran.index');
+Route::post('/penyaluran/store', [PenyaluranController::class, 'store'])->name('penyaluran.store');
+Route::get('/penyaluran/{id}/edit', [PenyaluranController::class, 'edit'])->name('penyaluran.edit');
+Route::put('/penyaluran/{id}', [PenyaluranController::class, 'update'])->name('penyaluran.update');
+Route::delete('/penyaluran/{id}', [PenyaluranController::class, 'destroy'])->name('penyaluran.destroy');
 Route::get('/inputPenyaluran', function () {
     return view('admin.konten.penyaluranDana.inputPenyaluran');
 });
 
 
 
-Route::get('/lembaga', function () {
-    return view('admin.konten.penyaluranDana.lembaga');
-});
+Route::get('/berita', [BeritaController::class, 'index']);
+Route::post('/berita', [BeritaController::class, 'store']);
+Route::get('/berita/{id}/edit', [BeritaController::class, 'edit'])->name('edit-berita');
+Route::post('/berita/{id}', [BeritaController::class, 'update'])->name('update-berita');
+Route::get('/berita/{id}/delete', [BeritaController::class, 'destroy'])->name('delete-berita');
+
+
+Route::get('/lembaga', [LembagaController::class, 'index'])->name('index.lbg');
+Route::post('/lembaga', [LembagaController::class, 'store'])->name('store.lbg');
+Route::get('/lembaga/{id}/edit', [LembagaController::class, 'edit'])->name('edit.lbg');
+Route::put('/lembaga/{id}', [LembagaController::class, 'update'])->name('update.lbg');
+Route::delete('/lembaga/{id}', [LembagaController::class, 'destroy'])->name('delete.lbg');
 Route::get('/inputlembaga', function () {
     return view('admin.konten.penyaluranDana.inputLembaga');
 });
 
-Route::get('/mediaberbagi', function () {
-    return view('admin.konten.penyaluranDana.mediaberbagi');
-});
+
+
+Route::get('/mediaBerbagi', [mediaBerbagiController::class, 'index'])->name('index.media');
+Route::post('/media/store', [mediaBerbagiController::class, 'store'])->name('store.media');
+Route::get('/media/edit/{id}', [mediaBerbagiController::class, 'edit'])->name('edit.media');
+Route::post('/media/update/{id}', [mediaBerbagiController::class, 'update'])->name('update.media');
+Route::delete('/media/destroy/{id}', [mediaBerbagiController::class, 'destroy'])->name('destroy.media');
 Route::get('/inputmediaberbagi', function () {
     return view('admin.konten.penyaluranDana.inputmediaberbagi');
 });
 
-Route::get('/berita', function () {
-    return view('admin.konten.penyaluranDana.berita');
+
+Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
+Route::get('/fundraisers/create', [fundraiserController::class, 'create'])->name('fundraisers.create');
+Route::post('/fundraisers', [fundraiserController::class, 'store'])->name('fundraisers.store');
+Route::get('/fundraisers/{fundraiser}', [fundraiserController::class, 'show'])->name('fundraisers.show');
+Route::get('/fundraisers/{fundraiser}/edit', [fundraiserController::class, 'edit'])->name('fundraisers.edit');
+Route::put('/fundraisers/{fundraiser}', [fundraiserController::class, 'update'])->name('fundraisers.update');
+Route::delete('/fundraisers/{fundraiser}', [fundraiserController::class, 'destroy'])->name('fundraisers.destroy');
+
+// Additional routes for custom methods
+Route::get('/leaderboard', [leaderboardController::class, 'index'])->name('leaderboard.index');
+Route::get('/export-leaderboard', function () {
+    return Excel::download(new LeaderboardExport, 'leaderboard.xlsx');
+})->name('export.leaderboard');
+Route::get('/tranfun', [transaksiFundraiserController::class, 'index'])->name('transaksifundraiser.index');
+Route::get('/detail-transaksi', function () {
+    return view('admin.konten.fundraiser.detail');
 });
+
+
+
+// Route::get('/berita', function () {
+//     return view('admin.konten.penyaluranDana.berita');
+// });
 Route::get('/inputberita', function () {
     return view('admin.konten.penyaluranDana.inputberita');
 });
 
-Route::get('/fundraiser', function () {
-    return view('admin.konten.fundraiser.fundraiser');
-});
+// Route::get('/fundraiser', function () {
+//     return view('admin.konten.fundraiser.fundraiser');
+// });
 
-Route::get('/leaderboard', function () {
-    return view('admin.konten.fundraiser.leaderboard');
-});
+// Route::get('/leaderboard', function () {
+//     return view('admin.konten.fundraiser.leaderboard');
+// });
 
-Route::get('/tranfun', function () {
-    return view('admin.konten.fundraiser.transaksi');
-});
+// Route::get('/tranfun', function () {
+//     return view('admin.konten.fundraiser.transaksi');
+// });
 
 // Route::get('/slider', function () {
 //     return view('admin.konten.webUtama.slider');
@@ -194,11 +245,26 @@ Route::get('/konten', function () {
     return view('admin.konten.webUtama.konten');
 });
 
+Route::get('media-berbagi-setting', [MediaBerbagiSettingController::class, 'index'])->name('mediaberbagi-settings.index');
+Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'store'])->name('mediaberbagi-settings.store');
+
 //Front
 //front home
 // Route::get('/', function () {
 //     return view('front.konten.beranda.home');
 // });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/home', function () {
+    return view('front.konten.beranda.home');
+});
+Route::get('/donasi-saya', function () {
+    return view('front.konten.donasi saya.index');
+});
+Route::get('/zakat-saya', function () {
+    return view('front.konten.zakat saya.index');
+});
 Route::get('/donasi-instan', function () {
     return view('front.konten.donasiInstan.donasiInstan');
 });
@@ -248,32 +314,31 @@ Route::get('/ubah-profile', function () {
 
 
 // Route::get('/', function () {
-//     return view('admin.isi.dashboard');
+//     return view('admin.konten.penyaluranDana.dashboard');
 // });
 
-// Route::get('/dana', function () {
-//     return view('admin.isi.dana');
-// });
+// Route::post('/penyaluran/store', [PenyaluranController::class, 'store'])->name('penyaluran.store');
+
 
 // Route::get('/penyaluran', function () {
-//     return view('admin.isi.penyaluran');
+//     return view('admin.konten.penyaluranDana.penyaluran');
 // });
 
 // Route::get('/lembaga', function () {
-//     return view('admin.isi.lembaga');
+//     return view('admin.konten.penyaluranDana.lembaga');
 // });
 
 // Route::get('/mediaberbagi', function () {
-//     return view('admin.isi.mediaberbagi');
+//     return view('admin.konten.penyaluranDana.mediaberbagi');
 // });
 
 // Route::get('/berita', function () {
-//     return view('admin.isi.berita');
+//     return view('admin.konten.penyaluranDana.berita');
 // });
 
-// // Route::get('/kategori', function () {
-// //     return view('admin.isi.kategori');
-// // });
+// Route::get('/kategori', function () {
+//     return view('admin.konten.penyaluranDana.kategori');
+// });
 
 // Route::get('/fundraiser', function () {
 //     return view('admin.fundraiser.fundraiser');
@@ -319,83 +384,83 @@ Route::get('/ubah-profile', function () {
 //     return view('admin.email.mail');
 // });
 
-// Route::get('/inputpenggalanganDana', function () {
-//     return view('admin.isi.publikasiProgram.pengalanganDana');
-// });
-// Route::get('/inputprogramZakat', function () {
-//     return view('admin.isi.publikasiProgram.programZakat');
-// });
-// Route::get('/inputprogramWakaf', function () {
-//     return view('admin.isi.publikasiProgram.programWakaf');
-// });
-// Route::get('/inputprogramQurban', function () {
-//     return view('admin.isi.publikasiProgram.programQurban');
-// });
-// // Route::get('/inputkelolaKategori', function () {
-// //     return view('admin.isi.pengaturanProgram.kelolaKategori');
-// // });
-// Route::get('/inputdonasiManual', function () {
-//     return view('admin.isi.transaksi.donasiManual');
-// });
-// Route::get('/inputpenyaluranDana', function () {
-//     return view('admin.isi.penyaluranDana.penyaluranDana');
-// });
-// Route::get('/inputhakLembaga', function () {
-//     return view('admin.isi.penyaluranDana.hakLembaga');
-// });
-// Route::get('/inputhakMediaBerbagi', function () {
-//     return view('admin.isi.penyaluranDana.hakMediaBerbagi');
-// });
-// Route::get('/inputupdateLaporan', function () {
-//     return view('admin.isi.penyaluranDana.updateLaporan');
-// });
-// Route::get('/inputkelolaSlider', function () {
-//     return view('admin.isi.webUtama.kelolaSlider');
-// });
-// Route::get('/inputkelolaPartner', function () {
-//     return view('admin.isi.webUtama.kelolaPartner');
-// });
-// // Route::get('/inputwebKelolaKategori', function () {
-// //     return view('admin.isi.webUtama.kelolaKategori');
-// // });
-// Route::get('/inputkelolaBlog', function () {
-//     return view('admin.isi.webUtama.kelolaBlog');
-// });
-// Route::get('/inputkelolaKegiatan', function () {
-//     return view('admin.isi.webUtama.kelolaKegiatan');
-// });
-// Route::get('/inputkelolaUser', function () {
-//     return view('admin.isi.pengaturan.kelolaUser');
-// });
-// Route::get('/inputtambahBank', function () {
-//     return view('admin.isi.pengaturan.tambahBank');
-// });
-// Route::get('/inputkelolaNotifikasi', function () {
-//     return view('admin.isi.pengaturan.kelolaNotifikasi');
-// });
+Route::get('/inputpenggalanganDana', function () {
+    return view('admin.konten.penyaluranDana.publikasiProgram.pengalanganDana');
+});
+Route::get('/inputprogramZakat', function () {
+    return view('admin.konten.penyaluranDana.publikasiProgram.programZakat');
+});
+Route::get('/inputprogramWakaf', function () {
+    return view('admin.konten.penyaluranDana.publikasiProgram.programWakaf');
+});
+Route::get('/inputprogramQurban', function () {
+    return view('admin.konten.penyaluranDana.publikasiProgram.programQurban');
+});
+Route::get('/inputkelolaKategori', function () {
+    return view('admin.konten.penyaluranDana.pengaturanProgram.kelolaKategori');
+});
+Route::get('/inputdonasiManual', function () {
+    return view('admin.konten.penyaluranDana.transaksi.donasiManual');
+});
+Route::get('/inputpenyaluranDana', function () {
+    return view('admin.konten.penyaluranDana.penyaluranDana.penyaluranDana');
+});
+Route::get('/inputhakLembaga', function () {
+    return view('admin.konten.penyaluranDana.penyaluranDana.hakLembaga');
+});
+Route::get('/inputhakMediaBerbagi', function () {
+    return view('admin.konten.penyaluranDana.penyaluranDana.hakMediaBerbagi');
+});
+Route::get('/inputupdateLaporan', function () {
+    return view('admin.konten.penyaluranDana.penyaluranDana.updateLaporan');
+});
+Route::get('/inputkelolaSlider', function () {
+    return view('admin.konten.penyaluranDana.webUtama.kelolaSlider');
+});
+Route::get('/inputkelolaPartner', function () {
+    return view('admin.konten.penyaluranDana.webUtama.kelolaPartner');
+});
+Route::get('/inputwebKelolaKategori', function () {
+    return view('admin.konten.penyaluranDana.webUtama.kelolaKategori');
+});
+Route::get('/inputkelolaBlog', function () {
+    return view('admin.konten.penyaluranDana.webUtama.kelolaBlog');
+});
+Route::get('/inputkelolaKegiatan', function () {
+    return view('admin.konten.penyaluranDana.webUtama.kelolaKegiatan');
+});
+Route::get('/inputkelolaUser', function () {
+    return view('admin.konten.penyaluranDana.pengaturan.kelolaUser');
+});
+Route::get('/inputtambahBank', function () {
+    return view('admin.konten.penyaluranDana.pengaturan.tambahBank');
+});
+Route::get('/inputkelolaNotifikasi', function () {
+    return view('admin.konten.penyaluranDana.pengaturan.kelolaNotifikasi');
+});
 
 // Route::get('/googleAnalytics', function() {
-//     return view('admin.isi.analytics.googleAnalytics');
+//     return view('admin.konten.penyaluranDana.analytics.googleAnalytics');
 // });
 // Route::get('/facebookPixel', function() {
-//     return view('admin.isi.analytics.facebookPixel');
+//     return view('admin.konten.penyaluranDana.analytics.facebookPixel');
 // });
 // Route::get('/payment', function() {
-//     return view('admin.isi.paymentGateaway');
+//     return view('admin.konten.penyaluranDana.paymentGateaway');
 // });
 // Route::get('/pengaturanemas', function() {
-//     return view('admin.isi.pengaturan');
+//     return view('admin.konten.penyaluranDana.pengaturan');
 // });
 
-// Route::get('/pembayaran', function() {
-//     return view('admin.isi.pembayaran');
-// });
+Route::get('/pembayaran', function() {
+    return view('admin.konten.penyaluranDana.pembayaran');
+});
 
 
 
 // User
 // Route::get('/home', function () {
-//     return view('user.home.index');
+//     return view('front.konten.beranda.home');
 // });
 
 // Route::get('/akun', function () {
@@ -406,30 +471,46 @@ Route::get('/dutaamal', function () {
     return view('front.konten.akun.dutaAmal');
 });
 
+Route::get('/tim-fundraising', function () {
+    return view('front.konten.akun.tim-fundraising');
+});
+
+Route::get('/riwayat-transaksi', function () {
+    return view('front.konten.akun.riwayat-fundraising');
+});
+
+Route::get('/detail', function () {
+    return view('front.konten.akun.detail-transaksi');
+});
+
+Route::get('/data-bank', function () {
+    return view('front.konten.akun.data-bank');
+});
+
 Route::get('/bg', function () {
     return view('front.konten.akun.background');
 });
 
-Route::get('login', function () {
-    return view('front.konten.login.index');
+Route::get('/akun', function () {
+    return view('front.konten.akun.main');
 });
 
-Route::get('registrasi', function () {
-    return view('front.konten.login.registrasi');
-});
-Route::get('lupapassword', function () {
+// Route::get('registrasi', function () {
+//     return view('front.konten.login.registrasi');
+// });
+Route::get('lupapassword1', function () {
     return view('front.konten.login.lupapassword');
 });
-Route::get('verifikasi', function () {
+Route::get('verifikasi1', function () {
     return view('front.konten.login.verifikasi');
 });
-Route::get('reset', function () {
+Route::get('reset1', function () {
     return view('front.konten.login.resetpassword');
 });
-Route::get('berhasil', function () {
+Route::get('berhasil1', function () {
     return view('front.konten.login.berhasil');
 });
-Route::get('ubah-katasandi', function () {
+Route::get('ubah-katasandi1', function () {
     return view('front.konten.login.gantiPassword');
 });
 
@@ -486,17 +567,29 @@ Route::get('/inputTambahUser', function () {
     return view('admin.konten.user.inputTambahUser');
 });
 
-Route::get('/email', function () {
-    return view('admin.konten.email.mail');
-});
 
-Route::get('/notifikasiEmail', function () {
-    return view('admin.konten.email.notif');
-});
+Route::get('/notifikasiEmail', [NotifikasiMailController::class, 'index'])->name('notifications.index');
+Route::get('/inputNotifikasi', [NotifikasiMailController::class, 'create'])->name('notifications.create');
+Route::post('/notifikasiEmail', [NotifikasiMailController::class, 'store'])->name('notifications.store');
+Route::get('notifications/{id}', [NotifikasiMailController::class, 'show'])->name('notifications.show');
 
-Route::get('/inputNotifikasi', function () {
-    return view('admin.konten.email.inputNotifikasi');
-});
+Route::get('email', [MailSettingController::class, 'index'])->name('mail-settings.index');
+Route::post('email', [MailSettingController::class, 'store'])->name('mail-settings.store');
+
+
+
+
+// Route::get('/email', function () {
+//     return view('admin.konten.email.mail');
+// });
+
+// Route::get('/notifikasiEmail', function () {
+//     return view('admin.konten.email.notif');
+// });
+
+// Route::get('/inputNotifikasi', function () {
+//     return view('admin.konten.email.inputNotifikasi');
+// });
 
 Route::get('/googleAnalytics', function () {
     return view('admin.konten.analytics.googleAnalytics');
@@ -537,3 +630,22 @@ Route::resource('article', ArticleController::class);
 //BE
 //USER
 Route::resource('/', homeController::class);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('front.konten.beranda.home');
+    })->name('dashboard');
+});
+
+Route::get('/update-password', function() {
+    return view('front.konten.proses.updatePassword');
+});
+ROute::get('/update-profile', function() {
+    return view('front.konten.proses.updateProfile');
+});

@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="p-4 bg-white border border-gray-200 rounded-lg shadow">
     <div class="">
         <p class="text-orange-500 mb-3">
             * drag drop untuk memindahkan item

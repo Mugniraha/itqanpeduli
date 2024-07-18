@@ -5,7 +5,7 @@
             <div class="welcome  bg-green-700 me-30 w-full py-6 px-4 rounded-xl">
                 <div class="kanan my-auto">
                     <a type="button" href="#"
-                        class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-lg px-px py-2.5 w-32 h-12 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                        class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-lg px-px py-2.5 w-32 h-12 text-center">
                         Kembali
                     </a>
                 </div>
@@ -13,56 +13,47 @@
             <form method="POST" action="{{ route('campaign.store') }}" enctype="multipart/form-data" class="px-8 mt-6 bg-white rounded-lg">
                 @csrf
                 <div class=" pt-4">
-                    <label for="judul" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul</label>
+                    <label for="judul" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
                     <input type="text" id="judul"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Judul" name="title" required />
                 </div>
                 <div class=" pt-4">
-                    <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug (jika
+                    <label for="slug" class="block mb-2 text-sm font-medium text-gray-900">Slug (jika
                         dikosongi akan digenerate otomatis)</label>
                     <input type="text" id="slug"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Slug" name="slug" />
+                        placeholder="Slug" required />
                 </div>
                 <div class=" pt-4">
-                    {{-- <label for="kategori"
+                    <label for="kategori"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
-                    <select name="kategori" id="kategori" name="category" required>
-                    </select> --}}
-                    <label for="kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
-                    <select id="kategori"name="category" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        @foreach ($categories as $kategori)
-                        <option value="{{ $kategori->name }}">{{ $kategori->name }}</option>
-                        @endforeach
-                    </select>
-
-                    {{-- <input type="text" id="kategori"
+                    <input type="text" id="kategori"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Pilih Kategori" name="category" required /> --}}
+                        placeholder="Pilih Kategori" required />
                 </div>
 
                 <div class="pt-4">
 
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload
+                    <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Upload
                         file
                         <p class="text-yellow-500">campaign image recommendation 600x900px</p>
                     </label>
                     <input
                         class="block  text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600 "
-                        id="file_input" type="file" name="photo">
+                        id="file_input" type="file">
 
                 </div>
                 <div class="pt-4">
                     <p class="text-black text-sm font-medium my-2">Konten</p>
                     <div
-                        class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-                        <div class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
+                        class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
+                        <div class="flex items-center justify-between px-3 py-2 border-b">
                             <div
-                                class="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
+                                class="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse">
                                 <div class="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 12 20">
                                             <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
@@ -71,7 +62,7 @@
                                         <span class="sr-only">Attach file</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 16 20">
                                             <path
@@ -80,7 +71,7 @@
                                         <span class="sr-only">Embed map</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 16 20">
                                             <path
@@ -91,7 +82,7 @@
                                         <span class="sr-only">Upload image</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 16 20">
                                             <path
@@ -102,7 +93,7 @@
                                         <span class="sr-only">Format code</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 20 20">
                                             <path
@@ -113,7 +104,7 @@
                                 </div>
                                 <div class="flex flex-wrap items-center space-x-1 rtl:space-x-reverse sm:ps-4">
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 21 18">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -123,7 +114,7 @@
                                         <span class="sr-only">Add list</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 20 20">
                                             <path
@@ -132,7 +123,7 @@
                                         <span class="sr-only">Settings</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 20 20">
                                             <path
@@ -143,7 +134,7 @@
                                         <span class="sr-only">Timeline</span>
                                     </button>
                                     <button type="button"
-                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                        class="p-2 text-green-700 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 20 20">
                                             <path
@@ -156,7 +147,7 @@
                                 </div>
                             </div>
                             <button type="button" data-tooltip-target="tooltip-fullscreen"
-                                class="p-2 text-green-700 rounded cursor-pointer sm:ms-auto hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                class="p-2 text-green-700 rounded cursor-pointer sm:ms-auto hover:text-gray-900 hover:bg-gray-100">
                                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 19 19">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -166,16 +157,16 @@
                                 <span class="sr-only">Full screen</span>
                             </button>
                             <div id="tooltip-fullscreen" role="tooltip"
-                                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
                                 Show full screen
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
                         </div>
-                        <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
+                        <div class="px-4 py-2 bg-white rounded-b-lg">
                             <label for="editor" class="sr-only">Publish post</label>
                             <textarea id="editor" rows="8"
                                 class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-                                placeholder="Write an article..." name="content" required></textarea>
+                                placeholder="Write an article..." required></textarea>
                         </div>
                     </div>
                 </div>
@@ -183,46 +174,47 @@
                     <p class="text-black text-sm font-medium">Program Unlimited</p>
                     <p class="text-yellow-500">* jika dicentang, target tanggal dan nominal tidak diisi</p>
                     <div class="flex items-center mb-4">
-                        <input id="unlimited-checkbox" type="checkbox"
+                        <input id="default-checkbox" type="checkbox" value=""
                             class="w-4 h-4 my-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="unlimited-checkbox" class="ms-2 text-sm font-normal text-gray-400 dark:text-gray-300">Program Unlimited ?</label>
+                        <label for="default-checkbox"
+                        class="ms-2 text-sm font-normal text-gray-400 dark:text-gray-300">Program Unlimited ?</label>
                     </div>
                 </div>
 
-                <label for="target" id="target-label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target
+                <label for="target" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target
                     (Rp)</label>
                 <input type="text" id="target"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Target" name="target" required min="0" />
+                    placeholder="Target" required />
 
-                <label for="deadline" id="deadline-label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
+                <label for="batasWaktu" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
                     Waktu</label>
-                <input type="date" id="deadline"
+                <input type="text" id="batasWaktu"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Batas Waktu" name="deadline" required />
+                    placeholder="Batas Waktu" required />
 
-                <label for="labelDonasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Label Tombol
+                <label for="labelDonasi" class="block mb-2 text-sm font-medium text-gray-900">Label Tombol
                     Donasi</label>
                 <input type="text" id="labelDonasi"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Donasi Sekarang" name="donate_button_label" required />
+                    placeholder="Donasi Sekarang" required />
 
                 <label for="danaOperasional"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Persentase Dana Operasional (dalam
+                    class="block mb-2 text-sm font-medium text-gray-900">Persentase Dana Operasional (dalam
                     %)</label>
                 <div class="flex">
                     <input type="number" id="danaOperasional"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Persentase Dana Operasional" name="operational_fund_percentage" required />
+                        placeholder="Persentase Dana Operasional" required />
                     <p class="bg-gray-200 border w-8 px-auto text-center border-gray-300 text-black">%</p>
                 </div>
 
-                <label for="reward" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Persentase
+                <label for="reward" class="block mb-2 text-sm font-medium text-gray-900">Persentase
                     Untuk Reward Fundraiser(dalam %)</label>
                 <div class="flex">
                     <input type="number" id="reward"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-md focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Persentase Reward Fundraiser" name="fundraiser_reward_percentage" required />
+                        placeholder="Persentase Reward Fundraiser" required />
                     <p class="bg-gray-200 border w-8 px-auto text-center border-gray-300 text-black">%</p>
                 </div>
 
@@ -231,44 +223,39 @@
                     <h2>
                         <button type="button" id="toggle-nominal" class="underline text-gray-400 hover:text-blue-400">Custom Nominal</button>
                     </h2>
-                    <div id="nominal-container" class="hidden">
-                        <label for="nominal1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Custom (Optional)</label>
-                        <input type="number" id="nominal1" value="10000"
+                    <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                        <label for="target" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal
+                            Custom (Optional)</label>
+                        <input type="number" id="target" value="100000"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nominal 1" name="nominal1" />
-                        <input type="number" id="nominal2" value="25000"
+                            placeholder="Target" required />
+                        <input type="number" id="target" value="200000"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nominal 2" name="nominal2" />
-                        <input type="number" id="nominal3" value="50000"
+                            placeholder="Target" required />
+                        <input type="number" id="target" value="300000"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nominal 3" name="nominal3" />
-                        <input type="number" id="nominal4" value="100000"
+                            placeholder="Target" required />
+                        <input type="number" id="target" value="400000"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nominal 4" name="nominal4" />
-                        <input type="number" id="nominal5" value="250000"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nominal 5" name="nominal5" />
-                        <input type="number" id="nominal6" value="500000"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Nominal 6" name="nominal6" />
+                            placeholder="Target" required />
                     </div>
                 </div>
 
                 <div class="pt-4 flex justify-end">
                     <div class="text">
-                        <span class="text-sm font-medium end-0 text-gray-900 dark:text-gray-300">Tampil Program
+                        <span class="text-sm font-medium end-0 text-gray-900">Tampil Program
                         </span>
                         <p class="font-normal text-yellow-500">*Jika tidak di check program tidak akan tampil</p>
                     </div>
                     <label for="tampilkan" class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" id="tampilkan" name="tampilkan"  class="sr-only peer" >
                         <div
-                            class="relative m-3 w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                            class="relative m-3 w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
                         </div>
                     </label>
                     {{-- <div class="kanan my-auto"> --}}
-                    <button type="submit"
-                        class="text-white bg-green-600 border border-green-300 focus:outline-none hover:bg-green-700 focus:ring-4 focus:ring-green-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                    <a type="button" href="#"
+                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                         Simpan
                     </button>
                     {{-- </div> --}}

@@ -19,7 +19,7 @@
                         placeholder="Link Target" required />
                 </div>
                 <div class=" pt-4">
-                    <label class="block mb-2 text-sm font-medium text-black dark:text-white"
+                    <label class="block mb-2 text-sm font-medium text-black"
                         for="icon">Icon
                         <p class="text-yellow-500">slider image recommendation 600x300px</p>
                     </label>
