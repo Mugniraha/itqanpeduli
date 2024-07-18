@@ -1,5 +1,13 @@
 @extends('admin.layout.main')
 @section('konten')
+<<<<<<< HEAD
+<div class="p-4">
+    <div class="subheader text-white my-8">
+        <div class="welcome flex justify-between bg-green-700 me-30 w-full py-8 px-4 rounded-lg">
+            <div class="kiri my-auto">
+                <p class="text-2xl font-semibold">Notifikasi Email</p>
+                <p class="text-sm text-gray-300 mt-2 font-normal">kirim email blast ke daftar email donatur aktif</p>
+=======
     <div class="p-4">
 
         <div class="subheader text-white my-8">
@@ -9,25 +17,19 @@
                     <p class="text-sm text-gray-300 mt-2 font-normal">kirim email blast ke daftar email donatur aktif</p>
                 </div>
                 <div class="kanan my-auto">
-                    <a type="button" href="{{ url('/inputNotifikasi') }}" class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                    <a type="button" href="{{ url('/inputNotifikasi') }}" class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
                         Buat Notifikasi
                     </a>
                 </div>
+>>>>>>> f704115f1538d2525759315b78a2d17ea649fe27
             </div>
-        </div>
-        <div class="program">
-            <p class="text-2xl font-semibold">Program Instan</p>
-            <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
-                <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
-                <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Sedekah</a>
-                    <p class="text-sm font-normal ms-3 text-green-600">Tidak Terikat</p>
-                    <div class="duit flex justify-between mt-5">
-                        <p class="text-sm font-normal ms-3 text-green-600">13.250.500</p>
-                        <p class="text-sm font-normal ms-3 text-gray-600">49 Donatur</p>
-                    </div>
-                </div>
+            <div class="kanan my-auto">
+                <a type="button" href="{{ route('notifications.create') }}" class="text-green-700 bg-white p-10 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                    Buat Notifikasi
+                </a>
             </div>
+<<<<<<< HEAD
+=======
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
@@ -176,7 +178,7 @@
             <nav aria-label="Page navigation">
                 <ul class="flex items-center -space-x-px h-8 text-sm my-10">
                     <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">
                             <span class="sr-only">Previous</span>
                             <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
@@ -187,19 +189,19 @@
                         <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight active-page bg-green-600 border border-gray-300">1</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">
                             <span class="sr-only">Next</span>
                             <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
@@ -208,6 +210,29 @@
                     </li>
                 </ul>
             </nav>
+>>>>>>> f704115f1538d2525759315b78a2d17ea649fe27
         </div>
     </div>
+
+    <div class="program">
+        @if($notifications->isEmpty())
+        <p class="text-center text-gray-600 bg-white shadow-md p-5 rounded-lg text-lg font-semibold">Tidak ada notifikasi email</p>
+        @else
+        <p class="text-2xl font-semibold">Notifikasi</p>
+        @foreach($notifications as $notification)
+            <div class="bg-white w-full my-3 flex p-5 rounded-lg shadow-md">
+                <div class="teks w-full">
+                    <p class="text-2xl font-semibold ms-3 text-gray-800">{{ $notification->judul }}</p>
+                    <p class="text-sm font-normal ms-3">
+                        {{ \Illuminate\Support\Str::limit($notification->konten, 100) }}
+                        @if(strlen($notification->konten) > 100)
+                            <a href="{{ route('notifications.show', $notification->id) }}" class="text-blue-500 hover:underline">Lihat Selengkapnya</a>
+                        @endif
+                    </p>
+                </div>
+            </div>
+        @endforeach
+        @endif
+    </div>
+</div>
 @endsection

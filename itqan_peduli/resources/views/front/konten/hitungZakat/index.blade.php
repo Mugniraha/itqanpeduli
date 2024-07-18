@@ -60,7 +60,7 @@
                             <label for="inputPenghasilan" class=" bg-white px-1 text-sm font-medium text-black">Penghasilan </label>
                         </div>
                         <div class="mt-1" data-modal-target="penghasilan-modal" data-modal-toggle="penghasilan-modal">
-                            <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
                         </div>
@@ -76,7 +76,7 @@
                             <label for="bonus" class=" bg-white px-1 text-sm text-black font-medium">Pendapatan lainya (Bonus, THR) </label>
                         </div>
                         <div class="mt-1" data-modal-target="pendapatan-modal" data-modal-toggle="pendapatan-modal">
-                            <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
                         </div>
@@ -92,7 +92,7 @@
                             <label for="kebutuhan" class=" bg-white px-1 text-sm text-black font-medium">Pengeluaran kebutuhan pokok </label>
                         </div>
                         <div class="mt-1" data-modal-target="pengeluaran-modal" data-modal-toggle="pengeluaran-modal">
-                            <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
                         </div>
@@ -148,14 +148,14 @@
 
         <div id="penghasilan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Penghasilan
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Total pendapatan tetap per-bulan. <span class="font-bold text-black">(Gaji bulanan)</span>
                         </p>
                     </div>
@@ -165,14 +165,14 @@
 
         <div id="pendapatan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Pendapatan Lainnya
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Pendapatan tambahan diluar dari pendapatan tetap. <span class="font-bold text-black">(Hasil bagi Saham, Bonus, THR)</span>
                         </p>
                     </div>
@@ -182,14 +182,14 @@
 
         <div id="pengeluaran-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Pengeluaran Kebutuhan Pokok
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Total harta yang dikeluarkan untuk memenuhi  kebutuhan hidup.  <span class="font-bold text-black">(makan, listrik, tagihan, dll)</span>
                         </p>
                     </div>
@@ -207,7 +207,7 @@
                             <label for="inputPenghasilanPertahun" class=" bg-white px-1 text-sm font-medium text-black">Penghasilan Pertahun</label>
                         </div>
                         <div class="mt-1" data-modal-target="penghasilanTahunan-modal" data-modal-toggle="penghasilanTahunan-modal">
-                            <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
                         </div>
@@ -223,7 +223,7 @@
                             <label for="bonusPertahun" class=" bg-white px-1 text-sm text-black font-medium">Pendapatan lainya (Bonus, THR) </label>
                         </div>
                         <div class="mt-1" data-modal-target="pendapatanTahunan-modal" data-modal-toggle="pendapatanTahunan-modal">
-                            <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
                         </div>
@@ -239,7 +239,7 @@
                             <label for="kebutuhanPertahun" class=" bg-white px-1 text-sm text-black font-medium">Pengeluaran kebutuhan pokok </label>
                         </div>
                         <div class="mt-1" data-modal-target="pengeluaranTahunan-modal" data-modal-toggle="pengeluaranTahunan-modal">
-                            <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
                         </div>
@@ -292,14 +292,14 @@
 
         <div id="penghasilanTahunan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Penghasilan
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Total pendapatan tetap dalam satu tahun. <span class="font-bold text-black">(Gaji dalam satu tahun)</span>
                         </p>
                     </div>
@@ -309,14 +309,14 @@
 
         <div id="pendapatanTahunan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Pendapatan Lainnya
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Pendapatan tambahan diluar dari pendapatan tetap. <span class="font-bold text-black">(Hasil bagi Saham, Bonus, THR)</span>
                         </p>
                     </div>
@@ -326,14 +326,14 @@
 
         <div id="pengeluaranTahunan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Pengeluaran Kebutuhan Pokok
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Total harta yang dikeluarkan untuk memenuhi kebutuhan hidup.  <span class="font-bold text-black">(makan, listrik, tagihan, dll)</span>
                         </p>
                     </div>
@@ -354,7 +354,7 @@
                         <label for="inputSaldoTabungan" class=" bg-white px-1 text-sm text-black font-medium">Saldo tabungan </label>
                     </div>
                     <div class="mt-1" data-modal-target="tabungan-modal" data-modal-toggle="tabungan-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -370,7 +370,7 @@
                         <label for="inputBungaTabungan" class=" bg-white px-1 text-sm text-black font-medium">Bunga (jika menabug di bank konvesional) </label>
                     </div>
                     <div class="mt-1" data-modal-target="bunga-modal" data-modal-toggle="bunga-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -413,14 +413,14 @@
 
         <div id="tabungan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Tabungan
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Total tabungan yang dimiliki.
                             {{-- <span class="font-bold text-black">(Gaji bulanan)</span> --}}
                         </p>
@@ -431,14 +431,14 @@
 
         <div id="bunga-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-lg max-h-full">
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+                <div class="relative bg-white rounded-lg shadow p-3">
                     <div class="">
-                        <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                        <p class="text-base font-bold leading-relaxed text-gray-700">
                             Bunga
                         </p>
                     </div>
                     <div class="">
-                        <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                        <p class="text-base leading-relaxed text-gray-900">
                             Total bunga dari tabungan.
                             {{-- <span class="font-bold text-black">(Gaji bulanan)</span> --}}
                         </p>
@@ -459,7 +459,7 @@
                         <label for="name" class=" bg-white px-1 text-sm text-black font-medium">Modal selama 1 tahun </label>
                     </div>
                     <div class="mt-1" data-modal-target="modalDagang-modal" data-modal-toggle="modalDagang-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -475,7 +475,7 @@
                         <label for="name" class=" bg-white px-1 text-sm text-black font-medium">Keuntungan selama 1 tahun </label>
                     </div>
                     <div class="mt-1" data-modal-target="keuntungan-modal" data-modal-toggle="keuntungan-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -491,7 +491,7 @@
                         <label for="name" class=" bg-white px-1 text-sm text-black font-medium">Piutang dagang </label>
                     </div>
                     <div class="mt-1" data-modal-target="piutang-modal" data-modal-toggle="piutang-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -507,7 +507,7 @@
                         <label for="name" class=" bg-white px-1 text-sm text-black font-medium">Utang jatuh tempo</label>
                     </div>
                     <div class="mt-1" data-modal-target="hutang-modal" data-modal-toggle="hutang-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -523,7 +523,7 @@
                         <label for="name" class=" bg-white px-1 text-sm text-black font-medium">Kerugian selama 1 tahun </label>
                     </div>
                     <div class="mt-1" data-modal-target="kerugian-modal" data-modal-toggle="kerugian-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -561,14 +561,14 @@
 
     <div id="modalDagang-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+            <div class="relative bg-white rounded-lg shadow p-3">
                 <div class="">
-                    <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                    <p class="text-base font-bold leading-relaxed text-gray-700">
                         Modal Dagang
                     </p>
                 </div>
                 <div class="">
-                    <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                    <p class="text-base leading-relaxed text-gray-900">
                         Modal usaha yang dikeluarkan dalam satu tahun.
                     </p>
                 </div>
@@ -578,14 +578,14 @@
 
     <div id="keuntungan-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+            <div class="relative bg-white rounded-lg shadow p-3">
                 <div class="">
-                    <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                    <p class="text-base font-bold leading-relaxed text-gray-700">
                         Keuntungan
                     </p>
                 </div>
                 <div class="">
-                    <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                    <p class="text-base leading-relaxed text-gray-900">
                         keuntungan yang diperoleh dalam satu tahun.
                     </p>
                 </div>
@@ -595,14 +595,14 @@
 
     <div id="piutang-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+            <div class="relative bg-white rounded-lg shadow p-3">
                 <div class="">
-                    <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                    <p class="text-base font-bold leading-relaxed text-gray-700">
                         Piutang
                     </p>
                 </div>
                 <div class="">
-                    <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                    <p class="text-base leading-relaxed text-gray-900">
                         Piutang yang belum dibayarkan selama satu tahun.
                     </p>
                 </div>
@@ -612,14 +612,14 @@
 
     <div id="hutang-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+            <div class="relative bg-white rounded-lg shadow p-3">
                 <div class="">
-                    <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                    <p class="text-base font-bold leading-relaxed text-gray-700">
                         Hutang
                     </p>
                 </div>
                 <div class="">
-                    <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                    <p class="text-base leading-relaxed text-gray-900">
                         Hutang yang belum dibayarkan selama satu tahun.
                     </p>
                 </div>
@@ -629,14 +629,14 @@
 
     <div id="kerugian-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+            <div class="relative bg-white rounded-lg shadow p-3">
                 <div class="">
-                    <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                    <p class="text-base font-bold leading-relaxed text-gray-700">
                         Kerugian
                     </p>
                 </div>
                 <div class="">
-                    <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                    <p class="text-base leading-relaxed text-gray-900">
                         Kerugian yang dialami selama satu tahun.
                     </p>
                 </div>
@@ -657,7 +657,7 @@
                         <label for="inputJumlahEmas" class=" bg-white px-1 text-sm text-black font-medium">Jumlah emas (per gram) </label>
                     </div>
                     <div class="mt-1" data-modal-target="jumlahEmas-modal" data-modal-toggle="jumlahEmas-modal">
-                        <svg class="w-[18px] h-[18px] text-green-600 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-[18px] h-[18px] text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                         </svg>
                     </div>
@@ -698,14 +698,14 @@
 
     <div id="jumlahEmas-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-lg max-h-full">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-3">
+            <div class="relative bg-white rounded-lg shadow p-3">
                 <div class="">
-                    <p class="text-base font-bold leading-relaxed text-gray-700 dark:text-gray-600">
+                    <p class="text-base font-bold leading-relaxed text-gray-700">
                         Jumlah Emas
                     </p>
                 </div>
                 <div class="">
-                    <p class="text-base leading-relaxed text-gray-900 dark:text-gray-800">
+                    <p class="text-base leading-relaxed text-gray-900">
                         Total berat emas yang dimiliki.
                     </p>
                 </div>
@@ -718,10 +718,10 @@
 <div id="niat-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-lg max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
-            <div class="flex items-center justify-between p-3 md:p-2 dark:border-gray-600">
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="niat-modal">
+            <div class="flex items-center justify-between p-3 md:p-2">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="niat-modal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -736,8 +736,8 @@
                     <span class="font-normal tracking-wide">“Aku niat mengeluarkan zakat hartaku, fardhu karena Allah Ta’ala.”</span>
                 </p>
             </div>
-            <div class="flex items-center p-4 md:p-5 w-full border-gray-200 rounded-b dark:border-gray-600">
-                <button data-modal-hide="niat-modal" type="button" class="text-white w-full bg-green-700 hover:bg-green-800  font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-green-600 dark:hover:bg-green-700 ">Selesai</button>
+            <div class="flex items-center p-4 md:p-5 w-full border-gray-200 rounded-b">
+                <button data-modal-hide="niat-modal" type="button" class="text-white w-full bg-green-700 hover:bg-green-800  font-medium rounded-lg text-sm px-5 py-3 text-center ">Selesai</button>
             </div>
         </div>
     </div>

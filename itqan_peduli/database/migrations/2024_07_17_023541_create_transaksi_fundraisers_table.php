@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('fundraiser');
             $table->decimal('nominal', 10, 2);
-            $table->string('tipe');
+            $table->string('status');
+            $table->string('nama_bank');
+            $table->string('nomor_rekening');
+            $table->string('kode_bank');
+            $table->string('tipe')->default('penarikan');
             $table->timestamps();
         });
     }

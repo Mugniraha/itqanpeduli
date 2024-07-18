@@ -1,25 +1,23 @@
 @extends('front.layout.mainAkun')
 
 @section('konten')
+    <div x-data="{ open: false }" class="relative z-20 px-4 pt-4 pb-28">
+        <p class="text-xl font-semibold text-white">Akun</p>
 
-        <div class="relative z-20 px-4 pt-4 pb-28">
-            <p class="text-xl font-semibold text-white dark:text-black">Akun</p>
-
-            <div class="flex flex-col py-3 items-center gap-4">
-                <img class="w-24 h-24 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    alt="">
-                <div class= "text-center dark:text-black">
-                    <div class="text-xl font-semibold text-white dark:text-black">Ramadhani</div>
-                    <a href="{{  url('/pengaturan') }}" class="flex justify-center px-auto text-sm text-white dark:text-black-400">Ubah Profil
-                        <svg class="w-4 h-4 my-auto text-white dark:text-black" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m9 5 7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
+        <div class="flex flex-col py-3 items-center gap-4">
+            <img class="w-24 h-24 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                alt="">
+            <div class= "text-center">
+                <div class="text-xl font-semibold text-white">{{ Auth::user()->name }}</div>
+                <a href="{{ url('/update-profile') }}" class="flex justify-center px-auto text-sm text-white">Ubah Profil
+                    <svg class="w-4 h-4 my-auto text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m9 5 7 7-7 7" />
+                    </svg>
+                </a>
             </div>
+        </div>
 
             <button type="button"
                 class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
@@ -129,128 +127,126 @@
 
 
 
-            <a href="{{ url('/pengaturan') }}" type="button"
-                class="px-3 py-3 mt-6  w-full  text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <p class="text-gray-600 font-semibold text-sm">Pengaturan</p>
-                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    viewBox="0 0 24 24">
+        <a href="{{ url('/pengaturan') }}" type="button"
+            class="px-3 py-3 mt-6  w-full  text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
+            <p class="text-gray-600 font-semibold text-sm">Pengaturan</p>
+            <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m9 5 7 7-7 7" />
+            </svg>
+        </a>
+        <a href="{{ url('/bantuan') }}" type="button"
+            class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
+            <p class="text-gray-600 font-semibold text-sm">Bantuan</p>
+            <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m9 5 7 7-7 7" />
+            </svg>
+        </a>
+        <a href="{{ url('/syaratketentuan') }}" type="button"
+            class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
+            <p class="text-gray-600 font-semibold text-sm">Syarat & Ketentuan</p>
+            <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m9 5 7 7-7 7" />
+            </svg>
+        </a>
+        <a href="{{ url('/aboutus') }}" type="button"
+            class="px-3 py-3 flex w-full mt-2 text-white items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
+            <div class="kiri">
+                <p class="text-left text-gray-600 font-semibold text-sm mb-2">Tentang Kami</p>
+                <svg width="100" height="35" viewBox="0 0 125 35" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="125" height="35" fill="url(#pattern0_1381_1548)" />
+                    <mask id="mask0_1381_1548" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                        width="125" height="35">
+                        <rect width="100" height="35" fill="url(#pattern1_1381_1548)" />
+                    </mask>
+                    <g mask="url(#mask0_1381_1548)">
+                        <rect x="40" y="-13" width="164" height="78" fill="green-700" />
+                    </g>
+                    <defs>
+                        <pattern id="pattern0_1381_1548" patternContentUnits="objectBoundingBox" width="1"
+                            height="1">
+                            <use xlink:href="#image0_1381_1548" transform="scale(0.008 0.0285714)" />
+                        </pattern>
+                        <pattern id="pattern1_1381_1548" patternContentUnits="objectBoundingBox" width="1"
+                            height="1">
+                            <use xlink:href="#image0_1381_1548" transform="scale(0.008 0.0285714)" />
+                        </pattern>
+                        <image id="image0_1381_1548" width="125" height="35"
+                            xlink:href="data:image/png;base64,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" />
+                    </defs>
+                </svg>
+            </div>
+            <div class="kanan my-auto ms-auto">
+                <svg class="w-6 h-6 end-0 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m9 5 7 7-7 7" />
                 </svg>
-            </a>
-            <a href="{{  url('/bantuan') }}" type="button"
-                class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <p class="text-gray-600 font-semibold text-sm">Bantuan</p>
-                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m9 5 7 7-7 7" />
-                </svg>
-            </a>
-            <a href="{{ url('/syaratketentuan') }}" type="button"
-                class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <p class="text-gray-600 font-semibold text-sm">Syarat & Ketentuan</p>
-                <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m9 5 7 7-7 7" />
-                </svg>
-            </a>
-            <a href="{{ url('/aboutus') }}" type="button"
-                class="px-3 py-3 flex w-full mt-2 text-white items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
-                <div class="kiri">
-                    <p class="text-left text-gray-600 font-semibold text-sm mb-2">Tentang Kami</p>
-                    <svg width="100" height="35" viewBox="0 0 125 35" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <rect width="125" height="35" fill="url(#pattern0_1381_1548)" />
-                        <mask id="mask0_1381_1548" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                            width="125" height="35">
-                            <rect width="100" height="35" fill="url(#pattern1_1381_1548)" />
-                        </mask>
-                        <g mask="url(#mask0_1381_1548)">
-                            <rect x="40" y="-13" width="164" height="78" fill="green-700" />
-                        </g>
-                        <defs>
-                            <pattern id="pattern0_1381_1548" patternContentUnits="objectBoundingBox" width="1"
-                                height="1">
-                                <use xlink:href="#image0_1381_1548" transform="scale(0.008 0.0285714)" />
-                            </pattern>
-                            <pattern id="pattern1_1381_1548" patternContentUnits="objectBoundingBox" width="1"
-                                height="1">
-                                <use xlink:href="#image0_1381_1548" transform="scale(0.008 0.0285714)" />
-                            </pattern>
-                            <image id="image0_1381_1548" width="125" height="35"
-                                xlink:href="data:image/png;base64,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" />
-                        </defs>
-                    </svg>
-                </div>
-                <div class="kanan my-auto ms-auto">
-                    <svg class="w-6 h-6 end-0 text-gray-600 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m9 5 7 7-7 7" />
-                    </svg>
-                </div>
-            </a>
+            </div>
+        </a>
+
+
+        <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+            class="px-6 py-3.5 w-full mt-8 text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center">
+            <p class="text-white font-semibold">Keluar</p>
+            <svg class="w-8 h-8 ms-auto  text-white-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
+            </svg>
+        </button>
 
 
 
-
-
-            <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                class="px-6 py-3.5 w-full mt-8 text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                <p class="text-white font-semibold">Keluar</p>
-                <svg class="w-8 h-8 ms-auto  text-white-800 dark:text-black" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
-                </svg>
-            </button>
-
-
-
-        </div>
+    </div>
 
     {{-- </div> --}}
     <div id="popup-modal" tabindex="-1"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative p-4 w-full max-w-md max-h-full">
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                        <button type="button"
-                            class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-hide="popup-modal">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow">
+                <button type="button"
+                    class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                    data-modal-hide="popup-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="p-4 md:p-5 ">
+                    <p class="text-xl mt-8 font-semibold text-start">Yakin mau keluar aplikasi ?</p>
+                    <h3 class="mb-5 mt-2 text-sm font-normal text-gray-500 text-start">Apakah anda yakin keluar akun dari
+                        aplikasi ini ?</h3>
+                    <div class="text-center flex justify-around">
+                        <button data-modal-hide="popup-modal" type="button"
+                            class="py-2.5 px-5 shadow-md text-sm text-green-700 focus:outline-none bg-white rounded-lg hover:bg-green-100 hover:text-green-900 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            Gajadi Keluar
                         </button>
-                        <div class="p-4 md:p-5 ">
-                            <p class="text-xl mt-8 font-semibold text-start">Yakin mau keluar aplikasi ?</p>
-                            <h3 class="mb-5 mt-2 text-sm font-normal text-gray-500 text-start dark:text-gray-400">Apakah anda yakin keluar akun dari aplikasi ini ?</h3>
-                            <div class="text-center flex justify-around">
-                                <button data-modal-hide="popup-modal" type="button"
-                                class="py-2.5 px-5 shadow-md text-sm text-green-700 focus:outline-none bg-white rounded-lg hover:bg-green-100 hover:text-green-900 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                    Gajadi Keluar
-                                </button>
-                                <a href="{{  url('/login') }}" data-modal-hide="popup-modal" type="button"
-                                    class="text-white shadow-md bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-green-800 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                    Ya , Keluar
-                                </a>
-                            </div>
+                        <a href="{{ url('/login') }}" data-modal-hide="popup-modal" type="button"
+                            class="text-white shadow-md bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                            Ya , Keluar
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}" x-data>
+                            @csrf
+                            <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                        
 
-                        </div>
                     </div>
+
                 </div>
             </div>
+        </div>
+    </div>
 @endsection
-    {{-- <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
-</body>
 
-</html> --}}

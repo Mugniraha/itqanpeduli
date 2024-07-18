@@ -13,8 +13,8 @@
     </div>
 
     <div class="relative overflow-x-auto sm:rounded-sm bg-white p-5">
-        <table id="myTable" class="min-w-full leading-normal stripe w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table id="myTable" class="min-w-full leading-normal stripe w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700  bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-3 font-bold text-lg text-black">
                         #
@@ -52,7 +52,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
                     <td class="px-6 py-4 text-black text-base">
                         1
                     </td>
@@ -86,7 +86,7 @@
                         Menunggu
                     </td>
                     <td class=" text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 w-11/12 text-center dark:text-black bg-green-700 rounded-sm md:flex-col md:flex">
+                        <a href="#" class="text-white text-sm p-1 px-2 w-11/12 text-center bg-green-700 rounded-sm md:flex-col md:flex">
                             Lihat Detail
                         </a>
                     </td>
