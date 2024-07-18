@@ -1,26 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Models\Fundraiser;
+
 use Illuminate\Http\Request;
 
-class fundraiserController extends Controller
+class dataBankController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $slug = 'fundraiser';
-        $fundraisers = Fundraiser::paginate(10); // Adjust the number of items per page as needed
-        return view('admin.konten.fundraiser.fundraiser', compact('slug', 'fundraisers'));
-    }
-
-
-    public function showTransaksi()
-    {
-        $slug = 'fundraiserTransaksi';
-        return view('admin.konten.fundraiser.transaksi');
+        //
     }
 
     /**

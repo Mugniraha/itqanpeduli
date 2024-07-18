@@ -138,7 +138,7 @@
                                     <a href="{{url('/lembaga')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Input Hak Lembaga</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/mediaberbagi')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Input MediaBerbagi</a>
+                                    <a href="{{url('/mediaBerbagi')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Input MediaBerbagi</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/berita')}}" class="flex items-center w-full p-2 text-gray-500 hover:text-green-600 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Laporan Berita</a>
