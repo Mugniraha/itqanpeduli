@@ -18,6 +18,7 @@ use App\Http\Controllers\leaderboardController;
 use App\Exports\LeaderboardExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
+use App\Http\Controllers\dataBankController;
 
 
 Route::get('/dashboard', function () {
@@ -56,12 +57,16 @@ Route::get('/kategori', function () {
     return view('admin.konten.pengaturanProgram.kategori');
 });
 
-Route::get('/data-bank', function () {
-    return view('admin.konten.dataBank.dataBank');
-});
+// Route::get('/data-bank', function () {
+//     return view('admin.konten.dataBank.dataBank');
+// });
+
+
 Route::get('/inputTambahBank', function () {
     return view('admin.konten.dataBank.inputTambahBank');
 });
+Route::resource('data-bank', dataBankController::class);
+Route::resource('zakat',hitungZakatController::class);
 Route::get('/inputKelolaKategori', function () {
     return view('admin.konten.pengaturanProgram.inputKategori');
 });
@@ -105,6 +110,13 @@ Route::resource('zakat',hitungZakatController::class);
 Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
+
+Route::get('/get-bank-details/{bankName}',[hitungZakatController::class, 'getBankDetails'])->name('getBankDetails');
+
+Route::get('/panduan-pembayaran/{id}', [hitungZakatController::class, 'showPanduanPembayaran']);
+
+Route::post('/midtrans/transaction/{id}', [hitungZakatController::class, 'createmidtransTransaction'])->name('midtrans.transaction.create');
+
 
 Route::get('/danaTerkummpul', function () {
     return view('admin.konten.danaTerkumpul.index');
@@ -257,9 +269,7 @@ Route::get('/detail-kabar', function () {
 Route::get('/rincian-pembayaran', function () {
     return view('front.konten.pembayaranZakat.rincianPembayaran');
 });
-Route::get('/panduan-pembayaran', function () {
-    return view('front.konten.pembayaranZakat.panduanPembayaran');
-});
+
 
 //front akun
 Route::get('/akun', function () {
@@ -448,9 +458,9 @@ Route::get('/detail', function () {
     return view('front.konten.akun.detail-transaksi');
 });
 
-Route::get('/data-bank', function () {
-    return view('front.konten.akun.data-bank');
-});
+// Route::get('/data-bank', function () {
+//     return view('front.konten.akun.data-bank');
+// });
 
 Route::get('/bg', function () {
     return view('front.konten.akun.background');

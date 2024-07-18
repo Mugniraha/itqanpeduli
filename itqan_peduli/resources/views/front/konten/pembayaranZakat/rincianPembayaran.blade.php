@@ -26,8 +26,8 @@
             <label for="" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Total Dana Zakat</label>
         </div>
         <div class="relative" id="payment-method-input-container">
-            <img id="payment-method-image" class="h-5 absolute top-4 bottom-0 left-0 flex items-center pl-3" src="{{ url('/logo_pembayaran.png')}}" alt="logo">
-            <input type="text" id="payment-method" class="cursor-pointer block px-4 pl-20 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Metode Pembayaran" readonly />
+            <img id="payment-method-image" class="h-6 absolute top-4 bottom-0 left-0 flex items-center pl-3" src="{{ asset('images/metode.png')}}" alt="logo">
+            <input type="text" id="payment-method" class="cursor-pointer block px-4 pl-12 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Metode Pembayaran" readonly />
             <label for="payment-method" class="absolute text-sm  dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Metode Pembayaran</label>
             <span class="absolute inset-y-0 right-3 flex items-center justify-center gap-1 pointer-events-none">
                 <p class="text-xs">Ubah</p>
@@ -108,15 +108,15 @@
         </div>
     </div>
     <div class="flex mx-8 mt-6 mb-4">
-        <form action="{{(route('zakat.store'))}}" method="POST" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+        <form id="payment-form" action="{{ route('zakat.store') }}" method="POST" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
             @csrf
             <input type="hidden" name="nama_donatur" id="nama-donatur-hidden" value="">
             <input type="hidden" name="nama_program_zakat" id="nama-program-hidden" value="">
-            <input type="hidden" name="metode_pembayaran" id="metode-pembayaran-hidden" value="">
             <input type="hidden" name="nominal_zakat" id="nominal-zakat-hidden" value="">
+            <input type="hidden" name="metode_pembayaran" id="metode-pembayaran-hidden" value="">
             <input type="hidden" name="nominal_pengembangan_dakwah" id="nominal-pengembangan-dakwah-hidden" value="">
             <input type="hidden" name="nominal_total" id="nominal-total-hidden" value="">
-            <button type="submit" class="">Lanjutkan</button>
+            <button type="submit" id="submit-button">Lanjutkan</button>
         </form>
     </div>
 </div>
@@ -178,48 +178,19 @@
     </div>
     <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3">
         <div class="my-1">
-            <p class="text-sm">Pembayaran Instan</p>
-            <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
+            <p class="text-sm">Pilih metode pembayaran yang ingin anda gunakan</p>
         </div>
         <div class="">
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'ShopeePay')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>ShopeePay</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'OVO')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>OVO</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Gopay')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Gopay</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Dana')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Dana</p></button>
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'manual')">
+                <p>Manual</p></button>
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'e-wallet')">
+                <p>E-Wallet/VA</p></button>
         </div>
     </div>
-    <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3">
-        <div class="my-1">
-            <p class="text-sm">Pembayaran Instan</p>
-            <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
-        </div>
-        <div class="">
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'QRIS')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>QRIS</p></button>
-        </div>
-    </div>
-    <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3">
-        <div class="my-1">
-            <p class="text-sm">Pembayaran Instan</p>
-            <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
-        </div>
-        <div class="">
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BSI Virtual Account')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>BSI Virtual Account</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BRI Virtual Account')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>BRI Virtual Account</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Mandiri Virtual Account')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Mandiri Virtual Account</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Dana Virtual Account')">
-                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>BCA Virtual Account</p></button>
-        </div>
-    </div>
-    <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3">
-        <div class="my-1">
+
+
+    {{-- <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3"> --}}
+        {{-- <div class="my-1">
             <p class="text-sm">Pembayaran Instan</p>
             <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
         </div>
@@ -233,7 +204,7 @@
             <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Transfer BCA')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Transfer BCA</p></button>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <div id="data-input-page" class="hidden fixed inset-0 bg-white w-[512px] mx-auto z-50">
@@ -350,6 +321,7 @@
     </div>
 </div>
 
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 <script>
 
     var nominalValue = 0;
@@ -491,6 +463,7 @@
             <div class="font-bold text-green-700">${namaValue}</div>
             <div class="text-sm text-gray-400">${phoneValue}</div>
         `;
+        document.getElementById('nama-donatur-hidden').value = namaValue;
 
         closeDataInputPage();
     }
@@ -509,6 +482,7 @@
 
     function selectProgramZakat(program) {
         document.getElementById('program-zakat').value = program;
+        document.getElementById('nama-program-hidden').value = program;
 
         closeProgramZakatPage();
     }
@@ -526,6 +500,58 @@
         }
 
         confirmNominal();
+    });
+
+    document.getElementById('submit-button').addEventListener('click', function () {
+        var form = document.getElementById('payment-form');
+        var metodePembayaran = document.getElementById('metode-pembayaran').value;
+
+        document.getElementById('metode-pembayaran-hidden').value = metodePembayaran;
+        document.getElementById('nama-donatur-hidden').value = namaValue;
+        // document.getElementById('nama-program-hidden').value = program;
+        document.getElementById('nominal-zakat-hidden').value = nominalValue;
+        document.getElementById('nominal-pengembangan-dakwah-hidden').value = danaPengembangan;
+        document.getElementById('nominal-total-hidden').value = totalDonasi;
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                nama_donatur: document.getElementById('nama-donatur-hidden').value,
+                nama_program_zakat: document.getElementById('nama-program-hidden').value,
+                metode_pembayaran: document.getElementById('metode-pembayaran-hidden').value,
+                nominal_zakat: document.getElementById('nominal-zakat-hidden').value,
+                nominal_pengembangan_dakwah: document.getElementById('nominal-pengembangan-dakwah-hidden').value,
+                nominal_total: document.getElementById('nominal-total-hidden').value
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.token) {
+                snap.pay(data.token, {
+                    onSuccess: function(result) {
+                        console.log('Success:', result);
+                    },
+                    onPending: function(result) {
+                        console.log('Pending:', result);
+                    },
+                    onError: function(result) {
+                        console.log('Error:', result);
+                    },
+                    onClose: function() {
+                        console.log('Customer closed the popup without finishing the payment');
+                    }
+                });
+            } else {
+                console.error('Token tidak ditemukan dalam respons:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
 
 

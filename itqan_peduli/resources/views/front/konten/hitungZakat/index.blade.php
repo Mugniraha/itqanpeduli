@@ -1,4 +1,4 @@
-@extends('front.layout.mainHitung')
+@extends('front.layout.main2')
 @section('konten')
 
 
