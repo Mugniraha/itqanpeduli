@@ -1,13 +1,13 @@
 <div class="bg-green-700 px-4 pt-4 pb-20">
-    <p class="text-xl font-semibold text-white dark:text-black">Akun</p>
+    <p class="text-xl font-semibold text-white">Akun</p>
 
     <div class="flex flex-col pt-3 pb-5 items-center gap-4">
         <img class="w-21 h-21 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
             alt="">
-        <div class="font-medium text-center dark:text-black">
-            <div class="text-xl font-semibold text-white dark:text-black">Ramadhani</div>
-            <div class="flex justify-center text-sm text-white dark:text-black-400">Ubah Profil
-                <svg class="w-4 h-4 my-auto text-white dark:text-black" aria-hidden="true"
+        <div class="font-medium text-center">
+            <div class="text-xl font-semibold text-white">Ramadhani</div>
+            <div class="flex justify-center text-sm text-white">Ubah Profil
+                <svg class="w-4 h-4 my-auto text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m9 5 7 7-7 7" />
@@ -17,7 +17,7 @@
     </div>
 
     <button type="button"
-        class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <svg class="w-14 h-14  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 102" fill="none">
             <g filter="url(#filter0_dd_781_1053)">
                 <path
@@ -97,14 +97,14 @@
             </defs>
         </svg>
         <p class="text-gray-600 text-2xl font-semibold">Donasi Saya</p>
-        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m9 5 7 7-7 7" />
         </svg>
     </button>
     <button type="button"
-        class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <svg class="w-14 h-14  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 30" fill="none">
             <path
                 d="M30.4497 17.3708H6.86851L9.06229 14.5189C9.16794 14.3815 9.3314 14.301 9.50468 14.301H27.923C28.1012 14.301 28.2686 14.3861 28.3737 14.5299L30.4497 17.3708Z"
@@ -133,14 +133,14 @@
             <path d="M15.3721 15.6982H21.7906" stroke="black" stroke-width="0.558137" stroke-linecap="round">
         </svg>
         <p class="text-gray-600 text-2xl font-semibold">Zakat Saya</p>
-        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m9 5 7 7-7 7" />
         </svg>
     </button>
     <button type="button"
-        class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5 w-full my-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <svg class="w-14 h-14  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
             <path
                 d="M20.3256 4.14854C19.0656 4.50854 16.1506 7.34852 14.8506 8.72351C15.3756 9.49851 17.2506 10.8085 20.5506 9.8485C24.6755 8.64851 22.9505 4.97354 22.5755 4.59854C22.2005 4.22354 21.9005 3.69854 20.3256 4.14854Z"
@@ -188,7 +188,7 @@
                 fill="#F3F8F5" />
         </svg>
         <p class="text-gray-600 text-2xl font-semibold">Jadi Duta Amal</p>
-        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m9 5 7 7-7 7" />
@@ -198,34 +198,34 @@
 
 
     <button type="button"
-        class="px-6 py-3.5 mt-6  w-full  text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5 mt-6  w-full  text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <p class="text-gray-600 text-2xl font-semibold">Pengaturan</p>
-        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m9 5 7 7-7 7" />
         </svg>
     </button>
     <button type="button"
-        class="px-6 py-3.5  w-full mt-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5  w-full mt-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <p class="text-gray-600 text-2xl font-semibold">Bantuan</p>
-        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m9 5 7 7-7 7" />
         </svg>
     </button>
     <button type="button"
-        class="px-6 py-3.5  w-full mt-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5  w-full mt-2 text-base font-medium text-white inline-flex items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <p class="text-gray-600 text-2xl font-semibold">Syarat & Ketentuan</p>
-        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600 dark:text-white" aria-hidden="true"
+        <svg class="w-8 h-8 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m9 5 7 7-7 7" />
         </svg>
     </button>
     <button type="button"
-        class="px-6 py-3.5 flex w-full mt-2 text-base font-medium text-white items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+        class="px-6 py-3.5 flex w-full mt-2 text-base font-medium text-white items-center border border-gray-400 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
         <div class="kiri">
             <p class="text-left text-gray-600 text-2xl font-semibold">Tentang Kami</p>
             <svg width="125" height="35" viewBox="0 0 125 35" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +253,7 @@
             </svg>
         </div>
         <div class="kanan my-auto ms-auto">
-            <svg class="w-8 h-8 end-0 text-gray-600 dark:text-white" aria-hidden="true"
+            <svg class="w-8 h-8 end-0 text-gray-600" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m9 5 7 7-7 7" />
@@ -266,9 +266,9 @@
 
 
     <button type="button"
-        class="px-6 py-3.5 w-full mt-8 text-base font-medium text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+        class="px-6 py-3.5 w-full mt-8 text-base font-medium text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center">
         <p class="text-white text-2xl font-semibold">Keluar</p>
-        <svg class="w-8 h-8 ms-auto  text-white-800 dark:text-black" aria-hidden="true"
+        <svg class="w-8 h-8 ms-auto  text-white-800" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />

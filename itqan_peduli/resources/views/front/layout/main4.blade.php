@@ -18,13 +18,13 @@
         <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-[400px] mx-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-2xl max-h-full">
                 <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="relative bg-white rounded-lg shadow">
                     <!-- Modal header -->
                     <div class="flex items-center justify-between md:p-5">
-                        <h3 class="font-bold text-gray-900 dark:text-white">
+                        <h3 class="font-bold text-gray-900">
                             Bantu bagikan donasi ini melalui :
                         </h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="default-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
@@ -41,7 +41,7 @@
                             <span>WhatsApp</span>
                         </a>
                         <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank" class="flex items-center justify-between bg-white shadow-md text-blue-700 hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded group">
-                            <svg class="w-6 h-6 text-blue-700 dark:text-white me-2 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-blue-700 me-2 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/>
                             </svg>
                             <span>Facebook</span>
