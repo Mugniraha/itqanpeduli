@@ -14,7 +14,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Sedekah</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Sedekah</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Tidak Terikat</p>
                     <div class="duit flex justify-between mt-5">
                         <p class="text-sm font-normal ms-3 text-green-600">13.250.500</p>
@@ -25,7 +25,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Wakaf</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Wakaf</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Tidak Terikat</p>
                     <div class="duit flex justify-between mt-5">
                         <p class="text-sm font-normal ms-3 text-green-600">13.250.500</p>
@@ -36,7 +36,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">/a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Zakat
                     <p class="text-sm font-normal ms-3 text-green-600">Tidak Terikat</p>
                     <div class="duit flex justify-between mt-5">
                         <p class="text-sm font-normal ms-3 text-green-600">13.250.500</p>
@@ -50,7 +50,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold text-gray-800">Agar Tenang, Tunaikan Sekarang!</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Agar Tenang , Tunaikan Sekarang!</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -62,7 +62,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Wakaf Al-Qur'an Plus</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Wakaf Al-Qur'an Plus</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -74,7 +74,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Donasi Semeru</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Donasi Semeru</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -86,7 +86,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Beasiswa Paket C</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Beasiswa Paket C</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -98,7 +98,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Awali Hari Dengan Sedekah, Insyaallah Berkah...</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Awali Hari Dengan Sedekah, Insyaallah Berkah...</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -110,7 +110,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Buka Pintu Rezeki Dengan Berinfaq Dhuha</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Buka Pintu Rezeki Dengan Berinfaq Dhuha</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -122,7 +122,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Berbagi Berkah FIdyah Untuk Yatim & Dhuafa</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Berbagi Berkah FIdyah Untuk Yatim & Dhuafa</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -134,7 +134,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Sedekah Sarana Masjid Di Plosok</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Sedekah Sarana Masjid Di Plosok</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -146,7 +146,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Itqan Quranic Center</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Itqan Quranic Center</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">
@@ -158,7 +158,7 @@
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
                 <img src="/images/dts.jpg" alt="" class="w-28 h-28 my-auto rounded-md" >
                 <div class="teks w-full">
-                    <a href="#" class="text-2xl font-semibold ms-3 text-gray-800">Pray For Bogor</a>
+                    <a href="/detail-dana" class="text-2xl font-semibold ms-3 text-gray-800">Pray For Bogor</a>
                     <p class="text-sm font-normal ms-3 text-green-600">Program</p>
                     <div class="bg-green-600 h-4 rounded w-full ms-3 mt-4"></div>
                     <div class="duit flex justify-between">

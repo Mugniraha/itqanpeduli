@@ -10,19 +10,20 @@
                     </a>
                 </div>
             </div>
-            <form class="px-8 mt-6 bg-white rounded-lg">
+            <form method="POST" action="{{ route('articleCategory.store') }}" class="px-8 mt-6 bg-white rounded-lg">
+                @csrf
                 <div class=" pt-4">
                     <label for="kelola_kategori" class="block mb-2 text-sm font-medium text-gray-900">Kelola Kategori</label>
                     <input type="text" id="kelola_kategori"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="Kelola Kategori" required />
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Kelola Kategori" name="name" required />
                 </div>
-                
+
                 <div class="pt-4 flex justify-end">
-                    <a type="button" href="#"
-                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center">
+                    <button type="submit"
+                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                         Simpan
-                    </a>
+                    </button>
                 </div>
             </form>
         </div>
