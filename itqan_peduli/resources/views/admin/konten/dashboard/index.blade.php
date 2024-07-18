@@ -94,8 +94,8 @@
     </div>
 
     <div class="relative overflow-x-auto sm:rounded-sm p-5 border-none bg-white">
-        <table id="myTable" class="min-w-full leading-normal stripe w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 bg-white border-none">
-            <thead class="text-xs text-gray-700  bg-white dark:bg-gray-700 dark:text-gray-400 border-none">
+        <table id="myTable" class="min-w-full leading-normal stripe w-full text-sm text-left rtl:text-right text-gray-500 bg-white border-none">
+            <thead class="text-xs text-gray-700  bg-white border-none">
                 <tr class="border-none">
                     <th scope="col" class="px-6 py-3 font-bold text-lg text-black">
                         #
@@ -121,7 +121,7 @@
                 </tr>
             </thead>
             <tbody class="border-none ">
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b dark:border-gray-700 border-none">
+                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b border-none">
                     <td class="px-6 py-4 text-black text-base">
                         1
                     </td>
@@ -141,12 +141,12 @@
                         Menunggu
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 dark:text-black bg-green-700 rounded-sm">
+                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
                             Lihat Detail
                         </a>
                     </td>
                 </tr>
-                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
                     <td class="px-6 py-4 text-black text-base">
                         1
                     </td>
@@ -166,12 +166,12 @@
                         Menunggu
                     </td>
                     <td class="px-6 py-4 text-black text-base ">
-                        <a href="#" class="text-white text-sm p-1 px-2 dark:text-black bg-green-700 rounded-sm">
+                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
                             Lihat Detail
                         </a>
                     </td>
                 </tr>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b dark:border-gray-700 border-none">
+                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b border-none">
                     <td class="px-6 py-4 text-black text-base">
                         1
                     </td>
@@ -191,12 +191,12 @@
                         Menunggu
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 dark:text-black bg-green-700 rounded-sm">
+                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
                             Lihat Detail
                         </a>
                     </td>
                 </tr>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b dark:border-gray-700 border-none">
+                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b border-none">
                     <td class="px-6 py-4 text-black text-base">
                         1
                     </td>
@@ -216,7 +216,7 @@
                         Menunggu
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 dark:text-black bg-green-700 rounded-sm">
+                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
                             Lihat Detail
                         </a>
                     </td>

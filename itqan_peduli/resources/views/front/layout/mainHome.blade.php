@@ -22,10 +22,10 @@
 
                     </div>
                     <div class="flex items-center" onclick="toggleNav()">
-                        {{-- <svg id="openIcon" class="w-[25px] h-[25px] text-gray-800 dark:text-white mr-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        {{-- <svg id="openIcon" class="w-[25px] h-[25px] text-gray-800 mr-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                         </svg>
-                        <svg id="closeIcon" class="hidden w-[25px] h-[25px] text-gray-800 dark:text-white mr-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg id="closeIcon" class="hidden w-[25px] h-[25px] text-gray-800 mr-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                         </svg> --}}
                         <svg id="openIcon" class="w-[25px] h-[25px] mr-8" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="grid gap-3 mx-7 grid-cols-[auto,auto,auto] pb-4 border-b-2 border-gray-300">
                         <div class="flex items-center justify-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px]" width="49" height="45" viewBox="0 0 49 45" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@
                             <p class="">Kesehatan</p>
                         </div>
                         <div class="flex items-center justify-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px]" width="45" height="49" viewBox="0 0 45 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@
                             <p class="">Infrastruktur</p>
                         </div>
                         <div class="flex items-center justify-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px]" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@
                             <p class="">Pendidikan</p>
                         </div>
                         <div class="flex items-center justify-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px]" width="50" height="44" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -140,7 +140,7 @@
                             <p class="">Kemanusiaan</p>
                         </div>
                         <div class="flex items-center justify-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px]" width="42" height="50" viewBox="0 0 42 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -192,7 +192,7 @@
                     </div>
                     <div class="grid gap-3 mx-7 mt-3 mb-8">
                         <a href="/donasi-instan" class="flex items-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px]" width="104" height="102" viewBox="0 0 104 102" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -249,7 +249,7 @@
                             <p class="text-green-600 font-semibold">Donasi Instan</p>
                         </a>
                         <a href="/hitung-zakat"  class="flex items-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px] width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -268,7 +268,7 @@
                             <p class="text-green-600 font-semibold">Hitung Zakat</p>
                         </a>
                         <a href="/daftar-fundraiser"  class="flex items-center gap-2 p-3 shadow-lg rounded-2xl w-auto bg-slate-50">
-                            {{-- <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            {{-- <svg class="w-[20px] h-[20px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
                             </svg> --}}
                             <svg class="w-[20px] h-[20px] width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -305,7 +305,7 @@
         </div>
 
 
-        <div class="fixed z-40 w-[480px] h-auto mx-auto max-w-lg -translate-x-1/2 bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
+        <div class="fixed z-40 w-[480px] h-auto mx-auto max-w-lg -translate-x-1/2 bottom-4 left-1/2">
             <div class="flex flex-row-reverse mb-2">
                 <button data-popover-target="popover-left" data-popover-placement="left" type="button" class="text-white mb-3 me-4 bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm p-2 text-center">
                     <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -314,16 +314,16 @@
                     </svg>
                 </button>
             </div>
-            <div data-popover id="popover-left" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-                <div class="whitespace-nowrap px-4 py-3 bg-white border-b border-gray-200 rounded-xl dark:border-gray-600 dark:bg-gray-700">
-                    <h3 class="font-semibold text-gray-900 dark:text-white">Butuh bantuan ? Hubungi kami disini</h3>
+            <div data-popover id="popover-left" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+                <div class="whitespace-nowrap px-4 py-3 bg-white border-b border-gray-200 rounded-xl">
+                    <h3 class="font-semibold text-gray-900">Butuh bantuan ? Hubungi kami disini</h3>
                 </div>
                 <div data-popper-arrow></div>
             </div>
             <div class="bg-white border border-gray-200 rounded-xl ">
 
                 <div class="grid h-full max-w-lg grid-cols-4 content-end mx-auto font-medium">
-                    <a href="/" type="button" class="inline-flex flex-col items-center justify-center p-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                    <a href="/" type="button" class="inline-flex flex-col items-center justify-center p-5 hover:bg-gray-50 group">
                         {{-- <svg class="w-6 h-6" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.25 22.4827L22.25 22.4901L22.25 28.9901H26.25C27.7688 28.9901 29 27.7589 29 26.2401V14.8389V14.8384C29.0002 14.4487 28.8487 14.0744 28.5778 13.7944L28.5699 13.7863L28.5621 13.7779L17.9397 2.29413L17.9394 2.29383C16.44 0.67154 13.9094 0.571882 12.2871 2.0712L22.25 22.4827ZM22.25 22.4827C22.2197 18.4049 18.8215 15.1218 14.8239 15.2183C10.9559 15.3116 7.77705 18.5398 7.75 22.4832H7.74998V22.4901V28.9901M22.25 22.4827L7.74998 28.9901M7.74998 28.9901H3.75C2.23123 28.9901 1 27.7589 1 26.2401V14.8576L1 14.8574C0.999895 14.4611 1.15656 14.0809 1.43577 13.7998L1.44855 13.787L1.46086 13.7736L12.0645 2.29373C12.1355 2.21694 12.2097 2.14276 12.2869 2.07132L7.74998 28.9901Z" stroke="#838383" stroke-width="2"/>
                             <path d="M12.25 22.4897C12.25 20.971 13.4812 19.7397 15 19.7397C16.5188 19.7397 17.75 20.971 17.75 22.4897V28.9897H12.25V22.4897Z" stroke="#838383" stroke-width="2"/>
@@ -332,9 +332,9 @@
                             <path d="M22.25 22.4827L22.25 22.4901L22.25 28.9901H26.25C27.7688 28.9901 29 27.7589 29 26.2401V14.8389V14.8384C29.0002 14.4487 28.8487 14.0744 28.5778 13.7944L28.5698 13.7863L28.5621 13.7779L17.9397 2.29413L17.9394 2.29383C16.44 0.67154 13.9094 0.571882 12.2871 2.0712L22.25 22.4827ZM22.25 22.4827C22.2197 18.4049 18.8215 15.1218 14.8239 15.2183C10.9559 15.3116 7.77705 18.5398 7.75 22.4833H7.74998V22.4901V28.9901M22.25 22.4827L7.74998 28.9901M7.74998 28.9901H3.75C2.23123 28.9901 1 27.7589 1 26.2401V14.8576L1 14.8574C0.999895 14.4611 1.15656 14.0809 1.43577 13.7998L1.44855 13.787L1.46086 13.7736L12.0645 2.29372C12.0645 2.29372 12.0645 2.29371 12.0645 2.29371C12.0646 2.29367 12.0646 2.29364 12.0646 2.29361C12.1355 2.21687 12.2097 2.14273 12.2869 2.07132L7.74998 28.9901Z" fill="#068744" stroke="#070707" stroke-width="2"/>
                             <path d="M15 18.7397C12.9289 18.7397 11.25 20.4187 11.25 22.4897V29.9897H18.75V22.4897C18.75 20.4187 17.0711 18.7397 15 18.7397Z" fill="#FBC71E"/>
                         </svg>
-                        <span class="text-xs mt-2 font-bold text-gray-500 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-500">Beranda</span>
+                        <span class="text-xs mt-2 font-bold text-gray-500 group-hover:text-green-600">Beranda</span>
                     </a>
-                    <a href="/program-user" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                    <a href="/program-user" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
                         <svg class="w-6 h-6" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.2063 30H5C3.67392 30 2.40215 29.4732 1.46447 28.5355C0.526784 27.5979 0 26.3261 0 25V18.75C0 17.4239 0.526784 16.1521 1.46447 15.2145C2.40215 14.2768 3.67392 13.75 5 13.75H16.0713C16.7478 13.7503 17.4127 13.9253 18.0018 14.2579C18.5909 14.5905 19.0841 15.0696 19.4338 15.6488L23.455 11.23C23.7876 10.8642 24.1891 10.5676 24.6364 10.3571C25.0837 10.1465 25.5681 10.0262 26.0619 10.003C26.5558 9.97979 27.0494 10.0541 27.5144 10.2218C27.9795 10.3894 28.407 10.6471 28.7725 10.98C29.5017 11.6499 29.9387 12.5794 29.9895 13.5683C30.0402 14.5572 29.7006 15.5265 29.0438 16.2675L20.5437 25.8137C19.3701 27.13 17.9316 28.1834 16.3224 28.9048C14.7132 29.6263 12.9698 29.9995 11.2063 30ZM5 16.25C4.33696 16.25 3.70107 16.5134 3.23223 16.9822C2.76339 17.4511 2.5 18.087 2.5 18.75V25C2.5 25.663 2.76339 26.2989 3.23223 26.7678C3.70107 27.2366 4.33696 27.5 5 27.5H11.2063C12.6162 27.4994 14.01 27.2009 15.2965 26.624C16.583 26.0471 17.733 25.2049 18.6712 24.1525L27.1775 14.605C27.3983 14.3562 27.5127 14.0307 27.4958 13.6985C27.479 13.3662 27.3324 13.0539 27.0875 12.8287C26.8385 12.6049 26.5121 12.487 26.1775 12.5C26.0117 12.507 25.8489 12.547 25.6986 12.6176C25.5484 12.6882 25.4137 12.788 25.3025 12.9113L19.77 19C19.5271 19.6722 19.1063 20.2659 18.5524 20.7176C17.9985 21.1694 17.3323 21.4622 16.625 21.565L10.1737 22.4875C9.84554 22.5346 9.51208 22.4493 9.24672 22.2506C8.98135 22.0518 8.80583 21.7557 8.75875 21.4275C8.71167 21.0993 8.79691 20.7658 8.99569 20.5005C9.19448 20.2351 9.49054 20.0596 9.81875 20.0125L16.2712 19.0912C16.6294 19.0412 16.9552 18.857 17.1829 18.576C17.4105 18.295 17.523 17.938 17.4976 17.5773C17.4722 17.2165 17.3108 16.8788 17.0461 16.6325C16.7813 16.3861 16.4329 16.2494 16.0713 16.25H5ZM13.75 11.3425C13.1834 11.344 12.6334 11.1517 12.1912 10.7975C10.0513 9.08 7.5 6.5 7.5 4C7.46931 2.97296 7.8466 1.97556 8.54935 1.22596C9.2521 0.476354 10.2231 0.0355653 11.25 0C12.1842 0.00363853 13.0805 0.369772 13.75 1.02125C14.4195 0.369772 15.3158 0.00363853 16.25 0C17.2769 0.0355653 18.2479 0.476354 18.9506 1.22596C19.6534 1.97556 20.0307 2.97296 20 4C20 6.5 17.4487 9.08 15.3075 10.7987C14.8655 11.1522 14.316 11.3441 13.75 11.3425ZM11.25 2.5C10.8867 2.53645 10.5522 2.71402 10.3184 2.99453C10.0847 3.27504 9.97034 3.63607 10 4C10 5.125 11.4387 6.9875 13.7575 8.84875C16.0612 6.9875 17.5 5.125 17.5 4C17.5297 3.63607 17.4153 3.27504 17.1816 2.99453C16.9478 2.71402 16.6133 2.53645 16.25 2.5C15.8867 2.53645 15.5522 2.71402 15.3184 2.99453C15.0847 3.27504 14.9703 3.63607 15 4C15 4.33152 14.8683 4.64946 14.6339 4.88388C14.3995 5.1183 14.0815 5.25 13.75 5.25C13.4185 5.25 13.1005 5.1183 12.8661 4.88388C12.6317 4.64946 12.5 4.33152 12.5 4C12.5297 3.63607 12.4153 3.27504 12.1816 2.99453C11.9478 2.71402 11.6133 2.53645 11.25 2.5Z" fill="#838383"/>
                         </svg>
@@ -344,9 +344,9 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M5 30H11.2063C12.9698 29.9995 14.7132 29.6263 16.3224 28.9048C17.9316 28.1834 19.3701 27.13 20.5437 25.8137L29.0438 16.2675C29.7006 15.5265 30.0402 14.5572 29.9895 13.5683C29.9387 12.5794 29.5017 11.6499 28.7725 10.98C28.407 10.6471 27.9795 10.3894 27.5144 10.2218C27.0494 10.0541 26.5558 9.97979 26.0619 10.003C25.5681 10.0262 25.0837 10.1465 24.6364 10.3571C24.1891 10.5676 23.7876 10.8642 23.455 11.23L19.4338 15.6488C19.0841 15.0696 18.5909 14.5905 18.0018 14.2579C17.4127 13.9253 16.7478 13.7503 16.0713 13.75H5C3.67392 13.75 2.40215 14.2768 1.46447 15.2145C0.526784 16.1521 0 17.4239 0 18.75V25C0 26.3261 0.526784 27.5979 1.46447 28.5355C2.40215 29.4732 3.67392 30 5 30ZM3.23223 16.9822C3.70107 16.5134 4.33696 16.25 5 16.25H16.0713C16.4329 16.2494 16.7813 16.3861 17.0461 16.6325C17.3108 16.8788 17.4722 17.2165 17.4976 17.5773C17.523 17.938 17.4105 18.295 17.1829 18.576C16.9552 18.857 16.6294 19.0412 16.2712 19.0912L9.81875 20.0125C9.49055 20.0596 9.19448 20.2351 8.99569 20.5005C8.79691 20.7658 8.71167 21.0993 8.75875 21.4275C8.80583 21.7557 8.98135 22.0518 9.24672 22.2506C9.51208 22.4493 9.84554 22.5346 10.1737 22.4875L16.625 21.565C17.3323 21.4622 17.9985 21.1694 18.5524 20.7176C19.1063 20.2659 19.5271 19.6722 19.77 19L25.3025 12.9113C25.4137 12.788 25.5484 12.6882 25.6986 12.6176C25.8489 12.547 26.0117 12.507 26.1775 12.5C26.5121 12.487 26.8385 12.6049 27.0875 12.8287C27.3324 13.0539 27.479 13.3662 27.4958 13.6985C27.5127 14.0307 27.3984 14.3562 27.1775 14.605L18.6712 24.1525C17.733 25.2049 16.583 26.0471 15.2965 26.624C14.01 27.2009 12.6162 27.4994 11.2063 27.5H5C4.33696 27.5 3.70107 27.2366 3.23223 26.7678C2.76339 26.2989 2.5 25.663 2.5 25V18.75C2.5 18.087 2.76339 17.4511 3.23223 16.9822Z" fill="#070707"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.75 11.3425C13.1834 11.344 12.6334 11.1517 12.1912 10.7975C10.0512 9.08 7.5 6.5 7.5 4C7.46931 2.97296 7.8466 1.97556 8.54935 1.22596C9.2521 0.476354 10.2231 0.0355653 11.25 0C12.1842 0.00363853 13.0805 0.369772 13.75 1.02125C14.4195 0.369772 15.3158 0.00363853 16.25 0C17.2769 0.0355653 18.2479 0.476354 18.9506 1.22596C19.6534 1.97556 20.0307 2.97296 20 4C20 6.5 17.4488 9.08 15.3075 10.7987C14.8655 11.1522 14.316 11.3441 13.75 11.3425ZM10.3184 2.99453C10.5522 2.71402 10.8867 2.53645 11.25 2.5C11.6133 2.53645 11.9478 2.71402 12.1816 2.99453C12.4153 3.27504 12.5297 3.63607 12.5 4C12.5 4.33152 12.6317 4.64946 12.8661 4.88388C13.1005 5.1183 13.4185 5.25 13.75 5.25C14.0815 5.25 14.3995 5.1183 14.6339 4.88388C14.8683 4.64946 15 4.33152 15 4C14.9703 3.63607 15.0847 3.27504 15.3184 2.99453C15.5522 2.71402 15.8867 2.53645 16.25 2.5C16.6133 2.53645 16.9478 2.71402 17.1816 2.99453C17.4153 3.27504 17.5297 3.63607 17.5 4C17.5 5.125 16.0612 6.9875 13.7575 8.84875C11.4387 6.9875 10 5.125 10 4C9.97034 3.63607 10.0847 3.27504 10.3184 2.99453Z" fill="#FBC71E"/>
                         </svg>                                                      --}}
-                        <span class="text-xs mt-2 font-bold text-gray-500 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-500">Program</span>
+                        <span class="text-xs mt-2 font-bold text-gray-500 group-hover:text-green-600">Program</span>
                     </a>
-                    <a href="/zakat" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                    <a href="/zakat" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
                         <svg class="w-6 h-6" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.0139 20.5347H21.9931V18.8333H15.0139V20.5347Z" fill="#838383"/>
                             <path d="M15.0139 16.8194H21.9931V15.0833H15.0139V16.8194Z" fill="#838383"/>
@@ -365,9 +365,9 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.89583 22.4167C2.89583 22.9689 3.34355 23.4167 3.89583 23.4167H22.7292C23.2814 23.4167 23.7292 22.969 23.7292 22.4167V3.58333C23.7292 3.03105 23.2815 2.58333 22.7292 2.58333H3.89583C3.34355 2.58333 2.89583 3.03105 2.89583 3.58333V22.4167ZM9.28472 21.75H7.54861V18.6944H4.49306V16.9583H7.54861V13.9028H9.28472V16.9583H12.3403V18.6944H9.28472V21.75ZM21.9931 20.5347H15.0139V18.8333H21.9931V20.5347ZM21.9931 16.8194H15.0139V15.0833H21.9931V16.8194ZM18.4167 9.04167L16.2986 11.1597L15.0486 9.90972L17.1667 7.79167L15.0486 5.67361L16.2986 4.42361L18.4167 6.54167L20.5347 4.42361L21.7847 5.67361L19.6667 7.79167L21.7847 9.90972L20.5347 11.1597L18.4167 9.04167ZM11.8194 8.65972H5.01389V6.92361H11.8194V8.65972Z" fill="#077734"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.89583 25.5C2.34028 25.5 1.85417 25.2917 1.4375 24.875C1.02083 24.4583 0.8125 23.9722 0.8125 23.4167V2.58333C0.8125 2.02778 1.02083 1.54167 1.4375 1.125C1.85417 0.708333 2.34028 0.5 2.89583 0.5H23.7292C24.2847 0.5 24.7708 0.708333 25.1875 1.125C25.6042 1.54167 25.8125 2.02778 25.8125 2.58333V23.4167C25.8125 23.9722 25.6042 24.4583 25.1875 24.875C24.7708 25.2917 24.2847 25.5 23.7292 25.5H2.89583ZM23.7292 22.4167C23.7292 22.969 23.2814 23.4167 22.7292 23.4167H3.89583C3.34355 23.4167 2.89583 22.9689 2.89583 22.4167V3.58333C2.89583 3.03105 3.34355 2.58333 3.89583 2.58333H22.7292C23.2815 2.58333 23.7292 3.03105 23.7292 3.58333V22.4167Z" fill="#070707"/>
                         </svg> --}}
-                        <span class="text-xs mt-2 font-bold text-gray-500 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-500">Hitung Zakat</span>
+                        <span class="text-xs mt-2 font-bold text-gray-500 group-hover:text-green-600">Hitung Zakat</span>
                     </a>
-                    <a href="/akun" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                    <a href="/akun" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
                         <svg class="w-6 h-6" width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24.75 27V24C24.75 22.4087 24.1442 20.8826 23.0659 19.7574C21.9875 18.6321 20.525 18 19 18H7.5C5.97501 18 4.51247 18.6321 3.43414 19.7574C2.3558 20.8826 1.75 22.4087 1.75 24V27" stroke="#838383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M13.25 14C16.8399 14 19.75 11.0899 19.75 7.5C19.75 3.91015 16.8399 1 13.25 1C9.66015 1 6.75 3.91015 6.75 7.5C6.75 11.0899 9.66015 14 13.25 14Z" stroke="#838383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -377,7 +377,7 @@
                             <path d="M24.75 26V23C24.75 21.4087 24.1442 19.8826 23.0659 18.7574C21.9875 17.6321 20.525 17 19 17H7.5C5.97501 17 4.51247 17.6321 3.43414 18.7574C2.3558 19.8826 1.75 21.4087 1.75 23V26H24.75Z" stroke="#070707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M13.25 13C16.8399 13 19.75 10.0899 19.75 6.5C19.75 2.91015 16.8399 0 13.25 0C9.66015 0 6.75 2.91015 6.75 6.5C6.75 10.0899 9.66015 13 13.25 13Z" fill="#FBC71E"/>
                         </svg>                             --}}
-                        <span class="text-xs mt-2 font-bold text-gray-500 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-500">Akun</span>
+                        <span class="text-xs mt-2 font-bold text-gray-500 group-hover:text-green-600">Akun</span>
                     </a>
                 </div>
             </div>

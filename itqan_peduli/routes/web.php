@@ -23,7 +23,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
 
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard2', function () {
     return view('admin.layout.main');
 });
 
@@ -104,6 +104,7 @@ Route::resource('googleFont', googleFontController::class);
 //     return view('front.konten.hitungZakat.index');
 // });
 
+Route::resource('zakat',hitungZakatController::class);
 Route::get('/zakat', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
@@ -242,6 +243,9 @@ Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'sto
 //Front
 //front home
 Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/home', function () {
     return view('front.konten.beranda.home');
 });
 Route::get('/donasi-saya', function () {
@@ -445,7 +449,7 @@ Route::get('/pembayaran', function() {
 
 // User
 Route::get('/home', function () {
-    return view('user.home.index');
+    return view('front.konten.beranda.home');
 });
 
 // Route::get('/akun', function () {
@@ -476,26 +480,26 @@ Route::get('/bg', function () {
     return view('front.konten.akun.background');
 });
 
-Route::get('login', function () {
-    return view('front.konten.login.index');
+Route::get('/akun', function () {
+    return view('front.konten.akun.main');
 });
 
-Route::get('registrasi', function () {
-    return view('front.konten.login.registrasi');
-});
-Route::get('lupapassword', function () {
+// Route::get('registrasi', function () {
+//     return view('front.konten.login.registrasi');
+// });
+Route::get('lupapassword1', function () {
     return view('front.konten.login.lupapassword');
 });
-Route::get('verifikasi', function () {
+Route::get('verifikasi1', function () {
     return view('front.konten.login.verifikasi');
 });
-Route::get('reset', function () {
+Route::get('reset1', function () {
     return view('front.konten.login.resetpassword');
 });
-Route::get('berhasil', function () {
+Route::get('berhasil1', function () {
     return view('front.konten.login.berhasil');
 });
-Route::get('ubah-katasandi', function () {
+Route::get('ubah-katasandi1', function () {
     return view('front.konten.login.gantiPassword');
 });
 
@@ -594,4 +598,25 @@ Route::get('/pengaturanSistem', function () {
 });
 Route::get('/pembayaran', function () {
     return view('admin.konten.pembayaran.pembayaran');
+});
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('front.konten.beranda.home');
+    })->name('dashboard');
+});
+
+Route::get('/update-password', function() {
+    return view('front.konten.proses.updatePassword');
+});
+ROute::get('/update-profile', function() {
+    return view('front.konten.proses.updateProfile');
 });

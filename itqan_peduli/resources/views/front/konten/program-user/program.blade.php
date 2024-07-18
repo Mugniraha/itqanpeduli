@@ -34,7 +34,7 @@
                 <div class="relative">
                 <input type="search" id="default-search" class="block w-full p-3 bg-gray-50 text-sm text-gray-900 rounded-lg border-none focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500" style="box-shadow: 0 1px 3px 0 gray;" placeholder="Cari Donasi..." required />
                 <div id="search-icon" class="absolute inset-y-0 end-3 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path id="search-icon-path" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
@@ -209,8 +209,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -230,8 +230,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -251,8 +251,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -272,8 +272,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -293,8 +293,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -314,8 +314,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -335,8 +335,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Renovasi Polindra</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -356,8 +356,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -377,8 +377,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -398,8 +398,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -419,8 +419,8 @@
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">Cianjur berduka:200 orang lebih meninggal dunia karna gempa bumi dahsyat</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                         </div>
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
@@ -477,13 +477,13 @@
     // searchInput.addEventListener('input', function() {
     //     if (this.value.trim() !== '') {
     //         searchIcon.innerHTML = `
-    //             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    //             <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     //                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
     //             </svg>
     //         `;
     //     } else {
     //         searchIcon.innerHTML = `
-    //             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    //             <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
     //                 <path id="search-icon-path" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
     //             </svg>
     //         `;
@@ -493,7 +493,7 @@
     // searchIcon.addEventListener('click', function() {
     //     searchInput.value = '';
     //     searchIcon.innerHTML = `
-    //         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    //         <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
     //             <path id="search-icon-path" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
     //         </svg>
     //     `;

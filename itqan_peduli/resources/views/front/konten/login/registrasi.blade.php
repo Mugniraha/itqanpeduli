@@ -16,8 +16,8 @@
 
 
         <a href="{{ url('/login') }}" type="button"
-            class="text-white my-6 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-gray-200 dark:hover:bg-gray-300 dark:focus:ring-gray-400">
-            <svg class="w-6 h-6  text-green-700  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            class="text-white my-6 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2">
+            <svg class="w-6 h-6  text-green-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M5 12h14M5 12l4-4m-4 4 4 4" />
@@ -25,8 +25,8 @@
         </a>
 
         <div class=" isi">
-            <div class="text-2xl font-bold text-black dark:text-white">Daftar</div>
-            <div class="text-lg text-black dark:text-white">Bergabung dengan Yayasan Media Berbagi untuk menikmati kemudahan berinvestasi akhirat dan akses fitur lainnya.
+            <div class="text-2xl font-bold text-black">Daftar</div>
+            <div class="text-lg text-black">Bergabung dengan Yayasan Media Berbagi untuk menikmati kemudahan berinvestasi akhirat dan akses fitur lainnya.
             </div>
             <form action="">
                 <div class="relative mt-6">
@@ -54,7 +54,7 @@
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
     
-                        <svg id="toggleVisibility" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        <svg id="toggleVisibility" class="w-6 h-6 text-gray-800" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-width="2"
@@ -70,7 +70,7 @@
                         class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
     
-                        <svg id="toggleVisibility1" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        <svg id="toggleVisibility1" class="w-6 h-6 text-gray-800" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-width="2"
@@ -81,7 +81,7 @@
                 </div>
                 {{-- <p class="text-end font-semibold text-sm mt-4 text-green-700">Lupa Kata Sandi ?</p> --}}
                 <a href="{{  url('/login') }}" type="button"
-                    class="px-6 py-3.5  w-full mt-6  text-base font-medium text-white inline-flex items-center border border-green-800 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
+                    class="px-6 py-3.5  w-full mt-6  text-base font-medium text-white inline-flex items-center border border-green-800 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
                     <p class="text-white mx-auto text-xl text-center font-semibold">Daftar</p>
                 </a>
             </form>
