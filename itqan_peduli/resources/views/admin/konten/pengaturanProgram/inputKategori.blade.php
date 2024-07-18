@@ -13,9 +13,9 @@
             <form method="POST" action="{{ route('kategori.store') }}" class="px-8 mt-6 bg-white rounded-lg" enctype="multipart/form-data">
                 @csrf
                 <div class=" pt-4">
-                    <label for="nama_kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Kategori</label>
+                    <label for="nama_kategori" class="block mb-2 text-sm font-medium text-gray-900">Nama Kategori</label>
                     <input type="text" id="nama_kategori" name="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         placeholder="Nama Kategori" required />
                 </div>
                 <div class=" pt-4">
@@ -24,7 +24,7 @@
                         <p class="text-yellow-500">campaign image recommendation 58x58px</p>
                     </label>
                     <input
-                        name="icon" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        name="icon" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none"
                         id="file_input" type="file">
                 </div>
                 <div class=" pt-4">
@@ -33,14 +33,14 @@
                         <p class="text-yellow-500">campaign image recommendation 254x87px</p>
                     </label>
                     <input
-                        name="photo" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        name="photo" class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none"
                         id="file_input" type="file">
                 </div>
 
                 <div class="pt-4 flex justify-end">
 
                     <button type="submit"
-                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                        class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center">
                         Simpan
                     </button>
                 </div>

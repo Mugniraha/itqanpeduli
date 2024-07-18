@@ -21,14 +21,14 @@
     <div class="mx-8 grid gap-3">
         <div class="relative" id="nominal-input-container">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
-            <input type="text" id="nominal" value="" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
-            <input type="hidden" id="nominal-hidden" value="" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
-            <label for="" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Total Dana Zakat</label>
+            <input type="text" id="nominal" value="" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
+            <input type="hidden" id="nominal-hidden" value="" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
+            <label for="" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Total Dana Zakat</label>
         </div>
         <div class="relative" id="payment-method-input-container">
             <img id="payment-method-image" class="h-6 absolute top-4 bottom-0 left-0 flex items-center pl-3" src="{{ asset('images/metode.png')}}" alt="logo">
-            <input type="text" id="payment-method" class="cursor-pointer block px-4 pl-12 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Metode Pembayaran" readonly />
-            <label for="payment-method" class="absolute text-sm  dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Metode Pembayaran</label>
+            <input type="text" id="payment-method" class="cursor-pointer block px-4 pl-12 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Metode Pembayaran" readonly />
+            <label for="payment-method" class="absolute text-sm  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Metode Pembayaran</label>
             <span class="absolute inset-y-0 right-3 flex items-center justify-center gap-1 pointer-events-none">
                 <p class="text-xs">Ubah</p>
                 <svg class="w-[18px] h-[18px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -87,8 +87,8 @@
             {{-- <input type="text" id="" class="col-span-4 border p-2 w-full mt-2" placeholder="Masukkan nominal lain" > --}}
             <div class="relative col-span-4" id="pengembangan-input-container">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
-                <input oninput="inputManual()" type="text" id="pengembangan-input" class="block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="0" />
-                <label for="pengembangan-input" class="absolute text-sm dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-green-100 dark:bg-gray-900 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal</label>
+                <input oninput="inputManual()" type="text" id="pengembangan-input" class="block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="0" />
+                <label for="pengembangan-input" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-green-100 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal</label>
             </div>
         </div>
     </div>
@@ -108,7 +108,7 @@
         </div>
     </div>
     <div class="flex mx-8 mt-6 mb-4">
-        <form id="payment-form" action="{{ route('zakat.store') }}" method="POST" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+        <form id="payment-form" action="{{ route('zakat.store') }}" method="POST" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
             @csrf
             <input type="hidden" name="nama_donatur" id="nama-donatur-hidden" value="">
             <input type="hidden" name="nama_program_zakat" id="nama-program-hidden" value="">
@@ -116,6 +116,7 @@
             <input type="hidden" name="metode_pembayaran" id="metode-pembayaran-hidden" value="">
             <input type="hidden" name="nominal_pengembangan_dakwah" id="nominal-pengembangan-dakwah-hidden" value="">
             <input type="hidden" name="nominal_total" id="nominal-total-hidden" value="">
+            <textarea type="hidden" name="doa" class="hidden" id="doa-hidden" cols="30" rows="10"></textarea>
             <button type="submit" id="submit-button">Lanjutkan</button>
         </form>
     </div>
@@ -181,9 +182,9 @@
             <p class="text-sm">Pilih metode pembayaran yang ingin anda gunakan</p>
         </div>
         <div class="">
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'manual')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/metode.png') }}', 'manual')">
                 <p>Manual</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'e-wallet')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/metode.png') }}', 'e-wallet')">
                 <p>E-Wallet/VA</p></button>
         </div>
     </div>
@@ -309,9 +310,9 @@
                 <p class="text-lg font-bold">Batalkan Donasi ?</p>
                 <p class="mb-5 text-sm font-normal text-gray-500">Apa anda yakin akan membatalkan kegiatan donasi instan ?</p>
                 <div class="flex gap-3">
-                    <button data-modal-hide="popup-modal" type="button" class="flex-1 py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-green-100 dark:focus:ring-green-700 dark:bg-green-800 dark:text-green-400 dark:border-green-600 dark:hover:text-green dark:hover:bg-gray-700">Jangan Batalkan</button>
+                    <button data-modal-hide="popup-modal" type="button" class="flex-1 py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-green-100">Jangan Batalkan</button>
                     <a href="{{url('/zakat')}}">
-                        <button data-modal-hide="popup-modal" type="button" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
+                        <button data-modal-hide="popup-modal" type="button" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
                             Ya, Batalkan
                         </button>
                     </a>
@@ -453,7 +454,7 @@
         var namaValue = document.getElementById('nama-input').value;
         var phoneValue = document.getElementById('phone-input').value;
         var doaValue = document.getElementById('doa-input').value;
-
+        document.getElementById('doa-hidden').value = doaValue;
         if (document.getElementById('samarkan-checkbox').checked) {
             namaValue = 'Hamba Allah';
         }

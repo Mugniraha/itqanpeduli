@@ -32,7 +32,7 @@
                     <input type="text" id="nama" placeholder="Rp 0" class="w-full py-3 px-4 text-sm border border-gray-600 rounded-xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
                     <p class="text-gray-600 text-xs">Minimal penarikan komisi Rp 100.000</p>
                 </div>
-                <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-green-700 hover:bg-green-800 my-4 w-full focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
+                <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-green-700 hover:bg-green-800 my-4 w-full focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                     Tarik Komisi
                 </button>
                 <div class="riwayat my-20">
@@ -113,7 +113,7 @@
                     <label for="nama" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Pemilik Rekening</label>
                     <input type="text" id="nama" placeholder="Masukan nama pemilik rekening" class="w-full py-3 px-4 text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
             </div>
-            <button data-modal-target="default-modal1" data-modal-toggle="default-modal1" class="block text-white bg-green-700 hover:bg-green-800 my-4 w-full focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
+            <button data-modal-target="default-modal1" data-modal-toggle="default-modal1" class="block text-white bg-green-700 hover:bg-green-800 my-4 w-full focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                 Tambah Bank
             </button>
         </div>
@@ -121,21 +121,21 @@
     <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center mx-auto items-center text-center w-[450px] md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="relative bg-white rounded-lg shadow">
                 <!-- Modal header -->
-                <div class="items-center p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">
+                <div class="items-center p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 text-center">
                         Berhasil Tarik Komisi
                     </h3>
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
-                    <p class="leading-relaxed font-semibold dark:text-gray-400">
+                    <p class="leading-relaxed font-semibold">
                         Anda berhasil melakukan penarikan sebesar <b>Rp 121.000</b> ke rekening <b>Muhammad Shiddiq</b> harap menunggu <b>1 X 24 jam</b>
                     </p>
                 </div>
-                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button id="close-modal-button" type="button" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">Selesai</button>
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                    <button id="close-modal-button" type="button" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Selesai</button>
                 </div>
             </div>
         </div>
@@ -143,21 +143,21 @@
     <div id="default-modal1" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center mx-auto items-center text-center w-[450px] md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="relative bg-white rounded-lg shadow">
                 <!-- Modal header -->
-                <div class="items-center p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">
+                <div class="items-center p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 text-center">
                         Data Bank Ditambah
                     </h3>
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
-                    <p class="leading-relaxed font-semibold dark:text-gray-400">
+                    <p class="leading-relaxed font-semibold">
                         Data bank mandiri  122134412 a.n Muhammad Shiddiq berhasil ditambah
                     </p>
                 </div>
-                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button id="close-modal-button" type="button" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">Selesai</button>
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                    <button id="close-modal-button" type="button" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Selesai</button>
                 </div>
             </div>
         </div>

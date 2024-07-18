@@ -76,9 +76,9 @@ class hitungZakatController extends Controller
         $payment->nominal_pengembangan_dakwah = $request->nominal_pengembangan_dakwah;
         $payment->tgl_transaksi = Carbon::now();
         $payment->nominal_total = $request->nominal_total;
+        $payment->doa = $request->doa;
         $payment->nama_donatur = $request->nama_donatur;
         $payment->nama_program_zakat = $request->nama_program_zakat;
-        // dd($payment->id);
         $payment->save();
         return redirect()->to('/panduan-pembayaran/' . $payment->id);
     }
@@ -94,11 +94,6 @@ class hitungZakatController extends Controller
             'transaction_details' => [
                 'order_id' =>  $orderId,
                 'gross_amount' => $payment->nominal_total,
-            ],
-            'expiry' => [
-                'start_time' => date("Y-m-d H:i:s T"),
-                'unit' => 'minutes',
-                'duration' => 60
             ],
             'item_details' => [
                 [
@@ -167,9 +162,24 @@ class hitungZakatController extends Controller
         ]);
     }
 
-    public function bayarManual()
+    public function bayarManual(Request $request, $id)
     {
 
+        $request->validate([
+            'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $zakat = Zakat::findOrFail($id);
+
+        if ($request->hasFile('bukti_pembayaran')) {
+            $file = $request->file('bukti_pembayaran');
+            $filename = Str::random(40) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('public/bukti_pembayaran', $filename);
+            $zakat->buktiPembayaran = $filename;
+        }
+        $zakat->save();
+
+        return redirect('zakat')->with('success', 'Data bank berhasil diperbarui.');
     }
 
     public function paymentNow()

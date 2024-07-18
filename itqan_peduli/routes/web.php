@@ -118,7 +118,7 @@ Route::resource('googleFont', googleFontController::class);
 // });
 
 Route::resource('zakat',hitungZakatController::class);
-Route::get('/zakat', [hitungZakatController::class, 'index']);
+Route::get('/zakat-tampilan', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
@@ -127,6 +127,8 @@ Route::get('/get-bank-details/{bankName}',[hitungZakatController::class, 'getBan
 Route::get('/panduan-pembayaran/{id}', [hitungZakatController::class, 'showPanduanPembayaran']);
 
 Route::post('/midtrans/transaction/{id}', [hitungZakatController::class, 'createmidtransTransaction'])->name('midtrans.transaction.create');
+
+Route::post('/zakat/{id}/bayar-manual', [hitungZakatController::class, 'bayarManual'])->name('zakat.bayarManual');
 
 
 Route::get('/danaTerkummpul', function () {
