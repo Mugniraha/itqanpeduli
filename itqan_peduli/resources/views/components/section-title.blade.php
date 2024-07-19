@@ -10,5 +10,4 @@
     <div class="px-4 sm:px-0">
         {{ $aside ?? '' }}
     </div>
-    {{-- <p>{{ $footer }}</p> --}}
 </div>

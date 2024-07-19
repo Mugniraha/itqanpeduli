@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Zakat extends Model
 {
     use HasFactory;
-    protected $table = 'zakat';
+    protected $table = 'transaksi_zakat';
     protected $primaryKey = 'id';
+
+    protected $keyType = 'string';
     protected $fillable = [
         'id',
         'nama_donatur',

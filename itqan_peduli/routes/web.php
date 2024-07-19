@@ -29,6 +29,7 @@ use App\Http\Controllers\leaderboardController;
 use App\Exports\LeaderboardExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
+use App\Http\Controllers\dataBankController;
 
 
 Route::get('/dashboard2', function () {
@@ -67,15 +68,19 @@ Route::get('/inputprogramzakat', function () {
 //     return view('admin.konten.pengaturanProgram.kategori');
 // });
 
-Route::get('/data-bank', function () {
-    return view('admin.konten.dataBank.dataBank');
-});
+// Route::get('/data-bank', function () {
+//     return view('admin.konten.dataBank.dataBank');
+// });
+
+
 Route::get('/inputTambahBank', function () {
     return view('admin.konten.dataBank.inputTambahBank');
 });
-// Route::get('/inputKelolaKategori', function () {
-//     return view('admin.konten.pengaturanProgram.inputKategori');
-// });
+Route::resource('data-bank', dataBankController::class);
+Route::resource('zakat',hitungZakatController::class);
+Route::get('/inputKelolaKategori', function () {
+    return view('admin.konten.pengaturanProgram.inputKategori');
+});
 
 Route::resource('dashboard', dashboardController::class);
 Route::resource('transaksi', transaksiController::class);
@@ -113,11 +118,20 @@ Route::resource('googleFont', googleFontController::class);
 // });
 
 Route::resource('zakat',hitungZakatController::class);
-Route::get('/zakat', [hitungZakatController::class, 'index']);
+Route::get('/zakat-tampilan', [hitungZakatController::class, 'index']);
 Route::post('/zakat/calculate', [hitungZakatController::class, 'calculate']);
 Route::get('/harga-emas', 'App\Http\Controllers\hitungZakatController@getHargaEmas');
 
-Route::get('/dana-terkumpul', function () {
+Route::get('/get-bank-details/{bankName}',[hitungZakatController::class, 'getBankDetails'])->name('getBankDetails');
+
+Route::get('/panduan-pembayaran/{id}', [hitungZakatController::class, 'showPanduanPembayaran']);
+
+Route::post('/midtrans/transaction/{id}', [hitungZakatController::class, 'createmidtransTransaction'])->name('midtrans.transaction.create');
+
+Route::post('/zakat/{id}/bayar-manual', [hitungZakatController::class, 'bayarManual'])->name('zakat.bayarManual');
+
+
+Route::get('/danaTerkummpul', function () {
     return view('admin.konten.danaTerkumpul.index');
 });
 Route::get('/detail-dana', function () {
@@ -292,9 +306,7 @@ Route::get('/detail-kabar', function () {
 Route::get('/rincian-pembayaran', function () {
     return view('front.konten.pembayaranZakat.rincianPembayaran');
 });
-Route::get('/panduan-pembayaran', function () {
-    return view('front.konten.pembayaranZakat.panduanPembayaran');
-});
+
 
 //front akun
 Route::get('/akun', function () {
@@ -483,9 +495,9 @@ Route::get('/detail', function () {
     return view('front.konten.akun.detail-transaksi');
 });
 
-Route::get('/data-bank', function () {
-    return view('front.konten.akun.data-bank');
-});
+// Route::get('/data-bank', function () {
+//     return view('front.konten.akun.data-bank');
+// });
 
 Route::get('/bg', function () {
     return view('front.konten.akun.background');
@@ -624,8 +636,10 @@ Route::post('/categories/update-order', [kategoriController::class, 'updateOrder
 Route::resource('campaign', campaignController::class);
 Route::resource('banner', BannerController::class);
 Route::resource('articleCategory', ArticleCategoryController::class);
-Route::resource('article', ArticleController::class);
 
+Route::middleware('auth')->group(function () {
+    Route::resource('article', ArticleController::class);
+});
 
 //BE
 //USER
@@ -635,12 +649,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('/dashboard', function () {
-        return view('front.konten.beranda.home');
-    })->name('dashboard');
+    Route::resource('/dashboard', homeController::class);
 });
 
 Route::get('/update-password', function() {

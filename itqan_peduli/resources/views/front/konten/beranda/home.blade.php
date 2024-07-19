@@ -70,14 +70,14 @@
 <div class="w-full max-w-4xl overflow-x-auto no-scrollbar snap-x pb-2">
     <div class="flex space-x-4">
         @foreach ($campaigns_mendesak as $campaign_mendesak)
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow">
             <a href="#">
                 <img class="rounded-t-lg h-2/4 object-cover" src="{{ asset('storage/' . $campaign_mendesak->photo) }}" alt="Card Image 1" />
             </a>
             <div class="p-5">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $campaign_mendesak->title }}</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_mendesak->title }}</p>
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                 </div>
                 <div class="flex justify-between gap-4 mb-2">
                     <div>
@@ -101,12 +101,12 @@
 <div class="mx-8">
     <div class="">
         @foreach ($campaigns_terpopuler as $campaign_terpopuler)
-        <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow">
             <img class="rounded-s-lg w-1/3 object-cover" src="{{ asset('storage/' . $campaign_terpopuler->photo) }}" alt="Card Image 1" />
             <div class="p-5 w-2/3">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $campaign_terpopuler->title }}</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_terpopuler->title }}</p>
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                 </div>
                 <div class="flex justify-between gap-4">
                     <div>
@@ -129,7 +129,7 @@
 
 <div class="grid gap-2 mx-8">
     <div class="flex gap-2">
-        <div class="flex items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow">
             <svg class="w-12 h-12" width="104" height="102" viewBox="0 0 104 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_dd_781_1053)">
                 <path d="M58.7632 73.9697C66.7819 62.3996 77.8121 65.824 83.011 69.4228C83.4315 69.7139 83.6974 70.1712 83.7782 70.6763L87.2873 92.6104C87.4798 93.8133 86.5644 94.9074 85.3463 94.9243C73.723 95.0853 52.2456 95.2643 43.6521 94.8906C33.5761 93.5104 21.1729 83.3774 15.7733 76.5448C15.6909 76.4406 15.6216 76.3321 15.5669 76.2111C14.9288 74.7987 14.3544 71.9225 16.6522 70.3906C18.9114 68.8845 21.0524 69.3278 21.991 69.8021C22.1005 69.8574 22.1945 69.9277 22.2858 70.0096C26.6782 73.9496 36.0472 84.8906 40.6523 84.8906H45.6523C40.1523 84.8906 40.2644 80.5 40.6523 78.3906C41 76.5 43 74.8897 45.6523 74.8897H57.0544C57.7382 74.8897 58.3737 74.5317 58.7632 73.9697Z" fill="#F3F8F5"/>
@@ -186,7 +186,7 @@
                 <span class="text-sm mb-3 font-bold text-gray-700">456.789++</span>
             </div>
         </div>
-        <div class="flex items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow">
             <svg class="w-12 h-12" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M29.1663 4.1665H12.4997C11.3946 4.1665 10.3348 4.60549 9.5534 5.38689C8.77199 6.16829 8.33301 7.2281 8.33301 8.33317V41.6665C8.33301 42.7716 8.77199 43.8314 9.5534 44.6128C10.3348 45.3942 11.3946 45.8332 12.4997 45.8332H37.4997C38.6047 45.8332 39.6645 45.3942 40.4459 44.6128C41.2274 43.8314 41.6663 42.7716 41.6663 41.6665V16.6665L29.1663 4.1665Z" fill="#077734" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M29.167 4.1665V16.6665H41.667" fill="#FBC71E"/>
@@ -201,7 +201,7 @@
             </div>
         </div>
     </div>
-    <div class="grid items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="grid items-center justify-center w-full p-5 gap-1 bg-white border border-gray-200 rounded-lg shadow">
         <svg class="w-12 h-12 mx-auto" width="96" height="100" viewBox="0 0 96 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3.75" y="38.25" width="81.5" height="52.5" rx="3.75" fill="#FBC71E" stroke="black" stroke-width="2.5"/>
             <rect x="10.5872" y="60.3555" width="51.3186" height="40.0389" rx="3.75" transform="rotate(-83.0591 10.5872 60.3555)" fill="#077734" stroke="black" stroke-width="2.5"/>
@@ -264,14 +264,14 @@
 <div class="w-full max-w-4xl overflow-x-auto no-scrollbar snap-x pb-2">
     <div class="flex space-x-4">
         @foreach ($campaigns_rekomendasi as $campaign_rekomendasi)
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow">
             <a href="#">
                 <img class="rounded-t-lg" src="{{ asset('storage/' . $campaign_rekomendasi)}}" alt="Card Image 1" />
             </a>
             <div class="p-5">
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $campaign_rekomendasi->title }}</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                    <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+                <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_rekomendasi->title }}</p>
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
                 </div>
                 <div class="flex justify-between gap-4">
                     <div>
@@ -322,21 +322,21 @@
 <div class="mx-8">
     <div class="grid gap-3">
     @foreach ($campaigns_kategori as $campaign_kategori)
-    <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow">
         <img class="rounded-s-lg h-2/4 object-cover " src="{{ asset('storage/' . $campaign_kategori->photo) }}" alt="Card Image 1" />
         <div class="p-5 w-2/3">
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $campaign_kategori->title }}</p>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                <div class="bg-green-600 h-2.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
+            <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_kategori->title }}</p>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
             </div>
             <div class="flex justify-between gap-4">
                 <div>
-                    <p class="text-xs font-normal text-gray-700 dark:text-gray-400">Terkumpul</p>
-                    <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">Rp131.456.789</span>
+                    <p class="text-xs font-normal text-gray-700">Terkumpul</p>
+                    <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
                 </div>
                 <div>
-                    <p class="text-xs font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap">Hari Tersisa</p>
-                    <span class="text-sm mb-3 font-semibold text-gray-700 dark:text-gray-400">656 Hari</span>
+                    <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
+                    <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
                 </div>
             </div>
         </div>
