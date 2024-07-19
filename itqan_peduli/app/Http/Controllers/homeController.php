@@ -15,7 +15,7 @@ class homeController extends Controller
         $campaigns_mendesak = Campaign::orderBy('urutan')->get();
         $campaigns_terpopuler = Campaign::take(3)->get();
         $campaigns_rekomendasi = Campaign::orderBy('urutan')->get();
-        $campaigns_kategori = Campaign::take(3)->get();
+        $campaigns_kategori = Campaign::all();
         return view('front.konten.beranda.home', compact('banners', 'categories', 'campaigns_mendesak', 'campaigns_terpopuler', 'campaigns_rekomendasi', 'campaigns_kategori' ));
     }
 }

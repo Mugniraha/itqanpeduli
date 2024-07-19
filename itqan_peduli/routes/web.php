@@ -30,7 +30,9 @@ use App\Exports\LeaderboardExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
 use App\Http\Controllers\dataBankController;
-
+use App\Http\Controllers\programController;
+use App\Http\Controllers\HomeadminController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::get('/dashboard2', function () {
     return view('admin.konten.dashboard.index');
@@ -186,10 +188,7 @@ Route::get('/inputmediaberbagi', function () {
 
 
 Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
-Route::get('/fundraisers/create', [fundraiserController::class, 'create'])->name('fundraisers.create');
 Route::post('/fundraisers', [fundraiserController::class, 'store'])->name('fundraisers.store');
-Route::get('/fundraisers/{fundraiser}', [fundraiserController::class, 'show'])->name('fundraisers.show');
-Route::get('/fundraisers/{fundraiser}/edit', [fundraiserController::class, 'edit'])->name('fundraisers.edit');
 Route::put('/fundraisers/{fundraiser}', [fundraiserController::class, 'update'])->name('fundraisers.update');
 Route::delete('/fundraisers/{fundraiser}', [fundraiserController::class, 'destroy'])->name('fundraisers.destroy');
 
@@ -271,9 +270,9 @@ Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'sto
 // Route::get('/', function () {
 //     return view('front.konten.beranda.home');
 // });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::get('/home', function () {
     return view('front.konten.beranda.home');
 });
@@ -483,9 +482,12 @@ Route::get('/pembayaran', function() {
 //     return view('front.konten.akun.main');
 // });
 
-Route::get('/dutaamal', function () {
-    return view('front.konten.akun.dutaAmal');
-});
+// Route::get('/duta-amal', function () {
+//     return view('front.konten.akun.dutaAmal');
+// });
+
+Route::get('/duta-amal', [fundraiserController::class, 'getProvinsi']);
+Route::get('/kabupaten-kota/{provinsiId}', [fundraiserController::class, 'getKabupatenKota']);
 
 Route::get('/tim-fundraising', function () {
     return view('front.konten.akun.tim-fundraising');
@@ -565,9 +567,9 @@ Route::get('/yayasan', function () {
 Route::get('/duta', function () {
     return view('front.konten.program.dutaamal');
 });
-Route::get('/program-user', function () {
-    return view('front.konten.program-user.program');
-});
+// Route::get('/program-user', function () {
+//     return view('front.konten.program-user.program');
+// });
 Route::get('/artikel', function () {
     return view('front.konten.artikel.artikel');
 });
@@ -640,25 +642,29 @@ Route::post('/categories/update-order', [kategoriController::class, 'updateOrder
 Route::resource('campaign', campaignController::class);
 Route::resource('banner', BannerController::class);
 Route::resource('articleCategory', ArticleCategoryController::class);
-
-Route::middleware('auth')->group(function () {
-    Route::resource('article', ArticleController::class);
-});
+Route::resource('article', ArticleController::class);
 
 //BE
 //USER
-Route::resource('/', homeController::class);
+Route::resource('home1', homeController::class);
+Route::resource('program-user', programController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::resource('/dashboard', homeController::class);
+    // Route::resource('/home', homeController::class);
+    Route::get('/home' , [HomeadminController::class, 'index']);
 });
 
+// Pembagian Hak akses
+// Route::get('/home' , [HomeadminController::class, 'index']);
 Route::get('/update-password', function() {
     return view('front.konten.proses.updatePassword');
 });
 ROute::get('/update-profile', function() {
     return view('front.konten.proses.updateProfile');
 });
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout');

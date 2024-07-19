@@ -215,7 +215,11 @@
             </div>
         </div>
     </div>
-    <a href="{{ url('/tim-fundraising') }}" type="button"
+            <a href="{{ url('/akun') }}" type="button"
+                class="px-4 py-2 w-full mt-4 text-base font-medium text-white items-center border border-green-700 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
+                <p class="text-white text-center font-semibold">Pindah Akun</p>
+            </a>
+            <a href="{{ url('/tim-fundraising') }}" type="button"
                 class="px-3 py-3 mt-6  w-full  text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <p class="text-gray-600 font-semibold text-sm">Tim Fundraising</p>
                 <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
