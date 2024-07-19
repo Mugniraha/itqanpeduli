@@ -45,7 +45,7 @@
             <p class="font-bold ms-7">Berdasarkan Kategori</p>
             <div class="konten mt-3">
                 <div class="overflow-x-scroll no-scrollbar h-18 mt-2 whitespace-nowrap ">
-                    <a href="#semua" class="semu inline-block text-center" data-kategori="semua">
+                    <a href="#semua" class="inline-block text-center" data-kategori="semua">
                         <button class="bg-gray-200 p-2.5 rounded-full mx-8 inline-block" style="box-shadow: 0 1px 3px 0 gray;">
                         <svg width="25" height="25" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_783_1326)">

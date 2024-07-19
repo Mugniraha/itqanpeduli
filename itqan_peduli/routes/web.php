@@ -634,10 +634,7 @@ Route::post('/categories/update-order', [kategoriController::class, 'updateOrder
 Route::resource('campaign', campaignController::class);
 Route::resource('banner', BannerController::class);
 Route::resource('articleCategory', ArticleCategoryController::class);
-
-Route::middleware('auth')->group(function () {
-    Route::resource('article', ArticleController::class);
-});
+Route::resource('article', ArticleController::class);
 
 //BE
 //USER
