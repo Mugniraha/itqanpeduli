@@ -579,6 +579,9 @@ Route::get('/yayasan', function () {
 Route::get('/donatur-user', function () {
     return view('front.konten.donatur.donatur');
 });
+Route::get('/duta-amal-1', function () {
+    return view('front.konten.dutaamal.dutaamal');
+});
 
 
 Route::get('/inputTambahUser', function () {
