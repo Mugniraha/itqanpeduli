@@ -293,7 +293,7 @@
     <p class="font-bold">Berdasarkan Kategori</p>
 </div>
 <div class="flex overflow-x-scroll gap-4 no-scrollbar whitespace-nowrap pl-8 mb-4">
-    <div class="">
+    <a href="#semua" class="" data-kategori="semua">
         <div class="flex items-center justify-center">
             <div class="w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center">
                 {{-- <img class="w-[25px] h-[25px]" src="{{ asset('storage/' . $kategori->icon )}}" alt="{{ $kategori->name }}"> --}}
@@ -307,22 +307,23 @@
             </div>
             </div>
         <p class="font-semibold pt-1">Semua</p>
-    </div>
+    </a>
     @foreach ($categories as $kategori)
-    <div class="">
+    <a href="#{{ $kategori->name }}" class="" data-kategori="{{ $kategori->name }}">
         <div class="flex items-center justify-center">
             <div class="w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center">
                 <img class="w-[25px] h-[25px]" src="{{ asset('storage/' . $kategori->icon )}}" alt="{{ $kategori->name }}">
             </div>
         </div>
         <p class="font-semibold pt-1">{{ $kategori->name }}</p>
-    </div>
+    </a>
     @endforeach
 </div>
 <div class="mx-8">
     <div class="grid gap-3">
     @foreach ($campaigns_kategori as $campaign_kategori)
-    <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow">
+    
+    <a href="#" class="kotak kategori-semua kategori-{{ $campaign_kategori->category }} flex w-full bg-white border border-gray-200 rounded-lg shadow">
         <img class="rounded-s-lg h-2/4 object-cover " src="{{ asset('storage/' . $campaign_kategori->photo) }}" alt="Card Image 1" />
         <div class="p-5 w-2/3">
             <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_kategori->title }}</p>
@@ -340,7 +341,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </a>
     @endforeach
     </div>
 </div>
@@ -389,5 +390,39 @@
         <p class="text-gray-400">Copyright &copy 2023 Media Berbagi</p>
     </div>
 </div>
+
+<script>
+    const kategoriButtons = document.querySelectorAll('[data-kategori]'); // Selector untuk tombol dengan atribut data-kategori
+
+// Tambahkan event listener untuk setiap tombol kategori
+kategoriButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Ambil kategori dari data atau id, sesuaikan dengan kebutuhan
+        const kategori = button.getAttribute('data-kategori'); // Contoh jika menggunakan data attribute
+
+        // Ambil semua kotak konten berdasarkan kategori
+        const semuaKonten = document.querySelectorAll('.kotak');
+
+        // Jika yang diklik adalah kategori "semua", tampilkan semua kotak
+        if (kategori === 'semua') {
+            semuaKonten.forEach(kotak => {
+                kotak.style.display = 'flex';
+            });
+        } else {
+            // Semua kotak konten diubah menjadi display none
+            semuaKonten.forEach(kotak => {
+                kotak.style.display = 'none';
+            });
+
+            // Tampilkan kotak konten yang sesuai dengan kategori yang dipilih
+            const kontenKategori = document.querySelectorAll(`.kategori-${kategori}`);
+            kontenKategori.forEach(kotak => {
+                kotak.style.display = 'flex';
+            });
+        }
+    });
+});
+
+</script>
 
 @endsection
