@@ -31,6 +31,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
 use App\Http\Controllers\dataBankController;
 use App\Http\Controllers\programController;
+use App\Http\Controllers\HomeadminController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::get('/dashboard2', function () {
@@ -638,16 +639,19 @@ Route::resource('article', ArticleController::class);
 
 //BE
 //USER
-Route::resource('home', homeController::class);
+Route::resource('home1', homeController::class);
 Route::resource('program-user', programController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::resource('/dashboard', homeController::class);
+    // Route::resource('/home', homeController::class);
+    Route::get('/home' , [HomeadminController::class, 'index']);
 });
 
+// Pembagian Hak akses
+// Route::get('/home' , [HomeadminController::class, 'index']);
 Route::get('/update-password', function() {
     return view('front.konten.proses.updatePassword');
 });

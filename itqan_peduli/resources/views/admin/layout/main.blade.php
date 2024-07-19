@@ -430,7 +430,8 @@
                         <div class="flex items-center ms-3">
                             <div class="pr-5">
                                 <button type="button" class="flex text-sm items-center" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                                <img class="w-8 h-8 rounded-full mr-2" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                                {{-- <img class="w-8 h-8 rounded-full mr-2" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo"> --}}
+                                <img class="w-8 h-8 rounded-full mr-2 object-cover" src="{{ Storage::url(Auth::user()->profile_photo_path) }}" alt="{{ Auth::user()->name }}">
                                 <span class="relative flex h-3 w-3">
                                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
@@ -460,7 +461,16 @@
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Earnings</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                                    <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                                        @csrf
+                                    </form>
+            
+                                    {{-- <a href="{{ route('logout') }}"
+                                        class="text-white shadow-md bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Ya , Keluar') }}
+                                    </a> --}}
+                                    <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
                                 </li>
                                 </ul>
                             </div>
