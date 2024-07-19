@@ -629,7 +629,7 @@ Route::resource('article', ArticleController::class);
 
 //BE
 //USER
-Route::resource('/', homeController::class);
+Route::resource('home', homeController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
