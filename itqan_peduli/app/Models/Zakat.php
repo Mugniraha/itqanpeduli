@@ -11,6 +11,8 @@ class Zakat extends Model
     protected $table = 'transaksi_zakat';
     protected $primaryKey = 'id';
 
+    protected $foreignKeys = 'id_user';
+
     protected $keyType = 'string';
     protected $fillable = [
         'id',
@@ -19,6 +21,20 @@ class Zakat extends Model
         'tgl_transaksi',
         'metode_pembayaran',
         'nominal',
-        'status'
+        'status',
+        'doa',
+        'id_transaksi',
+        'checkout_link',
+        'transaction_token',
+        'qr_code_url',
+        'order_id',
+        'bukti_pembayaran',
+        'id_user',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

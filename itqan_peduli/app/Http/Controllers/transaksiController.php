@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Zakat;
 
 class transaksiController extends Controller
 {
@@ -33,6 +34,43 @@ class transaksiController extends Controller
         return view('admin.konten.transaksi.transaksiOffline', compact('slug'));
     }
 
+    public function showAllTransaksi()
+    {
+        $transaksi = Zakat::all();
+        return view('admin.konten.transaksi.index', compact('transaksi'));
+    }
+
+    public function showDetailTransaksi($id)
+    {
+        $transaksi = Zakat::findOrFail($id);
+        return view('admin.konten.transaksi.detailTransaksi', compact('transaksi'));
+    }
+
+    public function editDetailTransaksi(Request $request)
+    {
+        $request->validate([
+            'nominal_total' => 'required|string|max:255',
+            'nama_donatur' => 'required|string|max:255',
+        ]);
+        // dd($request->id);
+        $transaksi = Zakat::findOrFail($request->id);
+
+        $transaksi->nominal_total = $request->nominal_total;
+        $transaksi->nama_donatur = $request->nama_donatur;
+
+        $transaksi->save();
+
+        return redirect()->route('transaksi.showDetailTransaksi', ['id' => $transaksi->id])->with('success','Data berhasil diperbarui');
+    }
+
+    public function deleteDetailTransaksi(Request $request)
+    {
+        $transaksi = Zakat::findOrFail($request->id);
+        $transaksi->delete();
+        return redirect()->route('transaksi.showAllTransaksi')->with('success', 'Data bank berhasil dihapus.');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -54,7 +92,7 @@ class transaksiController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**

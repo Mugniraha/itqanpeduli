@@ -52,45 +52,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-gray-800 text-base">
-                        INV-202407041625315EwxkKce
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        2024-07-04 16:25:32
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        6281209990c
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Hamba Allah
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        3
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Hadiah Terbaik Untuk Anak Bangsa
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        <div class="text-green-500 bg-green-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">
-                            Online:ShopeePay Jump App
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp.10.000
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Menunggu
-                    </td>
-                    <td class=" text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 w-11/12 text-center bg-green-700 rounded-sm md:flex-col md:flex">
-                            Lihat Detail
-                        </a>
-                    </td>
-                </tr>
+                @foreach ($transaksi as $row)
+                    <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$loop->iteration}}
+                        </td>
+                        <td class="px-6 py-4 text-gray-800 text-base">
+                            {{$row->order_id}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->tgl_transaksi}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->nama_donatur}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            1
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->nama_program_zakat}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            <div class="text-green-500 bg-green-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">
+                                {{$row->metode_pembayaran}}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-black text-sm">
+                            Rp {{ number_format($row->nominal_total, 0, ',','.')}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->status}}
+                        </td>
+                        <td class=" text-black text-base">
+                            <a href="{{route('transaksi.showDetailTransaksi', $row->id)}}" class="text-white text-sm p-1 px-2 w-11/12 text-center bg-green-700 rounded-sm md:flex-col md:flex">
+                                Lihat Detail
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

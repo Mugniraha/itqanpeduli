@@ -110,6 +110,7 @@
     <div class="flex mx-8 mt-6 mb-4">
         <form id="payment-form" action="{{ route('zakat.store') }}" method="POST" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
             @csrf
+            <input type="hidden" name="id_user" value="{{{ Auth::id() }}}">
             <input type="hidden" name="nama_donatur" id="nama-donatur-hidden" value="">
             <input type="hidden" name="nama_program_zakat" id="nama-program-hidden" value="">
             <input type="hidden" name="nominal_zakat" id="nominal-zakat-hidden" value="">

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Zakat;
 Use illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Bank;
 
 class hitungZakatController extends Controller
@@ -71,6 +72,7 @@ class hitungZakatController extends Controller
     public function store(Request $request)
     {
         $payment = new Zakat;
+        $payment->id_user = Auth::id();
         $payment->metode_pembayaran = $request->metode_pembayaran;
         $payment->nominal_zakat = $request->nominal_zakat;
         $payment->nominal_pengembangan_dakwah = $request->nominal_pengembangan_dakwah;
@@ -141,6 +143,7 @@ class hitungZakatController extends Controller
         $payment->checkout_link = $responseContent['redirect_url'];
         $payment->transaction_token = $responseContent['token'];
         $payment->order_id = $orderId;
+        $payment->status = 'pending';
         // $payment->id_transaksi = $responseContent['transaction_id'];
         $payment->save();
         // Return response
@@ -180,6 +183,13 @@ class hitungZakatController extends Controller
         $zakat->save();
 
         return redirect('zakat')->with('success', 'Data bank berhasil diperbarui.');
+    }
+
+    public function zakatSaya()
+    {
+        $user = Auth::user();
+        $zakatSaya = Zakat::where('id_user', $user->id)->get();
+        return view('');
     }
 
     public function paymentNow()

@@ -33,7 +33,7 @@ use App\Http\Controllers\dataBankController;
 
 
 Route::get('/dashboard2', function () {
-    return view('admin.layout.main');
+    return view('admin.konten.dashboard.index');
 });
 
 // Route::get('/publikasi-program', function () {
@@ -82,8 +82,12 @@ Route::get('/inputKelolaKategori', function () {
     return view('admin.konten.pengaturanProgram.inputKategori');
 });
 
-Route::resource('dashboard', dashboardController::class);
-Route::resource('transaksi', transaksiController::class);
+// Route::resource('dashboard2', dashboardController::class);
+// Route::resource('transaksi', transaksiController::class);
+Route::get('/allTransaksi', [transaksiController::class, 'showAllTransaksi'])->name('transaksi.showAllTransaksi');
+Route::get('/detailTransaksi{id}', [transaksiController::class, 'showDetailTransaksi'])->name('transaksi.showDetailTransaksi');
+Route::put('/editDetailTransaksi', [transaksiController::class, 'editDetailTransaksi'])->name('transaksi.editDetailTransaksi');
+Route::delete('/deleteDetailTransaksi', [transaksiController::class, 'deleteDetailTransaksi'])->name('transaksi.deleteDetailTransaksi');
 Route::get('transaksiOnline', [transaksiController::class, 'showTransaksiOnline'])->name('transaksiOnline');
 Route::get('transaksiOnlineManual', [transaksiController::class, 'showTransaksiOnlineManual'])->name('transaksiOnlineManual');
 Route::get('transaksiOffline', [transaksiController::class, 'showTransaksiOffline'])->name('transaksiOffline');
