@@ -16,12 +16,36 @@ class fundraiserController extends Controller
         return view('admin.konten.fundraiser.fundraiser', compact('slug', 'fundraisers'));
     }
 
-
-    public function showTransaksi()
+    public function store(Request $request)
     {
-        $slug = 'fundraiserTransaksi';
-        return view('admin.konten.fundraiser.transaksi');
+        $request->validate([
+            'jenis_duta' => 'required|string|max:255',
+            'nama_lengkap' => 'required|string|max:255',
+            'no_wa' => 'required|string|max:15',
+            'alamat_email' => 'required|string|email|max:255',
+            'provinsi' => 'required|string|max:255',
+            'kabkota' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed'
+        ]);
+
+        $data = $request->only([
+            'jenis_duta', 
+            'nama_lengkap', 
+            'no_wa', 
+            'alamat_email', 
+            'provinsi', 
+            'kabkota', 
+            'password'
+        ]);
+
+        // Encrypt the password before saving
+        $data['password'] = bcrypt($data['password']);
+
+        Fundraiser::create($data);
+
+        return redirect()->route('akun-fundraiser')->with('success', 'Pendaftaran berhasil!');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,10 +58,6 @@ class fundraiserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.

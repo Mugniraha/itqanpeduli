@@ -183,10 +183,7 @@ Route::get('/inputmediaberbagi', function () {
 
 
 Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
-Route::get('/fundraisers/create', [fundraiserController::class, 'create'])->name('fundraisers.create');
 Route::post('/fundraisers', [fundraiserController::class, 'store'])->name('fundraisers.store');
-Route::get('/fundraisers/{fundraiser}', [fundraiserController::class, 'show'])->name('fundraisers.show');
-Route::get('/fundraisers/{fundraiser}/edit', [fundraiserController::class, 'edit'])->name('fundraisers.edit');
 Route::put('/fundraisers/{fundraiser}', [fundraiserController::class, 'update'])->name('fundraisers.update');
 Route::delete('/fundraisers/{fundraiser}', [fundraiserController::class, 'destroy'])->name('fundraisers.destroy');
 
@@ -480,7 +477,7 @@ Route::get('/pembayaran', function() {
 //     return view('front.konten.akun.main');
 // });
 
-Route::get('/dutaamal', function () {
+Route::get('/duta-amal', function () {
     return view('front.konten.akun.dutaAmal');
 });
 

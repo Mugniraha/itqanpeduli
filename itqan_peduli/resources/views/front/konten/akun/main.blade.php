@@ -68,8 +68,8 @@
                         d="m9 5 7 7-7 7" />
                 </svg>
             </button>
-            <a href="{{ url('dutaamal') }}" type="button"
-                class="px-3 py-3 w-full my-2 tex3-baseont-medium text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
+            <a href="{{ url('duta-amal') }}" type="button"
+                class="px-3 py-3 w-full my-2 tex3-baseont-medium text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center dark:bg-gray-400 dark:hover:bg-gray-500 dark:focus:ring-gray-600">
                 <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
                     <path
                         d="M20.3256 4.14854C19.0656 4.50854 16.1506 7.34852 14.8506 8.72351C15.3756 9.49851 17.2506 10.8085 20.5506 9.8485C24.6755 8.64851 22.9505 4.97354 22.5755 4.59854C22.2005 4.22354 21.9005 3.69854 20.3256 4.14854Z"
@@ -123,6 +123,10 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m9 5 7 7-7 7" />
                 </svg>
+            </a>
+            <a href="{{ url('/akun-fundraiser') }}" type="button"
+                class="px-4 py-2 mt-4 text-base font-medium text-white inline-flex items-center border border-green-700 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
+                <p class="text-white text-center font-semibold">Pindah Akun</p>
             </a>
 
 
