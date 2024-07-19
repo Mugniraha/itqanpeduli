@@ -253,9 +253,9 @@ Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'sto
 // Route::get('/', function () {
 //     return view('front.konten.beranda.home');
 // });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::get('/home', function () {
     return view('front.konten.beranda.home');
 });
