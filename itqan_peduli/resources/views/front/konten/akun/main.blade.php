@@ -234,13 +234,20 @@
                             class="text-white shadow-md bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                             Ya , Keluar
                         </a>
-                        <form method="POST" action="{{ route('logout') }}" x-data>
+                        {{-- <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
                             <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
+                        </form> --}}
+                        <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                            @csrf
                         </form>
-                        
+
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Log Out') }}
+                        </a>
+
 
                     </div>
 

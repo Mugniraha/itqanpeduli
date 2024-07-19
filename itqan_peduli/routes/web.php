@@ -30,10 +30,11 @@ use App\Exports\LeaderboardExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
 use App\Http\Controllers\dataBankController;
-
+use App\Http\Controllers\programController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::get('/dashboard2', function () {
-    return view('admin.layout.main');
+    return view('admin.konten.dashboard.index');
 });
 
 // Route::get('/publikasi-program', function () {
@@ -561,9 +562,9 @@ Route::get('/yayasan', function () {
 Route::get('/duta', function () {
     return view('front.konten.program.dutaamal');
 });
-Route::get('/program-user', function () {
-    return view('front.konten.program-user.program');
-});
+// Route::get('/program-user', function () {
+//     return view('front.konten.program-user.program');
+// });
 Route::get('/artikel', function () {
     return view('front.konten.artikel.artikel');
 });
@@ -644,6 +645,7 @@ Route::middleware('auth')->group(function () {
 //BE
 //USER
 Route::resource('home', homeController::class);
+Route::resource('program-user', programController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -658,3 +660,6 @@ Route::get('/update-password', function() {
 ROute::get('/update-profile', function() {
     return view('front.konten.proses.updateProfile');
 });
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout');
