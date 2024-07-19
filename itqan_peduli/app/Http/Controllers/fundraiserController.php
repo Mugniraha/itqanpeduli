@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use \App\Models\Fundraiser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpClient\HttpClient;
+
 
 class fundraiserController extends Controller
 {
@@ -50,10 +53,64 @@ class fundraiserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function getProvinsi()
     {
-        //
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.binderbyte.com/wilayah/provinsi?api_key=8e49f28e0f2f2cf56393c352613eec358e85fb7077ce6f7f453ebb826a7b1f6d',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+        ));
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $error = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($httpCode == 200) {
+            $provinsiList = json_decode($response, true);
+            return view('front.konten.akun.dutaAmal', ['provinsiList' => $provinsiList]);
+        } else {
+            return response()->json(['error' => 'HTTP status: ' . $httpCode . ', cURL error: ' . $error], 500);
+        }
     }
+
+    public function getKabupatenKota($provinsiId)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.binderbyte.com/wilayah/kabupaten?api_key=8e49f28e0f2f2cf56393c352613eec358e85fb7077ce6f7f453ebb826a7b1f6d&province_id=$provinsiId",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+        ));
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $error = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($httpCode == 200) {
+            $kabkotaList = json_decode($response, true);
+            return response()->json($kabkotaList);
+        } else {
+            return response()->json(['error' => 'HTTP status: ' . $httpCode . ', cURL error: ' . $error], 500);
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.

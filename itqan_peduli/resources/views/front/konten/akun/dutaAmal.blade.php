@@ -24,9 +24,8 @@
                 <label for="jenis_duta" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Jenis Duta</label>
                 <select id="jenis_duta" name="jenis_duta" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected>Pilih jenis duta</option>
-                    <option value="Duta A">Duta A</option>
-                    <option value="Duta B">Duta B</option>
-                    <option value="Duta C">Duta C</option>
+                    <option value="Duta A">Perorangan</option>
+                    <option value="Duta B">Kelompok</option>
                 </select>
             </div>
 
@@ -36,8 +35,8 @@
             </div>
 
             <div class="relative my-4">
-                <label for="no_wa" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nomor Whatsapp</label>
-                <input type="text" id="no_wa" name="no_wa" placeholder="Contoh: 0821-21xx-xxxx" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+                <label for="no_telepon" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nomor Whatsapp</label>
+                <input type="text" id="no_wa" name="no_telepon" placeholder="Contoh: 0821-21xx-xxxx" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
             </div>
 
             <div class="relative my-4">
@@ -49,19 +48,17 @@
                 <label for="provinsi" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Provinsi</label>
                 <select id="provinsi" name="provinsi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected>Pilih provinsi tempat anda tinggal</option>
-                    <option value="Provinsi A">Provinsi A</option>
-                    <option value="Provinsi B">Provinsi B</option>
-                    <option value="Provinsi C">Provinsi C</option>
+                    @foreach ($provinsiList as $provinsi)
+                        <option value="{{ $provinsi['id'] }}">{{ $provinsi['name'] }}</option>
+                    @endforeach
                 </select>
             </div>
 
+            <!-- Kab/Kota -->
             <div class="relative my-4">
                 <label for="kabkota" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Kab/ Kota</label>
                 <select id="kabkota" name="kabkota" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected>Pilih Kab/ Kota tempat anda tinggal</option>
-                    <option value="Kab/Kota A">Kab/Kota A</option>
-                    <option value="Kab/Kota B">Kab/Kota B</option>
-                    <option value="Kab/Kota C">Kab/Kota C</option>
                 </select>
             </div>
 
@@ -104,6 +101,25 @@
         const passwordInput = document.getElementById('password2');
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
+    });
+    document.getElementById('provinsi').addEventListener('change', function() {
+        const provinsiId = this.value;
+
+        if (provinsiId) {
+            fetch(`/kabupaten-kota/${provinsiId}`)
+                .then(response => response.json())
+                .then(kabkotaList => {
+                    const kabkotaSelect = document.getElementById('kabkota');
+                    kabkotaSelect.innerHTML = '<option value="" disabled selected>Pilih Kab/ Kota</option>';
+
+                    kabkotaList.forEach(kabkota => {
+                        const option = document.createElement('option');
+                        option.value = kabkota.id;
+                        option.textContent = kabkota.name;
+                        kabkotaSelect.appendChild(option);
+                    });
+                });
+        }
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
