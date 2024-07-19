@@ -85,7 +85,7 @@
             </div>
     </x-form-section>
     {{-- <x-slot name="footer">
-        
+
     </x-slot> --}}
 
 </div>
@@ -166,7 +166,7 @@
                     <p class="text-white mx-auto text-xl text-center font-semibold">{{ __('Save') }}</p>
                 </button>
                 </div>
-                
+
             </form>
 
             <div class="text-center">
@@ -225,7 +225,7 @@
                     {{ __('Current Password') }}
                 </label>
                 <input id="current_password" name="current_password" type="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" autocomplete="current-password" />
-                @error('current_password') 
+                @error('current_password')
                     <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
                 @enderror
             </div>
@@ -235,7 +235,7 @@
                     {{ __('New Password') }}
                 </label>
                 <input id="password" name="password" type="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" autocomplete="new-password" />
-                @error('password') 
+                @error('password')
                     <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
                 @enderror
             </div>
@@ -245,7 +245,7 @@
                     {{ __('Confirm Password') }}
                 </label>
                 <input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" autocomplete="new-password" />
-                @error('password_confirmation') 
+                @error('password_confirmation')
                     <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
                 @enderror
             </div>

@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use GuzzleHttp\Client;
 use Symfony\Component\HttpClient\HttpClient;
+// use illuminate\Support\Facades\Http;
 use Symfony\Component\HttpClient\Exception\RequestException;
 use Illuminate\Support\Facades\Log;
 // use GuzzleHttp\Exception\RequestException;
 use App\Models\Zakat;
+Use illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Models\Bank;
 
 class hitungZakatController extends Controller
 {
@@ -64,27 +68,125 @@ class hitungZakatController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        dd($request->all());
-        $validatedData = $request->validate([
-            'metode_pembayaran' => 'required|string|max:255',
+        $payment = new Zakat;
+        $payment->metode_pembayaran = $request->metode_pembayaran;
+        $payment->nominal_zakat = $request->nominal_zakat;
+        $payment->nominal_pengembangan_dakwah = $request->nominal_pengembangan_dakwah;
+        $payment->tgl_transaksi = Carbon::now();
+        $payment->nominal_total = $request->nominal_total;
+        $payment->doa = $request->doa;
+        $payment->nama_donatur = $request->nama_donatur;
+        $payment->nama_program_zakat = $request->nama_program_zakat;
+        $payment->save();
+        return redirect()->to('/panduan-pembayaran/' . $payment->id);
+    }
+
+    public function createMidtransTransaction(Request $request, $id)
+    {
+        // Ambil data zakat berdasarkan ID
+        $payment = Zakat::findOrFail($id);
+        $orderId = Str::uuid();
+        // dd($payment->id);
+        // Buat array parameter untuk dikirim ke Midtrans
+        $params = [
+            'transaction_details' => [
+                'order_id' =>  $orderId,
+                'gross_amount' => $payment->nominal_total,
+            ],
+            'item_details' => [
+                [
+                    'price' => $payment->nominal_total,
+                    'quantity' => 1,
+                    'name' => $payment->nama_program_zakat,
+                ]
+            ],
+            'customer_details' => [
+                'first_name' => $payment->nama_donatur,
+            ],
+        ];
+
+        // Autentikasi menggunakan server key sandbox
+        $serverKey = env('MIDTRANS_SERVER_KEY');
+        $auth = base64_encode($serverKey . ':');
+
+        Log::info('Params: ' . json_encode($params)); // Log params for debugging
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'https://app.sandbox.midtrans.com/snap/v1/transactions', [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Basic ' . $auth,
+            ],
+            'json' => $params,
         ]);
 
-        // Simpan data ke database
-        $transaksiZakat = Zakat::create($validatedData);
+        // Cek status kode dan respons
+        $statusCode = $response->getStatusCode();
+        $content = $response->getContent(false);
 
-        // Kembalikan respon sukses atau redirect
-        return response()->json(['success' => 'Transaksi berhasil disimpan', 'data' => $transaksiZakat], 201);
+        Log::info('Status Code: ' . $statusCode);
+        Log::info('Response: ' . $content);
+
+        if ($statusCode === 401) {
+            return response()->json(['error' => 'Unauthorized - Invalid API Key'], 401);
+        }
+
+        if ($statusCode === 500) {
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
+        $responseContent = json_decode($content, true);
+        // dd($responseContent);
+        $payment->checkout_link = $responseContent['redirect_url'];
+        $payment->transaction_token = $responseContent['token'];
+        $payment->order_id = $orderId;
+        // $payment->id_transaksi = $responseContent['transaction_id'];
+        $payment->save();
+        // Return response
+        return response()->json([
+            'status_code' => $statusCode,
+            'transaction_token' => $responseContent['token'],
+            'response' => json_decode($content, true),
+        ]);
     }
+
+    public function getBankDetails($bankName)
+    {
+        $bank = Bank::where('nama_bank', $bankName)->first();
+        return response()->json([
+            'nama_bank' => $bank->nama_bank,
+            'nama_pemilik_bank' => $bank->nama_pemilik_bank,
+            'nomor_rekening' => $bank->nomor_rekening,
+            'icon_bank' => $bank->icon_bank,
+        ]);
+    }
+
+    public function bayarManual(Request $request, $id)
+    {
+
+        $request->validate([
+            'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $zakat = Zakat::findOrFail($id);
+
+        if ($request->hasFile('bukti_pembayaran')) {
+            $file = $request->file('bukti_pembayaran');
+            $filename = Str::random(40) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('public/bukti_pembayaran', $filename);
+            $zakat->buktiPembayaran = $filename;
+        }
+        $zakat->save();
+
+        return redirect('zakat')->with('success', 'Data bank berhasil diperbarui.');
+    }
+
+    public function paymentNow()
+    {
+
+    }
+
 
     /**
      * Display the specified resource.
@@ -93,6 +195,13 @@ class hitungZakatController extends Controller
     {
         //
     }
+
+    public function showPanduanPembayaran($id)
+    {
+        $payment = Zakat::findOrFail($id);
+        return view('front.konten.pembayaranZakat.panduanPembayaran', compact('payment'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -117,4 +226,69 @@ class hitungZakatController extends Controller
     {
         //
     }
+
+
+    public function create(Request $request)
+    {
+        $params = [
+            'transaction_details' => [
+                'order_id' => Str::uuid(),
+                'gross_amount' => $request->nominal_total,
+            ],
+
+            'item_details' => [
+                [
+                    'price' => $request->nominal_total,
+                    'quantity' => 1,
+                    'name' => $request->nama_program_zakat,
+                ]
+            ],
+            'customer_details' => [
+                'first_name' => $request->nama_donatur,
+            ],
+            // 'enabled_payments' => [$request->metode_pembayaran]
+        ];
+
+        // Debugging: Print the parameters to check if they are correct
+        Log::info('Params sent to Midtrans: ' . json_encode($params));
+
+        $auth = base64_encode(env('MIDTRANS_SERVER_KEY'));
+
+        $client = HttpClient::create();
+
+
+
+        try {
+            $response = $client->request('POST', 'https://app.sandbox.midtrans.com/snap/v1/transactions', [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => "Basic $auth",
+                ],
+                'json' => $params,
+            ]);
+
+            $responseData = $response->toArray();
+
+            // Debugging: Print the response from Midtrans
+            Log::info('Response from Midtrans: ' . json_encode($responseData));
+
+            $payment = new Zakat;
+            $payment->id = $params['transaction_details']['order_id'];
+            $payment->status = 'pending';
+            $payment->nominal_total = $request->nominal_total;
+            $payment->nama_donatur = "Mugni";
+            $payment->nama_program_zakat = $request->nama_program_zakat;
+            $payment->checkout_link = $responseData['redirect_url'];
+            $payment->save();
+
+            return response()->json(['token' => $responseData['token']]);
+
+        } catch (\Exception $e) {
+            // Debugging: Print the error message
+            Log::error('Error: ' . $e->getMessage());
+
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
 }

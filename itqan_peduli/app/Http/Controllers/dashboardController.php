@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Campaign;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class dashboardController extends Controller
@@ -12,7 +15,13 @@ class dashboardController extends Controller
     public function index()
     {
         $slug = 'dashboard';
-        return view('admin.konten.dashboard.index', compact('slug'));
+        $banners = Banner::all();
+        $categories = Kategori::orderBy('urutan')->get();
+        $campaigns_mendesak = Campaign::orderBy('urutan')->get();
+        $campaigns_terpopuler = Campaign::take(3)->get();
+        $campaigns_rekomendasi = Campaign::orderBy('urutan')->get();
+        $campaigns_kategori = Campaign::take(3)->get();
+        return view('front.konten.beranda.home', compact('slug', 'banners', 'categories', 'campaigns_mendesak', 'campaigns_terpopuler', 'campaigns_rekomendasi', 'campaigns_kategori' ));
     }
 
     /**
