@@ -99,7 +99,7 @@
                 <div class="atas flex justify-between">
                 <p class="font-bold text-sm">Donatur<span class="bg-gray-50 ms-2 px-2.5 py-1 border border-gray-400 rounded-full">4</span></p>
                 <a href="/donatur-user" class="text-gray-400 text-xs my-auto">Lihat Semua</a>
-                </div>  
+                </div>
                 <div class="card shadow-md rounded-lg flex p-3">
                     <div class="kiri w-36">
                         <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="text-center h-16 my-auto bg-black rounded-full">
@@ -146,8 +146,8 @@
             <div class="duta mt-10 mb-32">
                 <div class="atas flex justify-between">
                     <p class="font-bold text-sm">Duta Amal<span class="bg-gray-50 ms-2 px-2.5 py-1 border border-gray-400 rounded-full">4</span></p>
-                    <a href="/duta" class="text-gray-400 text-xs my-auto">Lihat Semua</a>
-                </div>  
+                    <a href="/duta-amal-1" class="text-gray-400 text-xs my-auto">Lihat Semua</a>
+                </div>
                 <div class="card shadow-md rounded-lg flex p-3">
                     <div class="kiri w-36 my-auto">
                         <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="text-center h-16 my-auto bg-black rounded-full">
