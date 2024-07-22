@@ -6,13 +6,13 @@
     <div class="relative z-40">
         <div id="navBar" class="fixed z-40 bg-white w-[512px] h-auto flex justify-between content-center p-2.5 py-4 px-6">
             <div class="flex">
-                <div class="flex items-center">
-                    <div class="rounded-full bg-green-200 p-2">
+                <a href="{{'/zakat'}}" class="flex items-center">
+                    <div class="rounded-full hover:bg-green-200 p-2">
                         <svg class="w-7 h-7 text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
                         </svg>
                     </div>
-                </div>
+                </a>
                 <div class="flex items-center ml-7">
                     <div>
                         <p class="font-bold">Penghasilan</p>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="flex items-center">
-                <p class="rounded-full bg-green-200 px-4 py-2 font-bold text-xl text-green-700">?</p>
+                {{-- <p class="rounded-full bg-green-200 px-4 py-2 font-bold text-xl text-green-700">?</p> --}}
             </div>
         </div>
     </div>
@@ -165,13 +165,16 @@
                     <span class="font-semibold" id="nama_pemilik_bank"></span>
                 </div>
                 <div>
+                    <p id="metode_pembayran" class="hidden">{{$payment->metode_pembayaran}}</p>
+                </div>
+                <div>
                     <p class="text-gray-500 font-bold text-md ">Total Donasi</p>
                     <span class="font-bold text-lg flex items-center justify-center gap-3">Rp {{ number_format($payment->nominal_total, 0, ',', '.') }}
                         <p class="text-green-700 text-sm flex items-center">Salin</p></span>
                 </div>
                 <div class="relative mt-3 mx-8 hidden" id="norek-details">
-                    <img id="payment-method-image" class="h-5 absolute top-4 bottom-0 left-0 flex items-center pl-4" src="{{ url('/logo_pembayaran.png')}}" alt="logo">
-                    <input type="text" id="nomor_rekening" class="cursor-default block px-4 pl-20 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-white rounded-xl border border-green-600 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer font-semibold" value="" readonly />
+                    <img id="payment-method-image"  class="h-10 absolute top-1 bottom-0 left-0 flex items-center pl-4" src="" alt="logo">
+                    <input type="text" id="nomor_rekening" class="cursor-default block px-4 pl-20 pb-2.5 pt-4 w-full text-md text-gray-900 bg-white rounded-xl border border-green-600 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer font-semibold" value="" readonly  />
                     <p class="absolute inset-y-0 right-5 font-semibold text-green-700 flex items-center justify-center pointer-events-none">Salin</p>
                 </div>
                 <div id="bank-details" class="" style="display: none">
@@ -179,24 +182,6 @@
 
                 </div>
 
-            </div>
-            <div class="relative mt-3 flex flex-col justify-center">
-                <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3">
-                    <div class="my-1">
-                        <p class="text-sm">Pembayaran Instan</p>
-                        <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
-                    </div>
-                    <div class="">
-                        <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-transparent hover:bg-green-200 border border-green-700 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BSI')">
-                            <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Transfer BSI</p></button>
-                        <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4  bg-transparent hover:bg-green-200 border border-green-700 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BRI')">
-                            <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Transfer BRI</p></button>
-                        <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4  bg-transparent hover:bg-green-200 border border-green-700 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Mandiri')">
-                            <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Transfer Mandiri</p></button>
-                        <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4  bg-transparent hover:bg-green-200 border border-green-700 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BCA')">
-                            <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Transfer BCA</p></button>
-                    </div>
-                </div>
             </div>
 
             <div class="bg-yellow-100 border border-yellow-400 p-4 rounded-xl mt-3">
@@ -209,7 +194,7 @@
             </svg>
             <p class="font-bold">Cek Status Pembayaran</p>
         </div>
-            <button class="bg-green-700 rounded-xl py-4 w-full flex gap-4 items-center justify-center text-white cursor-pointer" data-modal-target="uploadBukti-modal" data-modal-toggle="uploadBukti-modal">
+            <button class="bg-green-700 rounded-xl py-4 w-full font-medium flex gap-4 items-center justify-center text-white cursor-pointer" data-modal-target="uploadBukti-modal" data-modal-toggle="uploadBukti-modal">
                 Upload Bukti Pembayaran
             </button>
         </div>
@@ -352,7 +337,8 @@
                     <form class="space-y-4" method="POST" action="{{route('zakat.bayarManual', ['id' => $payment->id])}}" enctype="multipart/form-data">
                         @csrf
                         <div>
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="user_avatar_help" id="user_avatar" type="file" name="bukti_pembayaran">
+                            <img id="preview-icon-bank" src="" alt="" class="w-24 mb-2">
+                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="user_avatar_help" id="user_avatar" type="file" name="bukti_pembayaran" onchange="previewImage(event)">
                             <div class="mt-1 text-sm text-gray-500"  id="user_avatar_help">Upload Bukti Pembayaran Anda</div>
                         </div>
 
@@ -438,26 +424,67 @@
 </script>
 
 <script>
-    document.getElementById('panduan-pembayaran').addEventListener('click', function() {
-        document.getElementById('detail-pembayaran-page').classList.remove('hidden');
-    });
 
-    function closePanduanPembayaranPage() {
-        document.getElementById('detail-pembayaran-page').classList.add('hidden');
-    }
+document.addEventListener('DOMContentLoaded', function(){
+    const metodePembayaran = '{{$payment->metode_pembayaran}}';
+    selectPaymentMethod('/logo_pembayaran.png', metodePembayaran);
+});
 
-    function selectPaymentMethod(imageUrl, bankName){
-        fetch(`/get-bank-details/${bankName}`)
-            .then(response => response.json())
+    function selectPaymentMethod(imageUrl, bankName) {
+        fetch(`/get-bank-details/${encodeURIComponent(bankName)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
             .then(data => {
-                document.getElementById('nama_bank').innerText = data.nama_bank;
+                if (data.error) {
+                    console.error('Error fetching bank details:', data.error);
+                    return;
+                }
                 document.getElementById('nama_pemilik_bank').innerText = data.nama_pemilik_bank;
                 document.getElementById('nomor_rekening').value = data.nomor_rekening;
-                document.getElementById('payment-method-image').src = imageUrl;
+                document.getElementById('payment-method-image').src = data.icon_bank;
                 document.getElementById('norek-details').classList.remove('hidden');
             })
-        .catch(error => console.error('Error fetching bank details:', error));
+            .catch(error => console.error('Error fetching bank details:', error));
     }
+
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('preview-icon-bank');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+
+
+
+
+    // document.getElementById('panduan-pembayaran').addEventListener('click', function() {
+    //     document.getElementById('detail-pembayaran-page').classList.remove('hidden');
+    // });
+
+    // function closePanduanPembayaranPage() {
+    //     document.getElementById('detail-pembayaran-page').classList.add('hidden');
+    // }
+
+    // function selectPaymentMethod(imageUrl, bankName){
+    //     fetch(`/get-bank-details/${bankName}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             document.getElementById('nama_bank').innerText = data.nama_bank;
+    //             document.getElementById('nama_pemilik_bank').innerText = data.nama_pemilik_bank;
+    //             document.getElementById('nomor_rekening').value = data.nomor_rekening;
+    //             document.getElementById('payment-method-image').src = imageUrl;
+    //             document.getElementById('norek-details').classList.remove('hidden');
+    //         })
+    //     .catch(error => console.error('Error fetching bank details:', error));
+    // }
 
 </script>
 @endsection
