@@ -145,7 +145,6 @@ class hitungZakatController extends Controller
         $payment->checkout_link = $responseContent['redirect_url'];
         $payment->transaction_token = $responseContent['token'];
         $payment->order_id = $orderId;
-        $payment->status = 'pending';
         // $payment->id_transaksi = $responseContent['transaction_id'];
         $payment->save();
         // Return response

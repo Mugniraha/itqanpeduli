@@ -1,4 +1,4 @@
-@extends('frontend.layout.main3')
+@extends('front.layout.main3')
 
 @section('konten')
     <div class="bungkus bg-white min-h-screen overflow-auto">
