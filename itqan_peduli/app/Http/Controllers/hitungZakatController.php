@@ -71,6 +71,7 @@ class hitungZakatController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $payment = new Zakat;
         $payment->id_user = Auth::id();
         $payment->metode_pembayaran = $request->metode_pembayaran;
@@ -79,6 +80,7 @@ class hitungZakatController extends Controller
         $payment->tgl_transaksi = Carbon::now();
         $payment->nominal_total = $request->nominal_total;
         $payment->doa = $request->doa;
+        $payment->nomor_hp =  $request->nomor_hp;
         $payment->nama_donatur = $request->nama_donatur;
         $payment->nama_program_zakat = $request->nama_program_zakat;
         $payment->save();
@@ -160,7 +162,7 @@ class hitungZakatController extends Controller
             'nama_bank' => $bank->nama_bank,
             'nama_pemilik_bank' => $bank->nama_pemilik_bank,
             'nomor_rekening' => $bank->nomor_rekening,
-            'icon_bank' => $bank->icon_bank,
+            'icon_bank' => asset('storage/icon_bank/' . $bank->icon_bank)
         ]);
     }
 

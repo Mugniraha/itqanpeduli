@@ -129,9 +129,9 @@
         </div>
 
         <div class="mb-8 mt-10">
-            <a href="{{url('/rincian-pembayaran')}}" id="btnPenghasilanBulan">
+            <a href="" id="btnPenghasilanBulan" class="disabled-link">
                 <div class="bg-green-700 border border-green-700 rounded-2xl p-2 py-3 mx-5 mb-2.5 hover:bg-green-800 cursor-pointer">
-                    <p class="text-white text-center font-bold">Lanjutkan</p>
+                    <p id="aPenghasilanBulan" class="text-white text-center font-bold">Tunaikan Zakat</p>
                 </div>
             </a>
             {{-- <div class="bg-green-700 border border-green-700 rounded-2xl p-2 py-3 mx-5 mb-2.5 hover:bg-green-800 cursor-pointer">
@@ -276,9 +276,9 @@
         </div>
 
         <div class="mb-8 mt-10">
-            <a href="{{url('/rincian-pembayaran')}}" id="btnPenghasilanTahun">
+            <a href="" id="btnPenghasilanTahun" class="disabled-link">
                 <div class="bg-green-700 border border-green-700 rounded-2xl p-2 py-3 mx-5 mb-2.5 hover:bg-green-800 cursor-pointer">
-                    <p class="text-white text-center font-bold">Lanjutkan</p>
+                    <p id="aPenghasilanTahun" class="text-white text-center font-bold">Tunaikan Zakat</p>
                 </div>
             </a>
             <div class="bg-white border border-green-700 rounded-2xl p-2 py-3 mx-5 shadow-sm hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
@@ -395,9 +395,9 @@
     </div>
 
     <div class="mb-8">
-        <a href="{{url('/rincian-pembayaran')}}" id="btnTabungan">
+        <a href="" id="btnTabungan" class="disabled-link">
             <div class="bg-green-700 border border-green-700 rounded-2xl p-2 py-3 mx-5 mb-2.5 hover:bg-green-800 cursor-pointer">
-                <p class="text-white text-center font-bold">Lanjutkan</p>
+                <p id="aTabungan" class="text-white text-center font-bold">Tunaikan Zakat</p>
             </div>
         </a>
         <div class="bg-white border border-green-700 rounded-2xl p-2 py-3 mx-5 shadow-sm hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
@@ -552,9 +552,9 @@
         <div class="bg-white border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
             <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
         </div>
-        <a href="{{url('/rincian-pembayaran')}}" id="btnPerdagangan" class="w-full">
+        <a href="" id="btnPerdagangan" class="w-full disabled-link">
             <div class="bg-green-700 border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-800 cursor-pointer">
-                <p class="text-white text-center font-bold">Lanjutkan</p>
+                <p id="aPerdagangan" class="text-white text-center font-bold">Tunaikan Zakat</p>
             </div>
         </a>
     </div>
@@ -688,9 +688,9 @@
         <div class="bg-white border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-100 cursor-pointer" data-modal-target="niat-modal" data-modal-toggle="niat-modal">
             <p class="text-green-700 text-center font-bold">Baca Niat Zakat</p>
         </div>
-        <a href="{{url('/rincian-pembayaran')}}" id="btnEmas" class="w-full">
+        <a href="" id="btnEmas" class="w-full disabled-link">
             <div class="bg-green-700 border border-green-700 w-full rounded-lg p-2 py-3 hover:bg-green-800 cursor-pointer">
-                <p class="text-white text-center font-bold">Lanjutkan</p>
+                <p id="aEmas" class="text-white text-center font-bold">Tunaikan Zakat</p>
             </div>
         </a>
     </div>
