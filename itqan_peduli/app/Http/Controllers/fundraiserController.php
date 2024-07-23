@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fundraiser;
+use App\Models\Zakat;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
@@ -21,20 +22,40 @@ class FundraiserController extends Controller
         return view('admin.konten.fundraiser.fundraiser', compact('slug', 'fundraisers'));
     }
     public function akun()
-    {
-        // Mendapatkan ID user yang sedang login
-        $userId = Auth::id();
+{
+    $userId = Auth::id();
 
-        // Mengambil data fundraiser berdasarkan id_user
-        $fundraisers = Fundraiser::where('id_user', $userId)->get(); // Menggunakan `get()` untuk mengambil koleksi
+    $fundraisers = Fundraiser::where('id_user', $userId)->with('campaigns')->get();
 
-        // Mengirimkan data ke view
-        return view('front.konten.akun.akunfundraiser', compact('fundraisers'));
-    }
+    $fundraiserData = $fundraisers->map(function ($fundraiser) {
+        $transaksi = Zakat::where('id', $fundraiser->id)->get();
+        $totalTransaksiPending = $transaksi->where('status', 'pending')->count();
+        $totalPengunjung = $transaksi->count();
+        $totalDanaOnline = $transaksi->where('type', 'online')->sum('amount');
+        $totalDanaOffline = $transaksi->where('type', 'offline')->sum('amount');
+
+        // Hitung total komisi dari campaign yang terkait
+        $totalKomisi = $fundraiser->campaigns->sum('fundraiser_reward_percentage');
+        $saldoKomisi = $totalKomisi; // Sesuaikan logika saldo komisi jika diperlukan
+
+        return [
+            'fundraiser' => $fundraiser,
+            'totalTransaksiPending' => $totalTransaksiPending,
+            'totalPengunjung' => $totalPengunjung,
+            'transaksi' => $transaksi,
+            'totalDanaOnline' => $totalDanaOnline,
+            'totalDanaOffline' => $totalDanaOffline,
+            'totalKomisi' => $totalKomisi,
+            'saldoKomisi' => $saldoKomisi,
+        ];
+    });
+
+    return view('front.konten.akun.akunfundraiser', compact('fundraiserData'));
+}
 
 
 
-    
+
 
     public function store(Request $request)
     {
