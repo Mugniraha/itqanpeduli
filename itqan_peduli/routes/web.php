@@ -488,7 +488,9 @@ Route::get('/pembayaran', function() {
 
 Route::get('/duta-amal', function () {
     return view('front.konten.akun.dutaAmal');
-});Route::get('/kabupaten-kota/{provinsiId}', [fundraiserController::class, 'getKabupatenKota']);
+});
+
+Route::get('/kabupaten-kota/{provinsiId}', [fundraiserController::class, 'getKabupatenKota']);
 
 Route::get('/tim-fundraising', function () {
     return view('front.konten.akun.tim-fundraising');
