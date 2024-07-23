@@ -152,10 +152,11 @@
                     d="m9 5 7 7-7 7" />
             </svg>
         </a>
-        <a href="{{ url('/akun-fundraiser') }}" type="button"
-            class="px-4 py-2 mt-4 text-base font-medium text-white inline-flex items-center border border-green-700 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
-            <p class="text-white text-center font-semibold">Pindah Akun</p>
+        <a href="{{ url('/akun-fundraiser/' . Auth::id()) }}" type="button"
+            class="px-4 py-2 mt-4 text-base font-medium text-white w-full items-center border border-green-700 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
+            <p class="text-white text-center font-semibold">Pindah ke Akun Fundraiser</p>
         </a>
+
 
 
 

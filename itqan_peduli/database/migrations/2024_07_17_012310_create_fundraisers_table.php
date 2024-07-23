@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('provinsi');
             $table->string('tipe')->default('perorangan');
             $table->timestamps();
+            
         });
     }
 

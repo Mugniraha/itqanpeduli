@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('fundraisers', function (Blueprint $table) {
-            $table->string('id_user')->nullable();
-            $table->string('kabkota')->nullable();
-            $table->string('password')->nullable(); // Biasanya password dienkripsi
+            $table->string('id_user');
+            $table->string('kabkota');
+            $table->string('password'); // Biasanya password dienkripsi
         });
     }
 

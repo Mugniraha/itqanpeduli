@@ -4,9 +4,9 @@
 <div class="p-4 bg-white">
     <img src="/images/logomediaberbagi.png" class="w-48 h-auto" alt="">
 
-    <a href="{{ url('/akun') }}" type="button"
+    <a href="{{ url('/akun/{id}') }}" type="button"
         class="text-white my-6 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2">
-        <svg class="w-6 h-6  text-green-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        <svg class="w-6 h-6 text-green-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M5 12h14M5 12l4-4m-4 4 4 4" />
@@ -22,35 +22,32 @@
 
             <div class="relative my-4">
                 <label for="jenis_duta" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Jenis Duta</label>
-                <select id="jenis_duta" name="jenis_duta" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <select id="jenis_duta" name="tipe" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected>Pilih jenis duta</option>
-                    <option value="Duta A">Perorangan</option>
-                    <option value="Duta B">Kelompok</option>
+                    <option value="Perorangan">Perorangan</option>
+                    <option value="Kelompok">Kelompok</option>
                 </select>
             </div>
 
             <div class="relative my-4">
                 <label for="nama_lengkap" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nama Lengkap</label>
-                <input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Masukkan nama lengkap anda" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+                <input type="text" id="nama_lengkap" name="nama" placeholder="Masukkan nama lengkap anda" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
             </div>
 
             <div class="relative my-4">
-                <label for="no_telepon" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nomor Whatsapp</label>
+                <label for="no_wa" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nomor Whatsapp</label>
                 <input type="text" id="no_wa" name="no_telepon" placeholder="Contoh: 0821-21xx-xxxx" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
             </div>
 
             <div class="relative my-4">
                 <label for="alamat_email" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Alamat Email</label>
-                <input type="email" id="alamat_email" name="alamat_email" placeholder="Contoh: mediaberbagi@gmail.com" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
+                <input type="email" id="alamat_email" name="email" placeholder="Contoh: mediaberbagi@gmail.com" class="w-full py-3 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent">
             </div>
 
             <div class="relative my-4">
                 <label for="provinsi" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Provinsi</label>
                 <select id="provinsi" name="provinsi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" disabled selected>Pilih provinsi tempat anda tinggal</option>
-                    @foreach ($provinsiList as $provinsi)
-                        <option value="{{ $provinsi['id'] }}">{{ $provinsi['name'] }}</option>
-                    @endforeach
                 </select>
             </div>
 
@@ -92,21 +89,41 @@
 </div>
 
 <script>
+    // Fungsi untuk menampilkan atau menyembunyikan kata sandi
     document.getElementById('toggleVisibility').addEventListener('click', function() {
         const passwordInput = document.getElementById('password1');
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
     });
+
     document.getElementById('toggleVisibility1').addEventListener('click', function() {
         const passwordInput = document.getElementById('password2');
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
     });
+
+    // Fungsi untuk mengambil dan menampilkan daftar provinsi
+    fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
+        .then(response => response.json())
+        .then(provinces => {
+            const provinsiSelect = document.getElementById('provinsi');
+            provinsiSelect.innerHTML = '<option value="" disabled selected>Pilih provinsi tempat anda tinggal</option>';
+
+            provinces.forEach(province => {
+                const option = document.createElement('option');
+                option.value = province.id;
+                option.textContent = province.name;
+                provinsiSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching provinces:', error));
+
+    // Fungsi untuk mengambil dan menampilkan daftar kabupaten/kota berdasarkan provinsi yang dipilih
     document.getElementById('provinsi').addEventListener('change', function() {
         const provinsiId = this.value;
 
         if (provinsiId) {
-            fetch(`/kabupaten-kota/${provinsiId}`)
+            fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${provinsiId}.json`)
                 .then(response => response.json())
                 .then(kabkotaList => {
                     const kabkotaSelect = document.getElementById('kabkota');
@@ -118,7 +135,10 @@
                         option.textContent = kabkota.name;
                         kabkotaSelect.appendChild(option);
                     });
-                });
+                })
+                .catch(error => console.error('Error fetching kabupaten/kota:', error));
+        } else {
+            document.getElementById('kabkota').innerHTML = '<option value="" disabled selected>Pilih Kab/ Kota tempat anda tinggal</option>';
         }
     });
 </script>
