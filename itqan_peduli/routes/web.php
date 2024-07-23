@@ -188,7 +188,8 @@ Route::get('/inputmediaberbagi', function () {
 
 
 Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
-Route::post('/fundraisers', [fundraiserController::class, 'store'])->name('fundraisers.store');
+Route::get('/akun-fundraiser/{id}', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
+Route::post('/duta-amal', [fundraiserController::class, 'store'])->name('fundraisers.store');
 Route::put('/fundraisers/{fundraiser}', [fundraiserController::class, 'update'])->name('fundraisers.update');
 Route::delete('/fundraisers/{fundraiser}', [fundraiserController::class, 'destroy'])->name('fundraisers.destroy');
 
@@ -312,12 +313,11 @@ Route::get('/rincian-pembayaran', function () {
 
 
 //front akun
-Route::get('/akun', function () {
-    return view('front.konten.akun.main');
-});
-Route::get('/akun-fundraiser', function () {
-    return view('front.konten.akun.akunfundraiser');
-});
+// 
+
+// Route::get('/akun-fundraiser', function () {
+//     return view('front.konten.akun.akunfundraiser');
+// });
 Route::get('/komisi', function () {
     return view('front.konten.akun.komisi');
 });
@@ -486,8 +486,9 @@ Route::get('/pembayaran', function() {
 //     return view('front.konten.akun.dutaAmal');
 // });
 
-Route::get('/duta-amal', [fundraiserController::class, 'getProvinsi']);
-Route::get('/kabupaten-kota/{provinsiId}', [fundraiserController::class, 'getKabupatenKota']);
+Route::get('/duta-amal', function () {
+    return view('front.konten.akun.dutaAmal');
+});Route::get('/kabupaten-kota/{provinsiId}', [fundraiserController::class, 'getKabupatenKota']);
 
 Route::get('/tim-fundraising', function () {
     return view('front.konten.akun.tim-fundraising');
@@ -509,9 +510,11 @@ Route::get('/bg', function () {
     return view('front.konten.akun.background');
 });
 
-Route::get('/akun', function () {
+Route::get('/akun/{id}', function ($id) {
+    // Ambil data berdasarkan ID jika perlu
     return view('front.konten.akun.main');
-});
+})->name('akun');
+
 
 // Route::get('registrasi', function () {
 //     return view('front.konten.login.registrasi');

@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Models\Fundraiser;
+
+use App\Models\Fundraiser;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-use Symfony\Component\HttpClient\HttpClient;
 
-
-class fundraiserController extends Controller
+class FundraiserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,133 +20,88 @@ class fundraiserController extends Controller
         $fundraisers = Fundraiser::paginate(10); // Adjust the number of items per page as needed
         return view('admin.konten.fundraiser.fundraiser', compact('slug', 'fundraisers'));
     }
+    public function akun()
+    {
+        // Mendapatkan ID user yang sedang login
+        $userId = Auth::id();
+
+        // Mengambil data fundraiser berdasarkan id_user
+        $fundraisers = Fundraiser::where('id_user', $userId)->get(); // Menggunakan `get()` untuk mengambil koleksi
+
+        // Mengirimkan data ke view
+        return view('front.konten.akun.akunfundraiser', compact('fundraisers'));
+    }
+
+
+
+    
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
-            'jenis_duta' => 'required|string|max:255',
-            'nama_lengkap' => 'required|string|max:255',
-            'no_wa' => 'required|string|max:15',
-            'alamat_email' => 'required|string|email|max:255',
-            'provinsi' => 'required|string|max:255',
-            'kabkota' => 'required|string|max:255',
-            'password' => 'required|string|min:8|confirmed'
+            'tipe' => 'required',
+            'nama' => 'required',
+            'no_telepon' => 'required',
+            'email' => 'required|email',
+            'provinsi' => 'required',
+            'kabkota' => 'required',
+            'password' => 'required|confirmed',
         ]);
 
-        $data = $request->only([
-            'jenis_duta', 
-            'nama_lengkap', 
-            'no_wa', 
-            'alamat_email', 
-            'provinsi', 
-            'kabkota', 
-            'password'
-        ]);
+        // Pastikan pengguna terautentikasi
+        if (!auth()->check()) {
+            return redirect()->back()->with('error', 'Anda harus login untuk melakukan ini.');
+        }
 
-        // Encrypt the password before saving
-        $data['password'] = bcrypt($data['password']);
+        // Simpan data
+        $fundraiser = new Fundraiser();
+        $fundraiser->tipe = $request->input('tipe');
+        $fundraiser->nama = $request->input('nama');
+        $fundraiser->no_telepon = $request->input('no_telepon');
+        $fundraiser->email = $request->input('email');
+        $fundraiser->provinsi = $request->input('provinsi');
+        $fundraiser->kabkota = $request->input('kabkota');
+        $fundraiser->password = bcrypt($request->input('password'));
+        $fundraiser->id_user = auth()->id(); // Mengatur id_user dengan ID pengguna yang terautentikasi
 
-        Fundraiser::create($data);
+        $fundraiser->save();
 
-        return redirect()->route('akun-fundraiser')->with('success', 'Pendaftaran berhasil!');
+        return redirect()->route('fundraisers.akun', ['id' => auth()->id()])
+            ->with('success', 'Data berhasil disimpan. Anda sekarang dapat mengakses akun fundraiser Anda.');
     }
 
 
     /**
      * Show the form for creating a new resource.
      */
-    public function getProvinsi()
-    {
-        $curl = curl_init();
+    // public function getProvinsi()
+    // {
+    //     $client = new Client();
+    //     try {
+    //         $response = $client->request('GET', 'https://api.binderbyte.com/wilayah/provinsi', [
+    //             'query' => ['api_key' => '8e49f28e0f2f2cf56393c352613eec358e85fb7077ce6f7f453ebb826a7b1f6d']
+    //         ]);
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.binderbyte.com/wilayah/provinsi?api_key=8e49f28e0f2f2cf56393c352613eec358e85fb7077ce6f7f453ebb826a7b1f6d',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
-
-        $response = curl_exec($curl);
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $error = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($httpCode == 200) {
-            $provinsiList = json_decode($response, true);
-            return view('front.konten.akun.dutaAmal', ['provinsiList' => $provinsiList]);
-        } else {
-            return response()->json(['error' => 'HTTP status: ' . $httpCode . ', cURL error: ' . $error], 500);
-        }
-    }
+    //         if ($response->getStatusCode() === 200) {
+    //             $provinsiList = json_decode($response->getBody(), true); // Mengonversi respons JSON menjadi array
+    //             return view('front.konten.akun.dutaAmal', ['provinsiList' => $provinsiList]);
+    //         } else {
+    //             return response()->json(['error' => 'Failed to fetch provinces. HTTP status: ' . $response->getStatusCode()], 500);
+    //         }
+    //     } catch (\Exception $e) {
+    //         return response()->json(['error' => 'Error: ' . $e->getMessage()], 500);
+    //     }
+    // }
 
     public function getKabupatenKota($provinsiId)
     {
-        $curl = curl_init();
+        // Endpoint API untuk mendapatkan kabupaten/kota berdasarkan provinsi
+        $response = Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/{$provinsiId}.json");
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.binderbyte.com/wilayah/kabupaten?api_key=8e49f28e0f2f2cf56393c352613eec358e85fb7077ce6f7f453ebb826a7b1f6d&province_id=$provinsiId",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
-
-        $response = curl_exec($curl);
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $error = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($httpCode == 200) {
-            $kabkotaList = json_decode($response, true);
-            return response()->json($kabkotaList);
-        } else {
-            return response()->json(['error' => 'HTTP status: ' . $httpCode . ', cURL error: ' . $error], 500);
-        }
+        // Mengembalikan response JSON
+        return $response->json();
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    // Kode lainnya...
 }
