@@ -1,5 +1,7 @@
 <?php
 
+// app/Models/Fundraiser.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,5 +21,9 @@ class Fundraiser extends Model
         'password',
         'id_user'
     ];
-}
 
+    public function campaigns()
+    {
+        return $this->hasMany(Campaign::class, 'id');
+    }
+}

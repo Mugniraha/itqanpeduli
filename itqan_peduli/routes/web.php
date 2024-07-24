@@ -188,7 +188,9 @@ Route::get('/inputmediaberbagi', function () {
 
 
 Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
+Route::get('/akun-fundraiser', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
 Route::get('/akun-fundraiser/{id}', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
+// Route::get('/akun-fundraiser/{id}', [fundraiserController::class, 'showTransactionsByFundraiser'])->name('transaksi.showTransactionsByFundraiser');
 Route::post('/duta-amal', [fundraiserController::class, 'store'])->name('fundraisers.store');
 Route::put('/fundraisers/{fundraiser}', [fundraiserController::class, 'update'])->name('fundraisers.update');
 Route::delete('/fundraisers/{fundraiser}', [fundraiserController::class, 'destroy'])->name('fundraisers.destroy');
@@ -510,6 +512,10 @@ Route::get('/detail', function () {
 
 Route::get('/bg', function () {
     return view('front.konten.akun.background');
+});
+
+Route::get('/akun', function () {
+    return view('front.konten.akun.main');
 });
 
 Route::get('/akun/{id}', function ($id) {
