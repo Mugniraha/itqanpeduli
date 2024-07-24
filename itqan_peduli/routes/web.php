@@ -33,6 +33,8 @@ use App\Http\Controllers\dataBankController;
 use App\Http\Controllers\programController;
 use App\Http\Controllers\HomeadminController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\GoogleAuthController;
+
 
 Route::get('/dashboard2', function () {
     return view('admin.konten.dashboard.index');
@@ -527,21 +529,21 @@ Route::get('/akun/{id}', function ($id) {
 // Route::get('registrasi', function () {
 //     return view('front.konten.login.registrasi');
 // });
-Route::get('lupapassword1', function () {
-    return view('front.konten.login.lupapassword');
-});
-Route::get('verifikasi1', function () {
-    return view('front.konten.login.verifikasi');
-});
-Route::get('reset1', function () {
-    return view('front.konten.login.resetpassword');
-});
-Route::get('berhasil1', function () {
-    return view('front.konten.login.berhasil');
-});
-Route::get('ubah-katasandi1', function () {
-    return view('front.konten.login.gantiPassword');
-});
+// Route::get('lupapassword1', function () {
+//     return view('front.konten.login.lupapassword');
+// });
+// Route::get('verifikasi1', function () {
+//     return view('front.konten.login.verifikasi');
+// });
+// Route::get('reset1', function () {
+//     return view('front.konten.login.resetpassword');
+// });
+// Route::get('berhasil1', function () {
+//     return view('front.konten.login.berhasil');
+// });
+// Route::get('ubah-katasandi1', function () {
+//     return view('front.konten.login.gantiPassword');
+// });
 
 Route::get('bantuan', function () {
     return view('front.konten.akun.bantuan');
@@ -682,3 +684,6 @@ ROute::get('/update-profile', function() {
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
+
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
