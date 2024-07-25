@@ -63,9 +63,9 @@
                         <x-button class="items-center">
                             {{ __('Save') }}
                         </x-button>
-                        <div class="text-center mt-2">
+                        {{-- <div class="text-center mt-2">
                             <a href="{{ url('/login') }}" class="font-semibold text-sm">Ingat password? <b>Masuk</b></a>
-                        </div>
+                        </div> --}}
                         <div class="flex text-gray-400 gap-3 mt-8 justify-center">
                             <p>Tentang Kami</p>
                             |

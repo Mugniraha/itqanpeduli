@@ -35,11 +35,17 @@ use App\Http\Controllers\HomeadminController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\FacebookAuthController;
+use App\Http\Controllers\ProfileController;
 
 
 Route::get('/dashboard2', function () {
     return view('admin.konten.dashboard.index');
 });
+// Route::get('/setting-profile', function () {
+//     return view('admin.konten.dashboard.profile');
+// });
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile-update', [ProfileController::class, 'update'])->name('profile.update');
 
 // Route::get('/publikasi-program', function () {
 //     return view('admin.konten.publikasi_program.kategori');
@@ -678,7 +684,6 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
 
-// Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
-// Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');
 Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
 Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');
+
