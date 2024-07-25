@@ -21,9 +21,9 @@
         {{-- <x-form-section submit="updateProfileInformation">
             <x-slot name="title">
                 {{ __('Profil Saya') }}
-                
+
             </x-slot>
-        
+
             <x-slot name="description">
                 {{ __('Update your account\'s profile information and email address.') }}
             </x-slot>
@@ -33,14 +33,14 @@
                         !$this->user->hasVerifiedEmail())
                     <p class="text-sm mt-2">
                         {{ __('Your email address is unverified.') }}
-    
+
                         <button type="button"
                             class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             wire:click.prevent="sendEmailVerification">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
-    
+
                     @if ($this->verificationLinkSent)
                         <p class="mt-2 font-medium text-sm text-green-600">
                             {{ __('A new verification link has been sent to your email address.') }}
@@ -48,12 +48,12 @@
                     @endif
                 @endif
                 </div>
-                
+
             </x-slot>
         </x-form-section> --}}
-        
 
-        <button type="button"
+
+        <a href="{{url('/donasi-saya')}}" type="button"
             class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
             <img src="/images/donasi.png" class="w-10 h-10  me-2" alt="">
             <p class="text-gray-600 font-semibold">Donasi Saya</p>
@@ -62,8 +62,8 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m9 5 7 7-7 7" />
             </svg>
-        </button>
-        <button type="button"
+        </a>
+        <a href="{{url('/zakat-saya')}}" type="button"
             class="px-3 py-3 w-full my-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
             <svg class="w-10 h-10  me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 30" fill="none">
                 <path

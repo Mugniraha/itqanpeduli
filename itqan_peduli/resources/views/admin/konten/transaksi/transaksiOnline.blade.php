@@ -54,41 +54,47 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($transaksi as $row)
                 <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
                     <td class="px-6 py-4 text-black text-base">
-                        1
+                        {{$loop->iteration}}
                     </td>
                     <td class="px-6 py-4 text-gray-800 text-base">
-                        INV-202407041625315EwxkKce
+                        {{$row->order_id}}
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        Hamba Allah
+                        {{$row->nama_donatur}}
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        Hadiah Terbaik Untuk Anak Bangsa
+                        {{$row->nama_program_zakat}}
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        2024-07-04 16:25:32
+                        {{$row->tgl_transaksi}}
                     </td>
                     <td class="px-6 py-4 text-black text-base">
                         <div class="text-green-500 bg-green-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">
-                            ShopeePay Jump App
+                            {{$row->metode_pembayaran}}
                         </div>
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        Rp. 10.000.000
+                        Rp {{ number_format($row->nominal_total, 0, ',','.')}}
                     </td>
                     <td class="px-6 py-4 text-black text-base">
-                        <div class="text-red-400 bg-red-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">
-                            Menunggu
-                        </div>
+                        @if ($row->status === 'Success' || $row->status === 'settlement')
+                        <p class="text-green-500 bg-green-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">{{$row->status}}</p>
+                            @elseif ($row->status === 'pending')
+                                <p class="text-yellow-500 bg-yellow-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">{{$row->status}}</p>
+                            @else
+                                <p class="text-red-500 bg-red-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">{{$row->status}}</p>
+                        @endif
                     </td>
                     <td class=" text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
+                        <a href="{{route('transaksi.showDetailTransaksi', $row->id)}}" class="text-white text-sm p-1 px-2 w-11/12 text-center bg-green-700 rounded-sm md:flex-col md:flex">
                             Lihat Detail
                         </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
