@@ -30,12 +30,12 @@ class GoogleAuthController extends Controller
                 ]);
 
                 Auth::login($new_user);
-                return redirect()->intented('dashboard');
+                return redirect()->intented('home1');
             }
             else {
                 Auth::login($user);
 
-                return redirect()->intented('dashboard');
+                return redirect()->intented('home1');
             }
         }
         catch (\Throwable $th) {
