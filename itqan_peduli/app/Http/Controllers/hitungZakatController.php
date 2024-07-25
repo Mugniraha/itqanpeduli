@@ -71,21 +71,186 @@ class hitungZakatController extends Controller
      */
     public function store(Request $request)
     {
+        Carbon::setLocale('id');
+        date_default_timezone_set('Asia/Jakarta');
         // dd($request->all());
         $payment = new Zakat;
         $payment->id_user = Auth::id();
         $payment->metode_pembayaran = $request->metode_pembayaran;
         $payment->nominal_zakat = $request->nominal_zakat;
         $payment->nominal_pengembangan_dakwah = $request->nominal_pengembangan_dakwah;
-        $payment->tgl_transaksi = Carbon::now();
+        $payment->tgl_transaksi = now();
         $payment->nominal_total = $request->nominal_total;
         $payment->doa = $request->doa;
         $payment->nomor_hp =  $request->nomor_hp;
+        $payment->status = 'pending';
         $payment->nama_donatur = $request->nama_donatur;
         $payment->nama_program_zakat = $request->nama_program_zakat;
+        if (Str::startsWith($request->metode_pembayaran, 'Transfer')){
+            $payment->order_id = Str::uuid();
+        }
         $payment->save();
         return redirect()->to('/panduan-pembayaran/' . $payment->id);
     }
+
+    public function getTransactionStatus($order_id)
+    {
+        $serverKey = env('MIDTRANS_SERVER_KEY');
+
+        if (!$serverKey) {
+            return ['error' => 'Server key not set in .env file'];
+        }
+        $base64ServerKey = base64_encode($serverKey . ':');
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, "https://api.sandbox.midtrans.com/v2/$order_id/status");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        $headers = [
+            'Accept: application/json',
+            'Content-Type: application/json',
+            'Authorization: Basic ' . $base64ServerKey
+        ];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            return ['error' => 'Curl Error:' . curl_error($ch)];
+        }
+        curl_close($ch);
+
+        $response = json_decode($result, true);
+
+        // Log response for debugging
+        Log::info('Midtrans Response: ' . json_encode($response));
+
+        return $response;
+    }
+
+    public function showTransactionStatus()
+    {
+        // Gantilah 'your-static-order-id' dengan ID transaksi yang Anda inginkan
+        $staticOrderId = 'd36b79d8-3233-42ad-a0c8-bb2e7ea38bff';
+
+        $response = $this->getTransactionStatus($staticOrderId);
+
+        // Pastikan $response adalah array dengan data yang valid
+        if (isset($response['error'])) {
+            return view('error', ['message' => $response['error']]);
+        }
+        dd($response);
+
+        return view('front.konten.zakat saya.transaction-status', ['response' => $response]);
+    }
+
+    public function handleMidtransNotification(Request $request)
+    {
+
+        if ($request->isMethod('post') && $this->validateCsrfToken($request)) {
+            $notification = $request->all();
+
+            // Log notifikasi untuk debugging
+            Log::info('Midtrans Notification: ' . json_encode($notification));
+
+            // Ambil order ID dari notifikasi
+            $orderId = $notification['order_id'] ?? null;
+            $transactionStatus = $notification['transaction_status'] ?? null;
+            $paymentType = $notification['payment_type'] ?? null;
+            $issuer = $notification['issuer']?? null;
+
+            if ($orderId && $transactionStatus && $paymentType){
+                $paymentMethod = null;
+
+                switch ($paymentType){
+                    case 'qris':
+                        if (isset($notification['acquirer'])) {
+                            switch ($notification['acquirer']) {
+                                case 'airpay shopee':
+                                    $paymentMethod = 'ShopeePay (via QRIS)';
+                                    break;
+                                case 'gopay':
+                                    $paymentMethod = 'GoPay (via QRIS)';
+                                    break;
+                                default:
+                                    $paymentMethod = 'QRIS';
+                                    break;
+                            }
+                        } else {
+                            $paymentMethod = 'QRIS';
+                        }
+                        break;
+                    case 'shopeepay':
+                        $paymentMethod = 'ShopeePay';
+                        break;
+                    case 'gopay':
+                        $paymentMethod = 'GoPay';
+                        break;
+                    case 'bank_transfer' :
+                        if (isset($notification['va_numbers']) && count($notification['va_numbers']) > 0) {
+                            $bankName = $notification['va_numbers'][0]['bank'] ?? 'Lainya';
+                            $paymentMethod = 'Transer Bank (' .strtoupper($bankName) . ')';
+                        } else {
+                            $paymentMethod = 'Transfer Bank (Lainya)';
+                        }
+                        break;
+                    case 'echannel':
+                        // Echannel digunakan untuk pembayaran menggunakan layanan seperti Mandiri Bill Payment
+                        $paymentMethod = 'Mandiri E-Channel';
+                        break;
+                    default:
+                    // Jika payment type tidak spesifik, cek issuer
+                        switch ($issuer) {
+                            case 'gopay':
+                                $paymentMethod = 'GoPay';
+                                break;
+                            case 'shopeepay':
+                                $paymentMethod = 'ShopeePay';
+                                break;
+                            case 'dana':
+                                $paymentMethod = 'DANA';
+                                break;
+                            case 'ovo':
+                                $paymentMethod = 'OVO';
+                                break;
+                            default:
+                                $paymentMethod = 'Lainnya';
+                                break;
+                        }
+                        break;
+                }
+
+                 // Cari pembayaran berdasarkan order ID
+                    $payment = Zakat::where('order_id', $orderId)->first();
+                    if ($payment) {
+                        // Perbarui status dan metode pembayaran
+                        $statusPembayaran = $transactionStatus === 'settlement' ? 'Success' : $transactionStatus;
+                        if($transactionStatus === 'expire'){
+                            $statusPembayaran = 'Expired';
+                        }
+                        $payment->status = $statusPembayaran;
+                        $payment->metode_pembayaran = $paymentMethod;
+                        $payment->save();
+                    return response()->json(['status' => 'success']);
+                    } else {
+                        return response()->json(['status' => 'CSRF token mismatch'], 419);
+                    }
+            } else {
+                return response()->json(['status' => 'invalid notification data'], 400);
+            }
+    }
+}
+
+
+
+    protected function validateCsrfToken(Request $request)
+    {
+        return true;
+    }
+
 
     public function createMidtransTransaction(Request $request, $id)
     {
@@ -155,6 +320,8 @@ class hitungZakatController extends Controller
         ]);
     }
 
+
+
     public function getBankDetails($bankName)
     {
         $bank = Bank::where('nama_bank', $bankName)->first();
@@ -191,6 +358,24 @@ class hitungZakatController extends Controller
         $user = Auth::user();
         $zakatSaya = Zakat::where('id_user', $user->id)->get();
         return view('');
+    }
+
+    public function showZakatSaya(Request $request)
+    {
+        $user = Auth::user();
+        $selectedMonth = $request->query('month');
+
+
+        $zakat = Zakat::where('id_user', $user->id)
+            ->orderBy('tgl_transaksi', 'desc')
+            ->get();
+        $groupedZakat = $zakat->groupBy(function($date){
+            return Carbon::parse($date->tgl_transaksi)->format('F Y');
+        });
+
+        $month = $groupedZakat->keys()->sort()->values();
+
+        return view('front.konten.zakat saya.index', compact('groupedZakat', 'month'));
     }
 
     public function paymentNow()

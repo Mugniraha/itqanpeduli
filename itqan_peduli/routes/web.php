@@ -96,6 +96,10 @@ Route::delete('/deleteDetailTransaksi', [transaksiController::class, 'deleteDeta
 Route::get('transaksiOnline', [transaksiController::class, 'showTransaksiOnline'])->name('transaksiOnline');
 Route::get('transaksiOnlineManual', [transaksiController::class, 'showTransaksiOnlineManual'])->name('transaksiOnlineManual');
 Route::get('transaksiOffline', [transaksiController::class, 'showTransaksiOffline'])->name('transaksiOffline');
+Route::get('/detail-transaksi-online-manual{id}',[transaksiController::class, 'showDetailTransaksiOnlineManual'])->name('transaksi.showTransaksiOnlineManual');
+Route::patch('/konfirmasi-transaksi-online-manual/{id}', [transaksiController::class, 'konfirmasiPembayaran'])->name('transaksi.konfirmasiPembayaran');
+Route::put('edit-pemabayaran-online-manual',[transaksiController::class, 'editPembayaranOnlineManual'])->name('transaksi.editPembayaranOnlineManual');
+Route::delete('delete-pemabayaran-online-manual/{id}',[transaksiController::class, 'deletePembayaranOnlineaManual'])->name('transaksi.deletePembayaranOnlineManual');
 
 Route::resource('semuaDonatur', danaDonaturController::class);
 Route::get('donaturSukses', [danaDonaturController::class, 'showDonaturSukses'])->name('donaturSukses');
@@ -147,7 +151,7 @@ Route::get('/detail-dana', function () {
     return view('admin.konten.danaTerkumpul.detail');
 });
 
-Route::get('/inputdonasiManual', function () {
+Route::get('/inputDonasiManual', function () {
     return view('admin.konten.transaksi.inputTransaksiOffline');
 });
 
@@ -160,7 +164,10 @@ Route::get('/inputPenyaluran', function () {
     return view('admin.konten.penyaluranDana.inputPenyaluran');
 });
 
-
+Route::post('/input-donasi-manual', [transaksiController::class, 'inputDonasiManual'])->name('transaksi.inputManual');;
+Route::put('/edit-donasi-manual/{id}',[transaksiController::class, 'editDonasiManual'])->name('transaksi.editDonasiManual');
+Route::delete('/delete-donasi-manual/{id}', [transaksiController::class, 'deleteDonasiManual'])->name('transaksi.deleteDonasiManual');
+Route::get('/detail-transaksi-offline/{id}', [transaksiController::class, 'showDetailTransaksiOffline'])->name('transaksi.detailTransaksiOffline');
 
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::post('/berita', [BeritaController::class, 'store']);
@@ -271,6 +278,11 @@ Route::get('/konten', function () {
 Route::get('media-berbagi-setting', [MediaBerbagiSettingController::class, 'index'])->name('mediaberbagi-settings.index');
 Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'store'])->name('mediaberbagi-settings.store');
 
+Route::get('/transaction-status', [hitungZakatController::class, 'showTransactionStatus']);
+Route::post('/midtrans-notification', [hitungZakatController::class, 'handleMidtransNotification']);
+
+
+
 //Front
 //front home
 // Route::get('/', function () {
@@ -285,9 +297,9 @@ Route::get('/home', function () {
 Route::get('/donasi-saya', function () {
     return view('front.konten.donasi saya.index');
 });
-Route::get('/zakat-saya', function () {
-    return view('front.konten.zakat saya.index');
-});
+
+Route::get('/zakat-saya',[hitungZakatController::class, 'showZakatSaya']);
+
 Route::get('/donasi-instan', function () {
     return view('front.konten.donasiInstan.donasiInstan');
 });

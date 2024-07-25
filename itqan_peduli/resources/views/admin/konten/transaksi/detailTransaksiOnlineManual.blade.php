@@ -3,7 +3,7 @@
     <div class="py-3 bg-green-700 rounded-xl">
         <div class=" p-5 flex justify-between">
             <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
-                <a href="{{route('transaksi.showAllTransaksi')}}" class="text-green-700">Kembali</a>
+                <a href="{{route('transaksiOnlineManual')}}" class="text-green-700">Kembali</a>
             </div>
         </div>
     </div>
@@ -25,6 +25,7 @@
             </button>
         </div>
     @endif
+
 
     <div class="relative overflow-x-auto sm:rounded-sm bg-white p-5">
         <table id="" class="min-w-full leading-normal stripe w-full text-md text-left text-black font-normal border-none">
@@ -56,8 +57,27 @@
                     <td>Metode Pembayaran</td>
                     <td>{{$transaksi->metode_pembayaran}}</td>
                 </tr>
+                <tr class="odd:bg-white odd:dark:bg-gray-900 border-none even:bg-gray-100 h-12 text-left even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <td>Bukti Pembayaran</td>
+                    <td>
+                        @if ($transaksi->buktiPembayaran)
+                            <img data-modal-target="detail-image-{{$transaksi->id}}" data-modal-toggle="detail-image-{{$transaksi->id}}" class="h-60" src="{{asset('storage/bukti_pembayaran/'. $transaksi->buktiPembayaran)}}" alt="Bukti Pembayaran">
+                        @else
+                            Belum mengirim bukti pembayaran
+                        @endif
+                    </td>
+                </tr>
         </table>
         <div class="w-full mt-10 flex gap-2 justify-center">
+            @if ($transaksi->status === 'Terverivikasi')
+                <a class="rounded-md bg-green-500 hover:bg-green-600 text-white px-7 py-2 text-md cursor-pointer" >
+                    Terverifikasi
+                </a>
+            @else
+                <a class="rounded-md bg-green-500 hover:bg-green-600 text-white px-7 py-2 text-md cursor-pointer" data-modal-target="konfirmasi-{{$transaksi->id}}" data-modal-toggle="konfirmasi-{{$transaksi->id}}">
+                    Konfirmasi
+                </a>
+            @endif
             <a class="rounded-md bg-yellow-500 hover:bg-yellow-600  px-7 py-2 text-md cursor-pointer" data-modal-target="edit-modal-{{$transaksi->id}}" data-modal-toggle="edit-modal-{{$transaksi->id}}">
                 Edit
             </a>
@@ -81,14 +101,16 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                     </svg>
                     <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Yakin ingin menghapus data?</h3>
-                    <form action="{{route('transaksi.deleteDetailTransaksi')}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button data-modal-hide="hapus-modal-{{$transaksi->id}}" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                            Ya
-                        </button>
-                    </form>
-                    <button data-modal-hide="hapus-modal-{{$transaksi->id}}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
+                    <div class="flex justify-center">
+                        <form action="{{route('transaksi.deletePembayaranOnlineManual', $transaksi->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button data-modal-hide="hapus-modal-{{$transaksi->id}}" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                Ya
+                            </button>
+                        </form>
+                        <button data-modal-hide="hapus-modal-{{$transaksi->id}}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,7 +134,7 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5">
-                    <form class="" action="{{route('transaksi.editDetailTransaksi')}}" method="POST">
+                    <form class="" action="{{route('transaksi.editPembayaranOnlineManual', $transaksi->id)}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div>
@@ -126,6 +148,57 @@
                         </div>
                         <button type="submit" class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Edit</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="detail-image-{{$transaksi->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Bukti Pembayaran
+                    </h3>
+                    <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="detail-image-{{$transaksi->id}}">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5">
+                    <img class="h-full" src="{{asset('storage/bukti_pembayaran/'. $transaksi->buktiPembayaran)}}" alt="Bukti Pembayaran">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="konfirmasi-{{$transaksi->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative  py-12 px-12 w-2/6  max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="konfirmasi-{{$transaksi->id}}">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="p-4 md:p-5">
+                    <p class="text-green-700 font-medium text-lg text-center">Konfirmasi Pembayaran?</p>
+                    <div class="flex justify-center mt-7">
+                        <form action="{{route('transaksi.konfirmasiPembayaran', $transaksi->id)}}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button data-modal-hide="konfirmasi-{{$transaksi->id}}" type="submit" class="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                Ya
+                            </button>
+                        </form>
+                        <button data-modal-hide="konfirmasi-{{$transaksi->id}}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
+                    </div>
                 </div>
             </div>
         </div>
