@@ -34,6 +34,7 @@ use App\Http\Controllers\programController;
 use App\Http\Controllers\HomeadminController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\FacebookAuthController;
 
 
 Route::get('/dashboard2', function () {
@@ -687,3 +688,8 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
+
+// Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
+// Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');
+Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
+Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');

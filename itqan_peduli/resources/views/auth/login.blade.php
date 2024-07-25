@@ -82,13 +82,12 @@
                 <p class="flex text-green-700 mx-auto  text-xl text-center font-semibold"><img src="/images/google.png"
                         class="w-5 h-5 my-auto m-2 text-center" alt="">Login dengan Google</p>
             </a>
-            <button type="button"
+            <a href=" {{  route('socialite-redirect' , 'facebook') }}" type="button"
                 class="px-6 py-3.5  w-full mt-1.5  text-base font-medium text-white inline-flex items-center border border-green-800 bg-gray-100 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
-
                 <p class="flex text-green-700 mx-auto  text-xl text-center font-semibold"><img
                         src="/images/facebook.png" class="w-5 h-5 my-auto m-2 text-center" alt="">Login dengan
                     Facebook</p>
-            </button>
+            </a>
 
             <div class="flex justify-center mx-auto my-10 gap-24 ">
                 <svg class="w-10 h-10 border border-white rounded-full text-green-800 shadow-lg" aria-hidden="true"
