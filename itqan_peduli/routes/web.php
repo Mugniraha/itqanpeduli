@@ -9,6 +9,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\transaksiController;
 use App\Http\Controllers\danaDonaturController;
 use App\Http\Controllers\fundraiserController;
+use App\Http\Controllers\bankController;
 use App\Http\Controllers\pengaturan_userController;
 use App\Http\Controllers\notifikasiWAController;
 use App\Http\Controllers\NotifikasiMailController;
@@ -188,9 +189,9 @@ Route::get('/inputmediaberbagi', function () {
 
 
 Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
-Route::get('/akun-fundraiser', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
-Route::get('/akun-fundraiser/{id}', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
-// Route::get('/akun-fundraiser/{id}', [fundraiserController::class, 'showTransactionsByFundraiser'])->name('transaksi.showTransactionsByFundraiser');
+// Route::get('/akun-fundraiser', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
+Route::get('/akun-fundraiser/{id}', [fundraiserController::class, 'akun'])->name('fundraisers.akun');
+Route::get('/duta-amal', [fundraiserController::class, 'create'])->name('fundraisers.create');
 Route::post('/duta-amal', [fundraiserController::class, 'store'])->name('fundraisers.store');
 Route::put('/fundraisers/{fundraiser}', [fundraiserController::class, 'update'])->name('fundraisers.update');
 Route::delete('/fundraisers/{fundraiser}', [fundraiserController::class, 'destroy'])->name('fundraisers.destroy');
@@ -204,6 +205,25 @@ Route::get('/tranfun', [transaksiFundraiserController::class, 'index'])->name('t
 Route::get('/detail-transaksi', function () {
     return view('admin.konten.fundraiser.detail');
 });
+
+// Route to show the bank selection page
+// Route to show bank accounts for a specific fundraiser
+Route::get('/pilih-bank/{id}', [bankController::class, 'show'])->name('bank.show');
+
+// Route to store a new bank account
+Route::post('/pilih-bank/store', [bankController::class, 'store'])->name('bank.store');
+
+// Route to add a new bank account
+Route::post('/pilih-bank/storeBankAccount', [bankController::class, 'storeBankAccount'])->name('bank.storeBankAccount');
+
+// Route to show the commission page
+Route::get('/komisi', [TransaksiFundraiserController::class, 'show'])->name('transaksi.show');
+Route::get('/riwayat-penarikan', [TransaksiFundraiserController::class, 'showWithdrawalHistory'])->name('riwayat.penarikan');
+
+// Route::get('/komisi', [TransaksiFundraiserController::class, 'show2'])->name('transaksi.show2');
+
+// Route to store new bank accounts
+Route::post('/penarikan-komisi', [TransaksiFundraiserController::class, 'withdrawCommission'])->name('penarikan.komisi');
 
 
 
@@ -320,9 +340,8 @@ Route::get('/rincian-pembayaran', function () {
 // Route::get('/akun-fundraiser', function () {
 //     return view('front.konten.akun.akunfundraiser');
 // });
-Route::get('/komisi', function () {
-    return view('front.konten.akun.komisi');
-});
+// 
+
 Route::get('/ubah-profile', function () {
     return view('front.konten.akun.editProfil');
 });
@@ -488,19 +507,19 @@ Route::get('/pembayaran', function() {
 //     return view('front.konten.akun.dutaAmal');
 // });
 
-Route::get('/duta-amal', function () {
-    return view('front.konten.akun.dutaAmal');
-});
+// Route::get('/duta-amal', function () {
+//     return view('front.konten.akun.dutaAmal');
+// });
 
 Route::get('/kabupaten-kota/{provinsiId}', [fundraiserController::class, 'getKabupatenKota']);
+Route::get('/tim-fundraising', [FundraiserController::class, 'akun2'])->name('fundraisers.akun2');
 
-Route::get('/tim-fundraising', function () {
-    return view('front.konten.akun.tim-fundraising');
-});
+// Route::get('/tim-fundraising', function () {
+//     return view('front.konten.akun.tim-fundraising');
+// });
 
-Route::get('/riwayat-transaksi', function () {
-    return view('front.konten.akun.riwayat-fundraising');
-});
+Route::get('/riwayat-fundraising', [TransaksiFundraiserController::class, 'showRiwayatFundraising'])->name('riwayat.fundraising');
+
 
 Route::get('/detail', function () {
     return view('front.konten.akun.detail-transaksi');
@@ -558,6 +577,9 @@ Route::get('editprofil', function () {
 Route::get('pengaturan', function () {
     return view('front.konten.akun.pengaturan');
 });
+
+Route::get('/pengaturan-fundraiser', [fundraiserController::class, 'pengaturan'])->name('pengaturan.fundraiser');
+
 
 Route::get('/program', function () {
     return view('front.konten.program.program');

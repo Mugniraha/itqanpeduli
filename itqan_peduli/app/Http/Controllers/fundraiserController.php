@@ -27,6 +27,11 @@ class FundraiserController extends Controller
 
     $fundraisers = Fundraiser::where('id_user', $userId)->with('campaigns')->get();
 
+    // Jika tidak ada fundraiser, redirect ke halaman daftar fundraiser
+    if ($fundraisers->isEmpty()) {
+        return redirect()->route('fundraiser.create')->with('message', 'Anda tidak memiliki fundraiser. Silakan tambahkan fundraiser baru.');
+    }
+
     $fundraiserData = $fundraisers->map(function ($fundraiser) {
         $transaksi = Zakat::where('id', $fundraiser->id)->get();
         $totalTransaksiPending = $transaksi->where('status', 'pending')->count();
@@ -35,8 +40,12 @@ class FundraiserController extends Controller
         $totalDanaOffline = $transaksi->where('type', 'offline')->sum('amount');
 
         // Hitung total komisi dari campaign yang terkait
-        $totalKomisi = $fundraiser->campaigns->sum('fundraiser_reward_percentage');
-        $saldoKomisi = $totalKomisi; // Sesuaikan logika saldo komisi jika diperlukan
+        $totalKomisi = $fundraiser->campaigns->reduce(function ($carry, $campaign) {
+            $percentage = $campaign->fundraiser_reward_percentage / 100; // Convert percentage to decimal
+            $amount = $campaign->fund_amount;
+            $carry += $percentage * $amount;
+            return $carry;
+        }, 0);
 
         return [
             'fundraiser' => $fundraiser,
@@ -46,15 +55,84 @@ class FundraiserController extends Controller
             'totalDanaOnline' => $totalDanaOnline,
             'totalDanaOffline' => $totalDanaOffline,
             'totalKomisi' => $totalKomisi,
-            'saldoKomisi' => $saldoKomisi,
+            'saldoKomisi' => $totalKomisi, // Adjust this if needed
         ];
     });
 
     return view('front.konten.akun.akunfundraiser', compact('fundraiserData'));
 }
 
+public function akun2()
+{
+    // Retrieve all fundraisers from the database
+    $fundraisers = Fundraiser::with('campaigns')->get();
+
+    // If no fundraisers are found, handle this case
+    if ($fundraisers->isEmpty()) {
+        return redirect()->route('fundraiser.create')->with('message', 'Tidak ada fundraiser ditemukan.');
+    }
+
+    $fundraiserData = $fundraisers->map(function ($fundraiser) {
+        $transaksi = Zakat::where('id', $fundraiser->id)->get();
+        $totalTransaksiPending = $transaksi->where('status', 'pending')->count();
+        $totalPengunjung = $transaksi->count();
+        $totalDanaOnline = $transaksi->where('type', 'online')->sum('amount');
+        $totalDanaOffline = $transaksi->where('type', 'offline')->sum('amount');
+
+        // Hitung total komisi dari campaign yang terkait
+        $totalKomisi = $fundraiser->campaigns->reduce(function ($carry, $campaign) {
+            $percentage = $campaign->fundraiser_reward_percentage / 100; // Convert percentage to decimal
+            $amount = $campaign->fund_amount;
+            $carry += $percentage * $amount;
+            return $carry;
+        }, 0);
+
+        return [
+            'fundraiser' => $fundraiser,
+            'totalTransaksiPending' => $totalTransaksiPending,
+            'totalPengunjung' => $totalPengunjung,
+            'transaksi' => $transaksi,
+            'totalDanaOnline' => $totalDanaOnline,
+            'totalDanaOffline' => $totalDanaOffline,
+            'totalKomisi' => $totalKomisi,
+            'saldoKomisi' => $totalKomisi,
+        ];
+    });
+
+    // Calculate aggregate data
+    $totalFundraisers = $fundraisers->count();
+    $totalDonators = $fundraisers->sum(function ($fundraiser) {
+        return Zakat::where('id', $fundraiser->id)->count();
+    });
+
+    return view('front.konten.akun.tim-fundraising', compact('fundraiserData', 'totalFundraisers', 'totalDonators'));
+}
 
 
+
+public function pengaturan()
+{
+    // Get the currently authenticated user's ID
+    $userId = Auth::id();
+
+    // Retrieve the fundraiser data for the authenticated user
+    $fundraisers = Fundraiser::where('id_user', $userId)->first();
+
+    // If no fundraiser is found, redirect or handle as needed
+    if (!$fundraisers) {
+        return redirect()->route('fundraiser.create')->with('message', 'Anda tidak memiliki fundraiser. Silakan tambahkan fundraiser baru.');
+    }
+
+    // Pass the fundraiser data to the view
+    return view('front.konten.akun.pengaturanFundraiser', ['fundraiser' => $fundraisers]);
+}
+
+
+
+
+    public function create(){
+        return view ('front.konten.akun.dutaAmal');
+    }
 
 
     public function store(Request $request)
@@ -93,27 +171,6 @@ class FundraiserController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    // public function getProvinsi()
-    // {
-    //     $client = new Client();
-    //     try {
-    //         $response = $client->request('GET', 'https://api.binderbyte.com/wilayah/provinsi', [
-    //             'query' => ['api_key' => '8e49f28e0f2f2cf56393c352613eec358e85fb7077ce6f7f453ebb826a7b1f6d']
-    //         ]);
-
-    //         if ($response->getStatusCode() === 200) {
-    //             $provinsiList = json_decode($response->getBody(), true); // Mengonversi respons JSON menjadi array
-    //             return view('front.konten.akun.dutaAmal', ['provinsiList' => $provinsiList]);
-    //         } else {
-    //             return response()->json(['error' => 'Failed to fetch provinces. HTTP status: ' . $response->getStatusCode()], 500);
-    //         }
-    //     } catch (\Exception $e) {
-    //         return response()->json(['error' => 'Error: ' . $e->getMessage()], 500);
-    //     }
-    // }
 
     public function getKabupatenKota($provinsiId)
     {
