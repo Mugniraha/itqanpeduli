@@ -3,23 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\bank_account;
+use App\Models\BankAccount; // Note the correct case for the model name
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class bankController extends Controller
 {
     public function show($fundraiserId)
     {
-        // Retrieve bank accounts related to the given fundraiser ID
-        $bankAccounts = bank_account::where('id', $fundraiserId)->get();
-        
-        // Pass the fundraiser ID to the view
-        return view('front.konten.akun.data-bank', compact('bankAccounts', 'fundraiserId'));
+        $userId = Auth::id();
+        $bankAccounts = BankAccount::where('user_id', $userId)->get();    
+        // dd($bankAccounts);
+        return view('front.konten.akun.data-bank', compact('bankAccounts','fundraiserId'));
     }
+
     
+
+    
+
 
     public function store(Request $request)
     {
-        $bankAccount = bank_account::find($request->bank_account_id);
+        $bankAccount = BankAccount::find($request->bank_account_id);
 
         // Store the selected bank account in the session
         session(['selectedBankAccount' => $bankAccount]);
@@ -36,12 +41,11 @@ class bankController extends Controller
         ]);
 
         // Save the bank account data to the database
-        bank_account::create([
+        BankAccount::create([
             'user_id' => auth()->id(),
             'bank_name' => $request->bank_name,
             'account_number' => $request->account_number,
             'account_name' => $request->account_name,
-            'fundraiser_id' => $request->fundraiser_id, // Make sure to include this field in your form
         ]);
 
         return redirect()->back()->with('success', 'Bank account added successfully.');

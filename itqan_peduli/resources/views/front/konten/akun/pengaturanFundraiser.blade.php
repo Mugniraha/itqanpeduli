@@ -2,7 +2,6 @@
 
 @section('konten')
     <div class="p-4 bg-white">
-
         <div class="flex my-6">
             <a href="{{ url('/akun-fundraiser/{id}') }}" type="button"
                 class="text-white ms-0 bg-white shadow-md hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2">
@@ -14,12 +13,13 @@
         </div>
         <div class="isi mt-10">
             <div class="flex flex-col pt-3 items-center gap-4">
-                <img class="w-21 h-21 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="font-medium text-center">
+            <img id="profile-img" class="w-24 h-24 object-cover rounded-full cursor-pointer" src="{{ $fundraiser->image ?? 'https://flowbite.com/docs/images/people/profile-picture-5.jpg' }}" alt="Foto Profil" onclick="document.getElementById('upload-input').click()">
+            <div class="font-medium text-center">
                     <div class="text-xl font-semibold text-black">{{ $fundraiser->nama }}</div>
                 </div>
             </div>
-            <input type="file" id="upload-input" class="hidden" accept="image/*">
+            <input type="file" id="upload-input" class="hidden" accept="image/*" onchange="uploadImage()">
+        </div>
             <form action="" class="mt-20">
                 <div class="relative mt-6">
                     <label for="jenis_duta" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Jenis Duta</label>
@@ -55,12 +55,53 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
                     </svg>
                 </a>
-                <a href="{{ url('/update-profile') }}" type="button"
-                    class="px-6 py-3.5 w-full text-base font-medium text-white inline-flex items-center border border-green-800 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
-                    <p class="text-white mx-auto text-xl text-center font-semibold">Edit Profil</p>
+                <a id="save-button" type="button"
+                class="px-6 py-3.5 w-full text-base font-medium text-white inline-flex items-center border border-green-800 bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-100 rounded-2xl">
+                <p class="text-white mx-auto text-xl text-center font-semibold">Simpan</p>
                 </a>
             </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script>
+        function uploadImage() {
+            const input = document.getElementById('upload-input');
+            const file = input.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('profile_image', file);
+
+                fetch('{{ url('/upload-profile-image') }}', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('profile-img').src = data.imageUrl;
+                    } else {
+                        alert('Gagal mengupload gambar');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+        document.getElementById('save-button').addEventListener('click', function(event) {
+        event.preventDefault(); // Mencegah aksi default dari link (navigasi)
+
+        // Tampilkan pop-up konfirmasi
+        if (confirm('Apakah Anda yakin ingin menyimpan perubahan?')) {
+            // Arahkan ke URL jika pengguna mengkonfirmasi
+            window.location.href = this.href;
+        } else {
+            // Tidak lakukan apa-apa jika pengguna membatalkan
+            console.log('Perubahan dibatalkan');
+        }
+    });
+    </script>
 @endsection

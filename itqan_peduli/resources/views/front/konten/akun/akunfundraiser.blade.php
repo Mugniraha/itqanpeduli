@@ -12,31 +12,21 @@
     <p class="text-lg font-bold text-white text-center">Selamat Datang</p>
     <p class="text-sm text-white text-center mb-10">Memulai sesuatu dengan bismillah</p>
 
-    @if($fundraiserData->count())
     @foreach($fundraiserData as $data)
-        <div class="flex flex-col py-3 items-center gap-4">
-            <img class="w-24 h-24 rounded-full" src="{{ $data['fundraiser']->profile_picture_url }}" alt="">
-            <div class="text-center">
-                <div class="text-lg font-semibold text-white">{{ $data['fundraiser']->nama }}</div>
-                <a href="{{ url('/pengaturan') }}" class="flex justify-center px-auto text-sm text-white">
-                    Ubah Profil
-                    <svg class="w-4 h-4 my-auto text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
+        <div class="text-center">
+            <img class="w-24 h-24 rounded-full mx-auto" src="{{ $data['fundraiser']->image ? asset('storage/' . str_replace('/storage/', '', $data['fundraiser']->image)) : asset('default-profile.png') }}" alt="Foto Profil">
+
+            <div class="text-lg font-semibold text-white">{{ $data['fundraiser']->nama }}</div>
+            <a href="{{ url('/pengaturan-fundraiser') }}" class="flex justify-center px-auto text-sm text-white">
+                Ubah Profil
+                <svg class="w-4 h-4 my-auto text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                </svg>
+            </a>
         </div>
-    @endforeach
-    @else
-        <p class="text-white text-center">Data Fundraiser tidak ditemukan.</p>
-    @endif
+        @endforeach
 
-
-
-
-
-
-    <p class="text-gray-600 font-semibold mt-10 mb-1">Link Kamu</p>
+    <p class="text-gray-600 font-semibold mt-16 mb-1">Link Kamu</p>
     <div class="w-full">
         <div class="relative">
             <input id="rekening-copy-input" type="text" class="col-span-6 bg-green-50 border border-gray-300 text-gray-600 rounded-lg block w-full px-3 py-1.5" value="https://flowbite.com/docs/components/clipboard/" disabled readonly>

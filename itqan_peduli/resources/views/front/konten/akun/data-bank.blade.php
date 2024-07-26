@@ -14,21 +14,23 @@
             <div class="mx-8">
                 <p class="text-lg font-semibold">Data Bank</p>
                 @foreach($bankAccounts as $bankAccount)
-                <form action="{{ route('bank.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="bank_account_id" value="{{ $bankAccount->id }}">
-                    <button type="submit" class="relative w-full text-left my-3 mb-1 p-4 shadow-md rounded-xl">
-                        <div class="text-lg text-gray-700">{{ $bankAccount->account_name }}</div>
-                        <div class="text-gray-700"><b>{{ $bankAccount->bank_name }}</b> - {{ $bankAccount->account_number }}</div>
-                    </button>
-                </form>
+                    <form action="{{ route('bank.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="bank_account_id" value="{{ $bankAccount->id }}">
+                        <button type="submit" class="relative w-full text-left my-3 mb-1 p-4 shadow-md rounded-xl">
+                            <div class="text-lg text-gray-700">{{ $bankAccount->account_name }}</div>
+                            <div class="text-gray-700"><b>{{ $bankAccount->bank_name }}</b> - {{ $bankAccount->account_number }}</div>
+                        </button>
+                    </form>
                 @endforeach
+
+
 
                 <!-- Form to Add New Bank -->
                 <form action="{{ route('bank.storeBankAccount') }}" method="POST">
                     <p class="font-semibold text-lg mt-5">Tambah Bank</p>
                     @csrf
-                    <input type="hidden" name="id" value="{{ $fundraiserId }}"> <!-- Pass the fundraiser ID -->
+                    <input type="hidden" name="fundraiser_id" value="{{ $fundraiserId }}">
                     <div class="relative mt-6">
                         <label for="bank_name" class="absolute -top-3 left-3 bg-white px-1 font-semibold text-sm text-gray-600">Nama Bank</label>
                         <input type="text" id="bank_name" name="bank_name" placeholder="Masukan nama bank" class="w-full py-3 px-4 text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-transparent" required>

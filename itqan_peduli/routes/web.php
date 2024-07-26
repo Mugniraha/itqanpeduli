@@ -579,6 +579,8 @@ Route::get('pengaturan', function () {
 });
 
 Route::get('/pengaturan-fundraiser', [fundraiserController::class, 'pengaturan'])->name('pengaturan.fundraiser');
+Route::post('/upload-profile-image', [FundraiserController::class, 'uploadProfileImage'])->name('upload.profile.image');
+
 
 
 Route::get('/program', function () {

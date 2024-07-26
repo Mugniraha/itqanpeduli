@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class FundraiserController extends Controller
 {
@@ -169,6 +170,38 @@ public function pengaturan()
         return redirect()->route('fundraisers.akun', ['id' => auth()->id()])
             ->with('success', 'Data berhasil disimpan. Anda sekarang dapat mengakses akun fundraiser Anda.');
     }
+
+    public function uploadProfileImage(Request $request)
+{
+    $request->validate([
+        'profile_image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    $userId = Auth::id();
+    $fundraiser = Fundraiser::where('id_user', $userId)->first();
+
+    if (!$fundraiser) {
+        return response()->json(['success' => false, 'message' => 'Fundraiser not found.']);
+    }
+
+    $image = $request->file('profile_image');
+    $imagePath = $image->store('profile_images', 'public');
+    $imageUrl = Storage::url($imagePath);
+
+    // Delete old image if it exists
+    if ($fundraiser->image) {
+        Storage::delete('public/' . str_replace('/storage/', '', $fundraiser->image));
+    }
+
+    $fundraiser->image = $imageUrl;
+    $fundraiser->save();
+
+    return response()->json([
+        'success' => true,
+        'imageUrl' => $imageUrl,
+    ]);
+}
+
 
 
 

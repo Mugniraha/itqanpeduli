@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
-use App\Models\bank_account;
+use App\Models\BankAccount;
 use App\Models\Transaksi_fundraiser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +16,7 @@ class TransaksiFundraiserController extends Controller
     {
         $transaksiFundraisers = Transaksi_fundraiser::all();
         // Fetch bank accounts specific to admin or remove this if not needed on admin page
-        $bankAccounts = bank_account::all(); 
+        $bankAccounts = BankAccount::all(); 
         return view('admin.konten.fundraiser.transaksi', compact('transaksiFundraisers', 'bankAccounts'));
     }
 
@@ -26,7 +26,7 @@ class TransaksiFundraiserController extends Controller
     $userId = auth()->id();
 
     // Fetch bank accounts for the current user
-    $bankAccounts = bank_account::where('user_id', $userId)->get();
+    $bankAccounts = BankAccount::where('user_id', $userId)->get();
 
     // Fetch the fundraisers and calculate the total commission
     $totalKomisi = Campaign::where('id', $userId) // Adjust if 'fundraiser_id' is not correct
@@ -61,7 +61,7 @@ class TransaksiFundraiserController extends Controller
         ]);
     
         // Simpan data bank ke database
-        bank_account::create([
+        BankAccount::create([
             'user_id' => auth()->id(),
             'bank_name' => $request->bank_name,
             'account_number' => $request->account_number,
@@ -119,7 +119,7 @@ class TransaksiFundraiserController extends Controller
         // Save the withdrawal
         Transaksi_fundraiser::create([
             'user_id' => $userId,
-            'bank_account_id' => $bankAccountId,
+            'BankAccount_id' => $bankAccountId,
             'amount' => $amount,
             'status' => 'pending', // or 'completed' depending on your logic
         ]);
