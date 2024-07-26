@@ -36,6 +36,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\FacebookAuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/dashboard2', function () {
@@ -117,10 +118,10 @@ Route::get('fundraiserTransaksi', [fundraiserController::class, 'showTransaksi']
 
 Route::get('admin',[pengaturan_userController::class, 'showAdmin'])->name('admin');
 Route::get('akunting',[pengaturan_userController::class, 'showAkunting'])->name('akunting');
-Route::get('donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
+Route::get('user-donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
 Route::get('fundraiserUser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
 Route::get('gerai',[pengaturan_userController::class, 'showGerai'])->name('gerai');
-Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('program');
+Route::get('user-program',[pengaturan_userController::class, 'showProgram'])->name('program');
 
 
 Route::resource('template', notifikasiWAController::class);
@@ -616,9 +617,9 @@ Route::get('/duta-amal-1', function () {
 });
 
 
-Route::get('/inputTambahUser', function () {
-    return view('admin.konten.user.inputTambahUser');
-});
+// Route::get('/inputTambahUser', function () {
+//     return view('admin.konten.user.inputTambahUser');
+// });
 
 
 Route::get('/notifikasiEmail', [NotifikasiMailController::class, 'index'])->name('notifications.index');
@@ -710,3 +711,12 @@ Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogl
 Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
 Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');
 
+Route::get('/tambah-user', [UserController::class, 'create'])->name('users.create');
+Route::post('/tambah-user', [UserController::class, 'store'])->name('users.store');
+// Route::get('/users-admin', [UserController::class, 'admin'])->name('users.admin');
+Route::get('/users-donatur', [UserController::class, 'donatur'])->name('users.donatur');
+Route::get('/users-fundraiser', [UserController::class, 'fundraiser'])->name('users.fundraiser');
+
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
