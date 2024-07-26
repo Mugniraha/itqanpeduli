@@ -13,7 +13,7 @@
     <div class="w-full min-h-screen bg-white overflow-hidden">
         <div class="relative">
             <div class="absolute inset-0 flex justify-center items-center">
-                <div class="w-[670px] h-[650px] bg-green-600 rounded-full z-0 -mx-[256px]"></div>
+                <div class="w-[630px] h-[600px] bg-green-600 rounded-full z-0 -mx-[256px]"></div>
             </div>
         </div>
 

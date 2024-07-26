@@ -12,31 +12,21 @@
     <p class="text-lg font-bold text-white text-center">Selamat Datang</p>
     <p class="text-sm text-white text-center mb-10">Memulai sesuatu dengan bismillah</p>
 
-    @if($fundraiserData->count())
     @foreach($fundraiserData as $data)
-        <div class="flex flex-col py-3 items-center gap-4">
-            <img class="w-24 h-24 rounded-full" src="{{ $data['fundraiser']->profile_picture_url }}" alt="">
-            <div class="text-center">
-                <div class="text-lg font-semibold text-white">{{ $data['fundraiser']->nama }}</div>
-                <a href="{{ url('/pengaturan') }}" class="flex justify-center px-auto text-sm text-white">
-                    Ubah Profil
-                    <svg class="w-4 h-4 my-auto text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
+        <div class="text-center">
+            <img class="w-24 h-24 rounded-full mx-auto" src="{{ $data['fundraiser']->image ? asset('storage/' . str_replace('/storage/', '', $data['fundraiser']->image)) : asset('default-profile.png') }}" alt="Foto Profil">
+
+            <div class="text-lg font-semibold text-white">{{ $data['fundraiser']->nama }}</div>
+            <a href="{{ url('/pengaturan-fundraiser') }}" class="flex justify-center px-auto text-sm text-white">
+                Ubah Profil
+                <svg class="w-4 h-4 my-auto text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                </svg>
+            </a>
         </div>
-    @endforeach
-    @else
-        <p class="text-white text-center">Data Fundraiser tidak ditemukan.</p>
-    @endif
+        @endforeach
 
-
-
-
-
-
-    <p class="text-gray-600 font-semibold mt-10 mb-1">Link Kamu</p>
+    <p class="text-gray-600 font-semibold mt-16 mb-1">Link Kamu</p>
     <div class="w-full">
         <div class="relative">
             <input id="rekening-copy-input" type="text" class="col-span-6 bg-green-50 border border-gray-300 text-gray-600 rounded-lg block w-full px-3 py-1.5" value="https://flowbite.com/docs/components/clipboard/" disabled readonly>
@@ -258,7 +248,7 @@
                         d="m9 5 7 7-7 7" />
                 </svg>
             </a>
-            <a href="{{ url('/riwayat-transaksi') }}" type="button"
+            <a href="{{ url('/riwayat-fundraising') }}" type="button"
                 class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <p class="text-gray-600 font-semibold text-sm">Riwayat Transaksi</p>
                 <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
@@ -268,7 +258,7 @@
                         d="m9 5 7 7-7 7" />
                 </svg>
             </a>
-            <a href="{{ url('/data-bank') }}" type="button"
+            <a href="{{ url('/pilih-bank/{id}') }}" type="button"
                 class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <p class="text-gray-600 font-semibold text-sm">Data Bank</p>
                 <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
@@ -278,7 +268,7 @@
                         d="m9 5 7 7-7 7" />
                 </svg>
             </a>
-            <a href="{{ url('/pengaturan') }}" type="button"
+            <a href="{{ url('/pengaturan-fundraiser') }}" type="button"
                 class="px-3 py-3  w-full mt-2 text-white inline-flex items-center border border-gray-400 bg-green-50 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-2xl text-center">
                 <p class="text-gray-600 font-semibold text-sm">Profil</p>
                 <svg class="w-6 h-6 my-auto ms-auto end-0 text-gray-600" aria-hidden="true"
@@ -289,16 +279,6 @@
                 </svg>
             </a>
             
-            <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                class="px-6 py-3.5 w-full mt-8 text-white inline-flex items-center border border-red-600 bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-100 rounded-2xl text-center">
-                <p class="text-white font-semibold">Keluar</p>
-                <svg class="w-8 h-8 ms-auto  text-white-800" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
-                </svg>
-            </button>
 </div>
 
 <div id="data-input-page" class="hidden fixed inset-0 bg-white w-[512px] mx-auto z-50 overflow-y-auto pb-12">
@@ -346,40 +326,6 @@
         </div>
     </div> 
 
-    {{-- </div> --}}
-    <div id="popup-modal" tabindex="-1"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative p-4 w-full max-w-md max-h-full">
-                    <div class="relative bg-white rounded-lg shadow">
-                        <button type="button"
-                            class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                            data-modal-hide="popup-modal">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                        <div class="p-4 md:p-5 ">
-                            <p class="text-xl mt-8 font-semibold text-start">Yakin mau keluar aplikasi ?</p>
-                            <h3 class="mb-5 mt-2 text-sm font-normal text-gray-500 text-start">Apakah anda yakin keluar akun dari aplikasi ini ?</h3>
-                            <div class="text-center flex justify-around">
-                                <button data-modal-hide="popup-modal" type="button"
-                                class="py-2.5 px-5 shadow-md text-sm text-green-700 focus:outline-none bg-white rounded-lg hover:bg-green-100 hover:text-green-900 focus:z-10 focus:ring-4 focus:ring-gray-100">
-                                    Gajadi Keluar
-                                </button>
-                                <a href="{{  url('/login') }}" data-modal-hide="popup-modal" type="button"
-                                    class="text-white shadow-md bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                    Ya , Keluar
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-    </div>
-      
 
 <script>
     // Clipboard copy
