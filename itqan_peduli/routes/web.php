@@ -30,6 +30,7 @@ use App\Exports\LeaderboardExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
 use App\Http\Controllers\dataBankController;
+use App\Http\Controllers\DonasiInstanController;
 use App\Http\Controllers\programController;
 use App\Http\Controllers\HomeadminController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -306,9 +307,9 @@ Route::get('/donasi-saya', function () {
 
 Route::get('/zakat-saya',[hitungZakatController::class, 'showZakatSaya']);
 
-Route::get('/donasi-instan', function () {
-    return view('front.konten.donasiInstan.donasiInstan');
-});
+// Route::get('/donasi-instan', function () {
+//     return view('front.konten.donasiInstan.donasiInstan');
+// });
 Route::get('/intruksi-pembayaran', function () {
     return view('front.konten.donasiInstan.intruksiPembayaran');
 });
@@ -336,7 +337,7 @@ Route::get('/rincian-pembayaran', function () {
 
 
 //front akun
-// 
+//
 
 // Route::get('/akun-fundraiser', function () {
 //     return view('front.konten.akun.akunfundraiser');
@@ -710,3 +711,9 @@ Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogl
 Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
 Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');
 
+Route::get('donasi-instan', [DonasiInstanController::class, 'create']);
+Route::post('add-donasi-instan', [DonasiInstanController::class, 'store']);
+Route::get('invoice-donasi-instan/{id_transaksi}', [DonasiInstanController::class, 'view']);
+Route::get('cek-transaksi', [DonasiInstanController::class, 'cekTransaksi']);
+Route::post('callback', [DonasiInstanController::class, 'callback']);
+Route::get('return', [DonasiInstanController::class, 'return']);
