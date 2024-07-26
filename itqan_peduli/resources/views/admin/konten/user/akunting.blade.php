@@ -14,19 +14,19 @@
 
     <div class="flex mt-10">
         <div class="bg-white p-2 text-blue-600 font-normal rounded-t-sm">
-            <a href="{{route('admin')}}" class="mx-3">Admin</a>
+            <a href="{{url('admin')}}" class="mx-3">Admin</a>
         </div>
         <div class="bg-white p-2 text-blue-600 font-normal rounded-t-sm">
-            <a class="mx-3" href="{{route('program')}}">Program</a>
+            <a class="mx-3" href="{{url('user-program')}}">Program</a>
         </div>
         <div class=" bg-green-700 p-2 text-white font-normal rounded-t-sm">
-            <a class="mx-3" href="{{route('akunting')}}">Akunting</a>
+            <a class="mx-3" href="{{url('akunting')}}">Akunting</a>
         </div>
         <div class="bg-white p-2 text-blue-600 font-normal rounded-t-sm">
-            <a class="mx-3" href="{{route('gerai')}}">Gerai</a>
+            <a class="mx-3" href="{{url('gerai')}}">Gerai</a>
         </div>
         <div class="bg-white p-2 text-blue-600 font-normal rounded-t-sm">
-            <a class="mx-3" href="{{route('donatur')}}">Donatur</a>
+            <a class="mx-3" href="{{url('user-donatur')}}">Donatur</a>
         </div>
         <div class="bg-white p-2 text-blue-600 font-normal rounded-t-sm">
             <a class="mx-3" href="{{url('fundraiserUser')}}">Fundraiser</a>

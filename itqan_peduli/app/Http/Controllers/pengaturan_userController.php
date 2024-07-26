@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class pengaturan_userController extends Controller
 {
@@ -14,10 +16,17 @@ class pengaturan_userController extends Controller
         //
     }
 
+    public function admin()
+    {
+        $users = User::where('role', 'admin')->get();
+        return view('admin.konten.user.admin', compact('users'));
+    }
     public function showAdmin()
     {
-        $slug = 'admin';
-        return view('admin.konten.user.admin',compact('slug'));
+        // $slug = 'admin';
+        // return view('admin.konten.user.admin',compact('slug'));
+        $users = User::where('role', 'admin')->get();
+        return view('admin.konten.user.admin', compact('users'));
     }
 
     public function showAkunting()
@@ -28,14 +37,18 @@ class pengaturan_userController extends Controller
 
     public function showDonatur()
     {
-        $slug = 'donatur';
-        return view('admin.konten.user.donatur',compact('slug'));
+        // $slug = 'donatur';
+        // return view('admin.konten.user.donatur',compact('slug'));
+        $users = User::where('role', 'user')->get();
+        return view('admin.konten.user.donatur', compact('users'));
     }
 
     public function showFundraiser()
     {
-        $slug = 'fundraiser';
-        return view('admin.konten.user.fundraiser',compact('slug'));
+        // $slug = 'fundraiser';
+        // return view('admin.konten.user.fundraiser',compact('slug'));
+        $users = User::where('role', 'fundraiser')->get();
+        return view('admin.konten.user.fundraiser', compact('users'));
     }
 
     public function showGerai()
