@@ -19,7 +19,7 @@
                 <img class="w-21 h-21 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                     alt="">
                 <div class="font-medium text-center">
-                    <div class="text-xl font-semibold text-black">Ramadhani</div>
+                    <div class="text-xl font-semibold text-black">{{ Auth::user()->name }}</div>
                 </div>
             </div>
             {{-- <a id="upload-link" href="#" class="flex justify-center px-auto mt-2 text-sm text-black">Ubah Profil

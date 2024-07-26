@@ -3,46 +3,46 @@
 @section('konten')
     <div class="bungkus bg-white min-h-screen overflow-auto">
         <div class="header flex fixed z-50 bg-white w-[512px]">
-            <a href="/akun-fundraiser" class="m-5">
+            <a href="/akun-fundraiser/{id}" class="m-5">
                 <svg class="w-8 h-8 text-green-600 p-0.5 rounded-full shadow-md bg-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
                 </svg>
             </a>
-            <p class="my-auto font-bold">Penarikan Komisi</p>
+            <p class="my-auto font-bold">Tim Fundraising</p>
         </div>
         <div class="konten m-5 mt-24 relative">
             <p class="text-lg font-bold">Tim Penjualan</p>
             <p class="text-sm">Berikut ini total tim penjualan yang anda kelola</p>
             <div class="card flex justify-around my-5">
                 <div class="fundraising shadow-md rounded-xl p-5 border border-gray-300 bg-green-50 w-full mr-3">
-                    <p class="text-lg font-bold text-center">123</p>
+                    <p class="text-lg font-bold text-center">{{ $totalFundraisers }}</p>
                     <p class="text-sm text-center">Jumlah Fundraising</p>
                 </div>
                 <div class="fundraising shadow-md rounded-xl p-5 border border-gray-300 bg-green-50 w-full ml-3">
-                    <p class="text-lg font-bold text-center">111</p>
-                    <p class="text-sm text-center">Jumlah Fundraising</p>
+                    <p class="text-lg font-bold text-center">{{ $totalDonators }}</p>
+                    <p class="text-sm text-center">Jumlah Donatur</p>
                 </div>
             </div>
             <p class="text-lg font-bold mt-10">Statistik</p>
             <div class="card my-5 border border-gray-300 bg-green-50 rounded-xl shadow-md">
                 <div class="atas flex">
                     <div class="fundraising border-r border-b p-5 w-full">
-                        <p class="text-lg font-bold text-center">123</p>
-                        <p class="text-sm text-center">Jumlah Fundraising</p>
+                        <p class="text-sm font-semibold">Bulan Ini</p>
+                        <p class="text-lg text-green-600 font-semibold">{{ $fundraiserData->sum('totalDanaOnline') }} Donatur</p>
                     </div>
                     <div class="fundraising p-5 border-b border-l w-full">
-                        <p class="text-lg font-bold text-center">111</p>
-                        <p class="text-sm text-center">Jumlah Fundraising</p>
+                        <p class="text-sm font-semibold">Total Donatur</p>
+                        <p class="text-lg text-green-600 font-semibold">{{ $fundraiserData->sum('totalPengunjung') }} Donatur</p>
                     </div>
                 </div>
                 <div class="bawah flex">
                     <div class="fundraising p-5 border-t border-r w-full">
-                        <p class="text-lg font-bold text-center">111</p>
-                        <p class="text-sm text-center">Jumlah Fundraising</p>
+                        <p class="text-sm font-semibold">Komisi Bulan Ini</p>
+                        <p class="text-lg text-green-600 font-semibold">Rp {{ number_format($fundraiserData->sum('totalKomisi'), 0, ',', '.') }}</p>
                     </div>
                     <div class="fundraising p-5 border-l border-t w-full">
-                        <p class="text-lg font-bold text-center">111</p>
-                        <p class="text-sm text-center">Jumlah Fundraising</p>
+                        <p class="text-sm font-semibold">Total Komisi</p>
+                        <p class="text-lg text-green-600 font-semibold">Rp {{ number_format($fundraiserData->sum('totalKomisi'), 0, ',', '.') }}</p>
                     </div>
                 </div>
             </div>
@@ -63,73 +63,13 @@
                 </svg>
             </div>    
             <div class="bawah mb-20">
-                <div class="card flex justify-between my-5 border-b-2 border-gray-300 py-2">
-                    <p class="font-semibold">Shiddiq</p>
-                    <p class="font-semibold">11 Donatur</p>
-                </div>
-                <div class="card flex justify-between my-5 border-b-2 border-gray-300 py-2">
-                    <p class="font-semibold">Fepi</p>
-                    <p class="font-semibold">11 Donatur</p>
-                </div>
-                <div class="card flex justify-between my-5 border-b-2 border-gray-300 py-2">
-                    <p class="font-semibold">Samsul</p>
-                    <p class="font-semibold">11 Donatur</p>
-                </div>
-                <div class="card flex justify-between my-5 border-b-2 border-gray-300 py-2">
-                    <p class="font-semibold">Galih</p>
-                    <p class="font-semibold">11 Donatur</p>
-                </div>
-                <div class="card flex justify-between my-5 border-b-2 border-gray-300 py-2">
-                    <p class="font-semibold">Ratna</p>
-                    <p class="font-semibold">11 Donatur</p>
-                </div>
+                @foreach ($fundraiserData as $data)
+                    <div class="card flex justify-between my-5 border-b-2 border-gray-300 py-2">
+                        <p class="font-semibold">{{ $data['fundraiser']->nama }}</p>
+                        <p class="font-semibold">{{ $data['totalPengunjung'] }} Donatur</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-    
-    <script>
-    document.getElementById('data').addEventListener('click', function() {
-        document.getElementById('data-input-page').classList.remove('hidden');
-    });
-
-    function closeDataInputPage() {
-        document.getElementById('data-input-page').classList.add('hidden');
-    }
-
-    function toggleSamarkanNama() {
-        var namaInput = document.getElementById('nama-input');
-        var samarkanCheckbox = document.getElementById('samarkan-checkbox');
-
-        if (samarkanCheckbox.checked) {
-            namaInput.value = 'Hamba Allah';
-            namaInput.disabled = true;
-        } else {
-            namaInput.value = '';
-            namaInput.disabled = false;
-        }
-    }
-
-    function confirmData() {
-        var namaValue = document.getElementById('nama-input').value;
-        var phoneValue = document.getElementById('phone-input').value;
-        var doaValue = document.getElementById('doa-input').value;
-
-        if (document.getElementById('samarkan-checkbox').checked) {
-            namaValue = 'Hamba Allah';
-        }
-
-        document.getElementById('isi-data').innerHTML = `
-            <div class="text-sm text-gray-400">Nama disamarkan</div>
-            <div class="font-bold text-green-700">${namaValue}</div>
-            <div class="text-sm text-gray-400">${phoneValue}</div>
-        `;
-
-        closeDataInputPage();
-    }
-
-    function closeDataInputPage() {
-        document.getElementById('data-input-page').classList.add('hidden');
-    }
-
-</script>
 @endsection
