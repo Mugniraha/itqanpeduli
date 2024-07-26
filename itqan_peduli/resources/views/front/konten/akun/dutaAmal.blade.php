@@ -111,7 +111,7 @@
 
             provinces.forEach(province => {
                 const option = document.createElement('option');
-                option.value = province.id;
+                option.value = province.name;
                 option.textContent = province.name;
                 provinsiSelect.appendChild(option);
             });
@@ -131,7 +131,7 @@
 
                     kabkotaList.forEach(kabkota => {
                         const option = document.createElement('option');
-                        option.value = kabkota.id;
+                        option.value = kabkota.name;
                         option.textContent = kabkota.name;
                         kabkotaSelect.appendChild(option);
                     });

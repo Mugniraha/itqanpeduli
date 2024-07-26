@@ -21,39 +21,48 @@
     <div class="flex justify-between items-center">
         <div>
             <p class="font-semibold text-gray-600 text-sm">No. Invoice</p>
-            <p class="font-semibold ">INV-221023942034</p>
+            <p class="font-semibold ">{{ $transaction->id_transaksi }}</p>
         </div>
         <div>
-            <p class="font-semibold text-gray-600 py-1 px-2 rounded-xl border border-green-600 bg-green-100">Pending</p>
+            <p class="font-semibold text-gray-600 py-1 px-2 rounded-xl border border-green-600 bg-green-100">{{ $transaction->status }}</p>
         </div>
     </div>
     <div class="bg-yellow-100 border border-yellow-400 p-4 rounded-xl">
         <p class="text-gray-500">Silahkan melakukan transfer <b class="font-semibold text-gray-700">sebelum 06 Februari 2021 11:15:26 WIB</b>, atau donasi akan otomatis dibatalkan oleh sistem kami.</p>
     </div>
     <div class="grid items-center w-full bg-green-100 rounded-xl p-6">
-        <div class="text-center grid gap-3">
+        <div class="text-center items-center justify-center grid gap-3">
             <div>
                 <p class="text-gray-600 text-sm">Pembayaran dilakukan ke</p>
-                <span class="font-semibold">Kampung Amal Maghfirah</span>
+                <span class="font-semibold">{{ $transaction->nama_program }}</span>
             </div>
             <div>
                 <p class="text-gray-600 font-semibold text-sm">Total Donasi</p>
-                <span class="font-bold text-lg">Rp110.000</span>
+                <span class="font-bold text-lg">{{ $transaction->nominal_total }}</span>
             </div>
+            @if (isset($dataUri) && ($transaction->status == 'Pending'))
+            <img src="{{ $dataUri }}" alt="" class="w-56">
+            @elseif (isset($transaction->transaction_token))
+            <div>
+                <p class="text-gray-600 font-semibold text-sm">Kode Pembayaran</p>
+                <span class="font-bold text-lg">{{ $transaction->transaction_token }}</span>
+            </div>
+            @else
+            @endif
         </div>
         <div class="relative mt-3">
             <img id="payment-method-image" class="h-5 absolute top-4 bottom-0 left-0 flex items-center pl-4" src="{{ url('/logo_pembayaran.png')}}" alt="logo">
-            <input type="text" id="payment-method" class="cursor-default block px-4 pl-20 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-white rounded-xl border border-green-600 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer font-semibold" value="OVO" readonly />
+            <input type="text" id="payment-method" class="cursor-default block px-4 pl-20 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-white rounded-xl border border-green-600 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer font-semibold" value="{{ $transaction->metode_pembayaran }}" readonly />
         </div>
     </div>
     <div class="border border-green-600 rounded-xl py-4 w-full flex gap-4 items-center justify-center text-green-600">
         <svg class="w-7 h-7" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
         </svg>
-        <p class="font-bold">Cek Status Pembayaran</p>
+        <a href="/invoice-donasi-instan/{{ $transaction->id_transaksi }}" class="font-bold">Cek Status Pembayaran</a>
     </div>
     <div class="bg-yellow-100 border border-yellow-400 p-4 rounded-xl">
-        <p class="text-gray-500">Dana yang di donasikan melalui <span>Amal Kampung Maghfirah</span> bukan bersumber dan bukan untuk tujuan praktik pencucian uang (money laundry), termasuk teroris dan kejahatan keuangan lainnya.</p>
+        <p class="text-gray-500">Dana yang di donasikan melalui <span>{{ $transaction->nama_program }}</span> bukan bersumber dan bukan untuk tujuan praktik pencucian uang (money laundry), termasuk teroris dan kejahatan keuangan lainnya.</p>
     </div>
     <div class="grid gap-2">
         <div class="">

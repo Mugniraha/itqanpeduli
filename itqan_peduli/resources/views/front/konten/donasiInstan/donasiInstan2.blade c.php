@@ -15,9 +15,7 @@
     </div>
 </div>
 
-<form action="/add-donasi-instan" method="POST">
 <div class="mt-20">
-    @csrf
     <div class="mx-8 mb-6 mt-10">
         <p class="font-bold mb-0.5">Donasi Instan</p>
         <p class="font-semibold">Buat kegiatan donasimu lebih mudah disini</p>
@@ -25,7 +23,7 @@
     <div class="mx-8 grid gap-3 ">
         <div class="relative" id="nominal-input-container">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
-            <input type="text" id="nominal" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" name="nominal" readonly />
+            <input type="text" id="nominal" class="cursor-pointer block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tes" readonly />
             <label for="nominal" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal</label>
             <span class="absolute inset-y-0 right-3 flex items-center justify-center gap-1 pointer-events-none">
                 <p class="text-xs">Ubah</p>
@@ -36,7 +34,7 @@
         </div>
         <div class="relative" id="payment-method-input-container">
             <img id="payment-method-image" class="h-5 absolute top-4 bottom-0 left-0 flex items-center pl-3" src="{{ url('/logo_pembayaran.png')}}" alt="logo">
-            <input type="text" id="payment-method" class="cursor-pointer block px-4 pl-20 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Metode Pembayaran" name="metode_pembayaran" readonly />
+            <input type="text" id="payment-method" class="cursor-pointer block px-4 pl-20 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Metode Pembayaran" readonly />
             <label for="payment-method" class="absolute text-sm  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Metode Pembayaran</label>
             <span class="absolute inset-y-0 right-3 flex items-center justify-center gap-1 pointer-events-none">
                 <p class="text-xs">Ubah</p>
@@ -79,14 +77,14 @@
             </div>
         </div>
         <div class="mt-2 grid grid-cols-4 gap-3">
-            <button type="button" class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(2.5, this)">2.5%</button>
-            <button type="button" class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(5, this)">5%</button>
-            <button type="button" class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(7.5, this)">7.5%</button>
-            <button type="button" class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(10, this)">10%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(2.5, this)">2.5%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(5, this)">5%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(7.5, this)">7.5%</button>
+            <button class="pengembang rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full mt-2" onclick="selectPengembangan(10, this)">10%</button>
             {{-- <input type="text" id="" class="col-span-4 border p-2 w-full mt-2" placeholder="Masukkan nominal lain" > --}}
             <div class="relative col-span-4" id="pengembangan-input-container">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
-                <input name="dana_pengembang" oninput="inputManual()" type="text" id="pengembangan-input" class="block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="0" />
+                <input oninput="inputManual()" type="text" id="pengembangan-input" class="block px-4 pl-9 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="0" />
                 <label for="pengembangan-input" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-green-100 mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nominal lain</label>
             </div>
         </div>
@@ -107,7 +105,7 @@
         </div>
     </div>
     <div class="flex mx-8 mt-6 mb-4">
-        <button type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Lanjutkan</button>
+        <a href="/intruksi-pembayaran" type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Lanjutkan</a>
     </div>
 </div>
 
@@ -131,12 +129,12 @@
         <p class="font-bold">Masukan Nominal Donasi anda</p>
     </div>
     <div class="t-4 grid grid-cols-3 auto-cols-auto mx-8 gap-1">
-        <button type="button" class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('10000', this)">10 Rb</button>
-        <button type="button" class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('25000', this)">25 Rb</button>
-        <button type="button" class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('50000', this)">50 Rb</button>
-        <button type="button" class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('100000', this)">100 Rb</button>
-        <button type="button" class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('250000', this)">250 Rb</button>
-        <button type="button" class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('500000', this)">500 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('10000', this)">10 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('25000', this)">25 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('50000', this)">50 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('100000', this)">100 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('250000', this)">250 Rb</button>
+        <button class="nominal-button rounded-xl p-2 text-green-700 border border-gray-400 font-semibold w-full" onclick="selectNominal('500000', this)">500 Rb</button>
         {{-- <input type="text" id="nominal-input" class="col-span-3 border p-2 w-full mt-4" placeholder="Masukkan nominal lain"> --}}
         <div class="relative col-span-3 mt-3" id="nominal-input2-container">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">Rp</span>
@@ -145,7 +143,7 @@
         </div>
         <div class="whitespace-nowrap text-gray-500 text-xs">Minimal Donasi Rp10.000</div>
         <div class="flex mt-4 mb-4 col-span-3">
-            <button onclick="confirmNominal()" type="button" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Lanjutkan</button>
+            <button onclick="confirmNominal()" type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Lanjutkan</button>
         </div>
     </div>
 </div>
@@ -172,11 +170,13 @@
             <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
         </div>
         <div class="">
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'SA')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'ShopeePay')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>ShopeePay</p></button>
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'OV')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'OVO')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>OVO</p></button>
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'DA')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Gopay')">
+                <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Gopay</p></button>
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Dana')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Dana</p></button>
         </div>
     </div>
@@ -186,7 +186,7 @@
             <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
         </div>
         <div class="">
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'SP')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'QRIS')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>QRIS</p></button>
         </div>
     </div>
@@ -196,13 +196,13 @@
             <p class="text-xs">Verifikasi Otomatis, minimal pembayaran 10 ribu</p>
         </div>
         <div class="">
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BV')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BSI Virtual Account')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>BSI Virtual Account</p></button>
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BR')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BRI Virtual Account')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>BRI Virtual Account</p></button>
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'M2')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Mandiri Virtual Account')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>Mandiri Virtual Account</p></button>
-            <button type="button" class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'BC')">
+            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ url('/logo_pembayaran.png') }}', 'Dana Virtual Account')">
                 <img src="{{ url('/logo_pembayaran.png')}}" alt="" class="h-5"><p>BCA Virtual Account</p></button>
         </div>
     </div>
@@ -252,15 +252,15 @@
         </div>
         {{-- <input type="checkbox" id="samarkan-checkbox" class="mr-2" > <label for="samarkan-checkbox">Samarkan nama</label> --}}
         <div class="flex items-center my-2">
-            <input id="samarkan-checkbox" type="checkbox" onchange="toggleSamarkanNama()" name="nama-samaran" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
-            <label for="samarkan-checkbox" class="ms-2 text-sm font-medium text-gray-900">Samarkan nama saya</label>
+            <input id="samarkan-checkbox" type="radio" onchange="toggleSamarkanNama()" name="nama-samaran" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+            <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900">Samarkan nama saya</label>
         </div>
         <div class="relative my-3">
             <textarea id="doa-input" rows="4" class="block px-4 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="Tulis doa untuk penggalang dana atau dirimu sendiri di sini. Biar doa kamu bisa dilihat dan diamini oleh #OrangBaik lainnya"></textarea>
             <label for="doa-input" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Doa di donasi ini <b>(opsional)</b></label>
         </div>
         <div class="flex mt-4 mb-4">
-            <button id="data-continue" onclick="confirmData()" type="button" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Lanjutkan</button>
+            <button id="data-continue" onclick="confirmData()" type="submit" class="w-[512px] flex justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Lanjutkan</button>
         </div>
     </div>
 </div>
@@ -279,7 +279,7 @@
                 <p class="mb-5 text-sm font-normal text-gray-500">Apa anda yakin akan membatalkan kegiatan donasi instan ?</p>
                 <div class="flex gap-3">
                     <button data-modal-hide="popup-modal" type="button" class="flex-1 py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-green-100">Jangan Batalkan</button>
-                    <a href="/home" data-modal-hide="popup-modal" type="submit" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    <a href="/" data-modal-hide="popup-modal" type="submit" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
                         Ya, Batalkan
                     </a>
                 </div>
@@ -288,7 +288,7 @@
     </div>
 </div>
 
-</form>
+
 <script>
 
     var nominalValue = 0;
@@ -422,11 +422,6 @@
             <div class="text-sm text-gray-400">Nama disamarkan</div>
             <div class="font-bold text-green-700">${namaValue}</div>
             <div class="text-sm text-gray-400">${phoneValue}</div>
-            <input type="hidden" name="nohp" value="${phoneValue}">
-            <input type="hidden" name="name" value="${namaValue}">
-            <input type="hidden" name="doa" value="${doaValue}">
-            <input type="hidden" name="email" value="email@gmail.com">
-
         `;
 
         closeDataInputPage();

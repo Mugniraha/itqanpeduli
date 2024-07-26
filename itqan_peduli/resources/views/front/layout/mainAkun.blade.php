@@ -26,7 +26,7 @@
             <div class="bg-white border border-gray-200 rounded-xl ">
 
                 <div class="grid h-full max-w-lg grid-cols-4 content-end mx-auto font-medium">
-                    <a href="/" type="button" class="inline-flex flex-col items-center justify-center p-5 hover:bg-gray-50 group">
+                    <a href="home/" type="button" class="inline-flex flex-col items-center justify-center p-5 hover:bg-gray-50 group">
                         <svg class="w-6 h-6" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.25 22.4827L22.25 22.4901L22.25 28.9901H26.25C27.7688 28.9901 29 27.7589 29 26.2401V14.8389V14.8384C29.0002 14.4487 28.8487 14.0744 28.5778 13.7944L28.5699 13.7863L28.5621 13.7779L17.9397 2.29413L17.9394 2.29383C16.44 0.67154 13.9094 0.571882 12.2871 2.0712L22.25 22.4827ZM22.25 22.4827C22.2197 18.4049 18.8215 15.1218 14.8239 15.2183C10.9559 15.3116 7.77705 18.5398 7.75 22.4832H7.74998V22.4901V28.9901M22.25 22.4827L7.74998 28.9901M7.74998 28.9901H3.75C2.23123 28.9901 1 27.7589 1 26.2401V14.8576L1 14.8574C0.999895 14.4611 1.15656 14.0809 1.43577 13.7998L1.44855 13.787L1.46086 13.7736L12.0645 2.29373C12.1355 2.21694 12.2097 2.14276 12.2869 2.07132L7.74998 28.9901Z" stroke="#838383" stroke-width="2"/>
                             <path d="M12.25 22.4897C12.25 20.971 13.4812 19.7397 15 19.7397C16.5188 19.7397 17.75 20.971 17.75 22.4897V28.9897H12.25V22.4897Z" stroke="#838383" stroke-width="2"/>
