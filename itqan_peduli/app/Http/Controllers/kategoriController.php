@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use Illuminate\Support\Facades\Storage;
@@ -100,4 +101,13 @@ class kategoriController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function index2()
+    {
+        $categories = Kategori::orderBy('urutan')->get();
+        $campaigns = Campaign::all(); // Ambil semua campaign jika kategori "Semua"
+
+        return view('front.konten.program-user.program', compact('campaigns', 'categories'));
+    }
+
 }

@@ -14,6 +14,30 @@ class campaignController extends Controller
         return view('admin.konten.publikasi_program.donasi', compact('campaigns'));
     }
 
+    public function index2()
+    {
+        $campaigns = Campaign::all()->map(function ($campaign) {
+            $today = now(); // Tanggal sekarang
+            $deadline = $campaign->deadline;
+
+            if ($deadline) {
+                // Hitung hari tersisa dan bulatkan ke bawah
+                $campaign->hari_tersisa = $today->lessThanOrEqualTo($deadline)
+                    ? floor($today->diffInDays($deadline, false)) // Membulatkan ke bawah
+                    : 0; // Berikan nilai 0 jika deadline telah berlalu
+            } else {
+                $campaign->hari_tersisa = null; // Null untuk campaign tanpa deadline
+            }
+
+            return $campaign;
+        });
+
+        $categories = Kategori::orderBy('urutan')->get();
+
+        return view('front.konten.program-user.program', compact('campaigns', 'categories'));
+    }
+
+
     public function create()
     {
         $categories = Kategori::orderBy('urutan')->get();
@@ -144,4 +168,14 @@ class campaignController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function show($id)
+    {
+        // Cari campaign berdasarkan ID
+        $campaign = Campaign::findOrFail($id);
+
+        // Kirim data campaign ke view
+        return view('front.konten.artikel.artikel', compact('campaign'));
+    }
+
 }

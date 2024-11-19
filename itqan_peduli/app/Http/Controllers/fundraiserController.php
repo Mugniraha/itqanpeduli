@@ -202,6 +202,53 @@ public function pengaturan()
     ]);
 }
 
+public function edit($id)
+{
+    $fundraiser = Fundraiser::findOrFail($id);
+
+    return view('admin.konten.fundraiser.edit', compact('fundraiser'));
+}
+
+public function update(Request $request, $id)
+{
+    // Validasi input
+    $request->validate([
+        'tipe' => 'required',
+        'nama' => 'required',
+        'no_telepon' => 'required',
+        'email' => 'required|email',
+        'provinsi' => 'required',
+        'kabkota' => 'required',
+    ]);
+
+    $fundraiser = Fundraiser::findOrFail($id);
+    $fundraiser->tipe = $request->input('tipe');
+    $fundraiser->nama = $request->input('nama');
+    $fundraiser->no_telepon = $request->input('no_telepon');
+    $fundraiser->email = $request->input('email');
+    $fundraiser->provinsi = $request->input('provinsi');
+    $fundraiser->kabkota = $request->input('kabkota');
+
+    // Update password if provided
+    if ($request->has('password') && $request->input('password') !== null) {
+        $request->validate([
+            'password' => 'confirmed',
+        ]);
+        $fundraiser->password = bcrypt($request->input('password'));
+    }
+
+    $fundraiser->save();
+
+    return redirect()->route('fundraisers.index')->with('success', 'Data fundraiser berhasil diperbarui.');
+}
+
+public function destroy($id)
+{
+    $fundraiser = Fundraiser::findOrFail($id);
+    $fundraiser->delete();
+
+    return redirect()->route('fundraisers.index')->with('success', 'Data fundraiser berhasil dihapus.');
+}
 
 
 

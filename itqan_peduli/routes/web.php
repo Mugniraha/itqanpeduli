@@ -189,6 +189,10 @@ Route::get('/inputmediaberbagi', function () {
 
 
 Route::get('/fundraisers', [fundraiserController::class, 'index'])->name('fundraisers.index');
+Route::get('/fundraisers/{id}/edit', [FundraiserController::class, 'edit'])->name('fundraisers.edit');
+Route::put('/fundraisers/{id}', [FundraiserController::class, 'update'])->name('fundraisers.update');
+Route::delete('/fundraisers/{id}', [FundraiserController::class, 'destroy'])->name('fundraisers.destroy');
+
 // Route::get('/akun-fundraiser', [FundraiserController::class, 'akun'])->name('fundraisers.akun');
 Route::get('/akun-fundraiser/{id}', [fundraiserController::class, 'akun'])->name('fundraisers.akun');
 Route::get('/duta-amal', [fundraiserController::class, 'create'])->name('fundraisers.create');
@@ -202,6 +206,7 @@ Route::get('/export-leaderboard', function () {
     return Excel::download(new LeaderboardExport, 'leaderboard.xlsx');
 })->name('export.leaderboard');
 Route::get('/tranfun', [transaksiFundraiserController::class, 'index'])->name('transaksifundraiser.index');
+Route::get('/pembayaran', [transaksiFundraiserController::class, 'index2'])->name('transaksifundraiser.index2');
 Route::get('/detail-transaksi', function () {
     return view('admin.konten.fundraiser.detail');
 });
@@ -488,9 +493,9 @@ Route::get('/inputkelolaNotifikasi', function () {
 //     return view('admin.konten.penyaluranDana.pengaturan');
 // });
 
-Route::get('/pembayaran', function() {
-    return view('admin.konten.penyaluranDana.pembayaran');
-});
+// Route::get('/pembayaran', function() {
+//     return view('admin.konten.penyaluranDana.pembayaran');
+// });
 
 
 
@@ -587,9 +592,8 @@ Route::get('/program', function () {
     return view('front.konten.program.program');
 });
 
-Route::get('/artikel', function () {
-    return view('front.konten.program.artikel');
-});
+Route::get('/artikel/{id}', [campaignController::class, 'show'])->name('campaign.show');
+
 
 Route::get('/donatur', function () {
     return view('front.konten.program.donatur');
@@ -685,7 +689,9 @@ Route::resource('article', ArticleController::class);
 //BE
 //USER
 Route::resource('home1', homeController::class);
-Route::resource('program-user', programController::class);
+Route::get('/program-user', [kategoriController::class, 'index2'])->name('user.program');
+Route::get('/program-user', [campaignController::class, 'index2']);
+// Route::get('/program-user/filter/{categoryId}', [campaignController::class, 'filterByCategory'])->name('campaigns.filter');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
