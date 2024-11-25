@@ -8,9 +8,9 @@
             </a>
         </div>
         <div class="kanan my-auto">
-            <a type="button" href="#" class="text-green-700 bg-white p-5 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-lg px-px py-2.5 w-32 h-12 text-center">
-                Export
-            </a>
+        <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
+                <a href="{{ route('danaTerkumpul.export') }}" class="text-green-700">Export</a>
+            </div>
         </div>
     </div>
     <div class="konten bg-white shadow-md mt-10 py-5 pb-10">

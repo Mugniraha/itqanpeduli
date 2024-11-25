@@ -4,6 +4,7 @@
 use App\Exports\TransaksiExport;
 use App\Exports\TransaksiOfflineExport;
 use App\Exports\TransaksiOnlineExport;
+use App\Exports\DanaTerkumpulExport;
 use App\Exports\TransaksiManualExport;
 // use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\ArticleCategoryController;
@@ -117,6 +118,9 @@ Route::get('/transaksi-manual/export', function () {
     return Excel::download(new TransaksiManualExport, 'transaksi_manual.xlsx');
 })->name('transaksiManual.export');
 
+Route::get('/dana-terkumpul/export', function () {
+    return Excel::download(new DanaTerkumpulExport, 'dana_tekumpul.xlsx');
+})->name('danaTerkumpul.export');
 
 
 Route::resource('semuaDonatur', danaDonaturController::class);
@@ -162,7 +166,7 @@ Route::post('/midtrans/transaction/{id}', [hitungZakatController::class, 'create
 Route::post('/zakat/{id}/bayar-manual', [hitungZakatController::class, 'bayarManual'])->name('zakat.bayarManual');
 
 
-Route::get('/danaTerkummpul', function () {
+Route::get('/dana-terkumpul', function () {
     return view('admin.konten.danaTerkumpul.index');
 });
 Route::get('/detail-dana', function () {
