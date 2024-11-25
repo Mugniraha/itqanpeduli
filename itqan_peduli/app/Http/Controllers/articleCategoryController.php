@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
 
-class ArticleCategoryController extends Controller
+class articleCategoryController extends Controller
 {
     /**
      * Display a listing of the categories.

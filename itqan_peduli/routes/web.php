@@ -1,5 +1,11 @@
 <?php
 
+
+use App\Exports\TransaksiExport;
+use App\Exports\TransaksiOfflineExport;
+use App\Exports\TransaksiOnlineExport;
+use App\Exports\TransaksiManualExport;
+// use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BannerController;
@@ -94,6 +100,24 @@ Route::delete('/deleteDetailTransaksi', [transaksiController::class, 'deleteDeta
 Route::get('transaksiOnline', [transaksiController::class, 'showTransaksiOnline'])->name('transaksiOnline');
 Route::get('transaksiOnlineManual', [transaksiController::class, 'showTransaksiOnlineManual'])->name('transaksiOnlineManual');
 Route::get('transaksiOffline', [transaksiController::class, 'showTransaksiOffline'])->name('transaksiOffline');
+
+Route::get('/transaksi/export', function () {
+    return Excel::download(new TransaksiExport, 'transaksi_donasi.xlsx');
+})->name('transaksi.export');
+
+Route::get('/transaksi-offline/export', function () {
+    return Excel::download(new TransaksiOfflineExport, 'transaksi_offline.xlsx');
+})->name('transaksiOffline.export');
+
+Route::get('/transaksi-online/export', function () {
+    return Excel::download(new TransaksiOnlineExport, 'transaksi_online.xlsx');
+})->name('transaksiOnline.export');
+
+Route::get('/transaksi-manual/export', function () {
+    return Excel::download(new TransaksiManualExport, 'transaksi_manual.xlsx');
+})->name('transaksiManual.export');
+
+
 
 Route::resource('semuaDonatur', danaDonaturController::class);
 Route::get('donaturSukses', [danaDonaturController::class, 'showDonaturSukses'])->name('donaturSukses');
