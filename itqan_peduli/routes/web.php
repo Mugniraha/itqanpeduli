@@ -1,10 +1,13 @@
 <?php
 
 
+use App\Exports\DonaturSuksesExport;
+use App\Exports\DonaturGagalExport;
 use App\Exports\TransaksiExport;
 use App\Exports\TransaksiOfflineExport;
 use App\Exports\TransaksiOnlineExport;
 use App\Exports\DanaTerkumpulExport;
+use App\Exports\DataDonaturExport;
 use App\Exports\TransaksiManualExport;
 // use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\ArticleCategoryController;
@@ -121,6 +124,20 @@ Route::get('/transaksi-manual/export', function () {
 Route::get('/dana-terkumpul/export', function () {
     return Excel::download(new DanaTerkumpulExport, 'dana_tekumpul.xlsx');
 })->name('danaTerkumpul.export');
+
+Route::get('/semua-donatur/export', function () {
+    return Excel::download(new DataDonaturExport, 'semua_donatur.xlsx');
+})->name('semuaDonatur.export');
+
+Route::get('/donatur-sukses/export', function () {
+    return Excel::download(new DonaturSuksesExport, 'donatur_sukses.xlsx');
+})->name('donatur-sukses.export');
+
+Route::get('/donatur-gagal/export', function () {
+    return Excel::download(new DonaturGagalExport, 'donatur_gagal.xlsx');
+})->name('donatur-gagal.export');
+
+
 
 
 Route::resource('semuaDonatur', danaDonaturController::class);

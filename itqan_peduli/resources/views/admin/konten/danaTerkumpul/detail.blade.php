@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="kanan my-auto">
-        <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
+            <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
                 <a href="{{ route('danaTerkumpul.export') }}" class="text-green-700">Export</a>
             </div>
         </div>

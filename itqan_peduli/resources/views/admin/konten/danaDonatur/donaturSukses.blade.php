@@ -7,7 +7,7 @@
                 <p class="text-sm text-gray-300 font-semibold">Pantau Semua Data Donatur</p>
             </div>
             <div class="flex items-center justify-center text-center bg-white rounded-md my-auto px-8 h-10 hover:bg-green-50">
-                <a class="text-green-700">Export</a>
+                <a href="{{ route('donatur-sukses.export') }}" class="text-green-700">Export</a>
             </div>
         </div>
     </div>
