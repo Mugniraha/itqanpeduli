@@ -11,9 +11,9 @@
 </style>
     <div class="bungkus bg-white min-h-screen overflow-auto">
         <div class="header relative">
-            <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="h-80 object-cover bg-black rounded w-full">
+            <img src="{{ $campaign->photo }}" alt="{{ $campaign->title }}" class="h-80 object-cover bg-black rounded w-full">
             <div class="absolute top-0 left-0 my-10 mx-5">
-                <a href="/program-user" class="">
+                <a href="/program-user">
                     <svg class="w-7 h-7 text-green-600 p-0.5 rounded-full bg-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
                     </svg>
@@ -21,16 +21,23 @@
             </div>
         </div>
         <div class="konten m-5">
-            <p class="font-bold my-2">Donasi Untuk Meningkatkan Kualitas Gedung Polindra</p>
+            <p class="font-bold my-2">{{ $campaign->title }}</p>
             <div class="dana flex my-3">
-                <p class="font-bold">Rp13.205.500</p>
-                <p class="text-gray-400 text-sm my-auto mx-1.5">Dari Rp13.205.500</p>
+                <p class="font-bold">Rp. {{ number_format($totalDanaTerkumpul, 0, ',', '.') }}</p>
+                <p class="text-gray-400 text-sm my-auto mx-1.5">Dari Rp{{ number_format($campaign->target, 0, ',', '.') }}</p>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
+            @php
+                $target = is_numeric($campaign->target) ? (float)$campaign->target : 0;
+                $terkumpul = is_numeric($campaign->totalDanaTerkumpul) ? (float)$campaign->totalDanaTerkumpul : 0;
+                $progress = $target > 0 ? min(($terkumpul / $target) * 100, 100) : 0;
+            @endphp
+            <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
             </div>
             <div class="dana flex justify-between my-2">
-                <p class="text-gray-400 text-xs my-auto mx-1.5">135 Hari Lagi</p>
+                <p class="text-gray-400 text-xs my-auto mx-1.5">
+                    {{ intval(now()->diffInDays($campaign->deadline)) }} Hari Lagi
+                </p>
                 <p class="font-bold text-sm cursor-pointer" id="showModal">Lihat Rincian Dana</p>
             </div>
             <a href="/yayasan" class="flex my-3 rounded-2xl p-4 border border-gray-400">
@@ -44,7 +51,7 @@
                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
                         </svg>
                     </div>
-                    <p class="text-xs text-gray-400">Terdaftar sejak 29 mei 2022</p>
+                    <p class="text-xs text-gray-400">Terdaftar sejak 29 Mei 2022</p>
                 </div>
                 <svg class="w-7 h-7 text-gray-800 my-auto ms-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 16 4-4-4-4"/>
@@ -53,7 +60,7 @@
             <div class="des my-5">
                 <p class="font-bold">Deskripsi</p>
                 <div class="truncate-text max-h-12 overflow-hidden mt-3">
-                    <p class="text-sm leading-snug">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis omnis, facilis tenetur asperiores dolore voluptates at odio suscipit, nesciunt quis sit distinctio esse aperiam cum officia sapiente laudantium facere modi nihil praesentium dolorum voluptas! Voluptatem vel sed saepe mollitia quis fugit aspernatur accusamus. Alias ducimus tenetur provident pariatur id? Accusamus!</p>
+                    <p class="text-sm leading-snug">{{ $campaign->content }}</p>
                 </div>
                 <a href="/detail-kabar">
                     <button class="p-2 bg-green-700 text-white text-sm font-bold mt-3 w-full rounded-md">Muat Lebih Banyak</button>
@@ -61,117 +68,107 @@
             </div>
             <div class="kabar my-10">
                 <div class="atas flex justify-between">
-                    <p class="font-bold text-sm">Kabar Terbaru <span class="bg-gray-50 px-2.5 py-1 border border-gray-400 rounded-full">4</span></p>
+                    <p class="font-bold text-sm">
+                        Kabar Terbaru 
+                        <span class="bg-gray-50 px-2.5 py-1 border border-gray-400 rounded-full">
+                            {{ $articles->count() }}
+                        </span>
+                    </p>
                     <a href="/kabar-terbaru" class="text-xs text-gray-400 my-auto font-semibold">Lihat Semua</a>
                 </div>
-                <div class="card shadow-md rounded-lg my-4 flex">
-                    <div class="kiri">
-                        <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="h-20 bg-black rounded-l-lg px-5 py-2">
+                
+                @if($articles->isEmpty())
+                    <p class="text-gray-500 text-center mt-4">Tidak ada data blog</p>
+                @else
+                    @foreach($articles as $article)
+                    <div class="card shadow-md rounded-lg my-4 flex">
+                        <div class="kiri">
+                            <img src="{{ $article->image_url }}" alt="" class="h-20 bg-black rounded-l-lg px-5 py-2">
+                        </div>
+                        <div class="kanan my-auto ms-2">
+                            <p class="text-sm">{{ $article->category }}</p>
+                            <p class="text-sm">{{ $article->title }}</p>
+                            <p class="text-xs text-gray-500">{{ $article->created_at->format('d M Y') }}</p>
+                        </div>
                     </div>
-                    <div class="kanan my-auto ms-2">
-                        <p class="text-sm">#Solidaritas Untuk Korban</p>
-                        <p class="text-sm">Gempa Cianjur</p>
-                        <p class="text-xs text-gray-500">22 Agustus 2022</p>
-                    </div>
-                </div>
-                <div class="card shadow-md rounded-lg my-4 flex">
-                    <div class="kiri">
-                        <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="h-20 bg-black rounded-l-lg px-5 py-2">
-                    </div>
-                    <div class="kanan my-auto ms-2">
-                        <p class="text-sm">#Solidaritas Untuk Korban</p>
-                        <p class="text-sm">Gempa Cianjur</p>
-                        <p class="text-xs text-gray-500">22 Agustus 2022</p>
-                    </div>
-                </div>
-                <div class="card shadow-md rounded-lg my-4 flex">
-                    <div class="kiri">
-                        <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="h-20 bg-black rounded-l-lg px-5 py-2">
-                    </div>
-                    <div class="kanan my-auto ms-2">
-                        <p class="text-sm">#Solidaritas Untuk Korban</p>
-                        <p class="text-sm">Gempa Cianjur</p>
-                        <p class="text-xs text-gray-500">22 Agustus 2022</p>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
+
+
             <div class="donatur">
                 <div class="atas flex justify-between">
-                <p class="font-bold text-sm">Donatur<span class="bg-gray-50 ms-2 px-2.5 py-1 border border-gray-400 rounded-full">4</span></p>
-                <a href="/donatur-user" class="text-gray-400 text-xs my-auto">Lihat Semua</a>
+                    <p class="font-bold text-sm">
+                        Donatur
+                        <span class="bg-gray-50 ms-2 px-2.5 py-1 border border-gray-400 rounded-full">
+                            {{ $donaturs->count() }}
+                        </span>
+                    </p>
+                    <a href="/donatur-user" class="text-gray-400 text-xs my-auto">Lihat Semua</a>
                 </div>
-                <div class="card shadow-md rounded-lg flex p-3">
-                    <div class="kiri w-36">
-                        <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="text-center h-16 my-auto bg-black rounded-full">
-                    </div>
-                    <div class="kanan my-auto ms-2 w-full">
-                        <div class="kiri flex justify-between w-full">
-                        <p class="text-sm font-semibold">Hamba Allah</p>
-                        <p class="text-xs text-gray-500 ms-10">22 Agustus 2022</p>
-                        </div>
-                        <p class="text-sm font-bold">Donasi Rp 10.000</p>
-                    </div>
-                </div>
-                <div class="card shadow-md py-2 rounded-lg my-4">
-                    <div class="atas flex p-3">
-                        <div class="kiri w-36">
-                            <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="text-center h-16 my-auto bg-black rounded-full">
-                        </div>
-                        <div class="kanan my-auto ms-2 w-full">
-                            <div class="kiri flex justify-between w-full">
-                            <p class="text-sm font-semibold">Hamba Allah</p>
-                            <p class="text-xs text-gray-500 ms-10">22 Agustus 2022</p>
+
+                @if ($donaturs->isEmpty())
+                    <p class="text-gray-500 text-center mt-4">Tidak ada data donatur</p>
+                @else
+                    @foreach ($donaturs as $donatur)
+                        <div class="card shadow-md rounded-lg flex p-3 my-4">
+                            <div class="kiri w-36">
+                                <img src="/images/default-avatar.png" alt="Avatar" class="text-center h-16 my-auto bg-gray-200 rounded-full">
                             </div>
-                            <p class="text-sm font-bold">Donasi Rp 10.000</p>
+                            <div class="kanan my-auto ms-2 w-full">
+                                <div class="flex justify-between w-full">
+                                    <p class="text-sm font-semibold">
+                                        {{ $donatur->nama_donatur ?? 'Hamba Allah' }}
+                                    </p>
+                                    <p class="text-xs text-gray-500 ms-10">
+                                        {{ \Carbon\Carbon::parse($donatur->tgl_transaksi)->format('d M Y') }}
+                                    </p>
+                                </div>
+                                <p class="text-sm font-bold">
+                                    Donasi Rp {{ number_format($donatur->jumlah_donasi, 0, ',', '.') }}
+                                </p>
+                                @if ($donatur->doa)
+                                    <p class="text-sm text-gray-600 mt-2">"{{ $donatur->doa }}"</p>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <p class="text-sm px-3 pt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe optio pariatur esse, delectus eveniet repellendus consequuntur beatae laboriosam facilis minus?</p>
-                    <p class="font-semibold text-sm p-3">11 Orang Mengaminkan doa ini</p>
-                    <div class="bawah flex justify-between p-3">
-                        <div class="kiri w-full justify-center flex my-auto pt-2 border-t border-r">
-                            <svg class="w-6 h-6 me-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
-                            </svg>
-                            <p>Aamiin</p>
-                        </div>
-                        <div class="kanan w-full my-auto justify-center flex pt-2 border-t border-l">
-                            <svg class="w-6 h-6 me-2 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.926 10.898 15 7.727m-7.074 5.39L15 16.29M8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm12 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm0-11a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
-                            </svg>
-                            <p>Bagikan</p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
+
+
             <div class="duta mt-10 mb-32">
                 <div class="atas flex justify-between">
-                    <p class="font-bold text-sm">Duta Amal<span class="bg-gray-50 ms-2 px-2.5 py-1 border border-gray-400 rounded-full">4</span></p>
+                    <p class="font-bold text-sm">Duta Amal
+                        <span class="bg-gray-50 ms-2 px-2.5 py-1 border border-gray-400 rounded-full">
+                            {{ $fundraisers->count() }}
+                        </span>
+                    </p>
                     <a href="/duta-amal-1" class="text-gray-400 text-xs my-auto">Lihat Semua</a>
                 </div>
-                <div class="card shadow-md rounded-lg flex p-3">
-                    <div class="kiri w-36 my-auto">
-                        <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="text-center h-16 my-auto bg-black rounded-full">
+
+                @if($fundraisers->isEmpty())
+                    <p class="text-gray-500 text-center mt-4">Tidak ada data fundraiser</p>
+                @else
+                    @foreach($fundraisers as $fundraiser)
+                    <div class="card shadow-md rounded-lg flex p-3 my-4">
+                        <div class="kiri w-36 my-auto">
+                            <img src="/images/default-fundraiser.png" alt="{{ $fundraiser->nama }}" class="text-center h-16 my-auto bg-black rounded-full">
+                        </div>
+                        <div class="kanan my-auto ms-2 w-full">
+                            <p class="text-sm font-semibold">{{ $fundraiser->nama }}</p>
+                            <p class="text-xs text-gray-500 my-1.5">{{ $fundraiser->provinsi }}</p>
+                            <p class="text-sm font-bold">{{ $fundraiser->tipe }}</p>
+                        </div>
                     </div>
-                    <div class="kanan my-auto ms-2 w-full">
-                        <p class="text-sm font-semibold">Mughni</p>
-                        <p class="text-xs text-gray-500 my-1.5">Berhasil mengajak 112 orang untuk berdonasi</p>
-                        <p class="text-sm font-bold">Donasi Rp 10.000</p>
-                    </div>
-                </div>
-                <div class="card shadow-md rounded-lg flex p-3">
-                    <div class="kiri w-36 my-auto">
-                        <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="text-center h-16 my-auto bg-black rounded-full">
-                    </div>
-                    <div class="kanan my-auto ms-2 w-full">
-                        <p class="text-sm font-semibold">Mughni</p>
-                        <p class="text-xs text-gray-500 my-1.5">Berhasil mengajak 112 orang untuk berdonasi</p>
-                        <p class="text-sm font-bold">Donasi Rp 10.000</p>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
+
                 <a href="/duta-amal">
                     <button class="bg-green-600 px-5 my-10 py-2 rounded-md text-white text-sm font-semibold w-full">Jadi Duta Amal</button>
                 </a>
             </div>
+
         </div>
     </div>
 

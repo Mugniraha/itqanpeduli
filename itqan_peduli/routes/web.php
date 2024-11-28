@@ -148,12 +148,12 @@ Route::resource('fundraiser', fundraiserController::class);
 Route::get('leaderboard', [fundraiserController::class, 'showLeaderboard'])->name('leaderboard');
 Route::get('fundraiserTransaksi', [fundraiserController::class, 'showTransaksi'])->name('fundraiserTransaksi');
 
-Route::get('admin',[pengaturan_userController::class, 'showAdmin'])->name('admin');
-Route::get('akunting',[pengaturan_userController::class, 'showAkunting'])->name('akunting');
-Route::get('donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
-Route::get('fundraiserUser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
-Route::get('gerai',[pengaturan_userController::class, 'showGerai'])->name('gerai');
-Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('program');
+Route::get('admin', [pengaturan_userController::class, 'showAdmin'])->name('admin');
+Route::get('program', [pengaturan_userController::class, 'showProgram'])->name('program');
+Route::get('akunting', [pengaturan_userController::class, 'showAkunting'])->name('akunting');
+Route::get('gerai', [pengaturan_userController::class, 'showGerai'])->name('gerai');
+Route::get('donatur', [pengaturan_userController::class, 'showDonatur'])->name('donatur');
+Route::get('fundraiser-user', [pengaturan_userController::class, 'showFundraiser'])->name('fundraiser-user');
 
 
 Route::resource('template', notifikasiWAController::class);
@@ -383,7 +383,13 @@ Route::get('/rincian-pembayaran', function () {
     return view('front.konten.pembayaranZakat.rincianPembayaran');
 });
 
+// Route::get('/donasi-program', function () {
+//     return view('front.konten.program-user.donasi-program');
+// });
 
+// Route::get('/pembayaran-program', function () {
+//     return view('front.konten.program-user.donasi');
+// });
 //front akun
 // 
 
@@ -450,9 +456,9 @@ Route::get('/ubah-profile', function () {
 //     return view('admin.web utama.katblog');
 // });
 
-// Route::get('/blog', function () {
-//     return view('admin.web utama.blog');
-// });
+Route::get('/edit-blog', function () {
+    return view('admin.konten.webUtama.editblog');
+});
 
 // Route::get('/kegiatan', function () {
 //     return view('admin.web utama.kegiatan');
@@ -633,16 +639,18 @@ Route::post('/upload-profile-image', [FundraiserController::class, 'uploadProfil
 
 
 
-Route::get('/program', function () {
-    return view('front.konten.program.program');
-});
+// Route::get('/program', function () {
+//     return view('front.konten.program.program');
+// });
 
-Route::get('/artikel/{id}', [campaignController::class, 'show'])->name('campaign.show');
+// Route::get('/artikel/{id}', action: [articleController::class, 'index2'])->name('artikel.index2');
+Route::get('/artikel/{id}', action: [campaignController::class, 'show2'])->name('campaign.show2');
 
+Route::get('/donasi-program/{id}', action: [campaignController::class, 'index3'])->name('donasi.program');
 
-Route::get('/donatur', function () {
-    return view('front.konten.program.donatur');
-});
+// Route::get('/donatur', function () {
+//     return view('front.konten.program.donatur');
+// });
 
 Route::get('/yayasan', function () {
     return view('front.konten.program.yayasan');
@@ -654,9 +662,9 @@ Route::get('/duta', function () {
 // Route::get('/program-user', function () {
 //     return view('front.konten.program-user.program');
 // });
-Route::get('/artikel', function () {
-    return view('front.konten.artikel.artikel');
-});
+// Route::get('/artikel', function () {
+//     return view('front.konten.artikel.artikel');
+// });
 Route::get('/yayasan', function () {
     return view('front.konten.yayasan.yayasan');
 });
@@ -736,6 +744,7 @@ Route::resource('article', ArticleController::class);
 Route::resource('home1', homeController::class);
 Route::get('/program-user', [kategoriController::class, 'index2'])->name('user.program');
 Route::get('/program-user', [campaignController::class, 'index2']);
+// Route::get('/program-user', [campaignController::class, 'index3']);
 // Route::get('/program-user/filter/{categoryId}', [campaignController::class, 'filterByCategory'])->name('campaigns.filter');
 Route::middleware([
     'auth:sanctum',

@@ -29,7 +29,7 @@
             <a class="mx-3" href="{{route('donatur')}}">Donatur</a>
         </div>
         <div class="bg-white p-2 text-blue-600 font-normal rounded-t-sm">
-            <a class="mx-3" href="{{url('fundraiserUser')}}">Fundraiser</a>
+            <a class="mx-3" href="{{url('fundraiser-user')}}">Fundraiser</a>
         </div>
     </div>
     <div class="relative overflow-x-auto sm:rounded-sm p-5">

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
+use App\Models\Article;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB; 
 
 class campaignController extends Controller
 {
@@ -17,24 +19,44 @@ class campaignController extends Controller
     public function index2()
     {
         $campaigns = Campaign::all()->map(function ($campaign) {
-            $today = now(); // Tanggal sekarang
-            $deadline = $campaign->deadline;
-
+            $today = now();
+            $deadline = $campaign->deadline ? \Carbon\Carbon::parse($campaign->deadline) : null;
+        
             if ($deadline) {
-                // Hitung hari tersisa dan bulatkan ke bawah
-                $campaign->hari_tersisa = $today->lessThanOrEqualTo($deadline)
-                    ? floor($today->diffInDays($deadline, false)) // Membulatkan ke bawah
-                    : 0; // Berikan nilai 0 jika deadline telah berlalu
+                if ($today->lessThanOrEqualTo($deadline)) {
+                    $campaign->hari_tersisa = floor($today->diffInDays($deadline));
+                    $campaign->is_expired = false;
+                } else {
+                    $campaign->hari_tersisa = 0;
+                    $campaign->is_expired = true;
+                }
             } else {
-                $campaign->hari_tersisa = null; // Null untuk campaign tanpa deadline
+                $campaign->hari_tersisa = null;
+                $campaign->is_expired = false;
             }
-
+    
+            // Hitung total dana terkumpul per campaign
+            $totalDanaTerkumpul = DB::table(table: 'transaksi_zakat')
+                ->where('nama_program_zakat', $campaign->title)
+                ->where('status', 'approved') // Hanya transaksi yang disetujui
+                ->sum('nominal_total');
+            
+            // Simpan total dana terkumpul ke dalam objek campaign
+            $campaign->totalDanaTerkumpul = $totalDanaTerkumpul;
+    
             return $campaign;
         });
-
+    
+        // Ambil kategori kampanye
         $categories = Kategori::orderBy('urutan')->get();
-
+        
+        // Kirim data ke tampilan
         return view('front.konten.program-user.program', compact('campaigns', 'categories'));
+    }
+    
+    public function index3($id) {
+        $campaign = Campaign::find($id); // Ambil data campaign berdasarkan ID
+        return view('front.konten.program-user.donasi-program', compact('campaign'));
     }
 
 
@@ -169,13 +191,36 @@ class campaignController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function show($id)
+    public function show2($id)
     {
-        // Cari campaign berdasarkan ID
         $campaign = Campaign::findOrFail($id);
-
-        // Kirim data campaign ke view
-        return view('front.konten.artikel.artikel', compact('campaign'));
+    
+        // Hitung total dana terkumpul dari transaksi terkait program ini
+        $totalDanaTerkumpul = DB::table('transaksi_zakat')
+            ->where('nama_program_zakat', $campaign->title)
+            ->where('status', 'approved') // Hanya transaksi yang disetujui
+            ->sum('nominal_total');
+    
+        $campaign->totalDanaTerkumpul = $totalDanaTerkumpul;
+    
+        // Ambil artikel terbaru
+        $articles = Article::latest()->take(4)->get();
+    
+        // Ambil data donatur terkait program ini
+        $donaturs = DB::table('transaksi_zakat')
+            ->where('nama_program_zakat', $campaign->title)
+            ->where('status', 'approved') // Hanya transaksi yang disetujui
+            ->select('nama_donatur', 'nominal_total as jumlah_donasi', 'tgl_transaksi', 'doa')
+            ->latest('tgl_transaksi') // Urutkan berdasarkan tanggal transaksi
+            ->take(4) // Batasi data yang diambil
+            ->get();
+    
+        // Ambil data fundraisers
+        $fundraisers = DB::table('fundraisers')->get();
+    
+        return view('front.konten.artikel.artikel', compact('campaign', 'totalDanaTerkumpul', 'articles', 'donaturs', 'fundraisers'));
     }
+    
+
 
 }

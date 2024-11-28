@@ -14,7 +14,6 @@
             @csrf
             <div class="mb-5">
                 <label for="mediaberbagi_host" class="block mb-2 text-md text-gray-900 dark:text-white">MediaBerbagi Host</label>
-                <label for="mediaberbagi_host" class="block mb-2 text-md text-gray-900">MediaBerbagi Host</label>
                 <input type="text" id="mediaberbagi_host" name="mediaberbagi_host"
                     value="{{ old('mediaberbagi_host', $settings->mediaberbagi_host ?? '') }}"
                     class="block w-full p-2.5 text-gray-900 border border-gray-300 rounded bg-gray-50 text-md focus:ring-blue-500 focus:border-blue-500">

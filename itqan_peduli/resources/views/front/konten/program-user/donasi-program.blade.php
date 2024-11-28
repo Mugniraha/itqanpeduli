@@ -10,15 +10,19 @@
             </svg>
         </div>
         <div class="flex items-center ml-7">
-            <p class="font-semibold">Donasi Instan</p>
+            <p class="font-semibold">Donasi Program</p>
         </div>
     </div>
 </div>
 
 <div class="mt-20">
-    <div class="mx-8 mb-6 mt-10">
-        <p class="font-bold mb-0.5">Donasi Instan</p>
-        <p class="font-semibold">Buat kegiatan donasimu lebih mudah disini</p>
+    <div class="mx-8 flex items-center py-5 justify-around rounded-lg shadow-lg border mb-6 mt-10">
+        <div class="kiri">
+            <img src="/images/whatsapp1.png" alt="" class="w-20 h-20 mx-5">
+        </div>
+        <div class="kanan">
+            <p class="font-bold mx-2">{{ $campaign->title }}</p>
+        </div>
     </div>
     <div class="mx-8 grid gap-3 ">
         <div class="relative" id="nominal-input-container">

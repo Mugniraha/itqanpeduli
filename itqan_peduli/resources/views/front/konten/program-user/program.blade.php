@@ -46,12 +46,14 @@
         <p class="font-bold ms-7">Berdasarkan Kategori</p>
         <div class="konten mt-3">
             <div class="overflow-x-scroll no-scrollbar h-18 mt-2 whitespace-nowrap flex">
-                @foreach ($categories as $category)
-                    <a href="#" class="inline-block text-center mx-6">
-                        <button data-kategori="{{ $category->id }}" class="block bg-gray-200 rounded-full w-14 h-14 flex items-center justify-center mx-auto hover:bg-gray-300">
-                            <img src="{{ asset('storage/' . $category->icon) }}" alt="{{ $category->name }}" class="w-8 h-8">
-                        </button>
-                        <p class="text-sm text-gray-900 mt-2 font-semibold">{{ $category->name }}</p>
+                @foreach ($categories as $kategori)
+                    <a href="#" class="inline-block text-center mx-6" data-kategori="{{ $kategori->name }}">
+                        <div class="flex items-center justify-center">
+                            <div class="w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('storage/' . $kategori->icon )}}" alt="{{ $kategori->name }}">
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-900 mt-2 font-semibold">{{ $kategori->name }}</p>
                     </a>
                 @endforeach
             </div>
@@ -59,19 +61,29 @@
 
         <div class="konten1 max-w-md mx-auto">
             @foreach ($campaigns as $campaign)
-                <a href="/artikel/{{ $campaign->id }}" class="kotak flex my-5 p-2 rounded-md kategori-semua kategori-{{ $campaign->category }}" style="box-shadow: 0 1px 3px 0 gray;">
+                <a href="{{ $campaign->is_expired ? '#' : '/artikel/' . $campaign->id }}" 
+                class="kotak flex my-5 p-2 rounded-md kategori-semua kategori-{{ $campaign->category }} {{ $campaign->is_expired ? 'pointer-events-none opacity-50' : '' }}" 
+                style="box-shadow: 0 1px 3px 0 gray;">
                     <div class="kiri w-32 me-3">
                         <img src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title }}" class="h-24 bg-black rounded w-full">
                     </div>
                     <div class="kanan w-full">
                         <p class="font-semibold text-xs">{{ $campaign->title }}</p>
+
+                        @php
+                            $target = is_numeric($campaign->target) ? (float)$campaign->target : 0;
+                            $terkumpul = is_numeric($campaign->totalDanaTerkumpul) ? (float)$campaign->totalDanaTerkumpul : 0;
+                            $progress = $target > 0 ? min(($terkumpul / $target) * 100, 100) : 0;
+                        @endphp
+
                         <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
-                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
                         </div>
+                        
                         <div class="flex justify-between">
                             <div class="kiri text-xs">
                                 <p class="mb-0.5">Terkumpul</p>
-                                <p class="font-bold">Rp.130.000</p>
+                                <p class="font-bold">Rp. {{ number_format($terkumpul, 0, ',', '.') }}</p>
                             </div>
                             <div class="kanan text-xs">
                                 <p class="mb-0.5">Hari Tersisa</p>
@@ -90,6 +102,7 @@
                 </a>
             @endforeach
         </div>
+
 
     </div>
 </div>

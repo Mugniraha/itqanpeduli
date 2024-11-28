@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Campaign;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Facades\Storage;
 
-class ArticleController extends Controller
+class articleController extends Controller
 {
     public function index()
     {
@@ -81,5 +83,10 @@ class ArticleController extends Controller
         $article->delete();
         return redirect()->route('article.index')->with('success', 'Article deleted successfully.');
     }
+
+    // public function index2()
+    // {
+    //     return view('front.konten.artikel.artikel', compact('articles'));
+    // }
 }
 
