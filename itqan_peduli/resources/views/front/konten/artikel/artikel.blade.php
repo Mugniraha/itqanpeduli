@@ -157,7 +157,7 @@
                         </div>
                         <div class="kanan my-auto ms-2 w-full">
                             <p class="text-sm font-semibold">{{ $fundraiser->nama }}</p>
-                            <p class="text-xs text-gray-500 my-1.5">{{ $fundraiser->provinsi }}</p>
+                            <p class="text-xs text-gray-500 my-1.5">{{ $fundraiser->email }}</p>
                             <p class="text-sm font-bold">{{ $fundraiser->tipe }}</p>
                         </div>
                     </div>
