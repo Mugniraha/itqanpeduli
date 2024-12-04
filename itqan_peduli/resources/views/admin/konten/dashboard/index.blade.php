@@ -28,50 +28,50 @@
     <div class="mt-14">
         <span class="text-2xl font-bold font">Statistik</span>
     </div>
-    <div class="grid grid-cols-2  md:grid-cols-3 mt-8 p-4 bg-white">
-        <div class="p-4  mb-1 border-b border-r">
+    <div class="grid grid-cols-2 md:grid-cols-3 mt-8 p-4 bg-white">
+        <div class="p-4 mb-1 border-b border-r">
             <h5 class="font-semibold block mb-0">Program Donasi</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+            <span class="text-gray-500 block mt-0">{{ $programCount }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
+        <div class="p-4 mb-1 border-b border-r">
             <h5 class="font-semibold block mb-0">Donatur Hari Ini</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+            <span class="text-gray-500 block mt-0">{{ $donaturToday }}</span>
         </div>
-        <div class="p-4  mb-1 border-b">
+        <div class="p-4 mb-1 border-b">
             <h5 class="font-semibold block mb-0">Donatur Bulan Ini</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+            <span class="text-gray-500 block mt-0">{{ $donaturThisMonth }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
+        <div class="p-4 mb-1 border-b border-r">
             <h5 class="font-semibold block mb-0">Transaksi Hari Ini</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+            <span class="text-gray-500 block mt-0">{{ $transaksiToday }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
+        <div class="p-4 mb-1 border-b border-r">
             <h5 class="font-semibold block mb-0">Transaksi Bulan Ini</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+            <span class="text-gray-500 block mt-0">{{ $transaksiThisMonth }}</span>
         </div>
-        <div class="p-4  mb-1 border-b ">
+        <div class="p-4 mb-1 border-b">
             <h5 class="font-semibold block mb-0">Dana Terkumpul Hari Ini</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+            <span class="text-gray-500 block mt-0">{{ number_format($danaToday, 0, ',', '.') }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
-            <h5 class="font-semibold block mb-0"> Dana Terkumpul Bulan Ini</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+        <div class="p-4 mb-1 border-b border-r">
+            <h5 class="font-semibold block mb-0">Dana Terkumpul Bulan Ini</h5>
+            <span class="text-gray-500 block mt-0">{{ number_format($danaThisMonth, 0, ',', '.') }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
-            <h5 class="font-semibold block mb-0"> Donasi Menunggu Pembayaran</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+        <div class="p-4 mb-1 border-b border-r">
+            <h5 class="font-semibold block mb-0">Donasi Menunggu Pembayaran</h5>
+            <span class="text-gray-500 block mt-0">{{ $donasiMenungguPembayaran }}</span>
         </div>
-        <div class="p-4  mb-1 border-b ">
-            <h5 class="font-semibold block mb-0"> Dana Menunggu Pembayaran</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+        <div class="p-4 mb-1 border-b">
+            <h5 class="font-semibold block mb-0">Dana Menunggu Pembayaran</h5>
+            <span class="text-gray-500 block mt-0">{{ number_format($danaMenungguPembayaran, 0, ',', '.') }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
-            <h5 class="font-semibold block mb-0"> Donasi Offline</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+        <div class="p-4 mb-1 border-b border-r">
+            <h5 class="font-semibold block mb-0">Donasi Offline</h5>
+            <span class="text-gray-500 block mt-0">{{ $donasiOffline }}</span>
         </div>
-        <div class="p-4  mb-1 border-b border-r">
-            <h5 class="font-semibold block mb-0"> Donasi Online</h5>
-            <span class="text-gray-500 block mt-0">11</span>
+        <div class="p-4 mb-1 border-b border-r">
+            <h5 class="font-semibold block mb-0">Donasi Online</h5>
+            <span class="text-gray-500 block mt-0">{{ $donasiOnline }}</span>
         </div>
     </div>
 
@@ -92,135 +92,29 @@
     <div class="mt-14">
         <span class="text-2xl font-bold font">Donasi Terbaru</span>
     </div>
-
     <div class="relative overflow-x-auto sm:rounded-sm p-5 border-none bg-white">
-        <table id="myTable" class="min-w-full leading-normal stripe w-full text-sm text-left rtl:text-right text-gray-500 bg-white border-none">
-            <thead class="text-xs text-gray-700  bg-white border-none">
-                <tr class="border-none">
-                    <th scope="col" class="px-6 py-3 font-bold text-lg text-black">
-                        #
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-bold text-base text-black">
-                        Nama
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-bold text-base text-black">
-                        Tgl Transaksi
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-bold text-base text-black">
-                        Metode Pembayaran
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-bold text-base text-black">
-                        Nominal
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-bold text-base text-black">
-                        Status
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-bold text-base text-black">
-                        Aksi
-                    </th>
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama</th>
+                    <th>Tgl Transaksi</th>
+                    <th>Metode Pembayaran</th>
+                    <th>Nominal</th>
+                    <th>Status</th>
                 </tr>
             </thead>
-            <tbody class="border-none ">
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b border-none">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Fajar
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        04-07-2024, 11:21
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        BSI
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp 10.669
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Menunggu
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
-                            Lihat Detail
-                        </a>
-                    </td>
-                </tr>
-                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Fajar
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        04-07-2024, 11:21
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        BSI
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp 10.669
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Menunggu
-                    </td>
-                    <td class="px-6 py-4 text-black text-base ">
-                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
-                            Lihat Detail
-                        </a>
-                    </td>
-                </tr>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b border-none">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Fajar
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        04-07-2024, 11:21
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        BSI
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp 10.669
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Menunggu
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
-                            Lihat Detail
-                        </a>
-                    </td>
-                </tr>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50  even:dark:bg-gray-800 border-b border-none">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Fajar
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        04-07-2024, 11:21
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        BSI
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp 10.669
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Menunggu
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        <a href="#" class="text-white text-sm p-1 px-2 bg-green-700 rounded-sm">
-                            Lihat Detail
-                        </a>
-                    </td>
-                </tr>
+            <tbody>
+                @foreach ($donasiTerbaru as $index => $donasi)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $donasi->donatur }}</td>
+                        <td>{{ $donasi->created_at }}</td>
+                        <td>{{ $donasi->metode_pembayaran }}</td>
+                        <td>{{ number_format($donasi->nominal, 0, ',', '.') }}</td>
+                        <td>{{ $donasi->status }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

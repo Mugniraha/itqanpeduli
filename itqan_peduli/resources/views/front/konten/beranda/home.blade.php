@@ -76,17 +76,30 @@
             </a>
             <div class="p-5">
                 <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_mendesak->title }}</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
+                @php
+                    $target = is_numeric($campaign_mendesak->target) ? (float)$campaign_mendesak->target : 0;
+                    $terkumpul = is_numeric($campaign_mendesak->totalDanaTerkumpul) ? (float)$campaign_mendesak->totalDanaTerkumpul : 0;
+                    $progress = $target > 0 ? min(($terkumpul / $target) * 100, 100) : 0;
+                @endphp
+
+                <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
                 </div>
                 <div class="flex justify-between gap-4 mb-2">
                     <div>
                         <p class="text-xs font-normal text-gray-700">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp. {{ number_format($terkumpul, 0, ',', '.') }}</span>
                     </div>
                     <div>
                         <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
+                        <span class="text-sm mb-3 font-semibold text-gray-700">@if ($campaign_mendesak->hari_tersisa === null)
+                                Tidak Ada Deadline
+                            @elseif ($campaign_mendesak->hari_tersisa > 0)
+                                {{ $campaign_mendesak->hari_tersisa }} Hari
+                            @else
+                                Berakhir
+                            @endif
+                        </span>
                     </div>
                 </div>
             </div>
@@ -100,27 +113,42 @@
 </div>
 <div class="mx-8">
     <div class="">
-        @foreach ($campaigns_terpopuler as $campaign_terpopuler)
+    @foreach ($campaigns_terpopuler as $campaign_terpopuler)
         <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow">
             <img class="rounded-s-lg w-1/3 object-cover" src="{{ asset('storage/' . $campaign_terpopuler->photo) }}" alt="Card Image 1" />
             <div class="p-5 w-2/3">
                 <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_terpopuler->title }}</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
+                @php
+                    $target = is_numeric($campaign_terpopuler->target) ? (float)$campaign_terpopuler->target : 0;
+                    $terkumpul = is_numeric($campaign_terpopuler->totalDanaTerkumpul) ? (float)$campaign_terpopuler->totalDanaTerkumpul : 0;
+                    $progress = $target > 0 ? min(($terkumpul / $target) * 100, 100) : 0;
+                @endphp
+
+                <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
                 </div>
-                <div class="flex justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-normal text-gray-700">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
+                <div class="flex justify-between">
+                    <div class="kiri text-xs">
+                        <p class="mb-0.5">Terkumpul</p>
+                        <p class="font-bold">Rp. {{ number_format($terkumpul, 0, ',', '.') }}</p>
                     </div>
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
+                    <div class="kanan text-xs">
+                        <p class="mb-0.5">Hari Tersisa</p>
+                        <p class="font-bold">
+                            @if ($campaign_terpopuler->hari_tersisa === null)
+                                Tidak Ada Deadline
+                            @elseif ($campaign_terpopuler->hari_tersisa > 0)
+                                {{ $campaign_terpopuler->hari_tersisa }} Hari
+                            @else
+                                Berakhir
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        @endforeach
+    @endforeach
+
     </div>
 </div>
 <div class="flex mx-8 mt-3">
@@ -270,17 +298,31 @@
             </a>
             <div class="p-5">
                 <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_rekomendasi->title }}</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
+                @php
+                    $target = is_numeric($campaign_rekomendasi->target) ? (float)$campaign_rekomendasi->target : 0;
+                    $terkumpul = is_numeric($campaign_rekomendasi->totalDanaTerkumpul) ? (float)$campaign_rekomendasi->totalDanaTerkumpul : 0;
+                    $progress = $target > 0 ? min(($terkumpul / $target) * 100, 100) : 0;
+                @endphp
+
+                <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
                 </div>
-                <div class="flex justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-normal text-gray-700">Terkumpul</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
+                <div class="flex justify-between">
+                    <div class="kiri text-xs">
+                        <p class="mb-0.5">Terkumpul</p>
+                        <p class="font-bold">Rp. {{ number_format($terkumpul, 0, ',', '.') }}</p>
                     </div>
-                    <div>
-                        <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
-                        <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
+                    <div class="kanan text-xs">
+                        <p class="mb-0.5">Hari Tersisa</p>
+                        <p class="font-bold">
+                            @if ($campaign_rekomendasi->hari_tersisa === null)
+                                Tidak Ada Deadline
+                            @elseif ($campaign_rekomendasi->hari_tersisa > 0)
+                            {{ $campaign_rekomendasi->hari_tersisa }} Hari
+                            @else
+                                Berakhir
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
@@ -312,19 +354,33 @@
         <img class="rounded-s-lg h-2/4 object-cover " src="{{ asset('storage/' . $campaign_kategori->photo) }}" alt="Card Image 1" />
         <div class="p-5 w-2/3">
             <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_kategori->title }}</p>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                <div class="bg-green-600 h-2.5 rounded-full" style="width: 45%"></div>
-            </div>
-            <div class="flex justify-between gap-4">
-                <div>
-                    <p class="text-xs font-normal text-gray-700">Terkumpul</p>
-                    <span class="text-sm mb-3 font-semibold text-gray-700">Rp131.456.789</span>
+                @php
+                    $target = is_numeric($campaign_kategori->target) ? (float)$campaign_kategori->target : 0;
+                    $terkumpul = is_numeric($campaign_rekomendasi->totalDanaTerkumpul) ? (float)$campaign_rekomendasi->totalDanaTerkumpul : 0;
+                    $progress = $target > 0 ? min(($terkumpul / $target) * 100, 100) : 0;
+                @endphp
+
+                <div class="w-full bg-gray-200 rounded-full h-2.5 my-2.5">
+                    <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
                 </div>
-                <div>
-                    <p class="text-xs font-normal text-gray-700 whitespace-nowrap">Hari Tersisa</p>
-                    <span class="text-sm mb-3 font-semibold text-gray-700">656 Hari</span>
+                <div class="flex justify-between">
+                    <div class="kiri text-xs">
+                        <p class="mb-0.5">Terkumpul</p>
+                        <p class="font-bold">Rp. {{ number_format($terkumpul, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="kanan text-xs">
+                        <p class="mb-0.5">Hari Tersisa</p>
+                        <p class="font-bold">
+                            @if ($campaign_kategori->hari_tersisa === null)
+                                Tidak Ada Deadline
+                            @elseif ($campaign_kategori->hari_tersisa > 0)
+                            {{ $campaign_kategori->hari_tersisa }} Hari
+                            @else
+                                Berakhir
+                            @endif
+                        </p>
+                    </div>
                 </div>
-            </div>
         </div>
     </a>
     @endforeach

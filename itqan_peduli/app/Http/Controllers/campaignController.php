@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
+use App\Models\Fundraiser;
+use App\Models\Transaksi;
 use App\Models\Article;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
@@ -16,6 +18,34 @@ class campaignController extends Controller
         return view('admin.konten.publikasi_program.donasi', compact('campaigns'));
     }
 
+    public function dana() {
+        $campaigns = Campaign::all();
+        return view('admin.konten.danaTerkumpul.index', compact('campaigns'));
+    }
+
+    public function detailDana($campaignId) {
+        // Fetch campaign details based on the selected campaign ID
+        $campaign = Campaign::findOrFail($campaignId);
+    
+        // Fetch the related fundraiser data from the Fundraiser table
+        $fundraiser = Fundraiser::where('id', $campaign->fundraiser_id)->first();
+    
+        // Fetch the related transactions from the transaksi_zakat table
+        $transaksi_zakat = Transaksi::where('nama_program_zakat', $campaignId)->get();
+    
+        // Calculate the total saldo and other required values
+        $totalSaldo = $transaksi_zakat->sum('nominal_total');
+        $saldoOnline = $transaksi_zakat->where('metode_pembayaran', 'online')->sum('nominal_total');
+        $saldoOffline = $transaksi_zakat->where('metode_pembayaran', 'offline')->sum('nominal_total');
+    
+        // Calculate remaining balance
+        $sisaSaldo = $totalSaldo - $saldoOnline - $saldoOffline;
+    
+        // Pass data to the view
+        return view('admin.konten.danaTerkumpul.detail', compact('campaign', 'fundraiser', 'transaksi_zakat', 'totalSaldo', 'saldoOnline', 'saldoOffline', 'sisaSaldo'));
+    }
+    
+    
     public function index2()
     {
         $campaigns = Campaign::all()->map(function ($campaign) {

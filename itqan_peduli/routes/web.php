@@ -14,6 +14,8 @@ use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\campaignController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\transaksiController;
@@ -43,11 +45,11 @@ use App\Http\Controllers\transaksiFundraiserController;
 use App\Http\Controllers\dataBankController;
 use App\Http\Controllers\programController;
 use App\Http\Controllers\HomeadminController;
+use App\Http\Controllers\KontenController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
-Route::get('/dashboard2', function () {
-    return view('admin.konten.dashboard.index');
-});
+Route::get('/dashboard2', [HomeadminController::class, 'index'])->name('admin.dashboard');
+
 
 // Route::get('/publikasi-program', function () {
 //     return view('admin.konten.publikasi_program.kategori');
@@ -155,6 +157,13 @@ Route::get('gerai', [pengaturan_userController::class, 'showGerai'])->name('gera
 Route::get('donatur', [pengaturan_userController::class, 'showDonatur'])->name('donatur');
 Route::get('fundraiser-user', [pengaturan_userController::class, 'showFundraiser'])->name('fundraiser-user');
 
+Route::post('/admin/user/store', [pengaturan_userController::class, 'store'])->name('user.store');
+Route::get('/user/{id}/edit', [pengaturan_userController::class, 'edit'])->name('user.edit');
+Route::put('/user/{id}', [pengaturan_userController::class, 'update'])->name('user.update');
+Route::delete('/user/{id}', [pengaturan_userController::class, 'destroy'])->name('user.destroy');
+
+
+
 
 Route::resource('template', notifikasiWAController::class);
 Route::get('connect', [notifikasiWAController::class, 'showConnectWa'])->name('connect');
@@ -183,12 +192,12 @@ Route::post('/midtrans/transaction/{id}', [hitungZakatController::class, 'create
 Route::post('/zakat/{id}/bayar-manual', [hitungZakatController::class, 'bayarManual'])->name('zakat.bayarManual');
 
 
-Route::get('/dana-terkumpul', function () {
-    return view('admin.konten.danaTerkumpul.index');
-});
-Route::get('/detail-dana', function () {
-    return view('admin.konten.danaTerkumpul.detail');
-});
+Route::get('/dana-terkumpul', [CampaignController::class, 'dana'])->name('campaigns.dana');
+Route::get('/detail-dana/{id}', action: [CampaignController::class, 'detailDana'])->name('campaigns.detailDana');
+
+// Route::get('/detail-dana/{$campaign->id}', function () {
+//     return view('admin.konten.danaTerkumpul.detail');
+// });
 
 Route::get('/inputdonasiManual', function () {
     return view('admin.konten.transaksi.inputTransaksiOffline');
@@ -303,9 +312,11 @@ Route::get('/inputberita', function () {
 //     return view('admin.konten.webUtama.inputslider');
 // });
 
-Route::get('/partner', function () {
-    return view('admin.konten.webUtama.partner');
-});
+Route::resource('partner', PartnerController::class);
+Route::get('/partner/{partner}/edit', [PartnerController::class, 'edit'])->name('partner.edit');
+Route::put('/partner/{partner}', [PartnerController::class, 'update'])->name('partner.update');
+
+
 Route::get('/inputpartner', function () {
     return view('admin.konten.webUtama.inputpartner');
 });
@@ -324,16 +335,21 @@ Route::get('/inputpartner', function () {
 //     return view('admin.konten.webUtama.inputblog');
 // });
 
-Route::get('/kegiatan', function () {
-    return view('admin.konten.webUtama.kegiatan');
-});
+Route::resource('kegiatan', KegiatanController::class);
+
 Route::get('/inputkegiatan', function () {
     return view('admin.konten.webUtama.inputkegiatan');
 });
 
-Route::get('/konten', function () {
-    return view('admin.konten.webUtama.konten');
-});
+
+// Route lainnya (jika ada)
+    Route::get('konten', [KontenController::class, 'index'])->name('konten.index');
+    Route::post('konten', [KontenController::class, 'store'])->name('konten.store');
+    Route::get('konten/create', [KontenController::class, 'create'])->name('konten.create');
+    Route::get('konten/{id}/edit', [KontenController::class, 'edit'])->name('konten.edit');
+    Route::put('konten/{id}', [KontenController::class, 'update'])->name('konten.update');
+    Route::delete('konten/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
+
 
 Route::get('media-berbagi-setting', [MediaBerbagiSettingController::class, 'index'])->name('mediaberbagi-settings.index');
 Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'store'])->name('mediaberbagi-settings.store');
@@ -346,9 +362,9 @@ Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'sto
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('front.konten.beranda.home');
-});
+// Route::get('/home', function () {
+//     return view('front.konten.beranda.home');
+// });
 Route::get('/donasi-saya', function () {
     return view('front.konten.donasi saya.index');
 });
@@ -736,12 +752,15 @@ Route::post('/campaigns/update-order', [campaignController::class, 'urutkanProgr
 Route::post('/categories/update-order', [kategoriController::class, 'updateOrder'])->name('categories.updateOrder');
 Route::resource('campaign', campaignController::class);
 Route::resource('banner', BannerController::class);
-Route::resource('articleCategory', ArticleCategoryController::class);
+Route::resource('articleCategory', controller: ArticleCategoryController::class);
+Route::get('/articleCategory/{id}/edit', [articleCategoryController::class, 'edit'])->name('article.edit');
+
 Route::resource('article', ArticleController::class);
 
 //BE
 //USER
-Route::resource('home1', homeController::class);
+Route::resource('home', homeController::class);
+// Route::get('/home1', [homeController::class, 'show2'])->name('user.show2');
 Route::get('/program-user', [kategoriController::class, 'index2'])->name('user.program');
 Route::get('/program-user', [campaignController::class, 'index2']);
 // Route::get('/program-user', [campaignController::class, 'index3']);
@@ -752,7 +771,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     // Route::resource('/home', homeController::class);
-    Route::get('/home' , [HomeadminController::class, 'index']);
+    // Route::get('/home' , [HomeadminController::class, 'index']);
 });
 
 // Pembagian Hak akses

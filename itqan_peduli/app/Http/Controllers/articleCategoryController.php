@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class articleCategoryController extends Controller
@@ -38,10 +40,13 @@ class articleCategoryController extends Controller
         return redirect()->route('articleCategory.index')->with('success', 'Category created successfully.');
     }
 
-    public function edit(ArticleCategory $articleCategory)
+    public function edit($id)
     {
-        return view('admin.konten.webUtama.editkatblog', compact('articleCategory'));
+        $article = ArticleCategory::findOrFail($id);
+        $articleCategories = ArticleCategory::all(); // Misalnya Anda ingin semua kategori
+        return view('admin.konten.webUtama.editkatblog', compact('article', 'articleCategories'));
     }
+    
 
     /**
      * Update the specified category in storage.

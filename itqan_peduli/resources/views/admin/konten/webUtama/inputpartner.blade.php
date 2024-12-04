@@ -10,24 +10,22 @@
                     </a>
                 </div>
             </div>
-            <form class="px-8 mt-6 bg-white rounded-lg">
+            <form action="{{ route('partner.store') }}" method="POST" enctype="multipart/form-data" class="px-8 mt-6 bg-white rounded-lg">
+            @csrf
                 <div class=" pt-4">
-                    <label class="block mb-2 text-sm font-medium text-black"
-                        for="logo_partner">Logo Partner
+                    <label class="block mb-2 text-sm font-medium text-black" for="gambar">Logo partner
                         <p class="text-yellow-500">partner image recommendation max height 4</p>
                     </label>
-                    <input
-                        class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none"
-                        id="logo_partner" type="file">
+                    <input class="block w-full text-sm text-gray-500 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none" id="gambar" name="gambar" type="file">
                 </div>
                 <div class="pt-4 flex justify-end">
 
-                    <a type="button" href="#"
+                    <button type="submit"
                         class="text-white bg-green-700 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-semibold rounded-lg text-xl pt-1.5 w-24 h-11 text-center">
                         Simpan
-                    </a>
+                    </button>
                 </div>
-            </form>
+            </formaction=>
         </div>
     </div>
 @endsection

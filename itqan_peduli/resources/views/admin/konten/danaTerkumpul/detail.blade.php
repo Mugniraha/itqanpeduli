@@ -30,68 +30,70 @@
             </div>
             <div class="tengah border-r border-l border-b border-gray-300 p-2 text-sm w-full p-5">
                 <p class="text-sm">Donatur</p>
-                <p class="text-sm mt-4">77</p>
+                <p class="text-sm mt-4">{{ $campaign->donors_count }}</p>
             </div>
             <div class="kanan border-b border-gray-300 p-2 text-sm w-full p-5">
                 <p class="text-sm">Fundraiser</p>
-                <p class="text-sm mt-4">10</p>
+                <p class="text-sm mt-4">{{ $fundraiser ? $fundraiser->id : 'Tidak ada fundraiser' }}</p>
             </div>
         </div>
+
         <p class="font-semibold text-sm mt-10 mb-5 mx-5">Data Uang Kas</p>
         <div class="card text-slate-400 font-semibold">
             <div class="atas flex">
                 <div class="kiri border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Total Saldo</p>
-                    <p class="text-sm mt-4">Unlimited</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($totalSaldo, 0, ',', '.') }}</p>
                 </div>
                 <div class="tengah border-r border-l border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Saldo Online</p>
-                    <p class="text-sm mt-4">77</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($saldoOnline, 0, ',', '.') }}</p>
                 </div>
                 <div class="kanan border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Saldo Offline</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($saldoOffline, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="bawah flex">
                 <div class="kiri border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Sisa Saldo</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($sisaSaldo, 0, ',', '.') }}</p>
                 </div>
                 <div class="kanan border-b border-l border-r border-gray-300 w-[33.3%] p-5">
                     <p class="text-sm">Biaya Payment Gateway</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($totalSaldo * 0.02, 0, ',', '.') }}</p> <!-- Assuming 2% fee -->
                 </div>
             </div>
         </div>
+
         <p class="font-semibold text-sm mt-10 mb-5 mx-5">Pembagian Dana Program</p>
         <div class="card text-slate-400 font-semibold">
             <div class="atas flex">
                 <div class="kiri border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Dana Penyaluran (99%) - (fee payment gateway)</p>
-                    <p class="text-sm mt-4">Unlimited</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($totalSaldo * 0.99, 0, ',', '.') }}</p>
                 </div>
                 <div class="tengah border-r border-l border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Hak Lembaga (0%)</p>
-                    <p class="text-sm mt-4">77</p>
+                    <p class="text-sm mt-4">Rp 0</p>
                 </div>
                 <div class="kanan border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Hal MediaBerbagi (1%)</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($totalSaldo * 0.01, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="bawah flex">
                 <div class="kiri border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Dana Disalurkan</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($totalSaldo * 0.99, 0, ',', '.') }}</p>
                 </div>
                 <div class="kanan border-b border-l border-r border-gray-300 w-[33.3%] p-5">
                     <p class="text-sm">Hak Lembaga Disalurkan</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp 0</p>
                 </div>
                 <div class="kanan border-b border-gray-300 p-2 text-sm w-[33.3%] p-5">
                     <p class="text-sm">Hak MediaBerbagi Disalurkan</p>
-                    <p class="text-sm mt-4">10</p>
+                    <p class="text-sm mt-4">Rp {{ number_format($totalSaldo * 0.01, 0, ',', '.') }}</p>
                 </div>
             </div>
         </div>
