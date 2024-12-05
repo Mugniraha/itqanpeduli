@@ -11,7 +11,6 @@ class Konten extends Model
 
     protected $table = 'konten';  // Pastikan nama tabel sesuai
 
-    protected $fillable = [
-        'name', 'phone', 'email', 'province', 'type',
-    ];
+    protected $fillable = ['type', 'content'];
+    
 }

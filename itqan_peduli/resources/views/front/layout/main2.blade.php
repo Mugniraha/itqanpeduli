@@ -23,12 +23,12 @@
 
         <div class="fixed z-40 w-[480px] h-auto mx-auto max-w-lg -translate-x-1/2 bottom-4 left-1/2">
             <div class="flex flex-row-reverse mb-2">
-                <button data-popover-target="popover-left" data-popover-placement="left" type="button" class="text-white mb-3 me-4 bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm p-2 text-center">
+                <a href="whatsapp://send?text=Hello&phone=+62895334183162" data-popover-target="popover-left" data-popover-placement="left" type="button" class="text-white mb-3 me-4 bg-green-600 hover:bg-green-700 font-medium rounded-full text-sm p-2 text-center">
                     <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd"/>
                         <path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"/>
                     </svg>
-                </button>
+                </a>
             </div>
             <div data-popover id="popover-left" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
                 <div class="whitespace-nowrap px-4 py-3 bg-white border-b border-gray-200 rounded-xl">
@@ -39,7 +39,7 @@
             <div class="bg-white border border-gray-200 rounded-xl ">
 
                 <div class="grid h-full max-w-lg grid-cols-4 content-end mx-auto font-medium">
-                    <a href="/home1" type="button" class="inline-flex flex-col items-center justify-center p-5 hover:bg-gray-50 group">
+                    <a href="/home" type="button" class="inline-flex flex-col items-center justify-center p-5 hover:bg-gray-50 group">
                         <svg class="w-6 h-6" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.25 22.4827L22.25 22.4901L22.25 28.9901H26.25C27.7688 28.9901 29 27.7589 29 26.2401V14.8389V14.8384C29.0002 14.4487 28.8487 14.0744 28.5778 13.7944L28.5699 13.7863L28.5621 13.7779L17.9397 2.29413L17.9394 2.29383C16.44 0.67154 13.9094 0.571882 12.2871 2.0712L22.25 22.4827ZM22.25 22.4827C22.2197 18.4049 18.8215 15.1218 14.8239 15.2183C10.9559 15.3116 7.77705 18.5398 7.75 22.4832H7.74998V22.4901V28.9901M22.25 22.4827L7.74998 28.9901M7.74998 28.9901H3.75C2.23123 28.9901 1 27.7589 1 26.2401V14.8576L1 14.8574C0.999895 14.4611 1.15656 14.0809 1.43577 13.7998L1.44855 13.787L1.46086 13.7736L12.0645 2.29373C12.1355 2.21694 12.2097 2.14276 12.2869 2.07132L7.74998 28.9901Z" stroke="#838383" stroke-width="2"/>
                             <path d="M12.25 22.4897C12.25 20.971 13.4812 19.7397 15 19.7397C16.5188 19.7397 17.75 20.971 17.75 22.4897V28.9897H12.25V22.4897Z" stroke="#838383" stroke-width="2"/>

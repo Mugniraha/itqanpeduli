@@ -2,63 +2,58 @@
 
 @section('konten')
 <div class="p-4">
-    <div class="subheader text-white my-8">
-        <div class="welcome flex justify-between bg-green-700 me-30 w-full py-8 px-4 rounded-lg">
-            <div class="kiri my-auto">
-                <p class="text-2xl font-semibold">Konten</p>
-                <p class="text-sm text-gray-300 mt-2 font-normal">Tambahkan konten untuk ditampilkan di halaman utama</p>
-            </div>
-            <div class="kanan my-auto">
-                <a href="{{ route('konten.create') }}" class="text-green-700 bg-white p-10 border border-gray-300 hover:bg-gray-100 rounded-lg text-sm px-5 py-2.5">
-                    Tambah Konten
-                </a>
-            </div>
-        </div>
-    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Kelola Konten</h1>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-6 bg-white p-5">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-700">
-            <thead class="text-md text-gray-700">
-                <tr class="font-extrabold">
-                    <th class="px-6 py-3">#</th>
-                    <th class="px-6 py-3">Nama</th>
-                    <th class="px-6 py-3">No Telepon</th>
-                    <th class="px-6 py-3">Email</th>
-                    <th class="px-6 py-3">Provinsi</th>
-                    <th class="px-6 py-3">Tipe</th>
-                    <th class="px-6 py-3">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($konten as $konten)
-                <tr class="border-b">
-                    <td class="px-6 py-4">{{ $loop->iteration }}</td>
-                    <td class="px-6 py-4">{{ $konten->name }}</td>
-                    <td class="px-6 py-4">{{ $konten->phone }}</td>
-                    <td class="px-6 py-4">{{ $konten->email }}</td>
-                    <td class="px-6 py-4">{{ $konten->province }}</td>
-                    <td class="px-6 py-4">{{ $konten->type }}</td>
-                    <td class="px-6 py-4 flex">
-                        <a href="{{ route('konten.edit', $konten->id) }}" class="text-blue-600 hover:underline">
-                            <svg class="w-6 h-6 text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z" clip-rule="evenodd"/>
-                                <path fill-rule="evenodd" d="M19.846 4.318a2.148 2.148 0 0 0-.437-.692 2.014 2.014 0 0 0-.654-.463 1.92 1.92 0 0 0-1.544 0 2.014 2.014 0 0 0-.654.463l-.546.578 2.852 3.02.546-.579a2.14 2.14 0 0 0 .437-.692 2.244 2.244 0 0 0 0-1.635ZM17.45 8.721 14.597 5.7 9.82 10.76a.54.54 0 0 0-.137.27l-.536 2.84c-.07.37.239.696.588.622l2.682-.567a.492.492 0 0 0 .255-.145l4.778-5.06Z" clip-rule="evenodd"/>
-                            </svg>
-                        </a>
-                        <form action="{{ route('konten.destroy', $konten->id) }}" method="POST" class="inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:underline">
-                                <svg class="w-6 h-6 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd"/>
-                                </svg>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        {{-- Form untuk menyimpan konten --}}
+        <form action="{{ route('konten.store') }}" method="POST" class="mb-6">
+            @csrf
+            <div class="mb-4">
+                <label for="type" class="block text-sm font-medium text-gray-700">Jenis Konten</label>
+                <select name="type" id="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm p-3">
+                    <option value="tentang_kami">Tentang Kami</option>
+                    <option value="syarat_ketentuan">Syarat & Ketentuan</option>
+                    <option value="pusat_bantuan">Pusat Bantuan</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="content" class="block text-sm font-medium text-gray-700">Isi Konten</label>
+                <textarea name="content" id="content" rows="6" class="block p-3 w-full mt-1 border-gray-300 rounded-md shadow-sm"></textarea>
+            </div>
+            <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800">
+                Simpan
+            </button>
+        </form>
+
+        {{-- Tabel untuk menampilkan konten --}}
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border rounded-md">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">#</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Jenis Konten</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Isi Konten</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($konten as $item)
+                    <tr class="border-b">
+                        <td class="px-6 py-4">{{ $loop->iteration }}</td>
+                        <td class="px-6 py-4">{{ ucfirst(str_replace('_', ' ', $item->type)) }}</td>
+                        <td class="px-6 py-4">{{ Str::limit($item->content, 50) }}</td>
+                        <td class="px-6 py-4 flex space-x-2">
+                            <form action="{{ route('konten.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus konten ini?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-600 hover:underline">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection

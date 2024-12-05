@@ -343,13 +343,9 @@ Route::get('/inputkegiatan', function () {
 
 
 // Route lainnya (jika ada)
-    Route::get('konten', [KontenController::class, 'index'])->name('konten.index');
-    Route::post('konten', [KontenController::class, 'store'])->name('konten.store');
-    Route::get('konten/create', [KontenController::class, 'create'])->name('konten.create');
-    Route::get('konten/{id}/edit', [KontenController::class, 'edit'])->name('konten.edit');
-    Route::put('konten/{id}', [KontenController::class, 'update'])->name('konten.update');
-    Route::delete('konten/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
-
+Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
+Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
+Route::delete('/konten/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
 
 Route::get('media-berbagi-setting', [MediaBerbagiSettingController::class, 'index'])->name('mediaberbagi-settings.index');
 Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'store'])->name('mediaberbagi-settings.store');
@@ -637,12 +633,10 @@ Route::get('ubah-katasandi1', function () {
 Route::get('bantuan', function () {
     return view('front.konten.akun.bantuan');
 });
-Route::get('aboutus', function () {
-    return view('front.konten.akun.tentangKami');
-});
-Route::get('syaratketentuan', function () {
-    return view('front.konten.akun.syaratketentuan');
-});
+Route::get('/aboutus', [KontenController::class, 'tentangKami'])->name('front.tentang-kami');
+
+Route::get('/syaratketentuan', [KontenController::class, 'syaratKetentuan'])->name('front.syarat-ketentuan');
+
 Route::get('editprofil', function () {
     return view('front.konten.akun.editProfil');
 });

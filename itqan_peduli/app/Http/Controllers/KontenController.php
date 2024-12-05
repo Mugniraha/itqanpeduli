@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Konten;
 use Illuminate\Http\Request;
+use App\Models\Konten;
 
 class KontenController extends Controller
 {
@@ -13,51 +13,55 @@ class KontenController extends Controller
         return view('admin.konten.webUtama.konten', compact('konten'));
     }
 
-    public function create()
-    {
-        return view('admin.konten.webUtama.inputkonten');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'province' => 'required|string|max:255',
-            'type' => 'required|string',
+            'type' => 'required',
+            'content' => 'required',
         ]);
-
-        Konten::create($request->all());
-        return redirect()->route('konten.index')->with('success', 'Konten created successfully');
+    
+        // Cek apakah konten dengan type yang sama sudah ada
+        $konten = Konten::where('type', $request->type)->first();
+    
+        if ($konten) {
+            // Jika ada, perbarui konten yang sudah ada
+            $konten->update(['content' => $request->content]);
+        } else {
+            // Jika tidak ada, buat konten baru
+            Konten::create([
+                'type' => $request->type,
+                'content' => $request->content
+            ]);
+        }
+    
+        return redirect()->route('konten.index')->with('success', 'Konten berhasil disimpan!');
     }
-
-    public function edit($id)
-    {
-        $konten = Konten::findOrFail($id);
-        return view('admin.konten.webUtama.editkonten', compact('konten'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'province' => 'required|string|max:255',
-            'type' => 'required|string',
-        ]);
-
-        $konten = Konten::findOrFail($id);
-        $konten->update($request->all());
-
-        return redirect()->route('konten.index')->with('success', 'Konten updated successfully');
-    }
+    
 
     public function destroy($id)
     {
-        Konten::destroy($id);
-        return redirect()->route('konten.index')->with('success', 'Konten deleted successfully');
-    }
-}
+        $konten = Konten::findOrFail($id); // Mencari konten berdasarkan ID
+        $konten->delete(); // Menghapus konten dari database
 
+        return redirect()->route('konten.index')->with('success', 'Konten berhasil dihapus!');
+    }
+
+    public function tentangKami()
+    {
+        // Fetch content where type is 'tentang_kami'
+        $konten = Konten::where('type', 'tentang_kami')->first();
+
+        // Pass the content to the view
+        return view('front.konten.akun.tentangKami', compact('konten'));
+    }
+
+    public function syaratKetentuan()
+    {
+        // Fetch content where type is 'syarat_ketentuan'
+        $konten = Konten::where('type', 'syarat_ketentuan')->first();
+
+        // Pass the content to the view
+        return view('front.konten.akun.syaratketentuan', compact('konten'));
+    }
+
+}

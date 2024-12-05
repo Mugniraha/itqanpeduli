@@ -411,24 +411,24 @@
 
     <div class="flex justify-between mx-8">
         <div class="">
-            <p class="text-gray-400">Tetang Kami</p>
+            <a href="/aboutus" class="text-gray-400">Tetang Kami</a>
         </div>
         <div class="">
             <p class="text-gray-400">|</p>
         </div>
         <div class="">
-            <p class="text-gray-400">Syarat & Ketentuan</p>
+            <a href="/syaratketentuan" class="text-gray-400">Syarat & Ketentuan</a>
         </div>
         <div class="">
-            <p class="text-gray-400">|</p>
+            <p class="text-gray-400">|</pclass>
         </div>
         <div class="">
-            <p class="text-gray-400">Pusat Bantuan</p>
+            <a href="/bantuan" class="text-gray-400">Pusat Bantuan</a>
         </div>
     </div>
 
     <div class="flex justify-center">
-        <p class="text-gray-400">Copyright &copy 2023 Media Berbagi</p>
+        <a href="" class="text-gray-400">Copyright &copy 2023 Media Berbagi</a>
     </div>
 </div>
 

@@ -12,22 +12,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('konten', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('province');
-            $table->enum('type', ['image', 'video'])->default('image');
-            $table->timestamps();
+            $table->id(); // Kolom id (primary key)
+            $table->text('content')->nullable(); // Kolom content (untuk syarat dan ketentuan, pusat bantuan, dll)
+            $table->string('type')->nullable(); // Kolom type
+            $table->timestamps(); // Kolom created_at dan updated_at
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('kontens');
+        Schema::dropIfExists('konten');
     }
 };
