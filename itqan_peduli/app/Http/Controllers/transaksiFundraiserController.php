@@ -19,6 +19,17 @@ class TransaksiFundraiserController extends Controller
         $bankAccounts = BankAccount::all(); 
         return view('admin.konten.fundraiser.transaksi', compact('transaksiFundraisers', 'bankAccounts'));
     }
+    
+    public function index2()
+{
+    $transaksiFundraisers = Transaksi_fundraiser::all(); // Pastikan ini sesuai dengan data yang ada
+    $bankAccounts = BankAccount::all(); // Jika ini dibutuhkan
+
+    return view('admin.konten.pembayaran.pembayaran', [
+        'transaksiFundraisers' => $transaksiFundraisers,
+        'bankAccounts' => $bankAccounts
+    ]);
+}
 
     // Method to display bank account data for the withdrawal page
     public function show()

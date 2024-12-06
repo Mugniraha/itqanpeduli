@@ -168,7 +168,7 @@
                         <p class="text-sm font-bold">Donasi Rp 10.000</p>
                     </div>
                 </div>
-                <a href="/dutaamal">
+                <a href="/duta-amal">
                     <button class="bg-green-600 px-5 my-10 py-2 rounded-md text-white text-sm font-semibold w-full">Jadi Duta Amal</button>
                 </a>
             </div>

@@ -66,4 +66,10 @@ class Campaign extends Model
         return is_null($value) ? 'unlimited' : $value;
     }
 
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'category_id');
+    }
+
+
 }

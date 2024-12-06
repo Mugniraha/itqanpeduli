@@ -103,44 +103,45 @@
     });
 
     // Fungsi untuk mengambil dan menampilkan daftar provinsi
-    fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
-        .then(response => response.json())
-        .then(provinces => {
-            const provinsiSelect = document.getElementById('provinsi');
-            provinsiSelect.innerHTML = '<option value="" disabled selected>Pilih provinsi tempat anda tinggal</option>';
+    // Fetch daftar provinsi
+fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
+    .then(response => response.json())
+    .then(provinces => {
+        const provinsiSelect = document.getElementById('provinsi');
+        provinsiSelect.innerHTML = '<option value="" disabled selected>Pilih provinsi tempat anda tinggal</option>';
 
-            provinces.forEach(province => {
-                const option = document.createElement('option');
-                option.value = province.name;
-                option.textContent = province.name;
-                provinsiSelect.appendChild(option);
-            });
-        })
-        .catch(error => console.error('Error fetching provinces:', error));
+        provinces.forEach(province => {
+            const option = document.createElement('option');
+            option.value = province.id; // Menggunakan ID provinsi
+            option.textContent = province.name;
+            provinsiSelect.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error fetching provinces:', error));
 
-    // Fungsi untuk mengambil dan menampilkan daftar kabupaten/kota berdasarkan provinsi yang dipilih
-    document.getElementById('provinsi').addEventListener('change', function() {
-        const provinsiId = this.value;
+// Fetch daftar kabupaten/kota berdasarkan provinsi
+document.getElementById('provinsi').addEventListener('change', function () {
+    const provinsiId = this.value;
 
-        if (provinsiId) {
-            fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${provinsiId}.json`)
-                .then(response => response.json())
-                .then(kabkotaList => {
-                    const kabkotaSelect = document.getElementById('kabkota');
-                    kabkotaSelect.innerHTML = '<option value="" disabled selected>Pilih Kab/ Kota</option>';
+    if (provinsiId) {
+        fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${provinsiId}.json`)
+            .then(response => response.json())
+            .then(kabkotaList => {
+                const kabkotaSelect = document.getElementById('kabkota');
+                kabkotaSelect.innerHTML = '<option value="" disabled selected>Pilih Kab/ Kota</option>';
 
-                    kabkotaList.forEach(kabkota => {
-                        const option = document.createElement('option');
-                        option.value = kabkota.name;
-                        option.textContent = kabkota.name;
-                        kabkotaSelect.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error fetching kabupaten/kota:', error));
-        } else {
-            document.getElementById('kabkota').innerHTML = '<option value="" disabled selected>Pilih Kab/ Kota tempat anda tinggal</option>';
-        }
-    });
+                kabkotaList.forEach(kabkota => {
+                    const option = document.createElement('option');
+                    option.value = kabkota.id; // Bisa juga kabkota.name jika nama lebih relevan
+                    option.textContent = kabkota.name;
+                    kabkotaSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching kabupaten/kota:', error));
+    } else {
+        document.getElementById('kabkota').innerHTML = '<option value="" disabled selected>Pilih Kab/ Kota tempat anda tinggal</option>';
+    }
+});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 @endsection
