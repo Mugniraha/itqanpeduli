@@ -37,50 +37,44 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Fulan
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        fulan@gmail.com
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        82097772
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp.20.000.000
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        <div class="text-green-500 bg-green-100 border w-1/2 font-semibold rounded-lg text-sm px-2 py-1.5 text-center">
-                            Sukses
-                        </div>
-                    </td>
-                </tr>
-                <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
-                    <td class="px-6 py-4 text-black text-base">
-                        1
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Fulan
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        fulan@gmail.com
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        82097772
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        Rp.20.000.000
-                    </td>
-                    <td class="px-6 py-4 text-black text-base">
-                        <div class="text-red-400 bg-red-100 border w-1/2 font-semibold rounded-lg text-sm px-2 py-1.5 text-center">
-                            Kadaluarsa
-                        </div>
-                    </td>
-                </tr>
+                @foreach ($donatur as $row)
+
+                    <tr class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b">
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$loop->iteration}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->nama_donatur}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->email_donatur}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            {{$row->nomor_hp}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                            Rp {{ number_format($row->nominal_total, 0, ',','.')}}
+                        </td>
+                        <td class="px-6 py-4 text-black text-base">
+                        @if ($row->buktiPembayaran)
+                            @if ($row->status === 'Terverivikasi')
+                                <p class="text-green-500 bg-green-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">Terverivikasi</p>
+                            @elseif ($row->status === 'pending')
+                                <p class="text-orange-500 bg-orange-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">Menunggu Verifikasi</p>
+                            @else
+                                Menunggu verif
+                            @endif
+                        @elseif ($row->status === 'pending')
+                            <p class="text-orange-500 bg-orange-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">{{$row->status}}</p>
+                        @elseif ($row->status === 'Success' || $row->status === 'settlement')
+                            <p class="text-green-500 bg-green-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">{{$row->status}}</p>
+                        @else
+                            <p class="text-red-500 bg-red-100 border w-full font-semibold rounded-lg text-sm px-2 py-1.5 text-center">Kadaluarsa</p>
+                        @endif
+                        </td>
+                    </tr>
+
+                @endforeach
             </tbody>
         </table>
     </div>

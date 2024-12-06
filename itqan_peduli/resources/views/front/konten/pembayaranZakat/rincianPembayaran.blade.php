@@ -117,6 +117,7 @@
             <input type="hidden" name="metode_pembayaran" id="metode-pembayaran-hidden" value="">
             <input type="hidden" name="nominal_pengembangan_dakwah" id="nominal-pengembangan-dakwah-hidden" value="">
             <input type="hidden" name="nominal_total" id="nominal-total-hidden" value="">
+            <input type="hidden" name="nomor_hp" id="nomor-hp-hidden" value="">
             <textarea type="hidden" name="doa" class="hidden" id="doa-hidden" cols="30" rows="10"></textarea>
             <button type="submit" id="submit-button">Lanjutkan</button>
         </form>
@@ -180,13 +181,25 @@
     </div>
     <div class="my-3 mx-8 bg-green-100 border border-green-600 rounded-xl p-3">
         <div class="my-1">
-            <p class="text-sm">Pilih metode pembayaran yang ingin anda gunakan</p>
+            <p class="text-sm font-medium">Pilih metode pembayaran yang ingin anda gunakan</p>
         </div>
         <div class="">
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/metode.png') }}', 'manual')">
-                <p>Manual</p></button>
-            <button class="flex gap-4 items-center rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/metode.png') }}', 'e-wallet')">
+            <button class="flex gap-4 items-center hover:bg-green-200 rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/metode.png') }}', 'e-wallet')">
                 <p>E-Wallet/VA</p></button>
+                <div class="my-1">
+                    <p class="text-sm font-medium">Transfer Bank</p>
+                    <p class="text-xs">Verifikasi 1x24 jam, minimal pembayaran 10 ribu</p>
+                </div>
+                <div class="">
+                    <button class="flex gap-4 items-center rounded-xl hover:bg-green-200 text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/bsii.png') }}', 'Transfer BSI')">
+                        <img src="{{  asset('images/bsii.png')}}" alt="" class="h-5"><p>Transfer BSI</p></button>
+                    <button class="flex gap-4 items-center hover:bg-green-200 rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/BRI.png') }}', 'Transfer BRI')">
+                        <img src="{{ asset('images/BRI.png')}}" alt="" class="h-5"><p>Transfer BRI</p></button>
+                    <button class="flex gap-4 items-center hover:bg-green-200 rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{asset('images/MANDIRI.png') }}', 'Transfer Mandiri')">
+                        <img src="{{asset('images/MANDIRI.png')}}" alt="" class="h-5"><p>Transfer Mandiri</p></button>
+                    <button class="flex gap-4 items-center hover:bg-green-200 rounded-xl text-left text-sm p-4 bg-white border border-gray-400 font-semibold w-full mt-2" onclick="selectPaymentMethod('{{ asset('images/BCA.png') }}', 'Transfer BCA')">
+                        <img src="{{ asset('images/BCA.png')}}" alt="" class="h-5"><p>Transfer BCA</p></button>
+                </div>
         </div>
     </div>
 
@@ -232,7 +245,7 @@
             <label for="nominal" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nama Lengkap</label>
         </div>
         <div class="relative my-3">
-            <input type="tel" id="phone-input" class="block px-4 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="cth : 0811-xxxx-xxxx" />
+            <input type="number" id="phone-input" class="block px-4 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-xl border-1 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder="cth : 0811-xxxx-xxxx" />
             <label for="nominal" class="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white mx-2 px-2 peer-focus:px-2 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-75 peer-placeholder-shown:-translate-y-4 peer-placeholder-shown:top-2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">Nomor Hp</label>
         </div>
         {{-- <input type="checkbox" id="samarkan-checkbox" class="mr-2" > <label for="samarkan-checkbox">Samarkan nama</label> --}}
@@ -322,6 +335,9 @@
         </div>
     </div>
 </div>
+
+<div id="wajib-zakt"></div>
+<div id="infaq"></div>
 
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 <script>
@@ -454,6 +470,7 @@
     function confirmData() {
         var namaValue = document.getElementById('nama-input').value;
         var phoneValue = document.getElementById('phone-input').value;
+        document.getElementById('nomor-hp-hidden').value = phoneValue;
         var doaValue = document.getElementById('doa-input').value;
         document.getElementById('doa-hidden').value = doaValue;
         if (document.getElementById('samarkan-checkbox').checked) {

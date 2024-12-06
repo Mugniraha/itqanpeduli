@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Ketika halaman dimuat, secara otomatis tampilkan bagian 'penghasilan'
     const penghasilanElement = document.getElementById('penghasilan');
     penghasilanElement.classList.remove('hidden');
 
-    // Mengatur latar belakang dan teks untuk bagian 'penghasilan'
     const penghasilanButton = document.querySelector('[onclick="showDiv(\'penghasilan\', this)"]');
     penghasilanButton.classList.add('bg-green-700', 'text-white', 'selected');
     penghasilanButton.classList.remove('bg-white', 'text-gray-500');
@@ -11,10 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const textElement = penghasilanButton.querySelector('p');
     textElement.classList.add('font-semibold');
     textElement.classList.remove('text-gray-500', 'font-normal');
-
-    // Jika perlu menampilkan periode default seperti 'perbulan', Anda bisa menyesuaikan di sini
     const btnPerbulan = document.getElementById('btnPerbulan');
-    showPeriod('perbulan', btnPerbulan); // Misalnya memanggil fungsi showPeriod untuk menampilkan 'perbulan'
+    showPeriod('perbulan', btnPerbulan);
 });
 
 function showDiv(id, element) {
@@ -64,11 +60,18 @@ function showPeriod(period, element) {
     element.classList.add('bg-green-600', 'text-white');
     element.classList.remove('bg-gray-200', 'text-black');
 
-    periode = period; // Set periode berdasarkan ID (perbulan atau pertahun)
+    periode = period;
 }
 
 function setLanjutkan(id, nilaiZakat){
-    document.getElementById(id).href =`/rincian-pembayaran?nilaiZakat=${nilaiZakat}`;
+    const button  =  document.getElementById(id);
+    const wajibZakat = JSON.parse(localStorage.getItem('wajibZakat'));
+
+    if(wajibZakat){
+        button.setAttribute('href',`/rincian-pembayaran?nilaiZakat=${nilaiZakat}`)
+    }else{
+        button.setAttribute('href', `/program-user`);
+    }
 }
 
 let periode = 'bulanan';
@@ -103,6 +106,9 @@ async function hitungZakat(){
             document.getElementById('statusBayarZakat').classList.remove('bg-red-100', 'border', 'border-red-700');
             document.getElementById('statusBayarZakat').classList.add('bg-green-100', 'border', 'border-green-700');
             document.getElementById('nilaiZakat').innerHTML = `Rp ${zakat.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', true);
+            document.getElementById('aPenghasilanBulan').innerHTML = 'Tunaikan Zakat'
+            document.getElementById('btnPenghasilanBulan').classList.remove('disabled-link');
         } else {
             document.getElementById('statusBayarZakat').innerHTML = '<p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>';
             document.getElementById('statusBayarZakat').classList.remove('bg-green-100', 'border', 'border-green-700');
@@ -110,6 +116,9 @@ async function hitungZakat(){
             const zakatKurang = 0.025 * penghasilanBersih;
             const zakatBulat = zakatKurang.toFixed(0);
             document.getElementById('nilaiZakat').innerHTML = `Rp ${zakatBulat.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', false);
+            document.getElementById('aPenghasilanBulan').innerText = 'Infaq Sekarang';
+            document.getElementById('btnPenghasilanBulan').classList.remove('disabled-link');
         }
         setLanjutkan('btnPenghasilanBulan', zakat);
     } catch (error) {
@@ -148,6 +157,9 @@ async function hitungZakatTahunan(){
             document.getElementById('statusBayarZakatPertahun').classList.remove('bg-red-100', 'border', 'border-red-700');
             document.getElementById('statusBayarZakatPertahun').classList.add('bg-green-100', 'border', 'border-green-700');
             document.getElementById('nilaiZakatPertahun').innerHTML = `Rp ${zakatPertahun.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', true);
+            document.getElementById('aPenghasilanTahun').innerHTML = 'Tunaikan Zakat'
+            document.getElementById('btnPenghasilanTahun').classList.remove('disabled-link');
         } else {
             document.getElementById('statusBayarZakatPertahun').innerHTML = '<p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>';
             document.getElementById('statusBayarZakatPertahun').classList.remove('bg-green-100', 'border', 'border-green-700');
@@ -155,6 +167,9 @@ async function hitungZakatTahunan(){
             const zakatKurang = 0.025 * penghasilanBersihPertahun;
             const zakatBulat = zakatKurang.toFixed(0);
             document.getElementById('nilaiZakatPertahun').innerHTML = `Rp ${zakatBulat.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', false);
+            document.getElementById('aPenghasilanTahun').innerHTML = 'Infaq Sekarang'
+            document.getElementById('btnPenghasilanTahun').classList.remove('disabled-link');
         }
         setLanjutkan('btnPenghasilanTahun',zakatPertahun);
     } catch (error) {
@@ -189,6 +204,10 @@ async function hitungZakatTabungan(){
             document.getElementById('statusBayarZakatTabungan').classList.remove('bg-red-100', 'border', 'border-red-700');
             document.getElementById('statusBayarZakatTabungan').classList.add('bg-green-100', 'border', 'border-green-700');
             document.getElementById('nilaiZakatTabungan').innerHTML = `Rp ${zakatTabungan.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', true);
+            document.getElementById('aTabungan').innerHTML = 'Tunaikan Zakat'
+            document.getElementById('btnTabungan').classList.remove('disabled-link');
+
         } else {
             document.getElementById('statusBayarZakatTabungan').innerHTML = '<p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>';
             document.getElementById('statusBayarZakatTabungan').classList.remove('bg-green-100', 'border', 'border-green-700');
@@ -196,6 +215,9 @@ async function hitungZakatTabungan(){
             const zakatKurang = 0.025 * totalTabungan;
             const zakatBulat = zakatKurang;
             document.getElementById('nilaiZakatTabungan').innerHTML = `Rp ${zakatBulat.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', false);
+            document.getElementById('aTabungan').innerHTML = 'Infaq Sekarang'
+            document.getElementById('btnTabungan').classList.remove('disabled-link');
         }
         setLanjutkan('btnTabungan', zakatTabungan);
     } catch (error) {
@@ -236,6 +258,9 @@ async function hitungZakatPerdagangan(){
             document.getElementById('bungkusStatusPerdagangan').classList.remove('bg-red-50','rounded-xl');
             document.getElementById('bungkusStatusPerdagangan').classList.add('bg-green-50', 'rounded-xl');
             document.getElementById('nilaiZakatPerdagangan').innerHTML = `Rp ${zakatPerdagangan.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', true);
+            document.getElementById('aPerdagangan').innerHTML = 'Tunaikan Zakat'
+            document.getElementById('btnPerdagangan').classList.remove('disabled-link');
         } else {
             document.getElementById('statusBayarZakatPerdagangan').innerHTML = '<p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>';
             document.getElementById('statusBayarZakatPerdagangan').classList.remove('bg-white', 'border', 'border-green-700');
@@ -245,6 +270,9 @@ async function hitungZakatPerdagangan(){
             const zakatKurang = 0.025 * totalPerdagangan;
             const zakatBulat = zakatKurang;
             document.getElementById('nilaiZakatPerdagangan').innerHTML = `Rp ${zakatBulat.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', false);
+            document.getElementById('aPerdagangan').innerHTML = 'Infaq Sekarang';
+            document.getElementById('btnPerdagangan').classList.remove('disabled-link');
         }
         setLanjutkan('btnPerdagangan', zakatPerdagangan);
     } catch (error) {
@@ -277,6 +305,9 @@ async function hitungZakatEmas(){
             document.getElementById('bungkusStatusEmas').classList.remove('bg-red-50','rounded-xl');
             document.getElementById('bungkusStatusEmas').classList.add('bg-green-50', 'rounded-xl');
             document.getElementById('nilaiZakatEmas').innerHTML = `Rp ${zakatEmas.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', true);
+            document.getElementById('aEmas').innerHTML = 'Tunaikan Zakat'
+            document.getElementById('btnEmas').classList.remove('disabled-link');
         } else {
             document.getElementById('statusBayarZakatEmas').innerHTML = '<p class="text-red-700 text-center font-bold">Tidak wajib membayar zakat, tapi bisa berinfak</p>';
             document.getElementById('statusBayarZakatEmas').classList.remove('bg-white', 'border', 'border-green-700');
@@ -286,6 +317,9 @@ async function hitungZakatEmas(){
             const zakatKurang = 0.025 * emas *hargaEmas;
             const zakatBulat = zakatKurang;
             document.getElementById('nilaiZakatEmas').innerHTML = `Rp ${zakatBulat.toLocaleString('id-ID')}`;
+            localStorage.setItem('wajibZakat', false);
+            document.getElementById('aEmas').innerHTML = 'Infaq Sekarang'
+            document.getElementById('btnEmas').classList.remove('disabled-link');
         }
         setLanjutkan('btnEmas', zakatEmas);
     } catch (error) {

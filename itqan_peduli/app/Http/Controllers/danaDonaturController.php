@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Zakat;
 
 class danaDonaturController extends Controller
 {
@@ -12,19 +13,22 @@ class danaDonaturController extends Controller
     public function index()
     {
         $slug = 'semuaDonatur';
-        return view('admin.konten.danaDonatur.semuaDonatur', compact('slug'));
+        $donatur = Zakat::all();
+        return view('admin.konten.danaDonatur.semuaDonatur', compact('slug','donatur'));
     }
 
     public function showDonaturSukses()
     {
         $slug = 'donaturSukses';
-        return view('admin.konten.danaDonatur.donaturSukses',compact('slug'));
+        $donatur = Zakat::where('status','!=','Expired')->get();
+        return view('admin.konten.danaDonatur.donaturSukses',compact('slug','donatur'));
     }
 
     public function showDonaturGagal()
     {
         $slug = 'donaturGagal';
-        return view('admin.konten.danaDonatur.donaturGagal',compact('slug'));
+        $donatur = Zakat::where('status','Expired')->get();
+        return view('admin.konten.danaDonatur.donaturGagal',compact('slug','donatur'));
     }
 
     /**

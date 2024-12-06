@@ -31,13 +31,24 @@ use App\Exports\LeaderboardExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\transaksiFundraiserController;
 use App\Http\Controllers\dataBankController;
+use App\Http\Controllers\DonasiInstanController;
 use App\Http\Controllers\programController;
 use App\Http\Controllers\HomeadminController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\FacebookAuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/dashboard2', function () {
     return view('admin.konten.dashboard.index');
 });
+// Route::get('/setting-profile', function () {
+//     return view('admin.konten.dashboard.profile');
+// });
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile-update', [ProfileController::class, 'update'])->name('profile.update');
 
 // Route::get('/publikasi-program', function () {
 //     return view('admin.konten.publikasi_program.kategori');
@@ -94,6 +105,10 @@ Route::delete('/deleteDetailTransaksi', [transaksiController::class, 'deleteDeta
 Route::get('transaksiOnline', [transaksiController::class, 'showTransaksiOnline'])->name('transaksiOnline');
 Route::get('transaksiOnlineManual', [transaksiController::class, 'showTransaksiOnlineManual'])->name('transaksiOnlineManual');
 Route::get('transaksiOffline', [transaksiController::class, 'showTransaksiOffline'])->name('transaksiOffline');
+Route::get('/detail-transaksi-online-manual{id}',[transaksiController::class, 'showDetailTransaksiOnlineManual'])->name('transaksi.showTransaksiOnlineManual');
+Route::patch('/konfirmasi-transaksi-online-manual/{id}', [transaksiController::class, 'konfirmasiPembayaran'])->name('transaksi.konfirmasiPembayaran');
+Route::put('edit-pemabayaran-online-manual',[transaksiController::class, 'editPembayaranOnlineManual'])->name('transaksi.editPembayaranOnlineManual');
+Route::delete('delete-pemabayaran-online-manual/{id}',[transaksiController::class, 'deletePembayaranOnlineaManual'])->name('transaksi.deletePembayaranOnlineManual');
 
 Route::resource('semuaDonatur', danaDonaturController::class);
 Route::get('donaturSukses', [danaDonaturController::class, 'showDonaturSukses'])->name('donaturSukses');
@@ -105,10 +120,10 @@ Route::get('fundraiserTransaksi', [fundraiserController::class, 'showTransaksi']
 
 Route::get('admin',[pengaturan_userController::class, 'showAdmin'])->name('admin');
 Route::get('akunting',[pengaturan_userController::class, 'showAkunting'])->name('akunting');
-Route::get('donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
+Route::get('user-donatur',[pengaturan_userController::class, 'showDonatur'])->name('donatur');
 Route::get('fundraiserUser',[pengaturan_userController::class, 'showFundraiser'])->name('fundraiser');
 Route::get('gerai',[pengaturan_userController::class, 'showGerai'])->name('gerai');
-Route::get('program',[pengaturan_userController::class, 'showProgram'])->name('program');
+Route::get('user-program',[pengaturan_userController::class, 'showProgram'])->name('program');
 
 
 Route::resource('template', notifikasiWAController::class);
@@ -145,7 +160,7 @@ Route::get('/detail-dana', function () {
     return view('admin.konten.danaTerkumpul.detail');
 });
 
-Route::get('/inputdonasiManual', function () {
+Route::get('/inputDonasiManual', function () {
     return view('admin.konten.transaksi.inputTransaksiOffline');
 });
 
@@ -158,7 +173,10 @@ Route::get('/inputPenyaluran', function () {
     return view('admin.konten.penyaluranDana.inputPenyaluran');
 });
 
-
+Route::post('/input-donasi-manual', [transaksiController::class, 'inputDonasiManual'])->name('transaksi.inputManual');;
+Route::put('/edit-donasi-manual/{id}',[transaksiController::class, 'editDonasiManual'])->name('transaksi.editDonasiManual');
+Route::delete('/delete-donasi-manual/{id}', [transaksiController::class, 'deleteDonasiManual'])->name('transaksi.deleteDonasiManual');
+Route::get('/detail-transaksi-offline/{id}', [transaksiController::class, 'showDetailTransaksiOffline'])->name('transaksi.detailTransaksiOffline');
 
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::post('/berita', [BeritaController::class, 'store']);
@@ -293,6 +311,11 @@ Route::get('/konten', function () {
 Route::get('media-berbagi-setting', [MediaBerbagiSettingController::class, 'index'])->name('mediaberbagi-settings.index');
 Route::post('media-berbagi-setting', [MediaBerbagiSettingController::class, 'store'])->name('mediaberbagi-settings.store');
 
+Route::get('/transaction-status', [hitungZakatController::class, 'showTransactionStatus']);
+Route::post('/midtrans-notification', [hitungZakatController::class, 'handleMidtransNotification']);
+
+
+
 //Front
 //front home
 // Route::get('/', function () {
@@ -307,12 +330,12 @@ Route::get('/home', function () {
 Route::get('/donasi-saya', function () {
     return view('front.konten.donasi saya.index');
 });
-Route::get('/zakat-saya', function () {
-    return view('front.konten.zakat saya.index');
-});
-Route::get('/donasi-instan', function () {
-    return view('front.konten.donasiInstan.donasiInstan');
-});
+
+Route::get('/zakat-saya',[hitungZakatController::class, 'showZakatSaya']);
+
+// Route::get('/donasi-instan', function () {
+//     return view('front.konten.donasiInstan.donasiInstan');
+// });
 Route::get('/intruksi-pembayaran', function () {
     return view('front.konten.donasiInstan.intruksiPembayaran');
 });
@@ -340,7 +363,7 @@ Route::get('/rincian-pembayaran', function () {
 
 
 //front akun
-// 
+//
 
 // Route::get('/akun-fundraiser', function () {
 //     return view('front.konten.akun.akunfundraiser');
@@ -551,21 +574,21 @@ Route::get('/akun/{id}', function ($id) {
 // Route::get('registrasi', function () {
 //     return view('front.konten.login.registrasi');
 // });
-Route::get('lupapassword1', function () {
-    return view('front.konten.login.lupapassword');
-});
-Route::get('verifikasi1', function () {
-    return view('front.konten.login.verifikasi');
-});
-Route::get('reset1', function () {
-    return view('front.konten.login.resetpassword');
-});
-Route::get('berhasil1', function () {
-    return view('front.konten.login.berhasil');
-});
-Route::get('ubah-katasandi1', function () {
-    return view('front.konten.login.gantiPassword');
-});
+// Route::get('lupapassword1', function () {
+//     return view('front.konten.login.lupapassword');
+// });
+// Route::get('verifikasi1', function () {
+//     return view('front.konten.login.verifikasi');
+// });
+// Route::get('reset1', function () {
+//     return view('front.konten.login.resetpassword');
+// });
+// Route::get('berhasil1', function () {
+//     return view('front.konten.login.berhasil');
+// });
+// Route::get('ubah-katasandi1', function () {
+//     return view('front.konten.login.gantiPassword');
+// });
 
 Route::get('bantuan', function () {
     return view('front.konten.akun.bantuan');
@@ -623,9 +646,9 @@ Route::get('/duta-amal-1', function () {
 });
 
 
-Route::get('/inputTambahUser', function () {
-    return view('admin.konten.user.inputTambahUser');
-});
+// Route::get('/inputTambahUser', function () {
+//     return view('admin.konten.user.inputTambahUser');
+// });
 
 
 Route::get('/notifikasiEmail', [NotifikasiMailController::class, 'index'])->name('notifications.index');
@@ -712,3 +735,28 @@ ROute::get('/update-profile', function() {
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
+
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
+
+Route::get('/authenticate/redirect/{social}', [FacebookAuthController::class, 'socialiteRedirect'])->name('socialite-redirect');
+Route::get('/authenticate/callback/{social}', [FacebookAuthController::class, 'callbackSocialite'])->name('socialite-callback');
+
+
+Route::get('/tambah-user', [UserController::class, 'create'])->name('users.create');
+Route::post('/tambah-user', [UserController::class, 'store'])->name('users.store');
+// Route::get('/users-admin', [UserController::class, 'admin'])->name('users.admin');
+Route::get('/users-donatur', [UserController::class, 'donatur'])->name('users.donatur');
+Route::get('/users-fundraiser', [UserController::class, 'fundraiser'])->name('users.fundraiser');
+
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('donasi-instan', [DonasiInstanController::class, 'create']);
+Route::post('add-donasi-instan', [DonasiInstanController::class, 'store']);
+Route::get('invoice-donasi-instan/{id_transaksi}', [DonasiInstanController::class, 'view']);
+Route::get('cek-transaksi', [DonasiInstanController::class, 'cekTransaksi']);
+Route::post('callback', [DonasiInstanController::class, 'callback']);
+Route::get('return', [DonasiInstanController::class, 'return']);
+

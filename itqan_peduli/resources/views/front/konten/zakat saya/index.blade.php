@@ -21,10 +21,10 @@
             </div>
             <div class="riwayat my-10">
                 <div id="Zakat">
-                    <div class="atas flex justify-between">
+                    {{-- <div class="atas flex justify-between">
                         <div class="kiri">
-                            <p class="font-bold text-lg">Riwayat Zakat</p>
-                            <p class="text-sm">Riwayat Zakat</p>
+                            <p class="font-bold text-lg">Riwayat Donasi</p>
+                            <p class="text-sm">Riwayat Donasi</p>
                         </div>
                         <div class="kanan">
                             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white my-2 bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">Juli 2024 <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -50,61 +50,45 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="bulan flex justify-between my-3">
-                        <div class="kiri">
-                            <p class="text-sm text-gray-600">3 Zakat</p>
-                            <p class="font-semibold">Juli 2024</p>
+                    </div> --}}
+                    @foreach ($month as $bulanTahun)
+                        <div class="bulan flex justify-between my-3">
+                            <div class="kiri">
+                                <p class="text-sm text-gray-600">{{ $groupedZakat[$bulanTahun]->count() }} Zakat</p>
+                                <p class="font-semibold">{{ $bulanTahun }}</p>
+                            </div>
+                            <div class="kanan my-auto text-sm text-gray-600">
+                                <p>Rp {{ number_format($groupedZakat[$bulanTahun]->sum('nominal_total'), 0, ',', '.') }}</p>
+                            </div>
                         </div>
-                        <div class="kanan my-auto text-sm text-gray-600">
-                            <p>Rp 300.000</p>
-                        </div>
-                    </div>
-                    <div class="my-4 card flex shadow-md p-2 rounded-md">
-                        <div class="kiri">
-                            <img src="/images/whatsapp1.png" alt="" class="w-24 h-24">
-                        </div>
-                        <div class="kanan ms-3">
-                            <p class="text-sm text-gray-400">13.00 WIB, 18 Juli 2024</p>
-                            <p class="font-semibold">Zakat Masjid Polindra</p>
-                            <p class="mt-2 text-sm">Jumlah Zakat</p>
-                            <p class="text-sm font-semibold">Rp 100.000</p>
-                        </div>
-                    </div>
-                    <div class="my-4 card flex shadow-md p-2 rounded-md">
-                        <div class="kiri">
-                            <img src="/images/whatsapp1.png" alt="" class="w-24 h-24">
-                        </div>
-                        <div class="kanan ms-3">
-                            <p class="text-sm text-gray-400">13.00 WIB, 18 Juli 2024</p>
-                            <p class="font-semibold">Zakat Masjid Polindra</p>
-                            <p class="mt-2 text-sm">Jumlah Zakat</p>
-                            <p class="text-sm font-semibold">Rp 100.000</p>
-                        </div>
-                    </div>
-                    <div class="my-4 card flex shadow-md p-2 rounded-md">
-                        <div class="kiri">
-                            <img src="/images/whatsapp1.png" alt="" class="w-24 h-24">
-                        </div>
-                        <div class="kanan ms-3">
-                            <p class="text-sm text-gray-400">13.00 WIB, 18 Juli 2024</p>
-                            <p class="font-semibold">Zakat Masjid Polindra</p>
-                            <p class="mt-2 text-sm">Jumlah Zakat</p>
-                            <p class="text-sm font-semibold">Rp 100.000</p>
-                        </div>
-                    </div>
-                    <div class="my-4 card flex shadow-md p-2 rounded-md">
-                        <div class="kiri">
-                            <img src="/images/whatsapp1.png" alt="" class="w-24 h-24">
-                        </div>
-                        <div class="kanan ms-3">
-                            <p class="text-sm text-gray-400">13.00 WIB, 18 Juli 2024</p>
-                            <p class="font-semibold">Zakat Masjid Polindra</p>
-                            <p class="mt-2 text-sm">Jumlah Zakat</p>
-                            <p class="text-sm font-semibold">Rp 100.000</p>
-                        </div>
-                    </div>
-                    
+
+                        @foreach ($groupedZakat[$bulanTahun] as $row)
+                            @php
+                                $formattedDate = \Carbon\Carbon::parse($row->tgl_transaksi)->translatedFormat('H:i \\W\\I\\B, d F Y');
+                            @endphp
+                            <div class="my-4 card flex shadow-md p-2 rounded-md ">
+                                <div class="kiri">
+                                    <img src="/images/whatsapp1.png" alt="" class="w-24 h-24">
+                                </div>
+                                <div class="kanan ms-3">
+                                    <p class="text-sm text-gray-400">{{ $formattedDate }}</p>
+                                    <p class="font-semibold">{{ $row->nama_program_zakat }}</p>
+                                    <p class="mt-2 text-sm">Jumlah Zakat</p>
+                                    <p class="text-sm font-semibold">Rp {{ number_format($row->nominal_total, 0, ',', '.') }}</p>
+                                </div>
+                                <div class="ms-32 flex text-right">
+                                    @if ($row->status === 'Success' || $row->status === 'settlement')
+                                        <p class="text-sm h-6 relative px-1 bg-green-100 text-green-400 rounded-sm">{{$row->status}}</p>
+                                    @elseif ($row->status === 'pending')
+                                        <p class="text-sm h-6 relative px-1 bg-yellow-100 text-yellow-400 rounded-sm">{{$row->status}}</p>
+                                    @else
+                                        <p class="text-sm h-6 relative px-1 bg-red-100 text-red-400 rounded-sm">{{$row->status}}</p>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
+                    @endforeach
+
                 </div>
                 <div id="Info" class="hidden">
                     <p class="font-bold text-lg my-2">Info Terbaru</p>
@@ -142,7 +126,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const btnZakat = document.getElementById('btnZakat');

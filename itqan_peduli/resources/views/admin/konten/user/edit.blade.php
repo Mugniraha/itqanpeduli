@@ -12,32 +12,20 @@
             </div>
         </div>
     </div>
-    {{-- @if (session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-5" role="alert">
-            <strong class="font-bold">Success!</strong>
-            <span class="block sm:inline">{{ session('success') }}</span>
-            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20">
-                    <path
-                        d="M14.348 6.652a1 1 0 011.415 0l3.657 3.656a1 1 0 010 1.415l-3.657 3.657a1 1 0 01-1.415 0L10 11.415l-4.652 4.652a1 1 0 01-1.415 0l-3.656-3.657a1 1 0 010-1.415l3.656-3.656a1 1 0 011.415 0L10 8.585l4.652-4.652a1 1 0 011.415 0l3.656 3.656a1 1 0 010 1.415l-3.656 3.656a1 1 0 01-1.415 0L10 8.585l-4.652-4.652a1 1 0 011.415 0L10 8.585l4.652-4.652a1 1 0 011.415 0z" />
-                </svg>
-            </span>
-        </div>
-    @endif --}}
     <div class="py-3 rounded-xl">
         <div class="subheader text-white my-8">
-            <form action="{{ route('users.store') }}" method="POST" class="px-8 mt-6 bg-white rounded-lg">
+            <form action="{{ route('users.update', $user->id) }}" method="POST" class="px-8 mt-6 bg-white rounded-lg">
                 @csrf
+                @method('PUT')
                 <div class=" pt-4">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
-                    <input type="text" id="name" name="name"
+                    <input type="text" id="name" name="name" value="{{ $user->name }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         placeholder="Nama" required />
                 </div>
                 <div class=" pt-4">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Alamat Email</label>
-                    <input type="text" id="email" name="email"
+                    <input type="text" id="email" name="email" value="{{ $user->email }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         placeholder="Alamat Email" required />
                 </div>
@@ -45,19 +33,11 @@
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                     <input type="text" id="password" name="password"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="password" required />
+                        placeholder="password" />
                 </div>
                 <div class=" pt-4">
-                    <div class="max-w-full mx-auto">
-                        <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Tipe User</label>
-                        <select id="role" name="role"
-                            class="bg-gray-50 text-gray-900 text-sm rounded-md focus:ring-blue-500  block w-full p-2.5">
-                            <option selected>Pilih Program</option>
-                            <option value="admin">Admin</option>
-                            <option value="user">Donatur</option>
-                            <option value="fundraiser">Fundraiser</option>
-                        </select>
-                    </div>
+                    <p class="text-sm text-gray-900">Tipe User</p>
+                    <p class="text-gray-900 font-semibold text-xl">{{ $user->role }}</p>
                 </div>
 
                 <div class="pt-4 flex justify-end">
