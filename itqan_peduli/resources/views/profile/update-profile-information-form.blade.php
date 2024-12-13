@@ -33,7 +33,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-label for="photo" value="{{ __('Photo') }}" />
+                <!-- <x-label for="photo" value="{{ __('Photo') }}" /> -->
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2 flex justify-center" x-show="! photoPreview">

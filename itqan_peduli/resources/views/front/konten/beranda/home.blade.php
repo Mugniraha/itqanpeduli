@@ -114,7 +114,7 @@
 <div class="mx-8">
     <div class="">
     @foreach ($campaigns_terpopuler as $campaign_terpopuler)
-        <div class="flex w-full bg-white border border-gray-200 rounded-lg shadow">
+        <div class="flex w-full bg-white my-4 border border-gray-200 rounded-lg shadow">
             <img class="rounded-s-lg w-1/3 object-cover" src="{{ asset('storage/' . $campaign_terpopuler->photo) }}" alt="Card Image 1" />
             <div class="p-5 w-2/3">
                 <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_terpopuler->title }}</p>
@@ -289,15 +289,17 @@
     <p class="font-bold">Campaign Rekomendasi</p>
     <a href="/campaign-rekomendasi" class="font-semibold text-green-600 hover:text-green-700">Lihat Semua</a>
 </div>
-<div class="w-full max-w-4xl overflow-x-auto no-scrollbar snap-x pb-2">
+<div class="flex overflow-x-scroll gap-4 no-scrollbar whitespace-nowrap mb-4">
     <div class="flex space-x-4">
         @foreach ($campaigns_rekomendasi as $campaign_rekomendasi)
-        <div class="ml-8 snap-center w-2/3 bg-white border border-gray-200 rounded-lg shadow">
+        <div class="ml-8 snap-center w-42 bg-white border border-gray-200 rounded-lg shadow">
             <a href="#">
-                <img class="rounded-t-lg" src="{{ asset('storage/' . $campaign_rekomendasi)}}" alt="Card Image 1" />
+                <img class="rounded-t-lg h-28 w-full object-cover" src="{{ asset('storage/' . $campaign_rekomendasi->photo) }}" alt="Card Image 1" />
             </a>
             <div class="p-5">
-                <p class="mb-3 font-normal text-gray-700 line-clamp-2">{{ $campaign_rekomendasi->title }}</p>
+                <p class="mb-3 font-normal text-gray-700">
+                    {{ Str::limit($campaign_rekomendasi->title, 15, '...') }}
+                </p>
                 @php
                     $target = is_numeric($campaign_rekomendasi->target) ? (float)$campaign_rekomendasi->target : 0;
                     $terkumpul = is_numeric($campaign_rekomendasi->totalDanaTerkumpul) ? (float)$campaign_rekomendasi->totalDanaTerkumpul : 0;
@@ -308,11 +310,11 @@
                     <div class="bg-green-600 h-2.5 rounded-full" style="width: {{ $progress }}%"></div>
                 </div>
                 <div class="flex justify-between">
-                    <div class="kiri text-xs">
+                    <div class="kiri text-xs me-2">
                         <p class="mb-0.5">Terkumpul</p>
                         <p class="font-bold">Rp. {{ number_format($terkumpul, 0, ',', '.') }}</p>
                     </div>
-                    <div class="kanan text-xs">
+                    <div class="kanan text-xs ms-2">
                         <p class="mb-0.5">Hari Tersisa</p>
                         <p class="font-bold">
                             @if ($campaign_rekomendasi->hari_tersisa === null)

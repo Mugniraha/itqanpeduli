@@ -85,9 +85,11 @@ class campaignController extends Controller
     }
     
     public function index3($id) {
-        $campaign = Campaign::find($id); // Ambil data campaign berdasarkan ID
-        return view('front.konten.program-user.donasi-program', compact('campaign'));
+        $campaign = Campaign::find($id); 
+        $articles = Article::find($id); 
+        return view('front.konten.program-user.donasi-program', compact('campaign', 'id'));
     }
+    
 
 
     public function create()

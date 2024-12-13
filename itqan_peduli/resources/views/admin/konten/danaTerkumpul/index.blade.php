@@ -12,8 +12,8 @@
         <p class="text-2xl font-semibold">Program Campaign</p>
         @forelse ($campaigns as $campaign)
             <div class="bg-white w-full my-3 flex p-5 rounded-lg" style="box-shadow: 0 2px 3px 0 gray;">
-                <img src="{{ $campaign->image_url }}" alt="" class="w-28 h-28 my-auto rounded-md">
-                <div class="teks w-full">
+            <img src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title }}" class="h-28 w-28 bg-black rounded w-full">
+            <div class="teks w-full">
                     <a href="/detail-dana/{{ $campaign->id }}" class="text-2xl font-semibold ms-3 text-gray-800">{{ $campaign->title }}</a>
                     <p class="text-sm font-normal ms-3 text-green-600">{{ $campaign->category }}</p>
                     <div class="duit flex justify-between mt-5">

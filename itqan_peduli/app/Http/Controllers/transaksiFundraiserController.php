@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class TransaksiFundraiserController extends Controller
+class transaksiFundraiserController extends Controller
 {
     // Method to display data on the admin page
     public function index()
@@ -164,6 +164,15 @@ public function showRiwayatFundraising()
         ->get();
 
     return view('front.konten.akun.riwayat-fundraising', compact('komisiTransactions', 'penarikanTransactions'));
+}
+
+public function detail($id)
+{
+    // Mengambil data transaksi berdasarkan ID
+    $transaksi = Transaksi_fundraiser::findOrFail($id);
+
+    // Mengirim data ke view
+    return view('admin.konten.fundraiser.detail', compact('transaksi'));
 }
 
     

@@ -16,9 +16,9 @@
 </div>
 
 <div class="mt-20">
-    <div class="mx-8 flex items-center py-5 justify-around rounded-lg shadow-lg border mb-6 mt-10">
-        <div class="kiri">
-            <img src="/images/whatsapp1.png" alt="" class="w-20 h-20 mx-5">
+    <div class="mx-8 flex items-center py-5 rounded-lg shadow-lg border mb-6 mt-10">
+        <div class="kiri mx-5">
+            <img src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title }}" class="h-20 bg-black rounded w-full">
         </div>
         <div class="kanan">
             <p class="font-bold mx-2">{{ $campaign->title }}</p>
@@ -283,7 +283,7 @@
                 <p class="mb-5 text-sm font-normal text-gray-500">Apa anda yakin akan membatalkan kegiatan donasi instan ?</p>
                 <div class="flex gap-3">
                     <button data-modal-hide="popup-modal" type="button" class="flex-1 py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-green-200 hover:bg-green-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-green-100">Jangan Batalkan</button>
-                    <a href="/program-user" data-modal-hide="popup-modal" type="submit" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    <a href="{{ url('/artikel/' . $id) }}" data-modal-hide="popup-modal" type="submit" class="flex-1 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
                         Ya, Batalkan
                     </a>
                 </div>

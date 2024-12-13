@@ -260,10 +260,11 @@ Route::get('/export-leaderboard', function () {
     return Excel::download(new LeaderboardExport, 'leaderboard.xlsx');
 })->name('export.leaderboard');
 Route::get('/tranfun', [transaksiFundraiserController::class, 'index'])->name('transaksifundraiser.index');
+Route::get('/detail-transaksi/{id}', [transaksiFundraiserController::class, 'detail'])->name('transaksifundraiser.detail');
 Route::get('/pembayaran', [transaksiFundraiserController::class, 'index2'])->name('transaksifundraiser.index2');
-Route::get('/detail-transaksi', function () {
-    return view('admin.konten.fundraiser.detail');
-});
+// Route::get('/detail-transaksi', function () {
+//     return view('admin.konten.fundraiser.detail');
+// });
 
 // Route to show the bank selection page
 // Route to show bank accounts for a specific fundraiser
@@ -773,7 +774,7 @@ Route::middleware([
 Route::get('/update-password', function() {
     return view('front.konten.proses.updatePassword');
 });
-ROute::get('/update-profile', function() {
+Route::get('/update-profile', function() {
     return view('front.konten.proses.updateProfile');
 });
 

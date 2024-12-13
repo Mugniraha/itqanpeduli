@@ -14,7 +14,7 @@
 
     @foreach($fundraiserData as $data)
         <div class="text-center">
-            <img class="w-24 h-24 rounded-full mx-auto" src="{{ $data['fundraiser']->image ? asset('storage/' . str_replace('/storage/', '', $data['fundraiser']->image)) : asset('default-profile.png') }}" alt="Foto Profil">
+            <img class="w-24 h-24 rounded-full mx-auto object-cover" src="{{ $data['fundraiser']->image ? asset('storage/' . str_replace('/storage/', '', $data['fundraiser']->image)) : asset('default-profile.png') }}" alt="Foto Profil">
 
             <div class="text-lg font-semibold text-white">{{ $data['fundraiser']->nama }}</div>
             <a href="{{ url('/pengaturan-fundraiser') }}" class="flex justify-center px-auto text-sm text-white">
@@ -24,7 +24,7 @@
                 </svg>
             </a>
         </div>
-        @endforeach
+        @endforeach 
 
     <p class="text-gray-600 font-semibold mt-16 mb-1">Link Kamu</p>
     <div class="w-full">

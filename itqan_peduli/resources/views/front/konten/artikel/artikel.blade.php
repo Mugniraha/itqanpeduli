@@ -11,8 +11,8 @@
 </style>
     <div class="bungkus bg-white min-h-screen overflow-auto">
         <div class="header relative">
-            <img src="{{ $campaign->photo }}" alt="{{ $campaign->title }}" class="h-80 object-cover bg-black rounded w-full">
-            <div class="absolute top-0 left-0 my-10 mx-5">
+        <img src="{{ asset('storage/' . $campaign->photo) }}" alt="{{ $campaign->title }}" class="h-80 bg-black rounded w-full">
+        <div class="absolute top-0 left-0 my-10 mx-5">
                 <a href="/program-user">
                     <svg class="w-7 h-7 text-green-600 p-0.5 rounded-full bg-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
@@ -42,7 +42,7 @@
             </div>
             <a href="/yayasan" class="flex my-3 rounded-2xl p-4 border border-gray-400">
                 <div class="kiri">
-                    <img src="/images/Politeknik-Negeri-Indramayu.png" alt="" class="h-16 w-16 bg-black object-cover rounded-full w-full">
+                    <img src="/images/metode.png" alt="" class="h-16 w-16 bg-black object-cover rounded-full w-full">
                 </div>
                 <div class="tengah mx-3 my-auto">
                     <div class="atas my-auto flex">
@@ -83,7 +83,7 @@
                     @foreach($articles as $article)
                     <div class="card shadow-md rounded-lg my-4 flex">
                         <div class="kiri">
-                            <img src="{{ $article->image_url }}" alt="" class="h-20 bg-black rounded-l-lg px-5 py-2">
+                        <img src="{{ asset('storage/' . $article->photo) }}" alt="{{ $article->title }}" class="h-24 w-auto bg-black rounded w-full">
                         </div>
                         <div class="kanan my-auto ms-2">
                             <p class="text-sm">{{ $article->category }}</p>
@@ -113,7 +113,7 @@
                     @foreach ($donaturs as $donatur)
                         <div class="card shadow-md rounded-lg flex p-3 my-4">
                             <div class="kiri w-36">
-                                <img src="/images/default-avatar.png" alt="Avatar" class="text-center h-16 my-auto bg-gray-200 rounded-full">
+                                <img src="{{ asset('storage/' . $donaturs->photo) }}" alt="{{ $donaturs->title }}" class="h-80 bg-black rounded w-full">
                             </div>
                             <div class="kanan my-auto ms-2 w-full">
                                 <div class="flex justify-between w-full">
@@ -153,7 +153,7 @@
                     @foreach($fundraisers as $fundraiser)
                     <div class="card shadow-md rounded-lg flex p-3 my-4">
                         <div class="kiri w-36 my-auto">
-                            <img src="/images/default-fundraiser.png" alt="{{ $fundraiser->nama }}" class="text-center h-16 my-auto bg-black rounded-full">
+                        <img src="{{ asset('storage/' . $fundraiser->image) }}" alt="" class="h-24 w-auto bg-black rounded w-full">
                         </div>
                         <div class="kanan my-auto ms-2 w-full">
                             <p class="text-sm font-semibold">{{ $fundraiser->nama }}</p>
